@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.RelCertificacoesPorTurmaController">
+   <children>
+      <TableView fx:id="tableViewTurma" prefHeight="200.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="tableColumnTurma" prefWidth="114.0" text="Turma" />
+            <TableColumn prefWidth="75.0" text="Total" />
+          <TableColumn prefWidth="74.0" text="Efetuadas" />
+            <TableColumn prefWidth="77.0" text="Pendentes" />
+        </columns>
+      </TableView>
+   </children>
+</VBox>

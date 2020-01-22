@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.MainViewController">
+   <content>
+      <BorderPane prefHeight="598.0" prefWidth="764.0">
+         <top>
+            <AnchorPane prefHeight="101.0" prefWidth="764.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="lbLogo" layoutX="-7.0" layoutY="17.0" onMouseClicked="#onLogoAction" prefHeight="37.0" prefWidth="106.0" text="Educ7" textFill="#afbdda">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <padding>
+                        <Insets left="20.0" top="10.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="113.0" layoutY="16.0" text="Colégio Estadual Amaro Cavalcanti" textFill="#868686">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
+                  <Label layoutX="14.0" layoutY="18.0" text="Sistema">
+                     <font>
+                        <Font size="10.0" />
+                     </font></Label>
+                  <Label layoutX="209.0" layoutY="66.0" text="Tela de gerenciamento de Certificação" textFill="#8a9ac6">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font></Label>
+                  <Label layoutX="209.0" layoutY="48.0" text="Mostrar outras ações" textFill="#f58f1a" />
+                  <Button fx:id="btShowIniSetup" layoutX="553.0" layoutY="64.0" mnemonicParsing="false" onAction="#showSetupIniFilesAction" text="File" />
+                  <ComboBox fx:id="comboBoxPeriodoLetivo" layoutX="6.0" layoutY="60.0" onAction="#updateViewPeriodoLetivo" promptText="2018">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </ComboBox>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TableView prefHeight="18.0" prefWidth="764.0">
+                    <columns>
+                      <TableColumn prefWidth="110.0" text="Certificações 2020" />
+                      <TableColumn prefWidth="60.0" text="Efetuadas" />
+                        <TableColumn prefWidth="75.0" text="Pendentes" />
+                    </columns>
+                  </TableView>
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </content>
+</ScrollPane>

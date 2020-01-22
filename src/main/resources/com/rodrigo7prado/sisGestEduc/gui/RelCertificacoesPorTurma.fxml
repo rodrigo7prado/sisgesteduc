@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxWidth="700.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.RelCertificacoesPorTurmaController">
+   <children>
+      <TabPane prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Pendências">
+            <content>
+                  <VBox prefWidth="600.0">
+                     <children>
+                        <ToolBar prefHeight="40.0" prefWidth="200.0">
+                           <items>
+                              <ComboBox promptText="Visualizar por turma" />
+                              <Label text="Label" />
+                           </items>
+                        </ToolBar>
+                        <TableView fx:id="tableViewTurma" prefWidth="600.0">
+                          <columns>
+                            <TableColumn fx:id="tableColumnTurma" prefWidth="140.0" text="Turma" />
+                              <TableColumn prefWidth="75.0" text="Certificados">
+                                 <columns>
+                                    <TableColumn prefWidth="75.0" text="Total" />
+                                    <TableColumn prefWidth="75.0" text="Prontos" />
+                                    <TableColumn prefWidth="75.0" text="Pendentes">
+                                       <columns>
+                                          <TableColumn prefWidth="75.0" text="Pendências" />
+                                          <TableColumn fx:id="tableColumnVISUALIZAR" prefWidth="75.0" text="Ação" />
+                                       </columns>
+                                    </TableColumn>
+                                 </columns>
+                              </TableColumn>
+                              <TableColumn prefWidth="75.0" text="Certidões">
+                                 <columns>
+                                    <TableColumn prefWidth="75.0" text="Total" />
+                                    <TableColumn prefWidth="75.0" text="Prontos" />
+                                    <TableColumn prefWidth="75.0" text="Pendentes" />
+                                 </columns>
+                              </TableColumn>
+                              <TableColumn prefWidth="75.0" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+            </content>
+          </Tab>
+          <Tab text="Alunos a Certificar">
+            <content>
+                  <VBox>
+                     <children>
+                        <TreeTableView fx:id="treeTableViewAluno" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TreeTableColumn fx:id="treeTableColumnTurma" prefWidth="75.0" text="Turma" />
+                              <TreeTableColumn prefWidth="90.0" text="Matrícula" />
+                            <TreeTableColumn fx:id="treeTableColumnAluno" prefWidth="234.0" text="Aluno" />
+                              <TreeTableColumn prefWidth="129.0" text="Tipo de Documento" />
+                          </columns>
+                        </TreeTableView>
+                     </children>
+                  </VBox>
+            </content>
+          </Tab>
+          <Tab text="Migração Conexão">
+          	<content>
+          	</content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>
