@@ -45,6 +45,8 @@ public class SpringFXMLLoader {
         System.out.println("Depois");
         
         VBox mainVBox = (VBox) borderPane.getCenter();
+        
+        
 		mainVBox.getChildren();
 		mainVBox.getChildren().clear();
 		mainVBox.getChildren().addAll(newVBox.getChildren());
