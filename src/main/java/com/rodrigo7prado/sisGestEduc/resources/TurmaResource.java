@@ -34,8 +34,9 @@ public class TurmaResource {
 
 	@GetMapping(value = "/{id}")
 	public ResponseEntity<Turma> findById(@PathVariable Long id) {
-		Turma obj = service.findById(id);
-		return ResponseEntity.ok().body(obj);
+//		Turma obj = service.findById(id);
+//		return ResponseEntity.ok().body(obj);
+		return null;
 	}
 
 	@PostMapping

@@ -28,4 +28,9 @@ public class DevConfig {
 		dbService.instanciateTestDatabase();
 		return true;
 	}
+	
+	public boolean aa() {
+		return false;
+		
+	}
 }

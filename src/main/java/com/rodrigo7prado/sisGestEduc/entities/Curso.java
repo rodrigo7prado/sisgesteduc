@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_curso")
@@ -23,7 +23,7 @@ public class Curso implements Serializable {
 	private Long id;
 	private String nome;
 	
-	@JsonIgnore
+//	@JsonIgnore
 	@OneToMany(mappedBy = "curso")
 	private List<Modalidade> modalidades;
 

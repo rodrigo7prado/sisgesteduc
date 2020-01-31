@@ -18,15 +18,15 @@ public class Aluno implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	
 	private String turma;
 	
 
 	public Aluno() {
 	}
 
-	public Aluno(String nome, String turma) {
+	public Aluno(Long id, String nome, String turma) {
 		super();
+		this.id = id;
 		this.nome = nome;
 		this.turma = turma;
 	}

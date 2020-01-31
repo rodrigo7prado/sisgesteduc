@@ -6,7 +6,7 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+//import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_componenteCurricular")
@@ -25,7 +25,7 @@ public class ComponenteCurricular implements Serializable {
 		id.setPeriodoCurricular(periodoCurricular);
 	}
 
-	@JsonIgnore
+//	@JsonIgnore
 	public PeriodoCurricular getPeriodoCurricular() {
 		return id.getPeriodoCurricular();
 	}
