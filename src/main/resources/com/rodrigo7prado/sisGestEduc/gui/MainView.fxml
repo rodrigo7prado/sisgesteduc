@@ -55,22 +55,22 @@
                     <tabs>
                       <Tab text="Pendências">
                         <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              <VBox />
                         </content>
                       </Tab>
                       <Tab text="Alunos a Certificar">
                         <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              <VBox />
                         </content>
                       </Tab>
                       <Tab text="Migração Conexão">
                         <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              <VBox />
                         </content>
                       </Tab>
                       <Tab text="Aluno">
                         <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              <VBox />
                         </content>
                       </Tab>
                     </tabs>

@@ -11,6 +11,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.Tab;
+import javafx.scene.control.TabPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
@@ -44,14 +46,34 @@ public class SpringFXMLLoader {
         BorderPane borderPane = (BorderPane) ((ScrollPane) mainScene.getRoot()).getContent();
         System.out.println("Depois");
         
-        VBox mainVBox = (VBox) borderPane.getCenter();
+        VBox vBox = (VBox) borderPane.getCenter();
         
+        System.out.println("BEBEBEBE Text vBox: " + vBox.getChildren());
         
-		mainVBox.getChildren();
-		mainVBox.getChildren().clear();
-		mainVBox.getChildren().addAll(newVBox.getChildren());
+        TabPane tabPane = (TabPane) vBox.getChildren().get(0);
         
+        System.out.println("BEBEBEBE Text tabPane: " + tabPane.getTabs());
+        
+        Tab tab = (Tab) tabPane.getTabs().get(0);
+        
+        System.out.println("BEBEBEBE Text tab: " + tab.getText());
+        
+        VBox mainTab = (VBox) tab.getContent();
+        
+//        VBox mainVBox = (VBox) tab.get
+        
+//        VBox mainVBox = (VBox) borderPane.getCenter();
+        
+//		mainVBox.getChildren();
+//		mainVBox.getChildren().clear();
+//		mainVBox.getChildren().addAll(newVBox.getChildren());
+        
+		mainTab.getChildren();
+		mainTab.getChildren().clear();
+		mainTab.getChildren().addAll(newVBox.getChildren());
+		
 		return borderPane;
+//		return tabPane;
     }
     
     public Parent load2(String fxmlPath) throws IOException {      
