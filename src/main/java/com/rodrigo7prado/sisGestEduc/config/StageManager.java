@@ -46,7 +46,7 @@ public class StageManager {
 	
 	public void switchScene(final FxmlView view) {
 		System.out.println("Chamada Switch!");
-		System.out.println("2stageManager: " + this);
+//		System.out.println("2stageManager: " + this);
         Parent viewRootNodeHierarchy = loadViewNodeHierarchy(view.getFxmlFile());
         
 //        System.out.println("333getFxmlFile(): " + view.getFxmlFile());

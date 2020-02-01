@@ -82,19 +82,26 @@ public class MainViewController implements Initializable {
 	}
 	
 	@FXML
-	public void onTabPendenciasSelectionChange(Event ev) {
+	public void onTabPendenciasSelectionChange(Event event) {
 //		stageManager.switchScene(FxmlView.TURMAS);
 //		stageManager.switchScene(FxmlView.TURMAS);
 		
-		if (tabPendencias.isSelected()) {
-			System.out.println("stageManager: " + stageManager);
-			System.out.println("Tab Pendências is Selected");
-//            stageManager.switchScene(FxmlView.TURMAS);
-        }
+		System.out.println("event2: " + event.getEventType());
+		System.out.println("event2: " + event.getSource().getClass());
+		System.out.println("event2: " + event.getTarget().getClass());
+		System.out.println("event2: " + event.isConsumed());
+		
+		System.out.println("stageManager: " + stageManager);
+		System.out.println("Tab Pendências is Selected");
+		
+//		if (tabPendencias.isSelected()) {
+//			
+////            stageManager.switchScene(FxmlView.TURMAS);
+//        }
 	}
 	
 	@FXML
-	public void onTabAlunosACertificarSelectionChange(Event ev) {
+	public void onTabAlunosACertificarSelectionChange(Event event) {
 		if (tabAlunosACertificar.isSelected()) {
 			System.out.println("stageManager: " + stageManager);
             System.out.println("Tab is Selected");
