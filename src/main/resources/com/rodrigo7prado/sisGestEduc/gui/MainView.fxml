@@ -51,24 +51,24 @@
          <center>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <TabPane prefHeight="497.0" prefWidth="764.0" tabClosingPolicy="UNAVAILABLE">
+                  <TabPane fx:id="tabPane" prefHeight="497.0" prefWidth="764.0" tabClosingPolicy="UNAVAILABLE">
                     <tabs>
-                      <Tab text="Pendências">
+                      <Tab fx:id="tabPendencias" onSelectionChanged="#onTabPendenciasSelectionChange" text="Pendências">
                         <content>
                               <VBox />
                         </content>
                       </Tab>
-                      <Tab text="Alunos a Certificar">
+                      <Tab fx:id="tabAlunosACertificar" onSelectionChanged="#onTabAlunosACertificarSelectionChange" text="Alunos a Certificar">
                         <content>
                               <VBox />
                         </content>
                       </Tab>
-                      <Tab text="Migração Conexão">
+                      <Tab fx:id="tabMigracaoConexao" onSelectionChanged="#onTabMigracaoConexaoSelectionChange" text="Migração Conexão">
                         <content>
                               <VBox />
                         </content>
                       </Tab>
-                      <Tab text="Aluno">
+                      <Tab fx:id="tabAluno" onSelectionChanged="#onTabAlunoSelectionChange" text="Aluno">
                         <content>
                               <VBox />
                         </content>

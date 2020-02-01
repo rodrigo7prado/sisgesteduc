@@ -3,6 +3,17 @@ package com.rodrigo7prado.sisGestEduc.view;
 import java.util.ResourceBundle;
 
 public enum FxmlView {
+	MAIN {
+        @Override
+		public String getTitle() {
+            return getStringFromResourceBundle("main.title");
+        }
+
+        @Override
+		public String getFxmlFile() {
+            return "/com/rodrigo7prado/sisGestEduc/gui/MainController.fxml";
+        }
+    },
 	INICIAL {
         @Override
 		public String getTitle() {
@@ -23,6 +34,17 @@ public enum FxmlView {
         @Override
 		public String getFxmlFile() {
             return "/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorTurma.fxml";
+        }
+    },
+    ALUNOS {
+        @Override
+		public String getTitle() {
+            return getStringFromResourceBundle("alunos.title");
+        }
+
+        @Override
+		public String getFxmlFile() {
+            return "/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorAluno.fxml";
         }
     };
     

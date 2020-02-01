@@ -46,6 +46,9 @@ public class RelCertificacoesPorTurmaController implements Initializable {
 	private TableColumn<Turma, Turma> tableColumnVISUALIZAR;
 	
 	@FXML
+	private Button btn;
+	
+	@FXML
 	private Label lbl;
 
 	@Lazy
@@ -65,12 +68,18 @@ public class RelCertificacoesPorTurmaController implements Initializable {
 
 //	private ObservableList<Aluno> alunoList = FXCollections.observableArrayList();
 
+	@FXML
+	public void onBtnAction() {
+		System.out.println("3stageManager: " + stageManager);
+	}
+	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		initializeNodes();
 		loadTurmaDetails();
 
-		System.out.println(dadosConsolidadosService.findById(1L));
+		System.out.println("111: " + dadosConsolidadosService.findById(1L));
+		System.out.println("1stageManager: " + stageManager);
 
 //		checkBoxDP.applyCss();
 
