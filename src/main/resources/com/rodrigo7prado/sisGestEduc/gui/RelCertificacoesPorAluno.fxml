@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxWidth="1200.0" prefHeight="515.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.RelCertificacoesPorTurmaController">
+<VBox maxWidth="1200.0" prefHeight="515.0" prefWidth="1003.0"
+	xmlns="http://javafx.com/javafx/11.0.1"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.rodrigo7prado.sisGestEduc.gui.RelCertificacoesPorAlunoController">
 	<children>
 		<ToolBar prefHeight="40.0" prefWidth="200.0" />
-		<TableView fx:id="tableViewTurma" prefHeight="305.0">
+		<TreeTableView fx:id="treeTableViewAluno"
+			prefHeight="443.0" prefWidth="600.0">
 			<columns>
-				<TableColumn fx:id="tableColumnTurma" prefWidth="140.0" text="Turma" />
-				<TableColumn prefWidth="75.0" text="Certificados">
-					<columns>
-						<TableColumn prefWidth="75.0" text="Total" />
-						<TableColumn prefWidth="75.0" text="Prontos" />
-						<TableColumn prefWidth="75.0" text="Pendentes">
-							<columns>
-								<TableColumn prefWidth="75.0" text="Pendências" />
-								<TableColumn fx:id="tableColumnVISUALIZAR" prefWidth="75.0" text="Ação" />
-							</columns>
-						</TableColumn>
-					</columns>
-				</TableColumn>
-				<TableColumn prefWidth="75.0" text="Certidões?">
-					<columns>
-						<TableColumn prefWidth="75.0" text="Total" />
-						<TableColumn prefWidth="75.0" text="Prontos" />
-						<TableColumn prefWidth="75.0" text="Pendentes" />
-					</columns>
-				</TableColumn>
-				<TableColumn prefWidth="75.0" />
+				<TreeTableColumn fx:id="treeTableColumnTurma"
+					prefWidth="170.0" text="Turma" />
+				<TreeTableColumn fx:id="treeTableColumnAluno"
+					prefWidth="141.0" text="Matrícula" />
+				<TreeTableColumn fx:id="treeTableColumnNomeCompl"
+					prefWidth="173.0" text="Aluno" />
+				<TreeTableColumn fx:id="treeTableColumnDP"
+					prefWidth="32.0" text="DP" />
+				<TreeTableColumn prefWidth="35.0" text="HF" />
+				<TreeTableColumn prefWidth="34.0" text="HM" />
+				<TreeTableColumn prefWidth="217.0" text="Certidão" />
+				<TreeTableColumn prefWidth="99.0" text="Certificado" />
+				<TreeTableColumn
+					fx:id="treeTableColumnSituacaoFinal" prefWidth="194.0"
+					text="Situação Final" />
 			</columns>
-		</TableView>
+		</TreeTableView>
 	</children>
 </VBox>
