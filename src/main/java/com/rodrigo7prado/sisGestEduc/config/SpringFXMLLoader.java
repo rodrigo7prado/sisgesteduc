@@ -49,25 +49,32 @@ public class SpringFXMLLoader {
         
         list.add("/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorTurma.fxml");
         list.add("/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorAluno.fxml");
+        list.add("/com/rodrigo7prado/sisGestEduc/gui/Aluno.fxml");
         
         int i = 0;
         for (String fxml: list) {
-        
-        	FXMLLoader loader = new FXMLLoader();
-			loader.setControllerFactory(context::getBean); // Spring now FXML Controller Factory
-			loader.setResources(resourceBundle);
-			loader.setLocation(getClass().getResource(fxml));
-			
-			VBox newVBox = loader.load();
-			
-        	Tab tab = (Tab) tabPane.getTabs().get(i);
-            
-            VBox vBoxInTab = (VBox) tab.getContent();
-            
-            vBoxInTab.getChildren();
-            vBoxInTab.getChildren().clear();
-            vBoxInTab.getChildren().addAll(newVBox.getChildren());
-            
+        	
+        	if(!fxml.equals(null)) {
+        		FXMLLoader loader = new FXMLLoader();
+    			loader.setControllerFactory(context::getBean); // Spring now FXML Controller Factory
+    			loader.setResources(resourceBundle);
+    			loader.setLocation(getClass().getResource(fxml));
+    			
+    			VBox newVBox = loader.load();
+    			
+            	Tab tab = (Tab) tabPane.getTabs().get(i);    
+                VBox vBoxInTab = (VBox) tab.getContent();
+                vBoxInTab.getChildren();
+                vBoxInTab.getChildren().clear();
+                vBoxInTab.getChildren().addAll(newVBox.getChildren());
+        	} else {
+        		Tab tab = (Tab) tabPane.getTabs().get(i);
+            	VBox vBoxInTab = (VBox) tab.getContent();
+                vBoxInTab.getChildren();
+                vBoxInTab.getChildren().clear();
+                vBoxInTab.getChildren().addAll();
+        	}
+        	
         	i++;
         }
 
@@ -80,5 +87,16 @@ public class SpringFXMLLoader {
 		loader.setResources(resourceBundle);
 		loader.setLocation(getClass().getResource(fxmlPath));
 		return loader.load();
+	}
+	
+	public Parent load3() throws IOException {
+		FXMLLoader loaderMain = new FXMLLoader();
+		loaderMain.setControllerFactory(context::getBean); // Spring now FXML Controller Factory
+		loaderMain.setResources(resourceBundle);
+		loaderMain.setLocation(getClass().getResource("/com/rodrigo7prado/sisGestEduc/gui/MainView.fxml"));
+		ScrollPane scrollPane = loaderMain.load();
+
+		mainScene = new Scene(scrollPane);
+		return null;
 	}
 }
