@@ -27,9 +27,14 @@ public class Main3 extends Application  {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stageManager = springContext.getBean(StageManager.class, stage);
+//    	new ComplexCsv2DbInserter();
+    	
+    	stageManager = springContext.getBean(StageManager.class, stage);
         System.out.println("BBBB");
         displayInitialScene();
+        
+        
+        
     }
 
     @Override

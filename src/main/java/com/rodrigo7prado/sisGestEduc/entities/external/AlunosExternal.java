@@ -2,8 +2,6 @@ package com.rodrigo7prado.sisGestEduc.entities.external;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -13,14 +11,16 @@ import com.rodrigo7prado.sisGestEduc.enums.StatusDocumentacaoAluno;
 @Table(name = "consolidado_manual_alunos")
 public class AlunosExternal {
 
+//	@Id
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	private Long id;
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	
-	private String nomeCompleto;
-	
-	@Column(name = "ALUNO")
+//	@Column(name = "ALUNO")
 	private String matricula;
+	
+//	@Column(name = "NOME_COMPL")
+	private String nomeCompleto;
 	
 	private String dataConclusaoEM;
 	
@@ -100,13 +100,13 @@ public class AlunosExternal {
 	public AlunosExternal() {	
 	}
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+//	public Long getId() {
+//		return id;
+//	}
+//
+//	public void setId(Long id) {
+//		this.id = id;
+//	}
 
 	public String getNomeCompleto() {
 		return nomeCompleto;
