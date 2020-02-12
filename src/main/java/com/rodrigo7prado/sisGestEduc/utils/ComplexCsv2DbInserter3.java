@@ -6,8 +6,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Date;
 
 import org.supercsv.cellprocessor.Optional;
+import org.supercsv.cellprocessor.ParseBool;
+import org.supercsv.cellprocessor.ParseDate;
 import org.supercsv.cellprocessor.constraint.NotNull;
 import org.supercsv.cellprocessor.ift.CellProcessor;
 import org.supercsv.io.CsvBeanReader;
@@ -26,10 +29,11 @@ public class ComplexCsv2DbInserter3 {
 	private Connection connection = null;
 
 	ICsvBeanReader beanReader = null;
-	CellProcessor[] processors = new CellProcessor[] { new Optional(), // NOME_COMPL
-			new NotNull() // ALUNO
-//			new Optional(), // Status_Matricula_Conex
-//			new Optional(), // Data_conclusao_EM
+	CellProcessor[] processors = new CellProcessor[] { new NotNull(), // NOME_COMPL
+			new NotNull(), // ALUNO
+			new Optional(), // Status_Matricula_Conex
+			new ParseBool(), // Certificação
+			new ParseDate("dd/MM/yyyy HH:mm:ss") // Data_conclusao_EM
 //			new Optional(), // Data_nasc
 //			new Optional(), // Pai
 //			new Optional(), // Mae
@@ -77,7 +81,7 @@ public class ComplexCsv2DbInserter3 {
 			connection.setAutoCommit(false);
 
 //			String sql = "INSERT INTO consolidado_manual_alunos (nome_completo,ALUNO,Data_conclusao_EM,Data_nasc,Pai,Mae,sexo,nacionalidade,naturalidadeUF,naturalidade,rg,rg_emissor,rg_emissor_UF,rg_emissao,CN_Cartorio,CN_Municipio,CN_UF,CN_TERMO,CN_LIVRO,CN_FOLHA,CN_EMISSAO,OBS_HIST,Falta_HE_Fundamental,Falta_HE_Medio,Falta_Rg,Falta_CN,DADOS_CONFERIDOS,EF_Escola_conc,EF_Escola_conc_Local,EF_Ano_Conc,EF_Conc_Emissao,EF_num_pag) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-			String sql = "INSERT INTO consolidado_manual_alunos (nome_completo,aluno) VALUES (?, ?)";
+			String sql = "INSERT INTO consolidado_manual_alunos (NOME_COMPL,ALUNO,Status_Matricula_Conex,certificacao,data_conclusao_em) VALUES (?, ?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
 
 			beanReader = new CsvBeanReader(new FileReader(csvFilePath), CsvPreference.STANDARD_PREFERENCE);
@@ -91,16 +95,18 @@ public class ComplexCsv2DbInserter3 {
 //					"CN_EMISSAO", "OBS_HIST", "Falta_HE_Fundamental", "Falta_HE_Medio", "Falta_Rg", "Falta_CN",
 //					"DADOS_CONFERIDOS", "EF_Escola_conc", "EF_Escola_conc_Local", "EF_Ano_Conc", "EF_Conc_Emissao",
 //					"EF_num_pag" };
-			String[] header = { "nomeCompleto", "matricula" };
+			String[] header = { "nomeCompleto", "matricula", "statusMatriculaConexao", "certificacao", "dataConclusaoEM" };
 			
 			AlunosExternal bean = null;
 
 			int count = 0;
 
 			while ((bean = beanReader.read(AlunosExternal.class, header, processors)) != null) {
-				String nomeCompleto = bean.getNomeCompleto();
 				String matricula = bean.getMatricula();
-//				String Data_conclusao_EM = bean.getDataConclusaoEM();
+				String nomeCompleto = bean.getNomeCompleto();
+				String statusMatriculaConexao = bean.getStatusMatriculaConexao();
+				Boolean certificacao = bean.getCertificacao();
+				Date DataConclusaoEM = bean.getDataConclusaoEM();
 //				String Data_nasc = bean.getDataNasc();
 //				String Pai = bean.getNomePai();
 //				String Mae = bean.getNomeMae();
@@ -133,7 +139,9 @@ public class ComplexCsv2DbInserter3 {
 
 				statement.setString(1, nomeCompleto);
 				statement.setString(2, matricula);
-//				statement.setString(3, Data_conclusao_EM);
+				statement.setString(3, statusMatriculaConexao);
+				statement.setBoolean(4, certificacao);
+				statement.setDate(5, new java.sql.Date(DataConclusaoEM.getTime()));
 //				statement.setString(4, Data_nasc);
 //				statement.setString(5, Pai);
 //				statement.setString(6, Mae);
@@ -192,5 +200,4 @@ public class ComplexCsv2DbInserter3 {
 			}
 		}
 	}
-
 }

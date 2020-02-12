@@ -5,6 +5,7 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.rodrigo7prado.sisGestEduc.config.StageManager;
+import com.rodrigo7prado.sisGestEduc.utils.ComplexCsv2DbInserter3;
 import com.rodrigo7prado.sisGestEduc.view.FxmlView;
 
 import javafx.application.Application;
@@ -27,14 +28,11 @@ public class Main3 extends Application  {
 
     @Override
     public void start(Stage stage) throws Exception {
-//    	new ComplexCsv2DbInserter();
+    	new ComplexCsv2DbInserter3();
     	
     	stageManager = springContext.getBean(StageManager.class, stage);
         System.out.println("BBBB");
-        displayInitialScene();
-        
-        
-        
+//        displayInitialScene();
     }
 
     @Override

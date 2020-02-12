@@ -18,7 +18,8 @@ import org.supercsv.prefs.CsvPreference;
 
 public class ComplexCsv2DbInserter {
 
-	private String jdbcURL = "jdbc:mysql://localhost:3306/sales?useTimezone=true&serverTimezone=UTC";
+//	private String jdbcURL = "jdbc:mysql://localhost:3306/sales?useTimezone=true&serverTimezone=UTC";
+	private String jdbcURL = "jdbc:mysql://localhost:3306/sisgesteduc?useTimezone=true&serverTimezone=UTC";
 	private String username = "root";
 	private String password = "";
 
@@ -41,7 +42,7 @@ public class ComplexCsv2DbInserter {
 			connection = DriverManager.getConnection(jdbcURL, username, password);
 			connection.setAutoCommit(false);
 
-			String sql = "INSERT INTO review (course_name, student_name, timestamp, rating, comment) VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO review (course_named, student_name, timestamp, rating, comment) VALUES (?, ?, ?, ?, ?)";
 			PreparedStatement statement = connection.prepareStatement(sql);
 
 			beanReader = new CsvBeanReader(new FileReader(csvFilePath), CsvPreference.STANDARD_PREFERENCE);
@@ -66,7 +67,7 @@ public class ComplexCsv2DbInserter {
 				statement.setDouble(4, rating);
 				statement.setString(5, comment);
 				statement.addBatch();
-				
+
 				if (count % batchSize == 0) {
 					statement.executeBatch();
 				}
@@ -94,5 +95,4 @@ public class ComplexCsv2DbInserter {
 			}
 		}
 	}
-
 }

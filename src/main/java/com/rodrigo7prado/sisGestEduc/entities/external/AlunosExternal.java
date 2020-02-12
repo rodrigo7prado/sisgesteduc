@@ -1,5 +1,7 @@
 package com.rodrigo7prado.sisGestEduc.entities.external;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,18 +13,20 @@ import com.rodrigo7prado.sisGestEduc.enums.StatusDocumentacaoAluno;
 @Table(name = "consolidado_manual_alunos")
 public class AlunosExternal {
 
-//	@Id
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	private Long id;
-	
 	@Id
-//	@Column(name = "ALUNO")
+	@Column(name = "ALUNO")
 	private String matricula;
 	
-//	@Column(name = "NOME_COMPL")
+	@Column(name = "NOME_COMPL")
 	private String nomeCompleto;
 	
-	private String dataConclusaoEM;
+	@Column(name = "Status_Matricula_Conex")
+	private String statusMatriculaConexao;
+	
+	private Boolean certificacao;
+	
+	@Column(name = "data_conclusao_em")
+	private Date dataConclusaoEM;
 	
 	private String dataNasc;
 	
@@ -124,11 +128,27 @@ public class AlunosExternal {
 		this.matricula = matricula;
 	}
 
-	public String getDataConclusaoEM() {
+	public String getStatusMatriculaConexao() {
+		return statusMatriculaConexao;
+	}
+
+	public void setStatusMatriculaConexao(String statusMatriculaConexao) {
+		this.statusMatriculaConexao = statusMatriculaConexao;
+	}
+
+	public Boolean getCertificacao() {
+		return certificacao;
+	}
+
+	public void setCertificacao(Boolean certificacao) {
+		this.certificacao = certificacao;
+	}
+
+	public Date getDataConclusaoEM() {
 		return dataConclusaoEM;
 	}
 
-	public void setDataConclusaoEM(String dataConclusaoEM) {
+	public void setDataConclusaoEM(Date dataConclusaoEM) {
 		this.dataConclusaoEM = dataConclusaoEM;
 	}
 
