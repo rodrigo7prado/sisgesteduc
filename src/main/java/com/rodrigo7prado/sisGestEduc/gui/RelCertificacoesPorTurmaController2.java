@@ -24,7 +24,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 @Controller
-public class RelCertificacoesPorTurmaController implements Initializable {
+public class RelCertificacoesPorTurmaController2 implements Initializable {
 
 	@FXML
 	private TableView<Turma> tableViewTurma;

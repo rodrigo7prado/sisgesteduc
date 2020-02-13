@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxWidth="1200.0" prefHeight="515.0" prefWidth="1003.0"
+	xmlns="http://javafx.com/javafx/11.0.1"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.rodrigo7prado.sisGestEduc.gui.RelCertificacoesPorAlunoController">
+	<children>
+		<ToolBar prefHeight="40.0" prefWidth="200.0" />
+		<TreeTableView fx:id="treeTableViewAluno"
+			prefHeight="443.0" prefWidth="600.0">
+			<columns>
+				<TreeTableColumn fx:id="treeTableColumnTurma"
+					prefWidth="170.0" text="Turma" />
+				<TreeTableColumn fx:id="treeTableColumnAluno"
+					prefWidth="141.0" text="Matrícula" />
+				<TreeTableColumn fx:id="treeTableColumnNomeCompl"
+					prefWidth="173.0" text="Aluno" />
+				<TreeTableColumn fx:id="treeTableColumnDP"
+					prefWidth="32.0" text="DP" />
+				<TreeTableColumn prefWidth="35.0" text="HF" />
+				<TreeTableColumn prefWidth="34.0" text="HM" />
+				<TreeTableColumn prefWidth="217.0" text="Certidão" />
+				<TreeTableColumn prefWidth="99.0" text="Certificado" />
+				<TreeTableColumn
+					fx:id="treeTableColumnSituacaoFinal" prefWidth="194.0"
+					text="Situação Final" />
+			</columns>
+		</TreeTableView>
+	</children>
+</VBox>

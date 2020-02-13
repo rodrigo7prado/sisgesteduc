@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 
 import com.rodrigo7prado.sisGestEduc.config.StageManager;
 import com.rodrigo7prado.sisGestEduc.entities.Turma;
+import com.rodrigo7prado.sisGestEduc.services.DadosConsolidadosService;
 import com.rodrigo7prado.sisGestEduc.services.TurmaService;
 
 import javafx.beans.property.ReadOnlyObjectWrapper;
@@ -24,7 +25,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 @Controller
-public class RelCertificacoesPorTurmaController implements Initializable {
+public class RelCertificacoesPorTurmaController4 implements Initializable {
 
 	@FXML
 	private TableView<Turma> tableViewTurma;
@@ -54,8 +55,8 @@ public class RelCertificacoesPorTurmaController implements Initializable {
 	@Autowired
 	private StageManager stageManager;
 
-//	@Autowired
-//	private DadosConsolidadosService dadosConsolidadosService;
+	@Autowired
+	private DadosConsolidadosService dadosConsolidadosService;
 
 	@Autowired
 	private TurmaService turmaService;
@@ -74,22 +75,20 @@ public class RelCertificacoesPorTurmaController implements Initializable {
 	
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-//		System.out.println("dadosConsolidadosService: " + this.dadosConsolidadosService);
-		System.out.println("turmaService: " + this.turmaService.findAll());
-		System.out.println("turmaList: " + this.turmaList);
+		System.out.println("dadosConsolidadosService: " + this.dadosConsolidadosService);
+		System.out.println("turmaService: " + this.turmaService);
 		
 		initializeNodes();
 		loadTurmaDetails();
 
 		System.out.println("PARAR QUANDO?!");
-//		System.out.println("111: " + dadosConsolidadosService.findById(1L));
-//		System.out.println("1stageManager: " + stageManager);
+		System.out.println("111: " + dadosConsolidadosService.findById(1L));
+		System.out.println("1stageManager: " + stageManager);
 
 //		checkBoxDP.applyCss();
 
 	}
 
-	@SuppressWarnings("unused")
 	private void initializeNodes() {
 		tableColumnTurma.setCellValueFactory(new PropertyValueFactory<>("nome"));
 	}
@@ -97,21 +96,18 @@ public class RelCertificacoesPorTurmaController implements Initializable {
 	public void updateTableView() throws InterruptedException {
 		turmaList.clear();
 		turmaList.addAll(turmaService.findAll());
-		System.out.println("turmaList1: " + turmaService.findAll());
 		tableViewTurma.setItems(turmaList);
-//		initVisualizarButtons();
+		initVisualizarButtons();
 	}
 
 	private void loadTurmaDetails() {
 		turmaList.clear();
 		turmaList.addAll(turmaService.findAll());
 		tableViewTurma.setItems(turmaList);
-//		System.out.println("turmaList1: " + turmaService.findAll());
 	}
 
 
 
-	@SuppressWarnings("unused")
 	private void initVisualizarButtons() {
 		tableColumnVISUALIZAR.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
 		tableColumnVISUALIZAR.setCellFactory(param -> new TableCell<Turma, Turma>() {

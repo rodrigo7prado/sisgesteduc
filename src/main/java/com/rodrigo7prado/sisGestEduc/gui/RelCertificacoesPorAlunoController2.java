@@ -17,27 +17,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 
 @Controller
-public class RelCertificacoesPorAlunoController implements Initializable {
-
-	@Lazy
-	@Autowired
-	private StageManager stageManager;
-
-	@Autowired
-	private DadosConsolidadosService service;
-
-	@Autowired
-	private TurmaService turmaService;
-	
-	private ObservableList<DadosConsolidadosAlunosDTO> observableList = FXCollections.observableArrayList();
-
-	private ObservableList<Turma> turmaList = FXCollections.observableArrayList();
+public class RelCertificacoesPorAlunoController2 implements Initializable {
 
 	@FXML
 	private TreeTableView<Turma> treeTableViewTurma;
@@ -63,6 +50,23 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	@FXML
 	private TreeTableColumn<DadosConsolidadosAlunosDTO, Boolean> treeTableColumnDP;
 
+	@FXML
+	private Label lbl;
+
+	@Lazy
+	@Autowired
+	private StageManager stageManager;
+
+	@Autowired
+	private DadosConsolidadosService service;
+
+	@Autowired
+	private TurmaService turmaService;
+
+	private ObservableList<DadosConsolidadosAlunosDTO> observableList = FXCollections
+			.observableArrayList();
+
+	private ObservableList<Turma> turmaList = FXCollections.observableArrayList();
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -70,7 +74,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		loadTurmaDetails();
 		loadAlunosDetails();
 
-		System.out.println("service: " + service.findAll());
+//		System.out.println(service.findById(1L));
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })

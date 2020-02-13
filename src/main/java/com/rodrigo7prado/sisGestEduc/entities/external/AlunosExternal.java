@@ -14,110 +14,192 @@ import com.rodrigo7prado.sisGestEduc.enums.StatusDocumentacaoAluno;
 public class AlunosExternal {
 
 	@Id
-	@Column(name = "ALUNO")
+	@Column(name = "ALUNO", length = 25)
 	private String matricula;
-	
+
 	@Column(name = "NOME_COMPL")
 	private String nomeCompleto;
-	
+
 	@Column(name = "Status_Matricula_Conex")
 	private String statusMatriculaConexao;
-	
+
 	private Boolean certificacao;
-	
+
 	@Column(name = "data_conclusao_em")
 	private Date dataConclusaoEM;
-	
-	private String dataNasc;
-	
-	@Column(name = "Pai")
+
+	private Date dataNasc;
+
 	private String nomePai;
-	
-	@Column(name = "Mae")
+
 	private String nomeMae;
-	
+
+	@Column(length = 10)
 	private String sexo;
-	
+
+	@Column(length = 20)
 	private String nacionalidade;
-	
+
+	@Column(length = 30)
 	private String naturalidade;
-	
+
+	@Column(length = 20)
 	private String naturalidadeUF;
-	
+
+	@Column(length = 20)
 	private String rg;
-	
+
+	@Column(length = 20)
 	private String rgEmissor;
-	
-	private String rgEmissorUF;
-	
-	@Column(name = "rg_emissao")
+
+	@Column(length = 20)
+	private String rgEmissorUf;
+
+	@Column(length = 20)
 	private String rgDataEmissao;
-	
+
+	@Column(length = 120)
 	private String cnCartorio;
-	
+
+	@Column(length = 30)
 	private String cnMunicipio;
-	
+
+	@Column(length = 2)
 	private String cnUF;
-	
-	private String cnNTermo;
-	
+
+	@Column(length = 20)
+	private String cnTermo;
+
+	@Column(length = 10)
 	private String cnLivro;
-	
+
+	@Column(length = 10)
 	private String cnFolha;
-	
-	@Column(name = "CN_EMISSAO")
+
+	@Column(length = 20)
 	private String cnDataEmissao;
-	
+
+	private Boolean dyn_mais_de_um_curso;
+
 	private String obsHist;
-	
-	@Column(name = "Falta_HE_Fundamental")
-	private Boolean faltaEntregaHEFundamental;
-	
-	@Column(name = "Falta_HE_Medio")
-	private Boolean faltaEntregaHEMedio;
-	
-	@Column(name = "Falta_Rg")
-	private Boolean faltaEntregaRG;
-	
-	@Column(name = "Falta_CN")
-	private Boolean faltaEntregaCN;
-	
+
+	private String obsHist1;
+
+	private String obsHist2;
+
+	private Boolean faltaEntregaHeFundamental;
+
+	private Boolean faltaEntregaHeMedio;
+
+	private Boolean faltaEntregaRg;
+
+	private Boolean faltaEntregaCn;
+
 	private Boolean dadosConferidos;
-	
-	@Column(name = "EF_Escola_conc")
+
+	private Boolean maisDeUmCurso;
+
+	@Column(length = 60)
 	private String ensFundEscolaConclusao;
-	
-	@Column(name = "EF_Escola_concl_Local")
+
+	@Column(length = 30)
 	private String ensFundMunicipioEscolaConclusao;
-	
-	@Column(name = "EF_Ano_Conc")
+
+	@Column(length = 20)
 	private String ensFundAnoEscolaConclusao;
-	
-	@Column(name = "EF_Conc_Emissao")
+
+	@Column(length = 20)
 	private String ensFundDataEmissaoConclusao;
-	
-	@Column(name = "EF_Num_Pag")
+
+	@Column(length = 30)
 	private String ensFundNumPaginasConclusao;
-	
+
+	@Column(length = 30)
+	private String cidadeEstadoEscola;
+	@Column(length = 50)
+	private String ultimaModalidade;
+	@Column(length = 20)
+	private String ultimoAno;
+	@Column(length = 30)
+	private String ultimaTurma;
+	@Column(length = 30)
+	private String ultimoResultadoFinal;
+	@Column(length = 30)
+	private String resSerie1;
+	@Column(length = 30)
+	private String resSerie2;
+	@Column(length = 30)
+	private String resSerie3;
+	@Column(length = 30)
+	private String resSerie4;
+	@Column(length = 30)
+	private String resSerie1Subst;
+	@Column(length = 30)
+	private String resSerie2Subst;
+	@Column(length = 30)
+	private String resSerie3Subst;
+	@Column(length = 30)
+	private String resSerie4Subst;
+	@Column(length = 30)
+	private String anoSerie1;
+	@Column(length = 20)
+	private String anoSerie2;
+	@Column(length = 20)
+	private String anoSerie3;
+	@Column(length = 20)
+	private String anoSerie4;
+	@Column(length = 20)
+	private String turmaSerie1;
+	@Column(length = 20)
+	private String turmaSerie2;
+	@Column(length = 20)
+	private String turmaSerie3;
+	@Column(length = 20)
+	private String turmaSerie4;
+	@Column(length = 10)
+	private String frqG1;
+	@Column(length = 10)
+	private String frqG2;
+	@Column(length = 10)
+	private String frqG3;
+	@Column(length = 10)
+	private String frqG4;
+	@Column(length = 10)
+	private String chSubst1;
+	@Column(length = 10)
+	private String chSubst2;
+	@Column(length = 10)
+	private String chSubst3;
+	@Column(length = 10)
+	private String chSubst4;
+	@Column(length = 10)
+	private String freqSubst1;
+	@Column(length = 10)
+	private String freqSubst2;
+	@Column(length = 10)
+	private String freqSubst3;
+	@Column(length = 10)
+	private String freqSubst4;
+	@Column(length = 60)
+	private String ensMedioEstabEnsAno1;
+	@Column(length = 60)
+	private String ensMedioEstabEnsAno2;
+	@Column(length = 60)
+	private String ensMedioEstabEnsAno3;
+	@Column(length = 60)
+	private String ensMedioEstabEnsAno4;
+	@Column(length = 60)
+	private String ensMedioCidadeEstadoEstabEnsAno1;
+	@Column(length = 60)
+	private String ensMedioCidadeEstadoEstabEnsAno2;
+	@Column(length = 60)
+	private String ensMedioCidadeEstadoEstabEnsAno3;
+	@Column(length = 60)
+	private String ensMedioCidadeEstadoEstabEnsAno4;
+
 	private StatusDocumentacaoAluno statusDocumentacaoAluno;
-	
-	public AlunosExternal() {	
-	}
 
-//	public Long getId() {
-//		return id;
-//	}
-//
-//	public void setId(Long id) {
-//		this.id = id;
-//	}
-
-	public String getNomeCompleto() {
-		return nomeCompleto;
-	}
-
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
+	public AlunosExternal() {
 	}
 
 	public String getMatricula() {
@@ -126,6 +208,14 @@ public class AlunosExternal {
 
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
+	}
+
+	public String getNomeCompleto() {
+		return nomeCompleto;
+	}
+
+	public void setNomeCompleto(String nomeCompleto) {
+		this.nomeCompleto = nomeCompleto;
 	}
 
 	public String getStatusMatriculaConexao() {
@@ -152,11 +242,11 @@ public class AlunosExternal {
 		this.dataConclusaoEM = dataConclusaoEM;
 	}
 
-	public String getDataNasc() {
+	public Date getDataNasc() {
 		return dataNasc;
 	}
 
-	public void setDataNasc(String dataNasc) {
+	public void setDataNasc(Date dataNasc) {
 		this.dataNasc = dataNasc;
 	}
 
@@ -224,12 +314,12 @@ public class AlunosExternal {
 		this.rgEmissor = rgEmissor;
 	}
 
-	public String getRgEmissorUF() {
-		return rgEmissorUF;
+	public String getRgEmissorUf() {
+		return rgEmissorUf;
 	}
 
-	public void setRgEmissorUF(String rgEmissorUF) {
-		this.rgEmissorUF = rgEmissorUF;
+	public void setRgEmissorUf(String rgEmissorUf) {
+		this.rgEmissorUf = rgEmissorUf;
 	}
 
 	public String getRgDataEmissao() {
@@ -264,12 +354,12 @@ public class AlunosExternal {
 		this.cnUF = cnUF;
 	}
 
-	public String getCnNTermo() {
-		return cnNTermo;
+	public String getCnTermo() {
+		return cnTermo;
 	}
 
-	public void setCnNTermo(String cnNTermo) {
-		this.cnNTermo = cnNTermo;
+	public void setCnTermo(String cnTermo) {
+		this.cnTermo = cnTermo;
 	}
 
 	public String getCnLivro() {
@@ -296,6 +386,14 @@ public class AlunosExternal {
 		this.cnDataEmissao = cnDataEmissao;
 	}
 
+	public Boolean getDyn_mais_de_um_curso() {
+		return dyn_mais_de_um_curso;
+	}
+
+	public void setDyn_mais_de_um_curso(Boolean dyn_mais_de_um_curso) {
+		this.dyn_mais_de_um_curso = dyn_mais_de_um_curso;
+	}
+
 	public String getObsHist() {
 		return obsHist;
 	}
@@ -304,36 +402,52 @@ public class AlunosExternal {
 		this.obsHist = obsHist;
 	}
 
-	public Boolean getFaltaEntregaHEFundamental() {
-		return faltaEntregaHEFundamental;
+	public String getObsHist1() {
+		return obsHist1;
 	}
 
-	public void setFaltaEntregaHEFundamental(Boolean faltaEntregaHEFundamental) {
-		this.faltaEntregaHEFundamental = faltaEntregaHEFundamental;
+	public void setObsHist1(String obsHist1) {
+		this.obsHist1 = obsHist1;
 	}
 
-	public Boolean getFaltaEntregaHEMedio() {
-		return faltaEntregaHEMedio;
+	public String getObsHist2() {
+		return obsHist2;
 	}
 
-	public void setFaltaEntregaHEMedio(Boolean faltaEntregaHEMedio) {
-		this.faltaEntregaHEMedio = faltaEntregaHEMedio;
+	public void setObsHist2(String obsHist2) {
+		this.obsHist2 = obsHist2;
 	}
 
-	public Boolean getFaltaEntregaRG() {
-		return faltaEntregaRG;
+	public Boolean getFaltaEntregaHeFundamental() {
+		return faltaEntregaHeFundamental;
 	}
 
-	public void setFaltaEntregaRG(Boolean faltaEntregaRG) {
-		this.faltaEntregaRG = faltaEntregaRG;
+	public void setFaltaEntregaHeFundamental(Boolean faltaEntregaHeFundamental) {
+		this.faltaEntregaHeFundamental = faltaEntregaHeFundamental;
 	}
 
-	public Boolean getFaltaEntregaCN() {
-		return faltaEntregaCN;
+	public Boolean getFaltaEntregaHeMedio() {
+		return faltaEntregaHeMedio;
 	}
 
-	public void setFaltaEntregaCN(Boolean faltaEntregaCN) {
-		this.faltaEntregaCN = faltaEntregaCN;
+	public void setFaltaEntregaHeMedio(Boolean faltaEntregaHeMedio) {
+		this.faltaEntregaHeMedio = faltaEntregaHeMedio;
+	}
+
+	public Boolean getFaltaEntregaRg() {
+		return faltaEntregaRg;
+	}
+
+	public void setFaltaEntregaRg(Boolean faltaEntregaRg) {
+		this.faltaEntregaRg = faltaEntregaRg;
+	}
+
+	public Boolean getFaltaEntregaCn() {
+		return faltaEntregaCn;
+	}
+
+	public void setFaltaEntregaCn(Boolean faltaEntregaCn) {
+		this.faltaEntregaCn = faltaEntregaCn;
 	}
 
 	public Boolean getDadosConferidos() {
@@ -342,6 +456,14 @@ public class AlunosExternal {
 
 	public void setDadosConferidos(Boolean dadosConferidos) {
 		this.dadosConferidos = dadosConferidos;
+	}
+
+	public Boolean getMaisDeUmCurso() {
+		return maisDeUmCurso;
+	}
+
+	public void setMaisDeUmCurso(Boolean maisDeUmCurso) {
+		this.maisDeUmCurso = maisDeUmCurso;
 	}
 
 	public String getEnsFundEscolaConclusao() {
@@ -382,6 +504,342 @@ public class AlunosExternal {
 
 	public void setEnsFundNumPaginasConclusao(String ensFundNumPaginasConclusao) {
 		this.ensFundNumPaginasConclusao = ensFundNumPaginasConclusao;
+	}
+
+	public String getCidadeEstadoEscola() {
+		return cidadeEstadoEscola;
+	}
+
+	public void setCidadeEstadoEscola(String cidadeEstadoEscola) {
+		this.cidadeEstadoEscola = cidadeEstadoEscola;
+	}
+
+	public String getUltimaModalidade() {
+		return ultimaModalidade;
+	}
+
+	public void setUltimaModalidade(String ultimaModalidade) {
+		this.ultimaModalidade = ultimaModalidade;
+	}
+
+	public String getUltimoAno() {
+		return ultimoAno;
+	}
+
+	public void setUltimoAno(String ultimoAno) {
+		this.ultimoAno = ultimoAno;
+	}
+
+	public String getUltimaTurma() {
+		return ultimaTurma;
+	}
+
+	public void setUltimaTurma(String ultimaTurma) {
+		this.ultimaTurma = ultimaTurma;
+	}
+
+	public String getUltimoResultadoFinal() {
+		return ultimoResultadoFinal;
+	}
+
+	public void setUltimoResultadoFinal(String ultimoResultadoFinal) {
+		this.ultimoResultadoFinal = ultimoResultadoFinal;
+	}
+
+	public String getResSerie1() {
+		return resSerie1;
+	}
+
+	public void setResSerie1(String resSerie1) {
+		this.resSerie1 = resSerie1;
+	}
+
+	public String getResSerie2() {
+		return resSerie2;
+	}
+
+	public void setResSerie2(String resSerie2) {
+		this.resSerie2 = resSerie2;
+	}
+
+	public String getResSerie3() {
+		return resSerie3;
+	}
+
+	public void setResSerie3(String resSerie3) {
+		this.resSerie3 = resSerie3;
+	}
+
+	public String getResSerie4() {
+		return resSerie4;
+	}
+
+	public void setResSerie4(String resSerie4) {
+		this.resSerie4 = resSerie4;
+	}
+
+	public String getResSerie1Subst() {
+		return resSerie1Subst;
+	}
+
+	public void setResSerie1Subst(String resSerie1Subst) {
+		this.resSerie1Subst = resSerie1Subst;
+	}
+
+	public String getResSerie2Subst() {
+		return resSerie2Subst;
+	}
+
+	public void setResSerie2Subst(String resSerie2Subst) {
+		this.resSerie2Subst = resSerie2Subst;
+	}
+
+	public String getResSerie3Subst() {
+		return resSerie3Subst;
+	}
+
+	public void setResSerie3Subst(String resSerie3Subst) {
+		this.resSerie3Subst = resSerie3Subst;
+	}
+
+	public String getResSerie4Subst() {
+		return resSerie4Subst;
+	}
+
+	public void setResSerie4Subst(String resSerie4Subst) {
+		this.resSerie4Subst = resSerie4Subst;
+	}
+
+	public String getAnoSerie1() {
+		return anoSerie1;
+	}
+
+	public void setAnoSerie1(String anoSerie1) {
+		this.anoSerie1 = anoSerie1;
+	}
+
+	public String getAnoSerie2() {
+		return anoSerie2;
+	}
+
+	public void setAnoSerie2(String anoSerie2) {
+		this.anoSerie2 = anoSerie2;
+	}
+
+	public String getAnoSerie3() {
+		return anoSerie3;
+	}
+
+	public void setAnoSerie3(String anoSerie3) {
+		this.anoSerie3 = anoSerie3;
+	}
+
+	public String getAnoSerie4() {
+		return anoSerie4;
+	}
+
+	public void setAnoSerie4(String anoSerie4) {
+		this.anoSerie4 = anoSerie4;
+	}
+
+	public String getTurmaSerie1() {
+		return turmaSerie1;
+	}
+
+	public void setTurmaSerie1(String turmaSerie1) {
+		this.turmaSerie1 = turmaSerie1;
+	}
+
+	public String getTurmaSerie2() {
+		return turmaSerie2;
+	}
+
+	public void setTurmaSerie2(String turmaSerie2) {
+		this.turmaSerie2 = turmaSerie2;
+	}
+
+	public String getTurmaSerie3() {
+		return turmaSerie3;
+	}
+
+	public void setTurmaSerie3(String turmaSerie3) {
+		this.turmaSerie3 = turmaSerie3;
+	}
+
+	public String getTurmaSerie4() {
+		return turmaSerie4;
+	}
+
+	public void setTurmaSerie4(String turmaSerie4) {
+		this.turmaSerie4 = turmaSerie4;
+	}
+
+	public String getFrqG1() {
+		return frqG1;
+	}
+
+	public void setFrqG1(String frqG1) {
+		this.frqG1 = frqG1;
+	}
+
+	public String getFrqG2() {
+		return frqG2;
+	}
+
+	public void setFrqG2(String frqG2) {
+		this.frqG2 = frqG2;
+	}
+
+	public String getFrqG3() {
+		return frqG3;
+	}
+
+	public void setFrqG3(String frqG3) {
+		this.frqG3 = frqG3;
+	}
+
+	public String getFrqG4() {
+		return frqG4;
+	}
+
+	public void setFrqG4(String frqG4) {
+		this.frqG4 = frqG4;
+	}
+
+	public String getChSubst1() {
+		return chSubst1;
+	}
+
+	public void setChSubst1(String chSubst1) {
+		this.chSubst1 = chSubst1;
+	}
+
+	public String getChSubst2() {
+		return chSubst2;
+	}
+
+	public void setChSubst2(String chSubst2) {
+		this.chSubst2 = chSubst2;
+	}
+
+	public String getChSubst3() {
+		return chSubst3;
+	}
+
+	public void setChSubst3(String chSubst3) {
+		this.chSubst3 = chSubst3;
+	}
+
+	public String getChSubst4() {
+		return chSubst4;
+	}
+
+	public void setChSubst4(String chSubst4) {
+		this.chSubst4 = chSubst4;
+	}
+
+	public String getFreqSubst1() {
+		return freqSubst1;
+	}
+
+	public void setFreqSubst1(String freqSubst1) {
+		this.freqSubst1 = freqSubst1;
+	}
+
+	public String getFreqSubst2() {
+		return freqSubst2;
+	}
+
+	public void setFreqSubst2(String freqSubst2) {
+		this.freqSubst2 = freqSubst2;
+	}
+
+	public String getFreqSubst3() {
+		return freqSubst3;
+	}
+
+	public void setFreqSubst3(String freqSubst3) {
+		this.freqSubst3 = freqSubst3;
+	}
+
+	public String getFreqSubst4() {
+		return freqSubst4;
+	}
+
+	public void setFreqSubst4(String freqSubst4) {
+		this.freqSubst4 = freqSubst4;
+	}
+
+	public String getEnsMedioEstabEnsAno1() {
+		return ensMedioEstabEnsAno1;
+	}
+
+	public void setEnsMedioEstabEnsAno1(String ensMedioEstabEnsAno1) {
+		this.ensMedioEstabEnsAno1 = ensMedioEstabEnsAno1;
+	}
+
+	public String getEnsMedioEstabEnsAno2() {
+		return ensMedioEstabEnsAno2;
+	}
+
+	public void setEnsMedioEstabEnsAno2(String ensMedioEstabEnsAno2) {
+		this.ensMedioEstabEnsAno2 = ensMedioEstabEnsAno2;
+	}
+
+	public String getEnsMedioEstabEnsAno3() {
+		return ensMedioEstabEnsAno3;
+	}
+
+	public void setEnsMedioEstabEnsAno3(String ensMedioEstabEnsAno3) {
+		this.ensMedioEstabEnsAno3 = ensMedioEstabEnsAno3;
+	}
+
+	public String getEnsMedioEstabEnsAno4() {
+		return ensMedioEstabEnsAno4;
+	}
+
+	public void setEnsMedioEstabEnsAno4(String ensMedioEstabEnsAno4) {
+		this.ensMedioEstabEnsAno4 = ensMedioEstabEnsAno4;
+	}
+
+	public String getEnsMedioCidadeEstadoEstabEnsAno1() {
+		return ensMedioCidadeEstadoEstabEnsAno1;
+	}
+
+	public void setEnsMedioCidadeEstadoEstabEnsAno1(String ensMedioCidadeEstadoEstabEnsAno1) {
+		this.ensMedioCidadeEstadoEstabEnsAno1 = ensMedioCidadeEstadoEstabEnsAno1;
+	}
+
+	public String getEnsMedioCidadeEstadoEstabEnsAno2() {
+		return ensMedioCidadeEstadoEstabEnsAno2;
+	}
+
+	public void setEnsMedioCidadeEstadoEstabEnsAno2(String ensMedioCidadeEstadoEstabEnsAno2) {
+		this.ensMedioCidadeEstadoEstabEnsAno2 = ensMedioCidadeEstadoEstabEnsAno2;
+	}
+
+	public String getEnsMedioCidadeEstadoEstabEnsAno3() {
+		return ensMedioCidadeEstadoEstabEnsAno3;
+	}
+
+	public void setEnsMedioCidadeEstadoEstabEnsAno3(String ensMedioCidadeEstadoEstabEnsAno3) {
+		this.ensMedioCidadeEstadoEstabEnsAno3 = ensMedioCidadeEstadoEstabEnsAno3;
+	}
+
+	public String getEnsMedioCidadeEstadoEstabEnsAno4() {
+		return ensMedioCidadeEstadoEstabEnsAno4;
+	}
+
+	public void setEnsMedioCidadeEstadoEstabEnsAno4(String ensMedioCidadeEstadoEstabEnsAno4) {
+		this.ensMedioCidadeEstadoEstabEnsAno4 = ensMedioCidadeEstadoEstabEnsAno4;
+	}
+
+	public StatusDocumentacaoAluno getStatusDocumentacaoAluno() {
+		return statusDocumentacaoAluno;
+	}
+
+	public void setStatusDocumentacaoAluno(StatusDocumentacaoAluno statusDocumentacaoAluno) {
+		this.statusDocumentacaoAluno = statusDocumentacaoAluno;
 	}
 
 	@SuppressWarnings("static-access")
