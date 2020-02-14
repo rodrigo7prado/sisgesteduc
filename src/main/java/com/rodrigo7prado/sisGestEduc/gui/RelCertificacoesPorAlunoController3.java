@@ -8,8 +8,10 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 
 import com.rodrigo7prado.sisGestEduc.config.StageManager;
-import com.rodrigo7prado.sisGestEduc.dto.ResultadoFinalExternalDTO;
-import com.rodrigo7prado.sisGestEduc.services.ResultadoFinalExternalService;
+import com.rodrigo7prado.sisGestEduc.dto.DadosConsolidadosAlunosDTO;
+import com.rodrigo7prado.sisGestEduc.entities.Turma;
+import com.rodrigo7prado.sisGestEduc.services.DadosConsolidadosService;
+import com.rodrigo7prado.sisGestEduc.services.TurmaService;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,38 +23,50 @@ import javafx.scene.control.TreeTableView;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 
 @Controller
-public class RelCertificacoesPorAlunoController implements Initializable {
+public class RelCertificacoesPorAlunoController3 implements Initializable {
 
 	@Lazy
 	@Autowired
 	private StageManager stageManager;
 
 	@Autowired
-	private ResultadoFinalExternalService service;
+	private DadosConsolidadosService service;
+
+	@Autowired
+	private TurmaService turmaService;
 	
-	private ObservableList<ResultadoFinalExternalDTO> observableList = FXCollections.observableArrayList();
+	private ObservableList<DadosConsolidadosAlunosDTO> observableList = FXCollections.observableArrayList();
+
+	private ObservableList<Turma> turmaList = FXCollections.observableArrayList();
 
 	@FXML
-	private TreeTableView<ResultadoFinalExternalDTO> treeTableViewAluno;
+	private TreeTableView<Turma> treeTableViewTurma;
 
 	@FXML
-	private TreeTableColumn<ResultadoFinalExternalDTO, String> treeTableColumnTurma;
+	private TreeTableView<DadosConsolidadosAlunosDTO> treeTableViewAluno;
 
 	@FXML
-	private TreeTableColumn<ResultadoFinalExternalDTO, String> treeTableColumnAluno;
+	private TreeTableColumn<DadosConsolidadosAlunosDTO, String> treeTableColumnTurma;
 
 	@FXML
-	private TreeTableColumn<ResultadoFinalExternalDTO, String> treeTableColumnNomeCompl;
+	private TreeTableColumn<DadosConsolidadosAlunosDTO, String> treeTableColumnAluno;
 
 	@FXML
-	private TreeTableColumn<ResultadoFinalExternalDTO, String> treeTableColumnSituacaoFinal;
+	private TreeTableColumn<DadosConsolidadosAlunosDTO, String> treeTableColumnNomeCompl;
 
 	@FXML
-	private TreeTableColumn<ResultadoFinalExternalDTO, Boolean> treeTableColumnDP;
+	private TreeTableColumn<DadosConsolidadosAlunosDTO, String> treeTableColumnSituacaoFinal;
+
+	@FXML
+	private TreeTableColumn<Turma, Integer> treeTableColumnAlunoTurma;
+
+	@FXML
+	private TreeTableColumn<DadosConsolidadosAlunosDTO, Boolean> treeTableColumnDP;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		initializeNodes();
+		loadTurmaDetails();
 		loadAlunosDetails();
 	}
 
@@ -64,20 +78,30 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		treeTableColumnSituacaoFinal.setCellValueFactory(new TreeItemPropertyValueFactory("situacaoFinal"));
 	}
 
+	public void updateTableView() throws InterruptedException {
+		turmaList.clear();
+		turmaList.addAll(turmaService.findAll());
+	}
+
+	private void loadTurmaDetails() {
+		turmaList.clear();
+		turmaList.addAll(turmaService.findAll());
+	}
+
 	private void loadAlunosDetails() {
 
 		observableList.clear();
 		observableList.addAll(service.findFilterConcluintes());
-		TreeItem<ResultadoFinalExternalDTO> treeItemAlunoRoot = new TreeItem<>(
-				new ResultadoFinalExternalDTO(null, null, null, null, null, "Turma", null, null, null));
+		TreeItem<DadosConsolidadosAlunosDTO> treeItemAlunoRoot = new TreeItem<>(
+				new DadosConsolidadosAlunosDTO(null, null, null, null, null, "Turma", null, "Aluno", null, null));
 		treeTableViewAluno.setRoot(treeItemAlunoRoot);
 
-		for (ResultadoFinalExternalDTO aluno : observableList) {
-			TreeItem<ResultadoFinalExternalDTO> turmaNode = new TreeItem<>(new ResultadoFinalExternalDTO(null, null,
-					null, null, null, aluno.getTurma(), "...", null, null));
-			TreeItem<ResultadoFinalExternalDTO> alunoNode = new TreeItem<>(
-					new ResultadoFinalExternalDTO(null, null, null, null, null, aluno.getTurma(), aluno.getNomeCompl(),
-							null, aluno.getSituacaoFinal()));
+		for (DadosConsolidadosAlunosDTO aluno : observableList) {
+			TreeItem<DadosConsolidadosAlunosDTO> turmaNode = new TreeItem<>(new DadosConsolidadosAlunosDTO(null, null,
+					null, null, null, aluno.getTurma(), null, "...", null, null));
+			TreeItem<DadosConsolidadosAlunosDTO> alunoNode = new TreeItem<>(
+					new DadosConsolidadosAlunosDTO(null, null, null, null, null, aluno.getTurma(), aluno.getAluno(),
+							aluno.getNomeCompl(), null, aluno.getSituacaoFinal()));
 			Integer size = treeItemAlunoRoot.getChildren().size();
 
 			if (size.equals(0)) {
@@ -98,18 +122,22 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 			treeItemAlunoRoot.setExpanded(true);
 		}
 
+		for (Turma turma : turmaList) {
+			turma.getNome();
+		}
+
 		treeTableViewAluno.setShowRoot(false);
 //		initCheckBoxDP();
 	}
 
 	@SuppressWarnings("unused")
 	private void initCheckBoxDP() {
-//		treeTableColumnDP.setCellValueFactory((callback) -> {return new ReadOnlyObjectWrapper<ResultadoFinalExternalDTO>(callback.getValue().getValue());});
-//		treeTableColumnDP.setCellFactory(param -> new TreeTableCell<ResultadoFinalExternalDTO, Boolean>() {
+//		treeTableColumnDP.setCellValueFactory((callback) -> {return new ReadOnlyObjectWrapper<DadosConsolidadosAlunosDTO>(callback.getValue().getValue());});
+//		treeTableColumnDP.setCellFactory(param -> new TreeTableCell<DadosConsolidadosAlunosDTO, Boolean>() {
 //			private CheckBox checkBox;
 //
 //			@Override
-//			protected void updateItem(ResultadoFinalExternalDTO obj, boolean empty) {
+//			protected void updateItem(DadosConsolidadosAlunosDTO obj, boolean empty) {
 //				super.updateItem(obj, empty);
 //				
 //				if (obj == null) {
@@ -125,14 +153,14 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 //		});
 
 //		treeTableColumnDP
-//				.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<ResultadoFinalExternalDTO, Boolean>, //
+//				.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<DadosConsolidadosAlunosDTO, Boolean>, //
 //						ObservableValue<Boolean>>() {
 //
 //					@Override
 //					public ObservableValue<Boolean> call(
-//							TreeTableColumn.CellDataFeatures<ResultadoFinalExternalDTO, Boolean> param) {
-//						TreeItem<ResultadoFinalExternalDTO> treeItem = param.getValue();
-//						ResultadoFinalExternalDTO emp = treeItem.getValue();
+//							TreeTableColumn.CellDataFeatures<DadosConsolidadosAlunosDTO, Boolean> param) {
+//						TreeItem<DadosConsolidadosAlunosDTO> treeItem = param.getValue();
+//						DadosConsolidadosAlunosDTO emp = treeItem.getValue();
 //						SimpleBooleanProperty booleanProp = new SimpleBooleanProperty(emp.isSingle());
 //
 //						// Note: singleCol.setOnEditCommit(): Not work for
@@ -151,11 +179,11 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 //				});
 //
 //		treeTableColumnDP.setCellFactory(
-//				new Callback<TreeTableColumn<ResultadoFinalExternalDTO, Boolean>, TreeTableCell<ResultadoFinalExternalDTO, Boolean>>() {
+//				new Callback<TreeTableColumn<DadosConsolidadosAlunosDTO, Boolean>, TreeTableCell<DadosConsolidadosAlunosDTO, Boolean>>() {
 //					@Override
-//					public TreeTableCell<ResultadoFinalExternalDTO, Boolean> call(
-//							TreeTableColumn<ResultadoFinalExternalDTO, Boolean> p) {
-//						CheckBoxTreeTableCell<ResultadoFinalExternalDTO, Boolean> cell = new CheckBoxTreeTableCell<ResultadoFinalExternalDTO, Boolean>();
+//					public TreeTableCell<DadosConsolidadosAlunosDTO, Boolean> call(
+//							TreeTableColumn<DadosConsolidadosAlunosDTO, Boolean> p) {
+//						CheckBoxTreeTableCell<DadosConsolidadosAlunosDTO, Boolean> cell = new CheckBoxTreeTableCell<DadosConsolidadosAlunosDTO, Boolean>();
 //						cell.setAlignment(Pos.CENTER);
 //						return cell;
 //					}
