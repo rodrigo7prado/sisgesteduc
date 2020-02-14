@@ -69,6 +69,7 @@ public class ResultadoFinalExternal implements Serializable {
 		this.turno = turno;
 		this.turma = turma;
 		this.nomeCompl = nomeCompl;
+		this.aluno = aluno;
 		this.disciplina1 = disciplina1;
 		this.total_pontos = total_pontos;
 		this.faltas = faltas;

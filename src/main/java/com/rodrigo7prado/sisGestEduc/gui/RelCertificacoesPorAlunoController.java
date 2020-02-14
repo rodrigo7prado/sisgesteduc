@@ -29,7 +29,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	@Autowired
 	private ResultadoFinalExternalService service;
-	
+
 	private ObservableList<ResultadoFinalExternalDTO> observableList = FXCollections.observableArrayList();
 
 	@FXML
@@ -59,7 +59,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void initializeNodes() {
 		treeTableColumnTurma.setCellValueFactory(new TreeItemPropertyValueFactory("turma"));
-		treeTableColumnAluno.setCellValueFactory(new TreeItemPropertyValueFactory("aluno"));
+		treeTableColumnAluno.setCellValueFactory(new TreeItemPropertyValueFactory("matricula"));
 		treeTableColumnNomeCompl.setCellValueFactory(new TreeItemPropertyValueFactory("nomeCompl"));
 		treeTableColumnSituacaoFinal.setCellValueFactory(new TreeItemPropertyValueFactory("situacaoFinal"));
 	}
@@ -69,15 +69,16 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		observableList.clear();
 		observableList.addAll(service.findFilterConcluintes());
 		TreeItem<ResultadoFinalExternalDTO> treeItemAlunoRoot = new TreeItem<>(
-				new ResultadoFinalExternalDTO(null, null, null, null, null, "Turma", null, null, null));
+				new ResultadoFinalExternalDTO(null, null, null, null, null, "Turma", null, null, null, null));
 		treeTableViewAluno.setRoot(treeItemAlunoRoot);
 
-		for (ResultadoFinalExternalDTO aluno : observableList) {
-			TreeItem<ResultadoFinalExternalDTO> turmaNode = new TreeItem<>(new ResultadoFinalExternalDTO(null, null,
-					null, null, null, aluno.getTurma(), "...", null, null));
-			TreeItem<ResultadoFinalExternalDTO> alunoNode = new TreeItem<>(
-					new ResultadoFinalExternalDTO(null, null, null, null, null, aluno.getTurma(), aluno.getNomeCompl(),
-							null, aluno.getSituacaoFinal()));
+		for (ResultadoFinalExternalDTO itemObsList : observableList) {
+			TreeItem<ResultadoFinalExternalDTO> turmaNode = new TreeItem<>(new ResultadoFinalExternalDTO(
+					null, null, null, null, null, itemObsList.getTurma(),
+					itemObsList.getNomeCompl(), itemObsList.getAluno(), "...", null));
+			TreeItem<ResultadoFinalExternalDTO> alunoNode = new TreeItem<>(new ResultadoFinalExternalDTO(
+					null, null, null, null, null, itemObsList.getTurma(),
+					itemObsList.getNomeCompl(), itemObsList.getAluno(), null, itemObsList.getSituacaoFinal()));
 			Integer size = treeItemAlunoRoot.getChildren().size();
 
 			if (size.equals(0)) {
@@ -85,7 +86,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 			} else {
 				String ultimaTurmaAdd = treeItemAlunoRoot.getChildren().get(size - 1).getValue().getTurma();
 
-				if (ultimaTurmaAdd.equals(aluno.getTurma())) {
+				if (ultimaTurmaAdd.equals(itemObsList.getTurma())) {
 
 					treeItemAlunoRoot.getChildren().get(size - 1).getChildren().add(alunoNode);
 
