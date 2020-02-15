@@ -51,7 +51,7 @@ public class SpringFXMLLoader {
         
         list.add("/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorTurma.fxml");
         list.add("/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorAluno.fxml");
-//        list.add("/com/rodrigo7prado/sisGestEduc/gui/Aluno.fxml");
+        list.add("/com/rodrigo7prado/sisGestEduc/gui/Aluno.fxml");
         
         int i = 0;
         for (String fxml: list) {

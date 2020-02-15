@@ -1,5 +1,6 @@
 package com.rodrigo7prado.sisGestEduc.entities.external;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -7,11 +8,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.rodrigo7prado.sisGestEduc.enums.StatusDocumentacaoAluno;
+import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 
 @Entity
 @Table(name = "consolidado_manual_alunos")
-public class AlunoExternal2 {
+public class AlunoExternal3 implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@Column(name = "ALUNO", length = 25)
@@ -197,9 +199,9 @@ public class AlunoExternal2 {
 	@Column(length = 60)
 	private String ensMedioCidadeEstadoEstabEnsAno4;
 
-	private StatusDocumentacaoAluno statusDocumentacaoAluno;
+	private StatusDocAluno statusDocumentacaoAluno;
 
-	public AlunoExternal2() {
+	public AlunoExternal3() {
 	}
 
 	public String getMatricula() {
@@ -834,16 +836,22 @@ public class AlunoExternal2 {
 		this.ensMedioCidadeEstadoEstabEnsAno4 = ensMedioCidadeEstadoEstabEnsAno4;
 	}
 
-	public StatusDocumentacaoAluno getStatusDocumentacaoAluno() {
+	public StatusDocAluno getStatusDocumentacaoAluno() {
 		return statusDocumentacaoAluno;
 	}
 
-	public void setStatusDocumentacaoAluno(StatusDocumentacaoAluno statusDocumentacaoAluno) {
+	public void setStatusDocumentacaoAluno(StatusDocAluno statusDocumentacaoAluno) {
 		this.statusDocumentacaoAluno = statusDocumentacaoAluno;
 	}
 
 	@SuppressWarnings("static-access")
-	public StatusDocumentacaoAluno statusDocumentacaoAluno() {
-		return statusDocumentacaoAluno.DOCUMENTACAO_OK;
+	public StatusDocAluno getStatusDadosPessoais() {
+		
+		if(this.nomeMae != null) {
+			return StatusDocAluno.OK;
+		} else {
+			return StatusDocAluno.SEM_DADOS;
+		}
+		
 	}
 }

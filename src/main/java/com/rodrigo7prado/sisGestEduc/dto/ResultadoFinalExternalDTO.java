@@ -2,6 +2,7 @@ package com.rodrigo7prado.sisGestEduc.dto;
 
 import com.rodrigo7prado.sisGestEduc.entities.external.AlunoExternal;
 import com.rodrigo7prado.sisGestEduc.entities.external.ResultadoFinalExternal;
+import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 
 public class ResultadoFinalExternalDTO {
 
@@ -29,6 +30,14 @@ public class ResultadoFinalExternalDTO {
 	
 	private String situacaoFinal;
 	
+	private StatusDocAluno validDadosPessoais;
+	
+	private StatusDocAluno validDadosIdentif;
+	
+	private StatusDocAluno validDadosHeFund;
+	
+	private StatusDocAluno validDadosHeMedio;
+	
 	ResultadoFinalExternalDTO() {
 	}
 	
@@ -48,6 +57,7 @@ public class ResultadoFinalExternalDTO {
 
 	}
 
+	
 	public ResultadoFinalExternalDTO(String anoLetivo, String modalidade, String curso, String serie, String turno,
 			String turma, String nomeCompl, AlunoExternal aluno, String freq, String situacaoFinal) {
 		super();
@@ -61,9 +71,19 @@ public class ResultadoFinalExternalDTO {
 		this.nomeCompl = nomeCompl;
 		if(aluno != null) {
 			this.matricula2 = aluno.getMatricula();
+			this.validDadosPessoais = aluno.getValidDadosPessoais();
+			this.validDadosIdentif = aluno.getValidDadosIdentif();
+			this.validDadosHeFund = aluno.getValidDadosHeFund();
+			this.validDadosHeMedio = aluno.getValidDadosHeMedio();
 		} else {
 			this.matricula2 = null;
+			this.validDadosPessoais = null;
+			this.validDadosIdentif = null;
+			this.validDadosHeFund = null;
+			this.validDadosHeMedio = null;
 		}
+//		this.matricula2 = null;
+//		this.validDadosPessoais = null;
 		this.freq = freq;
 		this.situacaoFinal = situacaoFinal;
 	}
@@ -166,6 +186,38 @@ public class ResultadoFinalExternalDTO {
 
 	public void setSituacaoFinal(String situacaoFinal) {
 		this.situacaoFinal = situacaoFinal;
+	}
+
+	public StatusDocAluno getValidDadosPessoais() {
+		return validDadosPessoais;
+	}
+
+	public void setValidDadosPessoais(StatusDocAluno validDadosPessoais) {
+		this.validDadosPessoais = validDadosPessoais;
+	}
+
+	public StatusDocAluno getValidDadosIdentif() {
+		return validDadosIdentif;
+	}
+
+	public void setValidDadosIdentif(StatusDocAluno validDadosIdentif) {
+		this.validDadosIdentif = validDadosIdentif;
+	}
+
+	public StatusDocAluno getValidDadosHeFund() {
+		return validDadosHeFund;
+	}
+
+	public void setValidDadosHeFund(StatusDocAluno validDadosHeFund) {
+		this.validDadosHeFund = validDadosHeFund;
+	}
+
+	public StatusDocAluno getValidDadosHeMedio() {
+		return validDadosHeMedio;
+	}
+
+	public void setValidDadosHeMedio(StatusDocAluno validDadosHeMedio) {
+		this.validDadosHeMedio = validDadosHeMedio;
 	}
 	
 }

@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.rodrigo7prado.sisGestEduc.enums.StatusDocumentacaoAluno;
+import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 
 @Entity
 @Table(name = "consolidado_manual_alunos")
@@ -203,8 +203,8 @@ public class AlunoExternal implements Serializable {
 	@Column(length = 60)
 	private String ensMedioCidadeEstadoEstabEnsAno4;
 
-	private StatusDocumentacaoAluno statusDocumentacaoAluno;
-	
+	private StatusDocAluno statusDocumentacaoAluno;
+
 	@JsonIgnore
 	@OneToMany(mappedBy = "aluno")
 //	private List<ResultadoFinalExternal> resultadosFinaisExternal = new ArrayList<>();
@@ -845,21 +845,61 @@ public class AlunoExternal implements Serializable {
 		this.ensMedioCidadeEstadoEstabEnsAno4 = ensMedioCidadeEstadoEstabEnsAno4;
 	}
 
-	public StatusDocumentacaoAluno getStatusDocumentacaoAluno() {
+	public StatusDocAluno getStatusDocumentacaoAluno() {
 		return statusDocumentacaoAluno;
 	}
 
-	public void setStatusDocumentacaoAluno(StatusDocumentacaoAluno statusDocumentacaoAluno) {
+	public void setStatusDocumentacaoAluno(StatusDocAluno statusDocumentacaoAluno) {
 		this.statusDocumentacaoAluno = statusDocumentacaoAluno;
 	}
 
 	@SuppressWarnings("static-access")
-	public StatusDocumentacaoAluno statusDocumentacaoAluno() {
-		return statusDocumentacaoAluno.DOCUMENTACAO_OK;
+	public StatusDocAluno statusDocumentacaoAluno() {
+		return statusDocumentacaoAluno.OK;
 	}
 
 	public Set<ResultadoFinalExternal> getResultadosFinaisExternal() {
 		return resultadosFinaisExternal;
+	}
+
+	public StatusDocAluno getValidDadosPessoais() {
+		if (this.nomeMae != null && this.dataNasc != null && this.rg != null && this.rgEmissor != null) {
+			return StatusDocAluno.OK;
+		} else if (this.nomeMae == null && this.dataNasc == null && this.rg == null && this.rgEmissor == null) {
+			return StatusDocAluno.SEM_DADOS;
+		} else {
+			return StatusDocAluno.INCOMPLETO;
+		}
+	}
+	
+	public StatusDocAluno getValidDadosIdentif() {
+		if ((this.rg != null && this.rgEmissor != null) || (this.cnCartorio != null)) {
+			return StatusDocAluno.OK;
+		} else if ((this.rg == null && this.rgEmissor == null) && (this.cnCartorio == null)) {
+			return StatusDocAluno.SEM_DADOS;
+		} else {
+			return StatusDocAluno.INCOMPLETO;
+		}
+	}
+	
+	public StatusDocAluno getValidDadosHeFund() {
+		if (this.ensFundEscolaConclusao != null && this.ensFundMunicipioEscolaConclusao != null && this.ensFundEscolaConclusao != null) {
+			return StatusDocAluno.OK;
+		} else if (this.ensFundEscolaConclusao == null && this.ensFundMunicipioEscolaConclusao == null && this.ensFundEscolaConclusao == null) {
+			return StatusDocAluno.SEM_DADOS;
+		} else {
+			return StatusDocAluno.INCOMPLETO;
+		}
+	}
+	
+	public StatusDocAluno getValidDadosHeMedio() {
+		if ((this.rg != null && this.rgEmissor != null) || (this.cnCartorio != null)) {
+			return StatusDocAluno.OK;
+		} else if ((this.rg == null && this.rgEmissor == null) && (this.cnCartorio == null)) {
+			return StatusDocAluno.SEM_DADOS;
+		} else {
+			return StatusDocAluno.INCOMPLETO;
+		}
 	}
 
 	@Override

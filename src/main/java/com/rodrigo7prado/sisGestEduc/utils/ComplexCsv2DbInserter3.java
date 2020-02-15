@@ -17,7 +17,7 @@ import org.supercsv.io.CsvBeanReader;
 import org.supercsv.io.ICsvBeanReader;
 import org.supercsv.prefs.CsvPreference;
 
-import com.rodrigo7prado.sisGestEduc.entities.external.AlunosExternal;
+import com.rodrigo7prado.sisGestEduc.entities.external.AlunoExternal3;
 
 public class ComplexCsv2DbInserter3 {
 
@@ -142,11 +142,11 @@ public class ComplexCsv2DbInserter3 {
 //					"EF_num_pag" };
 			String[] header = { "nomeCompleto", "matricula", "statusMatriculaConexao", "certificacao", "dataConclusaoEM", "dataNasc","nomePai","nomeMae","sexo","nacionalidade","naturalidadeUF","naturalidade","rg","rgEmissor","rgEmissorUf","rgDataEmissao","cnCartorio","cnMunicipio","cnUF","cnTermo","cnLivro","cnFolha","cnDataEmissao","dyn_mais_de_um_curso","obsHist","obsHist1","obsHist2","faltaEntregaHEFundamental","faltaEntregaHEMedio","faltaEntregaRG","faltaEntregaCN","dadosConferidos","maisDeUmCurso","ensFundEscolaConclusao","ensFundMunicipioEscolaConclusao","ensFundAnoEscolaConclusao","ensFundDataEmissaoConclusao","ensFundNumPaginasConclusao","cidadeEstadoEscola","ultimaModalidade","ultimoAno","ultimaTurma","ultimoResultadoFinal","resSerie1","resSerie2","resSerie3","resSerie4","resSerie1Subst","resSerie2Subst","resSerie3Subst","resSerie4Subst","anoSerie1","anoSerie2","anoSerie3","anoSerie4","turmaSerie1","turmaSerie2","turmaSerie3","turmaSerie4","frqG1","frqG2","frqG3","frqG4","chSubst1","chSubst2","chSubst3","chSubst4","freqSubst1","freqSubst2","freqSubst3","freqSubst4","ensMedioEstabEnsAno1","ensMedioEstabEnsAno2","ensMedioEstabEnsAno3","ensMedioEstabEnsAno4","ensMedioCidadeEstadoEstabEnsAno1","ensMedioCidadeEstadoEstabEnsAno2","ensMedioCidadeEstadoEstabEnsAno3","ensMedioCidadeEstadoEstabEnsAno4"};
 			
-			AlunosExternal bean = null;
+			AlunoExternal3 bean = null;
 
 			int count = 0;
 
-			while ((bean = beanReader.read(AlunosExternal.class, header, processors)) != null) {
+			while ((bean = beanReader.read(AlunoExternal3.class, header, processors)) != null) {
 				String nomeCompleto = bean.getNomeCompleto();
 				String matricula = bean.getMatricula();
 				String statusMatriculaConexao = bean.getStatusMatriculaConexao();

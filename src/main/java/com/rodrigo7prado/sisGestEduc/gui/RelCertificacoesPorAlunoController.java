@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 
 import com.rodrigo7prado.sisGestEduc.config.StageManager;
 import com.rodrigo7prado.sisGestEduc.dto.ResultadoFinalExternalDTO;
+import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 import com.rodrigo7prado.sisGestEduc.services.ResultadoFinalExternalService;
 
 import javafx.collections.FXCollections;
@@ -48,7 +49,16 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private TreeTableColumn<ResultadoFinalExternalDTO, String> treeTableColumnSituacaoFinal;
 
 	@FXML
-	private TreeTableColumn<ResultadoFinalExternalDTO, Boolean> treeTableColumnDP;
+	private TreeTableColumn<ResultadoFinalExternalDTO, StatusDocAluno> treeTableColumnDP;
+	
+	@FXML
+	private TreeTableColumn<ResultadoFinalExternalDTO, StatusDocAluno> treeTableColumnDadosIdentif;
+	
+	@FXML
+	private TreeTableColumn<ResultadoFinalExternalDTO, StatusDocAluno> treeTableColumnDadosHeFund;
+	
+	@FXML
+	private TreeTableColumn<ResultadoFinalExternalDTO, StatusDocAluno> treeTableColumnDadosHeMedio;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -61,6 +71,10 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		treeTableColumnTurma.setCellValueFactory(new TreeItemPropertyValueFactory("turma"));
 		treeTableColumnAluno.setCellValueFactory(new TreeItemPropertyValueFactory("matricula"));
 		treeTableColumnNomeCompl.setCellValueFactory(new TreeItemPropertyValueFactory("nomeCompl"));
+		treeTableColumnDP.setCellValueFactory(new TreeItemPropertyValueFactory("validDadosPessoais"));
+		treeTableColumnDadosIdentif.setCellValueFactory(new TreeItemPropertyValueFactory("validDadosIdentif"));
+		treeTableColumnDadosHeFund.setCellValueFactory(new TreeItemPropertyValueFactory("validDadosHeFund"));
+		treeTableColumnDadosHeMedio.setCellValueFactory(new TreeItemPropertyValueFactory("validDadosHeMedio"));
 		treeTableColumnSituacaoFinal.setCellValueFactory(new TreeItemPropertyValueFactory("situacaoFinal"));
 	}
 
@@ -109,7 +123,6 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 //		treeTableColumnDP.setCellFactory(param -> new TreeTableCell<ResultadoFinalExternalDTO, Boolean>() {
 //			private CheckBox checkBox;
 //
-//			@Override
 //			protected void updateItem(ResultadoFinalExternalDTO obj, boolean empty) {
 //				super.updateItem(obj, empty);
 //				
