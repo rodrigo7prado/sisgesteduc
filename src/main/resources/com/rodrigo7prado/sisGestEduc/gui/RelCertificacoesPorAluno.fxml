@@ -25,6 +25,7 @@
 	<children>
 		<ToolBar prefHeight="40.0" prefWidth="200.0">
 			<items>
+            <ComboBox prefWidth="150.0" promptText="3001" />
 				<ToggleButton mnemonicParsing="false" text="Filtrar por pendentes" />
 				<Button mnemonicParsing="false" text="Abrir tela de edição filtrada" />
 				<ToggleButton mnemonicParsing="false" text="ToggleButton" />
