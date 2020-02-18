@@ -39,7 +39,7 @@ public class AlunoService {
 	}
 
 	private void updateData(Aluno entity, Aluno obj) {
-		entity.setNome(obj.getNome());
+		entity.setNomeCompleto(obj.getNomeCompleto());
 	}
 
 	public List<Aluno> findBy() {
