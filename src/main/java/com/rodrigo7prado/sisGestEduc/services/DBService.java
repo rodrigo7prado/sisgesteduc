@@ -56,10 +56,11 @@ public class DBService {
 		Disciplina d11 = new Disciplina(null, "Educação Física");
 		Disciplina d12 = new Disciplina(null, "Língua Inglesa");
 
-		Curso c1 = new Curso(null, "Ensino Médio");
+		Curso c1 = new Curso(null, "Ensino Fundamental");
+		Curso c2 = new Curso(null, "Ensino Médio");
 
-		Modalidade m1 = new Modalidade(null, "Regular", c1);
-		Modalidade m2 = new Modalidade(null, "EJA", c1);
+		Modalidade m1 = new Modalidade(null, "Ensino Médio Regular", c2);
+		Modalidade m2 = new Modalidade(null, "Ensino Médio EJA", c2);
 
 		PeriodoCurricular pc1 = new PeriodoCurricular(null, "1ª série", m1);
 		PeriodoCurricular pc2 = new PeriodoCurricular(null, "2ª série", m1);
@@ -107,7 +108,7 @@ public class DBService {
 
 		turmaRepository.saveAll(Arrays.asList(t1));
 		disciplinaRepository.saveAll(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12));
-		cursoRepository.saveAll(Arrays.asList(c1));
+		cursoRepository.saveAll(Arrays.asList(c1,c2));
 		modalidadeRepository.saveAll(Arrays.asList(m1, m2));
 		periodoCurricularRepository.saveAll(Arrays.asList(pc1, pc2, pc3, pc4, pc5, pc6, pc7));
 		componenteCurricularRepository.saveAll(Arrays.asList(cc1, cc2, cc3, cc4, cc5, cc6, cc7, cc8, cc9, cc10, cc11,
