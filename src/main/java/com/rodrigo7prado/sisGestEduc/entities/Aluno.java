@@ -2,10 +2,13 @@ package com.rodrigo7prado.sisGestEduc.entities;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
@@ -158,8 +161,11 @@ public class Aluno implements Serializable {
 	private String ensMedioCidadeEstadoEstabEnsAno3;
 	@Column(length = 60)
 	private String ensMedioCidadeEstadoEstabEnsAno4;
-
+	
 	private StatusDocAluno statusDocumentacaoAluno;
+	
+	@OneToMany(mappedBy = "id.aluno")
+	Set<AlunoCurso> alunosCursos = new HashSet<>();
 
 	public Aluno() {
 	}
@@ -808,6 +814,10 @@ public class Aluno implements Serializable {
 
 	public void setStatusDocumentacaoAluno(StatusDocAluno statusDocumentacaoAluno) {
 		this.statusDocumentacaoAluno = statusDocumentacaoAluno;
+	}
+	
+	public Set<AlunoCurso> getAlunosCursos() {
+		return alunosCursos;
 	}
 
 	@Override
