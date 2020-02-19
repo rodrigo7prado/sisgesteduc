@@ -1,16 +1,18 @@
 package com.rodrigo7prado.sisGestEduc.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_modalidade")
@@ -23,13 +25,14 @@ public class Modalidade implements Serializable {
 	private Long id;
 	private String nome;
 	
-	@ManyToOne
-	@JoinColumn(name = "cursoId")
-	private Curso curso;
+	@OneToMany(mappedBy = "id.modalidade")
+	Set<CursoModalidade> cursosModalidades = new HashSet<>();
 	
 //	@JsonIgnore
 	@OneToMany(mappedBy = "modalidade")
 	private List<PeriodoCurricular> periodosCurriculares;
+	
+	
 
 	public Modalidade() {
 	}
@@ -38,7 +41,6 @@ public class Modalidade implements Serializable {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.curso = curso;
 	}
 
 	public Long getId() {
@@ -59,6 +61,15 @@ public class Modalidade implements Serializable {
 	
 	public List<PeriodoCurricular> getPeriodosCurriculares() {
 		return periodosCurriculares;
+	}
+	
+	@JsonIgnore
+	public Set<Curso> getCursos() {
+		Set<Curso> set = new HashSet<>();
+		for (CursoModalidade x : cursosModalidades) {
+			set.add(x.getCurso());
+		}
+		return set;
 	}
 
 	@Override

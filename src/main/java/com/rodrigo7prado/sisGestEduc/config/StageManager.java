@@ -49,15 +49,19 @@ public class StageManager {
 //		System.out.println("2stageManager: " + this);
         Parent viewRootNodeHierarchy = loadViewNodeHierarchy(view.getFxmlFile());
         
+        System.out.println("viewRootNodeHierarchy: " + viewRootNodeHierarchy);
+        
 //        System.out.println("333getFxmlFile(): " + view.getFxmlFile());
         show(viewRootNodeHierarchy, "Título");
     }
 	
 	private Scene prepareScene(Parent rootnode){
-		System.out.println("Antes");
+		System.out.println("Antes111");
         Scene scene = primaryStage.getScene();
-        System.out.println("Depois");
-
+        System.out.println("Depois111");
+        System.out.println("rootnode: " + rootnode);
+        
+        
         if (scene == null) {
             scene = new Scene(rootnode);
         }

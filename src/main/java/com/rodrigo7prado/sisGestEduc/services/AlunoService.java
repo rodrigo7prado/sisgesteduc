@@ -39,11 +39,17 @@ public class AlunoService {
 	}
 
 	private void updateData(Aluno entity, Aluno obj) {
-		entity.setNome(obj.getNome());
+		entity.setNomeCompleto(obj.getNomeCompleto());
 	}
 
 	public List<Aluno> findBy() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public List<Aluno> findFilterConcluintes() {
+		List<Aluno> listDto = repository.findFilterConcluintes();
+		
+		return listDto;
 	}
 }

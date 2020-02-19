@@ -1,4 +1,4 @@
-package com.rodrigo7prado.sisGestEduc.entities;
+package com.rodrigo7prado.sisGestEduc.entities.external;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -11,74 +11,115 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 
 @Entity
-@Table(name = "tb_aluno")
-public class Aluno implements Serializable {
+@Table(name = "consolidado_manual_alunos")
+public class AlunoExternal implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 	@Id
-	@Column(length = 25)
+	@Column(name = "ALUNO", length = 25)
 	private String matricula;
+
+	@Column(name = "NOME_COMPL")
 	private String nomeCompleto;
+
 	@Column(name = "Status_Matricula_Conex")
 	private String statusMatriculaConexao;
+
 	private Boolean certificacao;
+
 	@Column(name = "data_conclusao_em")
 	private Date dataConclusaoEM;
+
 	private Date dataNasc;
+
 	private String nomePai;
+
 	private String nomeMae;
+
 	@Column(length = 10)
 	private String sexo;
+
 	@Column(length = 20)
 	private String nacionalidade;
+
 	@Column(length = 30)
 	private String naturalidade;
+
 	@Column(length = 20)
 	private String naturalidadeUF;
+
 	@Column(length = 20)
 	private String rg;
+
 	@Column(length = 20)
 	private String rgEmissor;
+
 	@Column(length = 20)
 	private String rgEmissorUf;
+
 	@Column(length = 20)
 	private String rgDataEmissao;
+
 	@Column(length = 120)
 	private String cnCartorio;
+
 	@Column(length = 30)
 	private String cnMunicipio;
+
 	@Column(length = 2)
 	private String cnUF;
+
 	@Column(length = 20)
 	private String cnTermo;
+
 	@Column(length = 10)
 	private String cnLivro;
+
 	@Column(length = 10)
 	private String cnFolha;
+
 	@Column(length = 20)
 	private String cnDataEmissao;
+
 	private Boolean dyn_mais_de_um_curso;
+
 	private String obsHist;
+
 	private String obsHist1;
+
 	private String obsHist2;
+
 	private Boolean faltaEntregaHeFundamental;
+
 	private Boolean faltaEntregaHeMedio;
+
 	private Boolean faltaEntregaRg;
+
 	private Boolean faltaEntregaCn;
+
 	private Boolean dadosConferidos;
+
 	private Boolean maisDeUmCurso;
+
 	@Column(length = 60)
 	private String ensFundEscolaConclusao;
+
 	@Column(length = 30)
 	private String ensFundMunicipioEscolaConclusao;
+
 	@Column(length = 20)
 	private String ensFundAnoEscolaConclusao;
+
 	@Column(length = 20)
 	private String ensFundDataEmissaoConclusao;
+
 	@Column(length = 30)
 	private String ensFundNumPaginasConclusao;
+
 	@Column(length = 30)
 	private String cidadeEstadoEscola;
 	@Column(length = 50)
@@ -161,22 +202,15 @@ public class Aluno implements Serializable {
 	private String ensMedioCidadeEstadoEstabEnsAno3;
 	@Column(length = 60)
 	private String ensMedioCidadeEstadoEstabEnsAno4;
-	
+
 	private StatusDocAluno statusDocumentacaoAluno;
-	
-	@OneToMany(mappedBy = "id.aluno")
-	Set<AlunoCurso> alunosCursos = new HashSet<>();
-	
-	@OneToMany(mappedBy = "id.aluno")
-	Set<AlunoModalidade> alunosModalidades = new HashSet<>();
 
-	public Aluno() {
-	}
+	@JsonIgnore
+	@OneToMany(mappedBy = "aluno")
+//	private List<ResultadoFinalExternal> resultadosFinaisExternal = new ArrayList<>();
+	private Set<ResultadoFinalExternal> resultadosFinaisExternal = new HashSet<>();
 
-	public Aluno(String matricula, String nomeCompleto, String turma) {
-		super();
-		this.matricula = matricula;
-		this.nomeCompleto = nomeCompleto;
+	public AlunoExternal() {
 	}
 
 	public String getMatricula() {
@@ -818,13 +852,54 @@ public class Aluno implements Serializable {
 	public void setStatusDocumentacaoAluno(StatusDocAluno statusDocumentacaoAluno) {
 		this.statusDocumentacaoAluno = statusDocumentacaoAluno;
 	}
-	
-	public Set<AlunoCurso> getAlunosCursos() {
-		return alunosCursos;
+
+	@SuppressWarnings("static-access")
+	public StatusDocAluno statusDocumentacaoAluno() {
+		return statusDocumentacaoAluno.OK;
+	}
+
+	public Set<ResultadoFinalExternal> getResultadosFinaisExternal() {
+		return resultadosFinaisExternal;
+	}
+
+	public StatusDocAluno getValidDadosPessoais() {
+		if (this.nomeMae != null && this.dataNasc != null && this.rg != null && this.rgEmissor != null) {
+			return StatusDocAluno.OK;
+		} else if (this.nomeMae == null && this.dataNasc == null && this.rg == null && this.rgEmissor == null) {
+			return StatusDocAluno.SEM_DADOS;
+		} else {
+			return StatusDocAluno.INCOMPLETO;
+		}
 	}
 	
-	public Set<AlunoModalidade> getAlunosModalidades() {
-		return alunosModalidades;
+	public StatusDocAluno getValidDadosIdentif() {
+		if ((this.rg != null && this.rgEmissor != null) || (this.cnCartorio != null)) {
+			return StatusDocAluno.OK;
+		} else if ((this.rg == null && this.rgEmissor == null) && (this.cnCartorio == null)) {
+			return StatusDocAluno.SEM_DADOS;
+		} else {
+			return StatusDocAluno.INCOMPLETO;
+		}
+	}
+	
+	public StatusDocAluno getValidDadosHeFund() {
+		if (this.ensFundEscolaConclusao != null && this.ensFundMunicipioEscolaConclusao != null && this.ensFundEscolaConclusao != null) {
+			return StatusDocAluno.OK;
+		} else if (this.ensFundEscolaConclusao == null && this.ensFundMunicipioEscolaConclusao == null && this.ensFundEscolaConclusao == null) {
+			return StatusDocAluno.SEM_DADOS;
+		} else {
+			return StatusDocAluno.INCOMPLETO;
+		}
+	}
+	
+	public StatusDocAluno getValidDadosHeMedio() {
+		if ((this.rg != null && this.rgEmissor != null) || (this.cnCartorio != null)) {
+			return StatusDocAluno.OK;
+		} else if ((this.rg == null && this.rgEmissor == null) && (this.cnCartorio == null)) {
+			return StatusDocAluno.SEM_DADOS;
+		} else {
+			return StatusDocAluno.INCOMPLETO;
+		}
 	}
 
 	@Override
@@ -843,7 +918,7 @@ public class Aluno implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Aluno other = (Aluno) obj;
+		AlunoExternal other = (AlunoExternal) obj;
 		if (matricula == null) {
 			if (other.matricula != null)
 				return false;

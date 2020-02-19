@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.control.TreeTableColumn?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxWidth="1314.0" prefHeight="609.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.RelCertificacoesPorAlunoController">
+	<children>
+		<ToolBar prefHeight="40.0" prefWidth="200.0">
+         <items>
+            <ToggleButton mnemonicParsing="false" text="Filtrar por pendentes" />
+            <Button mnemonicParsing="false" text="Abrir tela de edição filtrada" />
+            <ToggleButton mnemonicParsing="false" text="ToggleButton" />
+         </items>
+      </ToolBar>
+      <SplitPane dividerPositions="0.33916083916083917" orientation="VERTICAL" prefHeight="587.0" prefWidth="1003.0">
+        <items>
+            <SplitPane dividerPositions="0.8881118881118881" prefHeight="160.0" prefWidth="200.0">
+               <items>
+            		<TreeTableView fx:id="treeTableViewAluno" prefHeight="568.0" prefWidth="189.0">
+            			<columns>
+            				<TreeTableColumn fx:id="treeTableColumnTurma" prefWidth="170.0" text="Turma" />
+            				<TreeTableColumn fx:id="treeTableColumnAluno" prefWidth="141.0" text="Matrícula" />
+            				<TreeTableColumn fx:id="treeTableColumnNomeCompl" prefWidth="173.0" text="Aluno" />
+            				<TreeTableColumn fx:id="treeTableColumnDP" prefWidth="100.0" text="DP" />
+            				<TreeTableColumn fx:id="treeTableColumnDadosIdentif" prefWidth="100.0" text="DIdent" />
+            				<TreeTableColumn fx:id="treeTableColumnDadosHeFund" prefWidth="100.0" text="HF" />
+            				<TreeTableColumn fx:id="treeTableColumnDadosHeMedio" prefWidth="100.0" text="HM" />
+            				<TreeTableColumn prefWidth="217.0" text="Certidão" />
+            				<TreeTableColumn prefWidth="99.0" text="Certificado" />
+            				<TreeTableColumn fx:id="treeTableColumnSituacaoFinal" prefWidth="194.0" text="Situação Final" />
+            			</columns>
+            		</TreeTableView>
+                  <AnchorPane prefHeight="191.0" prefWidth="433.0" />
+               </items>
+            </SplitPane>
+            <VBox />
+        </items>
+      </SplitPane>
+	</children>
+</VBox>

@@ -73,6 +73,21 @@
                               <VBox />
                         </content>
                       </Tab>
+                      <Tab text="Certidões">
+                        <content>
+                              <VBox />
+                        </content>
+                      </Tab>
+                      <Tab text="Certificados">
+                        <content>
+                              <VBox />
+                        </content>
+                      </Tab>
+                      <Tab text="Históricos">
+                        <content>
+                              <VBox />
+                        </content>
+                      </Tab>
                     </tabs>
                   </TabPane>
                </children>

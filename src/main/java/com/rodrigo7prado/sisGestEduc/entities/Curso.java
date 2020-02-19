@@ -1,7 +1,8 @@
 package com.rodrigo7prado.sisGestEduc.entities;
 
 import java.io.Serializable;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 //import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -23,9 +26,11 @@ public class Curso implements Serializable {
 	private Long id;
 	private String nome;
 	
-//	@JsonIgnore
-	@OneToMany(mappedBy = "curso")
-	private List<Modalidade> modalidades;
+	@OneToMany(mappedBy = "id.curso")
+	Set<CursoModalidade> cursosModalidades = new HashSet<>();
+	
+	@OneToMany(mappedBy = "id.curso")
+	Set<AlunoCurso> alunosCursos = new HashSet<>();
 
 	public Curso() {
 	}
@@ -52,8 +57,17 @@ public class Curso implements Serializable {
 		this.nome = nome;
 	}
 	
-	public List<Modalidade> getModalidades() {
-		return modalidades;
+	public Set<CursoModalidade> getCursosModalidades() {
+		return cursosModalidades;
+	}
+	
+	@JsonIgnore
+	public Set<Aluno> getAlunos() {
+		Set<Aluno> set = new HashSet<>();
+		for (AlunoCurso x : alunosCursos) {
+			set.add(x.getAluno());
+		}
+		return set;
 	}
 
 	@Override

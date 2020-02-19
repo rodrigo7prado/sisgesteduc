@@ -1,84 +1,121 @@
-package com.rodrigo7prado.sisGestEduc.entities;
+package com.rodrigo7prado.sisGestEduc.entities.external;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 
 @Entity
-@Table(name = "tb_aluno")
-public class Aluno implements Serializable {
+@Table(name = "consolidado_manual_alunos")
+public class AlunoExternal3 implements Serializable {
 	private static final long serialVersionUID = 1L;
+
 	@Id
-	@Column(length = 25)
+	@Column(name = "ALUNO", length = 25)
 	private String matricula;
+
+	@Column(name = "NOME_COMPL")
 	private String nomeCompleto;
+
 	@Column(name = "Status_Matricula_Conex")
 	private String statusMatriculaConexao;
+
 	private Boolean certificacao;
+
 	@Column(name = "data_conclusao_em")
 	private Date dataConclusaoEM;
+
 	private Date dataNasc;
+
 	private String nomePai;
+
 	private String nomeMae;
+
 	@Column(length = 10)
 	private String sexo;
+
 	@Column(length = 20)
 	private String nacionalidade;
+
 	@Column(length = 30)
 	private String naturalidade;
+
 	@Column(length = 20)
 	private String naturalidadeUF;
+
 	@Column(length = 20)
 	private String rg;
+
 	@Column(length = 20)
 	private String rgEmissor;
+
 	@Column(length = 20)
 	private String rgEmissorUf;
+
 	@Column(length = 20)
 	private String rgDataEmissao;
+
 	@Column(length = 120)
 	private String cnCartorio;
+
 	@Column(length = 30)
 	private String cnMunicipio;
+
 	@Column(length = 2)
 	private String cnUF;
+
 	@Column(length = 20)
 	private String cnTermo;
+
 	@Column(length = 10)
 	private String cnLivro;
+
 	@Column(length = 10)
 	private String cnFolha;
+
 	@Column(length = 20)
 	private String cnDataEmissao;
+
 	private Boolean dyn_mais_de_um_curso;
+
 	private String obsHist;
+
 	private String obsHist1;
+
 	private String obsHist2;
+
 	private Boolean faltaEntregaHeFundamental;
+
 	private Boolean faltaEntregaHeMedio;
+
 	private Boolean faltaEntregaRg;
+
 	private Boolean faltaEntregaCn;
+
 	private Boolean dadosConferidos;
+
 	private Boolean maisDeUmCurso;
+
 	@Column(length = 60)
 	private String ensFundEscolaConclusao;
+
 	@Column(length = 30)
 	private String ensFundMunicipioEscolaConclusao;
+
 	@Column(length = 20)
 	private String ensFundAnoEscolaConclusao;
+
 	@Column(length = 20)
 	private String ensFundDataEmissaoConclusao;
+
 	@Column(length = 30)
 	private String ensFundNumPaginasConclusao;
+
 	@Column(length = 30)
 	private String cidadeEstadoEscola;
 	@Column(length = 50)
@@ -161,22 +198,10 @@ public class Aluno implements Serializable {
 	private String ensMedioCidadeEstadoEstabEnsAno3;
 	@Column(length = 60)
 	private String ensMedioCidadeEstadoEstabEnsAno4;
-	
+
 	private StatusDocAluno statusDocumentacaoAluno;
-	
-	@OneToMany(mappedBy = "id.aluno")
-	Set<AlunoCurso> alunosCursos = new HashSet<>();
-	
-	@OneToMany(mappedBy = "id.aluno")
-	Set<AlunoModalidade> alunosModalidades = new HashSet<>();
 
-	public Aluno() {
-	}
-
-	public Aluno(String matricula, String nomeCompleto, String turma) {
-		super();
-		this.matricula = matricula;
-		this.nomeCompleto = nomeCompleto;
+	public AlunoExternal3() {
 	}
 
 	public String getMatricula() {
@@ -818,37 +843,15 @@ public class Aluno implements Serializable {
 	public void setStatusDocumentacaoAluno(StatusDocAluno statusDocumentacaoAluno) {
 		this.statusDocumentacaoAluno = statusDocumentacaoAluno;
 	}
-	
-	public Set<AlunoCurso> getAlunosCursos() {
-		return alunosCursos;
-	}
-	
-	public Set<AlunoModalidade> getAlunosModalidades() {
-		return alunosModalidades;
-	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Aluno other = (Aluno) obj;
-		if (matricula == null) {
-			if (other.matricula != null)
-				return false;
-		} else if (!matricula.equals(other.matricula))
-			return false;
-		return true;
+	@SuppressWarnings("static-access")
+	public StatusDocAluno getStatusDadosPessoais() {
+		
+		if(this.nomeMae != null) {
+			return StatusDocAluno.OK;
+		} else {
+			return StatusDocAluno.SEM_DADOS;
+		}
+		
 	}
 }

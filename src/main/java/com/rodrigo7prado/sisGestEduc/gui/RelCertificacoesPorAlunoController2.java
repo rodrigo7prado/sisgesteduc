@@ -22,7 +22,7 @@ import javafx.scene.control.TreeTableView;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 
 @Controller
-public class RelCertificacoesPorAlunoController implements Initializable {
+public class RelCertificacoesPorAlunoController2 implements Initializable {
 
 	@Lazy
 	@Autowired

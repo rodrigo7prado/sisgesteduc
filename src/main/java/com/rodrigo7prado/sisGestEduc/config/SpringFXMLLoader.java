@@ -30,6 +30,8 @@ public class SpringFXMLLoader {
 	}
 
 	public Parent load(String fxmlPath) throws IOException {
+		
+		System.out.println("VAMOS VER AGORA");
 
 		FXMLLoader loaderMain = new FXMLLoader();
 		loaderMain.setControllerFactory(context::getBean); // Spring now FXML Controller Factory
