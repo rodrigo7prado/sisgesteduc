@@ -46,4 +46,10 @@ public class AlunoService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public List<Aluno> findFilterConcluintes() {
+		List<Aluno> listDto = repository.findFilterConcluintes();
+		
+		return listDto;
+	}
 }
