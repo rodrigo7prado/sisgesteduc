@@ -1,9 +1,18 @@
 package com.rodrigo7prado.sisGestEduc.entities;
 
 import java.io.Serializable;
+<<<<<<< HEAD
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+=======
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+>>>>>>> 94f0aa07d501f57f566704b1603dc63e477439d9
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -16,6 +25,13 @@ public class AlunoCurso implements Serializable {
 	@EmbeddedId
 	private AlunoCursoPk id = new AlunoCursoPk();
 	// outros atributos
+<<<<<<< HEAD
+=======
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "alunoCurso")
+	private List<AlunoModalidade> alunosModalidades = new ArrayList<>();
+>>>>>>> 94f0aa07d501f57f566704b1603dc63e477439d9
 
 	public AlunoCurso() {
 	}
