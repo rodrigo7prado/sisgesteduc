@@ -1,9 +1,12 @@
-package com.rodrigo7prado.sisGestEduc.entities;
+package com.rodrigo7prado.sisGestEduc.entities.pk;
 
 import java.io.Serializable;
 
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.rodrigo7prado.sisGestEduc.entities.Disciplina;
+import com.rodrigo7prado.sisGestEduc.entities.PeriodoCurricular;
 
 public class ComponenteCurricularPk implements Serializable {
 	private static final long serialVersionUID = 1L;

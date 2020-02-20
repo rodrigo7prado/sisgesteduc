@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.rodrigo7prado.sisGestEduc.entities.pk.AlunoCursoPk;
 
 @Entity
 @Table(name = "tb_aluno_curso")

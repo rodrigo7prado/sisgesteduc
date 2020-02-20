@@ -6,6 +6,8 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.rodrigo7prado.sisGestEduc.entities.pk.ComponenteCurricularPk;
+
 //import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity

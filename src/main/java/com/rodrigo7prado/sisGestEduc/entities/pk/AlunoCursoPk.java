@@ -1,10 +1,13 @@
-package com.rodrigo7prado.sisGestEduc.entities;
+package com.rodrigo7prado.sisGestEduc.entities.pk;
 
 import java.io.Serializable;
 
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import com.rodrigo7prado.sisGestEduc.entities.Aluno;
+import com.rodrigo7prado.sisGestEduc.entities.Curso;
 
 @Embeddable
 public class AlunoCursoPk  implements Serializable {
