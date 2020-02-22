@@ -27,6 +27,9 @@ public class Curso implements Serializable {
 	private String nome;
 	
 	@OneToMany(mappedBy = "id.curso")
+	Set<CursoModalidade> cursosModalidades = new HashSet<>();
+	
+	@OneToMany(mappedBy = "id.curso")
 	Set<AlunoCurso> alunosCursos = new HashSet<>();
 
 	public Curso() {
@@ -52,6 +55,10 @@ public class Curso implements Serializable {
 
 	public void setNome(String nome) {
 		this.nome = nome;
+	}
+	
+	public Set<CursoModalidade> getCursosModalidades() {
+		return cursosModalidades;
 	}
 	
 	@JsonIgnore
