@@ -2,7 +2,6 @@ package com.rodrigo7prado.sisGestEduc.entities;
 
 import java.io.Serializable;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -29,8 +28,8 @@ public class Modalidade implements Serializable {
 	Set<CursoModalidade> cursosModalidades = new HashSet<>();
 	
 //	@JsonIgnore
-	@OneToMany(mappedBy = "modalidade")
-	private List<PeriodoCurricular> periodosCurriculares;
+//	@OneToMany(mappedBy = "modalidade")
+//	private List<PeriodoCurricular> periodosCurriculares;
 	
 	
 
@@ -68,9 +67,9 @@ public class Modalidade implements Serializable {
 		return set;
 	}
 	
-	public List<PeriodoCurricular> getPeriodosCurriculares() {
-		return periodosCurriculares;
-	}
+//	public List<PeriodoCurricular> getPeriodosCurriculares() {
+//		return periodosCurriculares;
+//	}
 
 	@Override
 	public int hashCode() {

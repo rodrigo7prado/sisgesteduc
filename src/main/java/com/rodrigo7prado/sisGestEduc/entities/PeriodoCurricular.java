@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -24,9 +25,16 @@ public class PeriodoCurricular implements Serializable {
 	private Long id;
 	private String nome;
 	
+//	@ManyToOne
+//	@JoinColumn(name = "modalidadeId")
+//	private Modalidade modalidade;
+	
 	@ManyToOne
-	@JoinColumn(name = "modalidadeId")
-	private Modalidade modalidade;
+	@JoinColumns({
+		@JoinColumn(name = "curso_id",insertable=false, updatable=false),
+		@JoinColumn(name = "modalidade_id",insertable=false, updatable=false)
+	})
+	private CursoModalidade cursoModalidade;
 	
 	@OneToMany(mappedBy = "id.periodoCurricular")
 	Set<ComponenteCurricular> componentesCurriculares = new HashSet<>();
@@ -38,7 +46,7 @@ public class PeriodoCurricular implements Serializable {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.modalidade = modalidade;
+//		this.modalidade = modalidade;
 	}
 
 	public Long getId() {
@@ -57,13 +65,13 @@ public class PeriodoCurricular implements Serializable {
 		this.nome = nome;
 	}
 
-	public Modalidade getModalidade() {
-		return modalidade;
-	}
+//	public Modalidade getModalidade() {
+//		return modalidade;
+//	}
 
-	public void setModalidade(Modalidade modalidade) {
-		this.modalidade = modalidade;
-	}
+//	public void setModalidade(Modalidade modalidade) {
+//		this.modalidade = modalidade;
+//	}
 
 	@Override
 	public int hashCode() {

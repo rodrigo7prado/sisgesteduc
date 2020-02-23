@@ -1,7 +1,9 @@
 package com.rodrigo7prado.sisGestEduc.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.EmbeddedId;
@@ -20,6 +22,10 @@ public class CursoModalidade implements Serializable {
 	@EmbeddedId
 	private CursoModalidadePk id = new CursoModalidadePk();
 	// outros atributos
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "cursoModalidade")
+	private List<PeriodoCurricular> periodosCurriculares = new ArrayList<>();
 	
 	@OneToMany(mappedBy = "id.cursoModalidade")
 	Set<AlunoCursoModalidade> alunosCursosModalidades = new HashSet<>();
