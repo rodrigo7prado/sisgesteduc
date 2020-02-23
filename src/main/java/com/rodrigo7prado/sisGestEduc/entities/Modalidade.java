@@ -95,4 +95,9 @@ public class Modalidade implements Serializable {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Modalidade [id=" + id + ", nome=" + nome + ", cursosModalidades=" + cursosModalidades + "]";
+	}
 }

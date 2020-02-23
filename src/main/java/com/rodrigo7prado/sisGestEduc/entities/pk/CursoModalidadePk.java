@@ -37,4 +37,9 @@ public class CursoModalidadePk  implements Serializable {
 		this.modalidade = modalidade;
 	}
 	// hashcode e equals omitidos
+
+	@Override
+	public String toString() {
+		return "CursoModalidadePk [curso=" + curso + ", modalidade=" + modalidade + "]";
+	}
 }

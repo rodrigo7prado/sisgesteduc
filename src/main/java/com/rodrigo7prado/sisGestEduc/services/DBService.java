@@ -7,11 +7,13 @@ import org.springframework.stereotype.Service;
 
 import com.rodrigo7prado.sisGestEduc.entities.ComponenteCurricular;
 import com.rodrigo7prado.sisGestEduc.entities.Curso;
+import com.rodrigo7prado.sisGestEduc.entities.CursoModalidade;
 import com.rodrigo7prado.sisGestEduc.entities.Disciplina;
 import com.rodrigo7prado.sisGestEduc.entities.Modalidade;
 import com.rodrigo7prado.sisGestEduc.entities.PeriodoCurricular;
 import com.rodrigo7prado.sisGestEduc.entities.Turma;
 import com.rodrigo7prado.sisGestEduc.repositories.ComponenteCurricularRepository;
+import com.rodrigo7prado.sisGestEduc.repositories.CursoModalidadeRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.CursoRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.DisciplinaRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.ModalidadeRepository;
@@ -32,6 +34,9 @@ public class DBService {
 
 	@Autowired
 	private ModalidadeRepository modalidadeRepository;
+	
+	@Autowired
+	private CursoModalidadeRepository cursoModalidadeRepository;
 
 	@Autowired
 	private PeriodoCurricularRepository periodoCurricularRepository;
@@ -59,16 +64,20 @@ public class DBService {
 		Curso c1 = new Curso(null, "Ensino Fundamental");
 		Curso c2 = new Curso(null, "Ensino Médio");
 
-		Modalidade m1 = new Modalidade(null, "Ensino Médio Regular", c2);
-		Modalidade m2 = new Modalidade(null, "Ensino Médio EJA", c2);
+		Modalidade m1 = new Modalidade(null, "Regular", c2);
+		Modalidade m2 = new Modalidade(null, "EJA", c2);
+		
+		CursoModalidade cm1 = new CursoModalidade(c1,m1);
+		CursoModalidade cm2 = new CursoModalidade(c2,m1);
+		CursoModalidade cm3 = new CursoModalidade(c2,m2);
 
-		PeriodoCurricular pc1 = new PeriodoCurricular(null, "1ª série", m1);
-		PeriodoCurricular pc2 = new PeriodoCurricular(null, "2ª série", m1);
-		PeriodoCurricular pc3 = new PeriodoCurricular(null, "3ª série", m1);
-		PeriodoCurricular pc4 = new PeriodoCurricular(null, "Módulo I", m2);
-		PeriodoCurricular pc5 = new PeriodoCurricular(null, "Módulo II", m2);
-		PeriodoCurricular pc6 = new PeriodoCurricular(null, "Módulo III", m2);
-		PeriodoCurricular pc7 = new PeriodoCurricular(null, "Módulo IV", m2);
+		PeriodoCurricular pc1 = new PeriodoCurricular(null, "1ª série", cm2);
+		PeriodoCurricular pc2 = new PeriodoCurricular(null, "2ª série", cm2);
+		PeriodoCurricular pc3 = new PeriodoCurricular(null, "3ª série", cm2);
+		PeriodoCurricular pc4 = new PeriodoCurricular(null, "Módulo I", cm3);
+		PeriodoCurricular pc5 = new PeriodoCurricular(null, "Módulo II", cm3);
+		PeriodoCurricular pc6 = new PeriodoCurricular(null, "Módulo III", cm3);
+		PeriodoCurricular pc7 = new PeriodoCurricular(null, "Módulo IV", cm3);
 
 		ComponenteCurricular cc1 = new ComponenteCurricular(pc1, d1);
 		ComponenteCurricular cc2 = new ComponenteCurricular(pc1, d2);
@@ -110,6 +119,9 @@ public class DBService {
 		disciplinaRepository.saveAll(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12));
 		cursoRepository.saveAll(Arrays.asList(c1,c2));
 		modalidadeRepository.saveAll(Arrays.asList(m1, m2));
+		
+		cursoModalidadeRepository.saveAll(Arrays.asList(cm1,cm2,cm3));
+		System.out.println("pc1" + pc1);
 		periodoCurricularRepository.saveAll(Arrays.asList(pc1, pc2, pc3, pc4, pc5, pc6, pc7));
 		componenteCurricularRepository.saveAll(Arrays.asList(cc1, cc2, cc3, cc4, cc5, cc6, cc7, cc8, cc9, cc10, cc11,
 				cc12, cc13, cc14, cc15, cc16, cc17, cc18, cc19, cc20, cc21, cc22, cc23, cc24, cc25, cc26, cc27, cc28,

@@ -65,4 +65,10 @@ public class CursoModalidade implements Serializable {
 		}
 		return set;
 	}
+
+	@Override
+	public String toString() {
+		return "CursoModalidade [id=" + id + ", periodosCurriculares=" + periodosCurriculares
+				+ ", alunosCursosModalidades=" + alunosCursosModalidades + "]";
+	}
 }

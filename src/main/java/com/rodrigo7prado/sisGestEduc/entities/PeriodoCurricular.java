@@ -31,8 +31,8 @@ public class PeriodoCurricular implements Serializable {
 	
 	@ManyToOne
 	@JoinColumns({
-		@JoinColumn(name = "curso_id",insertable=false, updatable=false),
-		@JoinColumn(name = "modalidade_id",insertable=false, updatable=false)
+		@JoinColumn(name = "curso_id"),
+		@JoinColumn(name = "modalidade_id")
 	})
 	private CursoModalidade cursoModalidade;
 	
@@ -42,10 +42,11 @@ public class PeriodoCurricular implements Serializable {
 	public PeriodoCurricular() {
 	}
 
-	public PeriodoCurricular(Long id, String nome, Modalidade modalidade) {
+	public PeriodoCurricular(Long id, String nome, CursoModalidade cursoModalidade) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.cursoModalidade = cursoModalidade;
 //		this.modalidade = modalidade;
 	}
 
@@ -65,13 +66,19 @@ public class PeriodoCurricular implements Serializable {
 		this.nome = nome;
 	}
 
-//	public Modalidade getModalidade() {
-//		return modalidade;
-//	}
+	public CursoModalidade getModalidade() {
+		return cursoModalidade;
+	}
 
-//	public void setModalidade(Modalidade modalidade) {
-//		this.modalidade = modalidade;
-//	}
+	public void setModalidade(CursoModalidade cursoModalidade) {
+		this.cursoModalidade = cursoModalidade;
+	}
+
+	@Override
+	public String toString() {
+		return "PeriodoCurricular [id=" + id + ", nome=" + nome + ", cursoModalidade=" + cursoModalidade
+				+ ", componentesCurriculares=" + componentesCurriculares + "]";
+	}
 
 	@Override
 	public int hashCode() {
