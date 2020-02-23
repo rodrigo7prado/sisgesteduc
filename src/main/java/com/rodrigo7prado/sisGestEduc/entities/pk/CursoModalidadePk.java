@@ -1,4 +1,4 @@
-package com.rodrigo7prado.sisGestEduc.entities.external;
+package com.rodrigo7prado.sisGestEduc.entities.pk;
 
 import java.io.Serializable;
 

@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.rodrigo7prado.sisGestEduc.entities.external.AlunoCursoModalidadePk;
+import com.rodrigo7prado.sisGestEduc.entities.pk.AlunoCursoModalidadePk;
 
 @Entity
 @Table(name = "tb_alunoCursoModalidade")
