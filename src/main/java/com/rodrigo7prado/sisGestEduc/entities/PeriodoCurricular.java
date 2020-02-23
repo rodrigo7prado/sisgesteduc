@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "tb_periodoCurricular")
 public class PeriodoCurricular implements Serializable {
@@ -38,6 +40,8 @@ public class PeriodoCurricular implements Serializable {
 	
 	@OneToMany(mappedBy = "id.periodoCurricular")
 	Set<ComponenteCurricular> componentesCurriculares = new HashSet<>();
+	@OneToMany(mappedBy = "id.periodoCurricular")
+	Set<AlunoPeriodoLetivo> alunosPeriodosLetivos = new HashSet<>();
 
 	public PeriodoCurricular() {
 	}
@@ -72,6 +76,15 @@ public class PeriodoCurricular implements Serializable {
 
 	public void setModalidade(CursoModalidade cursoModalidade) {
 		this.cursoModalidade = cursoModalidade;
+	}
+	
+	@JsonIgnore
+	public Set<Aluno> getAlunos() {
+		Set<Aluno> set = new HashSet<>();
+		for (AlunoPeriodoLetivo x : alunosPeriodosLetivos) {
+			set.add(x.getAluno());
+		}
+		return set;
 	}
 
 	@Override
