@@ -27,10 +27,6 @@ public class PeriodoCurricular implements Serializable {
 	private Long id;
 	private String nome;
 	
-//	@ManyToOne
-//	@JoinColumn(name = "modalidadeId")
-//	private Modalidade modalidade;
-	
 	@ManyToOne
 	@JoinColumns({
 		@JoinColumn(name = "curso_id"),
@@ -38,8 +34,8 @@ public class PeriodoCurricular implements Serializable {
 	})
 	private CursoModalidade cursoModalidade;
 	
-	@OneToMany(mappedBy = "id.periodoCurricular")
-	Set<ComponenteCurricular> componentesCurriculares = new HashSet<>();
+//	@OneToMany(mappedBy = "id.periodoCurricular")
+//	Set<ComponenteCurricular> componentesCurriculares = new HashSet<>();
 	@OneToMany(mappedBy = "id.periodoCurricular")
 	Set<AlunoPeriodoLetivo> alunosPeriodosLetivos = new HashSet<>();
 
@@ -51,7 +47,6 @@ public class PeriodoCurricular implements Serializable {
 		this.id = id;
 		this.nome = nome;
 		this.cursoModalidade = cursoModalidade;
-//		this.modalidade = modalidade;
 	}
 
 	public Long getId() {
@@ -85,12 +80,6 @@ public class PeriodoCurricular implements Serializable {
 			set.add(x.getAluno());
 		}
 		return set;
-	}
-
-	@Override
-	public String toString() {
-		return "PeriodoCurricular [id=" + id + ", nome=" + nome + ", cursoModalidade=" + cursoModalidade
-				+ ", componentesCurriculares=" + componentesCurriculares + "]";
 	}
 
 	@Override

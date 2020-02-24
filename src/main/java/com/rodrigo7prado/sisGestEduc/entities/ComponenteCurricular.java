@@ -27,11 +27,6 @@ public class ComponenteCurricular implements Serializable {
 		id.setPeriodoCurricular(periodoCurricular);
 	}
 
-//	@JsonIgnore
-	public PeriodoCurricular getPeriodoCurricular() {
-		return id.getPeriodoCurricular();
-	}
-
 	public void setPeriodoCurricular(PeriodoCurricular periodoCurricular) {
 		id.setPeriodoCurricular(periodoCurricular);
 	}
