@@ -22,7 +22,10 @@ public class CursoModalidade implements Serializable {
 	// outros atributos
 	
 	@OneToMany(mappedBy = "id.cursoModalidade")
+	Set<PeriodoCurricular> periodosCurriculares = new HashSet<>();
+	@OneToMany(mappedBy = "id.cursoModalidade")
 	Set<AlunoCursoModalidade> alunosCursosModalidades = new HashSet<>();
+	
 
 	public CursoModalidade() {
 	}
@@ -51,6 +54,10 @@ public class CursoModalidade implements Serializable {
 		id.setModalidade(modalidade);
 	}
 	
+	public Set<PeriodoCurricular> getPeriodosCurriculares() {
+		return periodosCurriculares;
+	}
+	
 	@JsonIgnore
 	public Set<Aluno> getAlunos() {
 		Set<Aluno> set = new HashSet<>();
@@ -58,10 +65,5 @@ public class CursoModalidade implements Serializable {
 			set.add(x.getAluno());
 		}
 		return set;
-	}
-
-	@Override
-	public String toString() {
-		return "CursoModalidade [id=" + id +  ", alunosCursosModalidades=" + alunosCursosModalidades + "]";
 	}
 }
