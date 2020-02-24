@@ -18,7 +18,7 @@ public class ComponenteCurricularPk  implements Serializable {
 	@JoinColumns({
 		@JoinColumn(name = "curso_id"),
 		@JoinColumn(name = "modalidade_id"),
-		@JoinColumn(name = "nome")
+		@JoinColumn(name = "periodo_curricular_id")
 	})
 	private PeriodoCurricular periodoCurricular;
 		

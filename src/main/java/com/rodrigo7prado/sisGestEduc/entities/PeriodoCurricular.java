@@ -27,10 +27,10 @@ public class PeriodoCurricular implements Serializable {
 	public PeriodoCurricular() {
 	}
 
-	public PeriodoCurricular(CursoModalidade cursoModalidade, String nome) {
+	public PeriodoCurricular(CursoModalidade cursoModalidade, Integer periodoCurricular) {
 		super();
 		id.setCursoModalidade(cursoModalidade);
-		id.setNome(nome);
+		id.setPeriodoCurricular(periodoCurricular);
 		// outros atributos
 	}
 	
@@ -43,12 +43,12 @@ public class PeriodoCurricular implements Serializable {
 		id.setCursoModalidade(cursoModalidade);
 	}
 	
-	public String getNome() {
-		return id.getNome();
+	public Integer getPeriodoCurricular() {
+		return id.getPeriodoCurricular();
 	}
 	
-	public void setNome(String nome) {
-		id.setNome(nome);
+	public void setPeriodoCurricular(Integer periodoCurricular) {
+		id.setPeriodoCurricular(periodoCurricular);
 	}
 	
 	public Set<ComponenteCurricular> getComponentesCurriculares() {
