@@ -23,6 +23,8 @@ public class PeriodoCurricular implements Serializable {
 	
 	@OneToMany(mappedBy = "id.periodoCurricular")
 	Set<ComponenteCurricular> componentesCurriculares = new HashSet<>();
+	@OneToMany(mappedBy = "id.periodoCurricular")
+	Set<AlunoPeriodoCurricular> alunosPeriodosCurriculares = new HashSet<>();
 
 	public PeriodoCurricular() {
 	}
@@ -53,5 +55,14 @@ public class PeriodoCurricular implements Serializable {
 	
 	public Set<ComponenteCurricular> getComponentesCurriculares() {
 		return componentesCurriculares;
+	}
+	
+	@JsonIgnore
+	public Set<Aluno> getAlunos() {
+		Set<Aluno> set = new HashSet<>();
+		for (AlunoPeriodoCurricular x : alunosPeriodosCurriculares) {
+			set.add(x.getAluno());
+		}
+		return set;
 	}
 }
