@@ -1,12 +1,15 @@
 package com.rodrigo7prado.sisGestEduc.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinColumns;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -27,6 +30,10 @@ public class AlunoCursoModalidade implements Serializable {
 		@JoinColumn(name = "curso_id",insertable=false, updatable=false)
 	})
 	private AlunoCurso alunoCurso;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "alunoCursoModalidade")
+	private List<AlunoPeriodoCurricular> alunosPeriodosCurriculares = new ArrayList<>();
 
 	public AlunoCursoModalidade() {
 	}

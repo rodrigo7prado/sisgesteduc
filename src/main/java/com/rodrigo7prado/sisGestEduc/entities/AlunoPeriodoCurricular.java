@@ -4,6 +4,9 @@ import java.io.Serializable;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinColumns;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -17,6 +20,15 @@ public class AlunoPeriodoCurricular implements Serializable {
 	@EmbeddedId
 	private AlunoPeriodoCurricularPk id = new AlunoPeriodoCurricularPk();
 	// outros atributos
+	
+	// Parte muitos
+	@ManyToOne
+	@JoinColumns({
+		@JoinColumn(name = "aluno_id",insertable=false, updatable=false),
+		@JoinColumn(name = "curso_id",insertable=false, updatable=false),
+		@JoinColumn(name = "modalidade_id",insertable=false, updatable=false)
+	})
+	private AlunoCursoModalidade alunoCursoModalidade;
 
 	public AlunoPeriodoCurricular() {
 	}
