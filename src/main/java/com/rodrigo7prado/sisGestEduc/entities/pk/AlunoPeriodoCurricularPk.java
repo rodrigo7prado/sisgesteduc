@@ -26,9 +26,6 @@ public class AlunoPeriodoCurricularPk  implements Serializable {
 	})
 	private PeriodoCurricular periodoCurricular;
 	
-	private String ano;
-	private String turma;
-	
 	public Aluno getAluno() {
 		return aluno;
 	}
@@ -43,22 +40,6 @@ public class AlunoPeriodoCurricularPk  implements Serializable {
 
 	public void setPeriodoCurricular(PeriodoCurricular periodoCurricular) {
 		this.periodoCurricular = periodoCurricular;
-	}
-
-	public String getAno() {
-		return ano;
-	}
-
-	public void setAno(String ano) {
-		this.ano = ano;
-	}
-
-	public String getTurma() {
-		return turma;
-	}
-
-	public void setTurma(String turma) {
-		this.turma = turma;
 	}
 	// hashcode e equals omitidos
 }

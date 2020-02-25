@@ -21,6 +21,9 @@ public class AlunoPeriodoCurricular implements Serializable {
 	private AlunoPeriodoCurricularPk id = new AlunoPeriodoCurricularPk();
 	// outros atributos
 	
+	private String anoLetivo;
+	private String turma;
+	
 	// Parte muitos
 	@ManyToOne
 	@JoinColumns({
@@ -55,5 +58,21 @@ public class AlunoPeriodoCurricular implements Serializable {
 	
 	public void setPeriodoCurricular(PeriodoCurricular periodoCurricular) {
 		id.setPeriodoCurricular(periodoCurricular);
+	}
+
+	public String getAnoLetivo() {
+		return anoLetivo;
+	}
+
+	public void setAnoLetivo(String anoLetivo) {
+		this.anoLetivo = anoLetivo;
+	}
+
+	public String getTurma() {
+		return turma;
+	}
+
+	public void setTurma(String turma) {
+		this.turma = turma;
 	}
 }
