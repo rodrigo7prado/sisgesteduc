@@ -2,14 +2,11 @@ package com.rodrigo7prado.sisGestEduc.dto;
 
 import com.rodrigo7prado.sisGestEduc.entities.Aluno;
 import com.rodrigo7prado.sisGestEduc.entities.AlunoPeriodoCurricular;
-import com.rodrigo7prado.sisGestEduc.entities.PeriodoCurricular;
 import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 
-public class AlunoPeriodoCurricularDto {
+public class AlunoPeriodoCurricularDto3 {
 
 	private Long id;
-	
-	private PeriodoCurricular periodoCurricular;
 	
 	private String anoLetivo;
 	
@@ -25,9 +22,9 @@ public class AlunoPeriodoCurricularDto {
 	
 	private Aluno aluno;
 	
-	private String matricula;
+	private String matricula2;
 	
-	private String nomeCompleto;
+	private String nomeCompl;
 	
 	private String freq;
 	
@@ -41,10 +38,10 @@ public class AlunoPeriodoCurricularDto {
 	
 	private StatusDocAluno validDadosHeMedio;
 	
-	AlunoPeriodoCurricularDto() {
+	AlunoPeriodoCurricularDto3() {
 	}
 	
-	public AlunoPeriodoCurricularDto(AlunoPeriodoCurricular obj) {
+	public AlunoPeriodoCurricularDto3(AlunoPeriodoCurricular obj) {
 //		id = obj.getId();
 //		anoLetivo = obj.getAnoLetivo();
 //		modalidade = obj.getModalidade();
@@ -59,58 +56,40 @@ public class AlunoPeriodoCurricularDto {
 //		situacaoFinal = obj.getSituacaoFinal();
 
 	}
-	
-	public AlunoPeriodoCurricularDto(String anoLetivo, String curso, String modalidade,String turma, String nomeCompleto, String matricula) {
-		super();
-		this.anoLetivo = anoLetivo;
-		this.curso = curso;
-		this.modalidade = modalidade;
-		this.turma = turma;
-		this.nomeCompleto = nomeCompleto;
-		this.matricula = matricula;
-	}
 
 	
-//	public AlunoPeriodoCurricularDto(String anoLetivo,String curso, String modalidade, String serie, String turno,
-//			String turma, String nomeCompl, Aluno aluno, String freq, String situacaoFinal) {
-//		super();
-//		this.anoLetivo = anoLetivo;
-//		this.aluno = aluno;
-//		this.curso = curso;
-//		this.modalidade = modalidade;
-//		this.serie = serie;
-//		this.turno = turno;
-//		this.turma = turma;
-//		this.nomeCompleto = nomeCompl;
-//		if(aluno != null) {
-//			this.matricula = aluno.getMatricula();
-////			this.validDadosPessoais = aluno.getValidDadosPessoais();
-////			this.validDadosIdentif = aluno.getValidDadosIdentif();
-////			this.validDadosHeFund = aluno.getValidDadosHeFund();
-////			this.validDadosHeMedio = aluno.getValidDadosHeMedio();
-//		} else {
-//			this.matricula = null;
-//			this.validDadosPessoais = null;
-//			this.validDadosIdentif = null;
-//			this.validDadosHeFund = null;
-//			this.validDadosHeMedio = null;
-//		}
-////		this.matricula = null;
-////		this.validDadosPessoais = null;
-//		this.freq = freq;
-//		this.situacaoFinal = situacaoFinal;
-//	}
+	public AlunoPeriodoCurricularDto3(String anoLetivo,String curso, String modalidade, String serie, String turno,
+			String turma, String nomeCompl, Aluno aluno, String freq, String situacaoFinal) {
+		super();
+		this.anoLetivo = anoLetivo;
+		this.aluno = aluno;
+		this.curso = curso;
+		this.modalidade = modalidade;
+		this.serie = serie;
+		this.turno = turno;
+		this.turma = turma;
+		this.nomeCompl = nomeCompl;
+		if(aluno != null) {
+			this.matricula2 = aluno.getMatricula();
+//			this.validDadosPessoais = aluno.getValidDadosPessoais();
+//			this.validDadosIdentif = aluno.getValidDadosIdentif();
+//			this.validDadosHeFund = aluno.getValidDadosHeFund();
+//			this.validDadosHeMedio = aluno.getValidDadosHeMedio();
+		} else {
+			this.matricula2 = null;
+			this.validDadosPessoais = null;
+			this.validDadosIdentif = null;
+			this.validDadosHeFund = null;
+			this.validDadosHeMedio = null;
+		}
+//		this.matricula2 = null;
+//		this.validDadosPessoais = null;
+		this.freq = freq;
+		this.situacaoFinal = situacaoFinal;
+	}
 
 	public Long getId() {
 		return id;
-	}
-
-	public PeriodoCurricular getPeriodoCurricular() {
-		return periodoCurricular;
-	}
-
-	public void setPeriodoCurricular(PeriodoCurricular periodoCurricular) {
-		this.periodoCurricular = periodoCurricular;
 	}
 
 	public String getAnoLetivo() {
@@ -140,9 +119,13 @@ public class AlunoPeriodoCurricularDto {
 	public Aluno getAluno() {
 		return aluno;
 	}
+	
+	public String getMatricula() {
+		return matricula2;
+	}
 
-	public String getNomeCompleto() {
-		return nomeCompleto;
+	public String getNomeCompl() {
+		return nomeCompl;
 	}
 
 	public String getFreq() {
@@ -153,12 +136,12 @@ public class AlunoPeriodoCurricularDto {
 		return situacaoFinal;
 	}
 
-	public String getMatricula() {
-		return matricula;
+	public String getMatricula2() {
+		return matricula2;
 	}
 
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
+	public void setMatricula2(String matricula2) {
+		this.matricula2 = matricula2;
 	}
 
 	public void setId(Long id) {
@@ -193,8 +176,8 @@ public class AlunoPeriodoCurricularDto {
 		this.aluno = aluno;
 	}
 
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
+	public void setNomeCompl(String nomeCompl) {
+		this.nomeCompl = nomeCompl;
 	}
 
 	public void setFreq(String freq) {
@@ -235,11 +218,5 @@ public class AlunoPeriodoCurricularDto {
 
 	public void setValidDadosHeMedio(StatusDocAluno validDadosHeMedio) {
 		this.validDadosHeMedio = validDadosHeMedio;
-	}
-
-	@Override
-	public String toString() {
-		return "AlunoPeriodoCurricularDto [anoLetivo=" + anoLetivo + ", modalidade=" + modalidade + ", curso=" + curso
-				+ ", matricula=" + matricula + ", nomeCompleto=" + nomeCompleto + "]";
 	}
 }
