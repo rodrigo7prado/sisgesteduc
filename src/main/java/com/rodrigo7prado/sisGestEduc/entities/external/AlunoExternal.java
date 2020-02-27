@@ -5,13 +5,16 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.rodrigo7prado.sisGestEduc.entities.Aluno;
 import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 
 @Entity
@@ -204,10 +207,11 @@ public class AlunoExternal implements Serializable {
 	private String ensMedioCidadeEstadoEstabEnsAno4;
 
 	private StatusDocAluno statusDocumentacaoAluno;
-
+	
+	@OneToOne(mappedBy = "alunoExternal", cascade = CascadeType.ALL)
+	private Aluno aluno;
 	@JsonIgnore
 	@OneToMany(mappedBy = "aluno")
-//	private List<ResultadoFinalExternal> resultadosFinaisExternal = new ArrayList<>();
 	private Set<ResultadoFinalExternal> resultadosFinaisExternal = new HashSet<>();
 
 	public AlunoExternal() {

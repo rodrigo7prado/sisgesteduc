@@ -8,9 +8,13 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.MapsId;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.rodrigo7prado.sisGestEduc.entities.external.AlunoExternal;
 import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 
 @Entity
@@ -164,6 +168,10 @@ public class Aluno implements Serializable {
 	
 	private StatusDocAluno statusDocumentacaoAluno;
 	
+	@JsonIgnore
+	@OneToOne
+	@MapsId
+	private AlunoExternal alunoExternal;
 	@OneToMany(mappedBy = "id.aluno")
 	Set<AlunoCurso> alunosCursos = new HashSet<>();
 	@OneToMany(mappedBy = "id.aluno")
