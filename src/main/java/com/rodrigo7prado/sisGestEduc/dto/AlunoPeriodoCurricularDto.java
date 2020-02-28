@@ -3,6 +3,7 @@ package com.rodrigo7prado.sisGestEduc.dto;
 import com.rodrigo7prado.sisGestEduc.entities.Aluno;
 import com.rodrigo7prado.sisGestEduc.entities.AlunoPeriodoCurricular;
 import com.rodrigo7prado.sisGestEduc.entities.PeriodoCurricular;
+import com.rodrigo7prado.sisGestEduc.entities.external.AlunoExternal;
 import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 
 public class AlunoPeriodoCurricularDto {
@@ -60,11 +61,39 @@ public class AlunoPeriodoCurricularDto {
 
 	}
 	
-	public AlunoPeriodoCurricularDto(String anoLetivo, String curso, String modalidade,String turma, String nomeCompleto, String matricula) {
+	public AlunoPeriodoCurricularDto(AlunoPeriodoCurricular alunoPeriodoCurricular,AlunoExternal alunoExternal,String anoLetivo, String curso, String modalidade,String turma, String nomeCompleto, String matricula) {
 		super();
-		this.anoLetivo = anoLetivo;
-		this.curso = curso;
-		this.modalidade = modalidade;
+		System.out.println("aa: " + alunoExternal + ", " + matricula);
+		if ( alunoPeriodoCurricular != null ) {
+//			System.out.println("aa: " + alunoPeriodoCurricular.getAluno().getNomeCompleto());
+			if (!alunoPeriodoCurricular.getAnoLetivo().equals(null)) {
+				this.anoLetivo = alunoPeriodoCurricular.getAnoLetivo();
+			} else {
+//				this.anoLetivo = null;
+			}
+			
+			if (!alunoPeriodoCurricular.getPeriodoCurricular().getCursoModalidade().getCurso().getNome().equals(null)) {
+				this.curso = alunoPeriodoCurricular.getPeriodoCurricular().getCursoModalidade().getCurso().getNome();
+			} else {
+				this.curso = null;
+			}
+			
+			if (!alunoPeriodoCurricular.getPeriodoCurricular().getCursoModalidade().getModalidade().getNome().equals(null)) {
+				this.modalidade = alunoPeriodoCurricular.getPeriodoCurricular().getCursoModalidade().getModalidade().getNome();
+			}
+			
+			if (!alunoPeriodoCurricular.getTurma().equals(null)) {
+//				this.turma = alunoPeriodoCurricular.getTurma();
+			} else {
+//				this.turma = alunoExternal.getUltimaTurma();
+			}
+			
+			
+		}
+		
+//		this.anoLetivo = anoLetivo;
+//		this.curso = curso;
+//		this.modalidade = modalidade;
 		this.turma = turma;
 		this.nomeCompleto = nomeCompleto;
 		this.matricula = matricula;
