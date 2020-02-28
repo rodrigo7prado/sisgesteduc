@@ -63,32 +63,35 @@ public class AlunoPeriodoCurricularDto {
 	
 	public AlunoPeriodoCurricularDto(AlunoPeriodoCurricular alunoPeriodoCurricular,AlunoExternal alunoExternal,String anoLetivo, String curso, String modalidade,String turma, String nomeCompleto, String matricula) {
 		super();
-		System.out.println("aa: " + alunoExternal + ", " + matricula);
-		if ( alunoPeriodoCurricular != null ) {
-//			System.out.println("aa: " + alunoPeriodoCurricular.getAluno().getNomeCompleto());
-			if (!alunoPeriodoCurricular.getAnoLetivo().equals(null)) {
-				this.anoLetivo = alunoPeriodoCurricular.getAnoLetivo();
-			} else {
-//				this.anoLetivo = null;
+		if (alunoExternal != null) {
+//			System.out.println("aa: " + alunoExternal.getNomeCompleto() + ", " + matricula);
+			System.out.println("e: " + alunoExternal + ", c: " + alunoPeriodoCurricular);
+			
+			if ( alunoPeriodoCurricular != null ) {
+//				System.out.println("aa: " + alunoPeriodoCurricular.getAluno().getNomeCompleto());
+				if (!alunoPeriodoCurricular.getAnoLetivo().equals(null)) {
+					this.anoLetivo = alunoPeriodoCurricular.getAnoLetivo();
+				}
+				
+				if (!alunoPeriodoCurricular.getPeriodoCurricular().getCursoModalidade().getCurso().getNome().equals(null)) {
+					this.curso = alunoPeriodoCurricular.getPeriodoCurricular().getCursoModalidade().getCurso().getNome();
+				} else {
+					this.curso = null;
+				}
+				
+				if (!alunoPeriodoCurricular.getPeriodoCurricular().getCursoModalidade().getModalidade().getNome().equals(null)) {
+					this.modalidade = alunoPeriodoCurricular.getPeriodoCurricular().getCursoModalidade().getModalidade().getNome();
+				}
+				
+				if (!alunoPeriodoCurricular.getTurma().equals(null)) {
+//					this.turma = alunoPeriodoCurricular.getTurma();
+				} else {
+//					this.turma = alunoExternal.getUltimaTurma();
+				}
 			}
 			
-			if (!alunoPeriodoCurricular.getPeriodoCurricular().getCursoModalidade().getCurso().getNome().equals(null)) {
-				this.curso = alunoPeriodoCurricular.getPeriodoCurricular().getCursoModalidade().getCurso().getNome();
-			} else {
-				this.curso = null;
-			}
-			
-			if (!alunoPeriodoCurricular.getPeriodoCurricular().getCursoModalidade().getModalidade().getNome().equals(null)) {
-				this.modalidade = alunoPeriodoCurricular.getPeriodoCurricular().getCursoModalidade().getModalidade().getNome();
-			}
-			
-			if (!alunoPeriodoCurricular.getTurma().equals(null)) {
-//				this.turma = alunoPeriodoCurricular.getTurma();
-			} else {
-//				this.turma = alunoExternal.getUltimaTurma();
-			}
-			
-			
+		} else {
+//			System.out.println("e: " + alunoExternal + ", c: " + alunoPeriodoCurricular);
 		}
 		
 //		this.anoLetivo = anoLetivo;
