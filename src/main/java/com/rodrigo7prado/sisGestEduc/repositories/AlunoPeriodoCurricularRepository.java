@@ -12,21 +12,33 @@ import com.rodrigo7prado.sisGestEduc.entities.AlunoPeriodoCurricular;
 @Repository
 public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPeriodoCurricular, Long> {
 //	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto("
-//			+ "c.anoLetivo"
-//			+ ", c.id.periodoCurricular.id.cursoModalidade.id.curso.nome"
-//			+ ", c.id.periodoCurricular.id.cursoModalidade.id.modalidade.nome"
-//			+ ", c.turma"
-//			+ ", c.id.aluno.nomeCompleto"
+//			+ "c,e"
+//			+ ", c.anoLetivo"
+////			+ "e.ultimaTurma"
+//
+////			+ ", c.id.periodoCurricular.id.cursoModalidade.id.curso.nome"
+//			+ ", e.ultimaTurma"
+//
+////			+ ", c.id.periodoCurricular.id.cursoModalidade.id.modalidade.nome"
+//			+ ", e.ultimaTurma"
+//
+////			+ ", c.ultimaTurma"
+//			+ ", e.ultimaTurma"
+//
+////			+ ", c.id.aluno.nomeCompleto"
+//			+ ", e.nomeCompleto"
+//
 ////			+ ", c.id.aluno.matricula"
 //			+ ", e.id"
+//
 //			+ ") "
 //			+ "FROM AlunoPeriodoCurricular c "
 //			+ "RIGHT JOIN AlunoExternal e "
-//			+ "ON e.id = c.id.aluno.id"
+//			+ "ON c.id.aluno.id = e.id "
 ////			+ "WHERE "
 ////			+ "c.anoLetivo LIKE 'Ano Letivo: 2018%' "
 ////			+ "AND c.situacaoFinal = 'Aprovado' "
-////			+ "ORDER BY c.turma, c.id.aluno.nomeCompleto"
+//			+ "ORDER BY e.ultimaTurma"
 //			)
 	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto("
 			+ "c,e"
@@ -49,58 +61,13 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", e.id"
 
 			+ ") "
-			+ "FROM AlunoPeriodoCurricular c "
-			+ "RIGHT JOIN AlunoExternal e "
+			+ "FROM AlunoExternal e "
+			+ "LEFT JOIN AlunoPeriodoCurricular c "
 			+ "ON c.id.aluno.id = e.id "
 //			+ "WHERE "
 //			+ "c.anoLetivo LIKE 'Ano Letivo: 2018%' "
 //			+ "AND c.situacaoFinal = 'Aprovado' "
 			+ "ORDER BY e.ultimaTurma"
 			)
-//	@Query("SELECT DISTINCT "
-//			+ "c.anoLetivo"
-//			+ ", c.id.periodoCurricular.id.cursoModalidade.id.curso.nome"
-//			+ ", c.id.periodoCurricular.id.cursoModalidade.id.modalidade.nome"
-//			+ ", e.ultimaTurma"
-//			+ ", c.id.aluno.nomeCompleto"
-//			+ ", e.id "
-//			+ "FROM AlunoExternal e "
-//			+ "LEFT JOIN AlunoPeriodoCurricular c "
-//			+ "ON c.id.aluno.id = e.id "
-//			+ "ORDER BY e.ultimaTurma"
-//			)
-//	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto("
-//			+ "c.anoLetivo, c.modalidade, c.curso, c.serie, c.turno, c.turma, "
-//			+ "c.nomeCompl, c.aluno, c.freq, c.situacaoFinal"
-//			+ ") FROM AlunoPeriodoCurricular c "
-//			+ "WHERE c.anoLetivo LIKE 'Ano Letivo: 2018%' "
-//			+ "AND c.situacaoFinal = 'Aprovado' "
-//			+ "ORDER BY c.turma, c.nomeCompl")
-//	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDTO("
-//			+ "c.anoLetivo, c.modalidade, c.curso, c.serie, c.turno, c.turma, "
-//			+ " c.nomeCompl, a.matricula, c.freq, c.situacaoFinal"
-//			+ ") FROM AlunoPeriodoCurricular c "
-//			+ "INNER JOIN AlunoExternal a "
-//			+ "ON c.matricula = a.matricula "
-//			+ "WHERE c.anoLetivo LIKE 'Ano Letivo: 2018%' "
-//			+ "AND c.situacaoFinal = 'Aprovado' "
-//			+ "ORDER BY c.turma, c.nomeCompl")
-//	@Query("SELECT DISTINCT c.aluno, c.anoLetivo, c.modalidade, c.curso, c.serie, c.turno, c.turma, "
-//			+ " c.nomeCompl, a.matricula, c.freq, c.situacaoFinal"
-//			+ " FROM AlunoPeriodoCurricular c "
-//			+ "INNER JOIN AlunoExternal a "
-//			+ "ON c.aluno = a.matricula "
-//			+ "WHERE c.anoLetivo LIKE 'Ano Letivo: 2018%' "
-//			+ "AND c.situacaoFinal = 'Aprovado' "
-//			+ "ORDER BY c.turma, c.nomeCompl")
-//	@Query("SELECT DISTINCT c.turma "
-//			+ "c.id.aluno.nomeCompleto, c.id.aluno.matricula "
-//			+ "FROM AlunoPeriodoCurricular c "
-//			+ "WHERE "
-//			+ "WHERE c.turma = '3001' "
-//			+ "c.anoLetivo LIKE 'Ano Letivo: 2018%' "
-//			+ "AND c.situacaoFinal = 'Aprovado' "
-//			+ "ORDER BY c.turma, c.id.aluno.nomeCompleto"
-//)
 	List<AlunoPeriodoCurricularDto> findFilterConcluintes();
 }
