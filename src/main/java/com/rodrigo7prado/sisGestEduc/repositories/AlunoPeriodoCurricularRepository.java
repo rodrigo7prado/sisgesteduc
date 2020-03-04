@@ -40,34 +40,63 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 ////			+ "AND c.situacaoFinal = 'Aprovado' "
 //			+ "ORDER BY e.ultimaTurma"
 //			)
+//	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto("
+//			+ "c,e"
+//			+ ", c.anoLetivo"
+////			+ "e.ultimaTurma"
+//
+////			+ ", c.id.periodoCurricular.id.cursoModalidade.id.curso.nome"
+//			+ ", e.ultimaTurma"
+//
+////			+ ", c.id.periodoCurricular.id.cursoModalidade.id.modalidade.nome"
+//			+ ", e.ultimaTurma"
+//
+////			+ ", c.ultimaTurma"
+//			+ ", e.ultimaTurma"
+//
+////			+ ", c.id.aluno.nomeCompleto"
+//			+ ", e.nomeCompleto"
+//
+////			+ ", c.id.aluno.matricula"
+//			+ ", e.id"
+//
+//			+ ") "
+//			+ "FROM AlunoExternal e "
+//			+ "LEFT JOIN AlunoPeriodoCurricular c "
+//			+ "ON c.id.aluno.id = e.id "
+////			+ "WHERE "
+////			+ "c.anoLetivo LIKE 'Ano Letivo: 2018%' "
+////			+ "AND c.situacaoFinal = 'Aprovado' "
+//			+ "ORDER BY e.ultimaTurma"
+//			)
 	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto("
-			+ "c,e"
-			+ ", c.anoLetivo"
+			+ "e"
+			+ ", e.id.turma"
 //			+ "e.ultimaTurma"
 
 //			+ ", c.id.periodoCurricular.id.cursoModalidade.id.curso.nome"
-			+ ", e.ultimaTurma"
+			+ ", e.id.turma"
 
 //			+ ", c.id.periodoCurricular.id.cursoModalidade.id.modalidade.nome"
-			+ ", e.ultimaTurma"
+			+ ", e.id.turma"
 
 //			+ ", c.ultimaTurma"
-			+ ", e.ultimaTurma"
+			+ ", e.id.turma"
 
 //			+ ", c.id.aluno.nomeCompleto"
-			+ ", e.nomeCompleto"
+			+ ", e.nomeCompl"
 
 //			+ ", c.id.aluno.matricula"
-			+ ", e.id"
+			+ ", e.id.aluno"
 
 			+ ") "
-			+ "FROM AlunoExternal e "
-			+ "LEFT JOIN AlunoPeriodoCurricular c "
-			+ "ON c.id.aluno.id = e.id "
+			+ "FROM VwAlunoPeriodoCurricular e "
+//			+ "LEFT JOIN AlunoPeriodoCurricular c "
+//			+ "ON c.id.aluno.id = e.id "
 //			+ "WHERE "
 //			+ "c.anoLetivo LIKE 'Ano Letivo: 2018%' "
 //			+ "AND c.situacaoFinal = 'Aprovado' "
-			+ "ORDER BY e.ultimaTurma"
+//			+ "ORDER BY e.ultimaTurma"
 			)
 	List<AlunoPeriodoCurricularDto> findFilterConcluintes();
 }

@@ -86,14 +86,14 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		observableList.clear();
 		observableList.addAll(service.findFilterConcluintes());
 		TreeItem<AlunoPeriodoCurricularDto> treeItemAlunoRoot = new TreeItem<>(
-				new AlunoPeriodoCurricularDto(null,null,null, null, null, "Turma", null, null));
+				new AlunoPeriodoCurricularDto(null,null, null, null, "Turma", null, null));
 		treeTableViewAluno.setRoot(treeItemAlunoRoot);
 
 		for (AlunoPeriodoCurricularDto itemObsList : observableList) {
-			TreeItem<AlunoPeriodoCurricularDto> turmaNode = new TreeItem<>(new AlunoPeriodoCurricularDto(null,null,
+			TreeItem<AlunoPeriodoCurricularDto> turmaNode = new TreeItem<>(new AlunoPeriodoCurricularDto(null,
 					null, null, null, itemObsList.getTurma(),
 					itemObsList.getNomeCompleto(), itemObsList.getMatricula()));
-			TreeItem<AlunoPeriodoCurricularDto> alunoNode = new TreeItem<>(new AlunoPeriodoCurricularDto(null,null,
+			TreeItem<AlunoPeriodoCurricularDto> alunoNode = new TreeItem<>(new AlunoPeriodoCurricularDto(null,
 					null, null, null, itemObsList.getTurma(),
 					itemObsList.getNomeCompleto(), itemObsList.getMatricula()));
 			Integer size = treeItemAlunoRoot.getChildren().size();
