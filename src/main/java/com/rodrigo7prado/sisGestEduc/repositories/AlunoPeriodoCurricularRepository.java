@@ -70,36 +70,52 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 //			+ "ORDER BY e.ultimaTurma"
 //			)
 	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto("
-			+ "e"
-			+ ", e.id.ano"
+			+ "v,a"
+			
+			// ano
+			+ ", v.id.ano"
 //			+ "e.ultimaTurma"
 
+			// curso
 //			+ ", c.id.periodoCurricular.id.cursoModalidade.id.curso.nome"
-			+ ", e.id.turma"
+			+ ", v.id.turma"
 
+			// modalidade
 //			+ ", c.id.periodoCurricular.id.cursoModalidade.id.modalidade.nome"
-			+ ", e.id.turma"
+			+ ", v.id.turma"
 
+			// turma
 //			+ ", c.ultimaTurma"
-			+ ", e.id.turma"
+			+ ", v.id.turma"
 
+			// nomeCompl
 //			+ ", c.id.aluno.nomeCompleto"
-			+ ", e.nomeCompl"
+			+ ", v.nomeCompl"
 
+			// matricula
 //			+ ", c.id.aluno.matricula"
-			+ ", e.id.aluno"
+			+ ", v.id.aluno"
 
+			// validDadosPessoais
+//			+ ", c.id.aluno.matricula"
+//			+ ", a.id.aluno"
+			
+			// dadosHe
+//			+ ", c.id.aluno.matricula"
+//			+ ", v.id.aluno"
+
+			// situacaoFinal
 //			+ ", c.situacaoFinal"
-			+ ", e.id.situacaoFinal"
+			+ ", v.id.situacaoFinal"
 
 			+ ") "
-			+ "FROM VwAlunoPeriodoCurricular e "
-//			+ "LEFT JOIN AlunoPeriodoCurricular c "
-//			+ "ON c.id.aluno.id = e.id "
+			+ "FROM VwAlunoPeriodoCurricular v "
+			+ "LEFT JOIN AlunoExternal a "
+			+ "ON v.id.aluno = a.id "
 			+ "WHERE "
-			+ "e.id.ano LIKE 'Ano Letivo: 2018%' "
-			+ "AND e.id.situacaoFinal = 'Aprovado' "
-			+ "ORDER BY e.id.turma, e.nomeCompl"
+			+ "v.id.ano LIKE 'Ano Letivo: 2018%' "
+			+ "AND v.id.situacaoFinal = 'Aprovado' "
+			+ "ORDER BY v.id.turma, v.nomeCompl"
 			)
 	List<AlunoPeriodoCurricularDto> findFilterConcluintes();
 }

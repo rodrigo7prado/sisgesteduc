@@ -14,6 +14,10 @@ public class VwAlunoPeriodoCurricular {
 	
 	private String nomeCompl;
 	
+//	@ManyToOne
+//	@JoinColumn(name = "alunoExternalId")
+//	private AlunoExternal alunoExternal;
+	
 	public VwAlunoPeriodoCurricular() {
 	}
 

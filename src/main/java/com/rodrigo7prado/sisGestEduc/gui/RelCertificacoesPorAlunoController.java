@@ -50,13 +50,13 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	@FXML
 	private TreeTableColumn<AlunoPeriodoCurricularDto, StatusDocAluno> treeTableColumnDP;
-	
+
 	@FXML
 	private TreeTableColumn<AlunoPeriodoCurricularDto, StatusDocAluno> treeTableColumnDadosIdentif;
-	
+
 	@FXML
 	private TreeTableColumn<AlunoPeriodoCurricularDto, StatusDocAluno> treeTableColumnDadosHeFund;
-	
+
 	@FXML
 	private TreeTableColumn<AlunoPeriodoCurricularDto, StatusDocAluno> treeTableColumnDadosHeMedio;
 
@@ -68,7 +68,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void initializeNodes() {
-		
+
 		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		System.out.println("Service: " + service.findFilterConcluintes());
 		treeTableColumnTurma.setCellValueFactory(new TreeItemPropertyValueFactory("turma"));
@@ -86,16 +86,19 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		observableList.clear();
 		observableList.addAll(service.findFilterConcluintes());
 		TreeItem<AlunoPeriodoCurricularDto> treeItemAlunoRoot = new TreeItem<>(
-				new AlunoPeriodoCurricularDto(null,null, null, null, "Turma", null, null,null));
+//				new AlunoPeriodoCurricularDto(null, null, null, null, null, "Turma", null, null, null)
+		);
 		treeTableViewAluno.setRoot(treeItemAlunoRoot);
 
 		for (AlunoPeriodoCurricularDto itemObsList : observableList) {
-			TreeItem<AlunoPeriodoCurricularDto> turmaNode = new TreeItem<>(new AlunoPeriodoCurricularDto(null,
-					null, null, null, itemObsList.getTurma(),
-					itemObsList.getNomeCompleto(), itemObsList.getMatricula(),null));
-			TreeItem<AlunoPeriodoCurricularDto> alunoNode = new TreeItem<>(new AlunoPeriodoCurricularDto(null,
-					null, null, null, itemObsList.getTurma(),
-					itemObsList.getNomeCompleto(), itemObsList.getMatricula(),null));
+			TreeItem<AlunoPeriodoCurricularDto> turmaNode = new TreeItem<>(
+					new AlunoPeriodoCurricularDto(null, null, null, itemObsList.getTurma(), itemObsList.getMatricula(),
+							itemObsList.getNomeCompleto(), itemObsList.getValidDadosPessoais(),
+							itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(), itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()));
+			TreeItem<AlunoPeriodoCurricularDto> alunoNode = new TreeItem<>(
+					new AlunoPeriodoCurricularDto(null, null, null, itemObsList.getTurma(), itemObsList.getMatricula(),
+							itemObsList.getNomeCompleto(), itemObsList.getValidDadosPessoais(),
+							itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(), itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()));
 			Integer size = treeItemAlunoRoot.getChildren().size();
 
 			if (size.equals(0)) {

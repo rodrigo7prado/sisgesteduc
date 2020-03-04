@@ -205,11 +205,16 @@ public class AlunoExternal implements Serializable {
 	private String ensMedioCidadeEstadoEstabEnsAno3;
 	@Column(length = 60)
 	private String ensMedioCidadeEstadoEstabEnsAno4;
+	
+//	private Boolean validDadosPessoais;
 
 	private StatusDocAluno statusDocumentacaoAluno;
 	
 	@OneToOne(mappedBy = "alunoExternal", cascade = CascadeType.ALL)
 	private Aluno aluno;
+//	@JsonIgnore
+//	@OneToMany(mappedBy = "alunoExternal")
+//	private List<VwAlunoPeriodoCurricular> vwAlunoPeriodoCurricular = new ArrayList<>();
 	@JsonIgnore
 	@OneToMany(mappedBy = "aluno")
 	private Set<ResultadoFinalExternal> resultadosFinaisExternal = new HashSet<>();

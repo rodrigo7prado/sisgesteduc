@@ -3,6 +3,7 @@ package com.rodrigo7prado.sisGestEduc.dto;
 import com.rodrigo7prado.sisGestEduc.entities.Aluno;
 import com.rodrigo7prado.sisGestEduc.entities.AlunoPeriodoCurricular;
 import com.rodrigo7prado.sisGestEduc.entities.PeriodoCurricular;
+import com.rodrigo7prado.sisGestEduc.entities.external.AlunoExternal;
 import com.rodrigo7prado.sisGestEduc.entities.external.VwAlunoPeriodoCurricular;
 import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 
@@ -61,12 +62,18 @@ public class AlunoPeriodoCurricularDto {
 
 	}
 
-	public AlunoPeriodoCurricularDto(VwAlunoPeriodoCurricular vwAlunoPeriodoCurricular, String anoLetivo, String curso,
-			String modalidade, String turma, String nomeCompleto, String matricula, String situacaoFinal) {
+	public AlunoPeriodoCurricularDto(VwAlunoPeriodoCurricular vwAlunoPeriodoCurricular, AlunoExternal alunoExternal,
+			String anoLetivo, String curso, String modalidade, String turma, String nomeCompleto, String matricula,
+			String situacaoFinal) {
 		super();
-//		if (alunoExternal != null) {
+		if (alunoExternal != null) {
 //			System.out.println("aa: " + alunoExternal.getNomeCompleto() + ", " + matricula);
 //			System.out.println("e: " + alunoExternal + ", c: " + alunoPeriodoCurricular);
+
+			this.validDadosPessoais = alunoExternal.getValidDadosPessoais();
+			this.validDadosIdentif = alunoExternal.getValidDadosIdentif();
+			this.validDadosHeFund = alunoExternal.getValidDadosHeFund();
+			this.validDadosHeMedio = alunoExternal.getValidDadosHeMedio();
 
 //			if ( alunoPeriodoCurricular != null ) {
 ////				System.out.println("aa: " + alunoPeriodoCurricular.getAluno().getNomeCompleto());
@@ -89,7 +96,7 @@ public class AlunoPeriodoCurricularDto {
 //				} else {
 ////					this.turma = alunoExternal.getUltimaTurma();
 //				}
-//			}
+		}
 //			
 //		} else {
 ////			System.out.println("e: " + alunoExternal + ", c: " + alunoPeriodoCurricular);
@@ -101,6 +108,24 @@ public class AlunoPeriodoCurricularDto {
 		this.turma = turma;
 		this.nomeCompleto = nomeCompleto;
 		this.matricula = matricula;
+		this.situacaoFinal = situacaoFinal;
+
+	}
+
+	public AlunoPeriodoCurricularDto(String anoLetivo, String curso, String modalidade, String turma, String matricula,
+			String nomeCompleto, StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif,
+			StatusDocAluno validDadosHeFund, StatusDocAluno validDadosHeMedio, String situacaoFinal) {
+
+		this.anoLetivo = anoLetivo;
+		this.curso = curso;
+		this.modalidade = modalidade;
+		this.turma = turma;
+		this.matricula = matricula;
+		this.nomeCompleto = nomeCompleto;
+		this.validDadosPessoais = validDadosPessoais;
+		this.validDadosIdentif = validDadosIdentif;
+		this.validDadosHeFund = validDadosHeFund;
+		this.validDadosHeMedio = validDadosHeMedio;
 		this.situacaoFinal = situacaoFinal;
 	}
 
