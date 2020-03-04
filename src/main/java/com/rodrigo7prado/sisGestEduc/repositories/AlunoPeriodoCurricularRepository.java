@@ -71,7 +71,7 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 //			)
 	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto("
 			+ "e"
-			+ ", e.id.turma"
+			+ ", e.id.ano"
 //			+ "e.ultimaTurma"
 
 //			+ ", c.id.periodoCurricular.id.cursoModalidade.id.curso.nome"
@@ -89,14 +89,17 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 //			+ ", c.id.aluno.matricula"
 			+ ", e.id.aluno"
 
+//			+ ", c.situacaoFinal"
+			+ ", e.id.situacaoFinal"
+
 			+ ") "
 			+ "FROM VwAlunoPeriodoCurricular e "
 //			+ "LEFT JOIN AlunoPeriodoCurricular c "
 //			+ "ON c.id.aluno.id = e.id "
-//			+ "WHERE "
-//			+ "c.anoLetivo LIKE 'Ano Letivo: 2018%' "
-//			+ "AND c.situacaoFinal = 'Aprovado' "
-//			+ "ORDER BY e.ultimaTurma"
+			+ "WHERE "
+			+ "e.id.ano LIKE 'Ano Letivo: 2018%' "
+			+ "AND e.id.situacaoFinal = 'Aprovado' "
+			+ "ORDER BY e.id.turma, e.nomeCompl"
 			)
 	List<AlunoPeriodoCurricularDto> findFilterConcluintes();
 }

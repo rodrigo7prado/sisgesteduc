@@ -9,42 +9,42 @@ import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 public class AlunoPeriodoCurricularDto {
 
 	private Long id;
-	
+
 	private PeriodoCurricular periodoCurricular;
-	
+
 	private String anoLetivo;
-	
+
 	private String modalidade;
-	
+
 	private String curso;
-	
+
 	private String serie;
-	
+
 	private String turno;
-	
+
 	private String turma;
-	
+
 	private Aluno aluno;
-	
+
 	private String matricula;
-	
+
 	private String nomeCompleto;
-	
+
 	private String freq;
-	
+
 	private String situacaoFinal;
-	
+
 	private StatusDocAluno validDadosPessoais;
-	
+
 	private StatusDocAluno validDadosIdentif;
-	
+
 	private StatusDocAluno validDadosHeFund;
-	
+
 	private StatusDocAluno validDadosHeMedio;
-	
+
 	AlunoPeriodoCurricularDto() {
 	}
-	
+
 	public AlunoPeriodoCurricularDto(AlunoPeriodoCurricular obj) {
 //		id = obj.getId();
 //		anoLetivo = obj.getAnoLetivo();
@@ -60,13 +60,14 @@ public class AlunoPeriodoCurricularDto {
 //		situacaoFinal = obj.getSituacaoFinal();
 
 	}
-	
-	public AlunoPeriodoCurricularDto(VwAlunoPeriodoCurricular vwAlunoPeriodoCurricular,String anoLetivo, String curso, String modalidade,String turma, String nomeCompleto, String matricula) {
+
+	public AlunoPeriodoCurricularDto(VwAlunoPeriodoCurricular vwAlunoPeriodoCurricular, String anoLetivo, String curso,
+			String modalidade, String turma, String nomeCompleto, String matricula, String situacaoFinal) {
 		super();
 //		if (alunoExternal != null) {
 //			System.out.println("aa: " + alunoExternal.getNomeCompleto() + ", " + matricula);
 //			System.out.println("e: " + alunoExternal + ", c: " + alunoPeriodoCurricular);
-			
+
 //			if ( alunoPeriodoCurricular != null ) {
 ////				System.out.println("aa: " + alunoPeriodoCurricular.getAluno().getNomeCompleto());
 //				if (!alunoPeriodoCurricular.getAnoLetivo().equals(null)) {
@@ -93,16 +94,16 @@ public class AlunoPeriodoCurricularDto {
 //		} else {
 ////			System.out.println("e: " + alunoExternal + ", c: " + alunoPeriodoCurricular);
 //		}
-		
+
 		this.anoLetivo = anoLetivo;
 		this.curso = curso;
 		this.modalidade = modalidade;
 		this.turma = turma;
 		this.nomeCompleto = nomeCompleto;
 		this.matricula = matricula;
+		this.situacaoFinal = situacaoFinal;
 	}
 
-	
 //	public AlunoPeriodoCurricularDto(String anoLetivo,String curso, String modalidade, String serie, String turno,
 //			String turma, String nomeCompl, Aluno aluno, String freq, String situacaoFinal) {
 //		super();
@@ -168,7 +169,7 @@ public class AlunoPeriodoCurricularDto {
 	public String getTurma() {
 		return turma;
 	}
-	
+
 	public Aluno getAluno() {
 		return aluno;
 	}

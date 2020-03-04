@@ -17,6 +17,8 @@ public class VwAlunoPeriodoCurricularPk implements Serializable {
 	private String turma;
 	
 	private String aluno;
+	
+	private String situacaoFinal;
 
 	public String getAno() {
 		return ano;
@@ -40,5 +42,13 @@ public class VwAlunoPeriodoCurricularPk implements Serializable {
 
 	public void setAluno(String aluno) {
 		this.aluno = aluno;
+	}
+
+	public String getSituacaoFinal() {
+		return situacaoFinal;
+	}
+
+	public void setSituacaoFinal(String situacaoFinal) {
+		this.situacaoFinal = situacaoFinal;
 	}
 }
