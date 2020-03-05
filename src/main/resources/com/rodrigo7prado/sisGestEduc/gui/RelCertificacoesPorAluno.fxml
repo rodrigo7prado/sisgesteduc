@@ -36,7 +36,7 @@
         <items>
       		<SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="160.0" prefWidth="1198.0">
       			<items>
-						<TreeTableView fx:id="treeTableViewAluno" prefHeight="568.0" prefWidth="189.0">
+						<TreeTableView fx:id="treeTableViewAluno" onMouseClicked="#onClickTreeTableView" prefHeight="568.0" prefWidth="189.0">
 							<columns>
 								<TreeTableColumn fx:id="treeTableColumnTurma" prefWidth="170.0" text="Turma" />
 								<TreeTableColumn fx:id="treeTableColumnAluno" prefWidth="141.0" text="Matrícula" />

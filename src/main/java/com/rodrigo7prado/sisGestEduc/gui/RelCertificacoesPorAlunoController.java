@@ -14,6 +14,7 @@ import com.rodrigo7prado.sisGestEduc.services.AlunoPeriodoCurricularService;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TreeItem;
@@ -94,11 +95,13 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 			TreeItem<AlunoPeriodoCurricularDto> turmaNode = new TreeItem<>(
 					new AlunoPeriodoCurricularDto(null, null, null, itemObsList.getTurma(), itemObsList.getMatricula(),
 							itemObsList.getNomeCompleto(), itemObsList.getValidDadosPessoais(),
-							itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(), itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()));
+							itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
+							itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()));
 			TreeItem<AlunoPeriodoCurricularDto> alunoNode = new TreeItem<>(
 					new AlunoPeriodoCurricularDto(null, null, null, itemObsList.getTurma(), itemObsList.getMatricula(),
 							itemObsList.getNomeCompleto(), itemObsList.getValidDadosPessoais(),
-							itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(), itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()));
+							itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
+							itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()));
 			Integer size = treeItemAlunoRoot.getChildren().size();
 
 			if (size.equals(0)) {
@@ -121,6 +124,20 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 		treeTableViewAluno.setShowRoot(false);
 //		initCheckBoxDP();
+	}
+
+	@FXML
+	public void onClickTreeTableView(Event event) {
+//		@SuppressWarnings("unchecked")
+//		TreeTableView<AlunoPeriodoCurricularDto> treeTableView = (TreeTableView<AlunoPeriodoCurricularDto>) event.getSource();
+		
+		TreeTableView<?> treeTableView = (TreeTableView<?>) event.getSource();
+		
+//		AlunoPeriodoCurricularDto obj = (AlunoPeriodoCurricularDto) treeTableView.getFocusModel().getFocusedItem().getValue();
+		
+		System.out.println("Clicked! " + event.getSource());
+		System.out.println("Clicked! " + treeTableView.getFocusModel().getFocusedIndex());
+		System.out.println("Clicked! " + treeTableView.getFocusModel().getFocusedItem().getValue());
 	}
 
 	@SuppressWarnings("unused")
