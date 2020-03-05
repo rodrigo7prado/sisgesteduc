@@ -125,16 +125,16 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		treeTableViewAluno.setShowRoot(false);
 //		initCheckBoxDP();
 	}
-
+	
 	@FXML
 	public void onClickTreeTableView(Event event) {
 //		@SuppressWarnings("unchecked")
 //		TreeTableView<AlunoPeriodoCurricularDto> treeTableView = (TreeTableView<AlunoPeriodoCurricularDto>) event.getSource();
-		
+
 		TreeTableView<?> treeTableView = (TreeTableView<?>) event.getSource();
-		
+
 //		AlunoPeriodoCurricularDto obj = (AlunoPeriodoCurricularDto) treeTableView.getFocusModel().getFocusedItem().getValue();
-		
+
 		System.out.println("Clicked! " + event.getSource());
 		System.out.println("Clicked! " + treeTableView.getFocusModel().getFocusedIndex());
 		System.out.println("Clicked! " + treeTableView.getFocusModel().getFocusedItem().getValue());
