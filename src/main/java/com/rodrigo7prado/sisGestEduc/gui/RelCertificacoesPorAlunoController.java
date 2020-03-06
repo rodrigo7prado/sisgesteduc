@@ -21,6 +21,7 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
+import javafx.scene.layout.VBox;
 
 @Controller
 public class RelCertificacoesPorAlunoController implements Initializable {
@@ -60,6 +61,9 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	@FXML
 	private TreeTableColumn<AlunoPeriodoCurricularDto, StatusDocAluno> treeTableColumnDadosHeMedio;
+	
+	@FXML
+	private VBox dialog;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
