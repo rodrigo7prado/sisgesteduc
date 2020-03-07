@@ -30,6 +30,10 @@ public class AlunoPeriodoCurricularDto {
 	private String matricula;
 
 	private String nomeCompleto;
+//	private String dataNasc;
+	private String nomePai;
+	private String nomeMae;
+	private String rg;
 
 	private String freq;
 
@@ -43,7 +47,8 @@ public class AlunoPeriodoCurricularDto {
 
 	private StatusDocAluno validDadosHeMedio;
 
-	AlunoPeriodoCurricularDto() {
+	public AlunoPeriodoCurricularDto() {
+		System.out.println("CONSTRUTOR: " + this.nomeCompleto);
 	}
 
 	public AlunoPeriodoCurricularDto(AlunoPeriodoCurricular obj) {
@@ -63,7 +68,7 @@ public class AlunoPeriodoCurricularDto {
 	}
 
 	public AlunoPeriodoCurricularDto(VwAlunoPeriodoCurricular vwAlunoPeriodoCurricular, AlunoExternal alunoExternal,
-			String anoLetivo, String curso, String modalidade, String turma, String nomeCompleto, String matricula,
+			String anoLetivo, String curso, String modalidade, String turma, String nomeCompleto, String nomePai, String nomeMae, String rg, String matricula,
 			String situacaoFinal) {
 		super();
 		if (alunoExternal != null) {
@@ -106,14 +111,17 @@ public class AlunoPeriodoCurricularDto {
 		this.curso = curso;
 		this.modalidade = modalidade;
 		this.turma = turma;
-		this.nomeCompleto = nomeCompleto;
 		this.matricula = matricula;
+		this.nomeCompleto = nomeCompleto;
+		this.nomePai = nomePai;
+		this.nomeMae = nomeMae;
+		this.rg = rg;
 		this.situacaoFinal = situacaoFinal;
 
 	}
 
 	public AlunoPeriodoCurricularDto(String anoLetivo, String curso, String modalidade, String turma, String matricula,
-			String nomeCompleto, StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif,
+			String nomeCompleto, String nomePai,String nomeMae, String rg, StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif,
 			StatusDocAluno validDadosHeFund, StatusDocAluno validDadosHeMedio, String situacaoFinal) {
 
 		this.anoLetivo = anoLetivo;
@@ -122,6 +130,10 @@ public class AlunoPeriodoCurricularDto {
 		this.turma = turma;
 		this.matricula = matricula;
 		this.nomeCompleto = nomeCompleto;
+//		this.dataNasc = dataNasc;
+		this.nomePai = nomePai;
+		this.nomeMae = nomeMae;
+		this.rg = rg;
 		this.validDadosPessoais = validDadosPessoais;
 		this.validDadosIdentif = validDadosIdentif;
 		this.validDadosHeFund = validDadosHeFund;
@@ -253,6 +265,38 @@ public class AlunoPeriodoCurricularDto {
 
 	public void setNomeCompleto(String nomeCompleto) {
 		this.nomeCompleto = nomeCompleto;
+	}
+
+//	public String getDataNasc() {
+//		return dataNasc;
+//	}
+//
+//	public void setDataNasc(String dataNasc) {
+//		this.dataNasc = dataNasc;
+//	}
+
+	public String getNomePai() {
+		return nomePai;
+	}
+
+	public void setNomePai(String nomePai) {
+		this.nomePai = nomePai;
+	}
+
+	public String getNomeMae() {
+		return nomeMae;
+	}
+
+	public void setNomeMae(String nomeMae) {
+		this.nomeMae = nomeMae;
+	}
+
+	public String getRg() {
+		return rg;
+	}
+
+	public void setRg(String rg) {
+		this.rg = rg;
 	}
 
 	public void setFreq(String freq) {

@@ -2,7 +2,6 @@ package com.rodrigo7prado.sisGestEduc.gui;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -78,11 +77,14 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private void loadListView() {
 		listView.getItems().add("Todos os Alunos");
 		listView.getItems().add("Concluintes");
+		listView.getItems().add("Todas as Certidões");
+		listView.getItems().add("Todos os Certificados");
 		listView.getItems().add("Quaisquer pendências");
 		listView.getItems().add("Pendência de dados pessoais");
 		listView.getItems().add("Pendência de dados escolares");
 		listView.getItems().add("Pendência de HE fund.");
 		listView.getItems().add("Pendência de HE médio");
+		listView.getItems().add("Diferenças c/ Conexão Educação");
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -110,16 +112,24 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		treeTableViewAluno.setRoot(treeItemAlunoRoot);
 
 		for (AlunoPeriodoCurricularDto itemObsList : observableList) {
-			TreeItem<AlunoPeriodoCurricularDto> turmaNode = new TreeItem<>(
+			
+//			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(
+//					new AlunoPeriodoCurricularDto(null, null, null, itemObsList.getTurma(), itemObsList.getMatricula(),
+//							itemObsList.getNomeCompleto(), itemObsList.getNomePai(), itemObsList.getValidDadosPessoais(),
+//							itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
+//							itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()));
+			
+			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(
 					new AlunoPeriodoCurricularDto(null, null, null, itemObsList.getTurma(), itemObsList.getMatricula(),
-							itemObsList.getNomeCompleto(), itemObsList.getValidDadosPessoais(),
+							itemObsList.getNomeCompleto(), itemObsList.getNomePai(), itemObsList.getNomeMae(), itemObsList.getRg(), itemObsList.getValidDadosPessoais(),
 							itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
 							itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()));
-			TreeItem<AlunoPeriodoCurricularDto> alunoNode = new TreeItem<>(
-					new AlunoPeriodoCurricularDto(null, null, null, itemObsList.getTurma(), itemObsList.getMatricula(),
-							itemObsList.getNomeCompleto(), itemObsList.getValidDadosPessoais(),
-							itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
-							itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()));
+			
+			TreeItem<AlunoPeriodoCurricularDto> turmaNode = node;
+					
+			TreeItem<AlunoPeriodoCurricularDto> alunoNode = node;
+			
+			
 			Integer size = treeItemAlunoRoot.getChildren().size();
 
 			if (size.equals(0)) {

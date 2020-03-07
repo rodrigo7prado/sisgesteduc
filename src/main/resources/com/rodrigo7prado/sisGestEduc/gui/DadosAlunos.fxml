@@ -61,19 +61,19 @@
 							<Insets left="10.0" />
 						</GridPane.margin>
 					</Label>
-					<TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
+					<TextField fx:id="nomePaiField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
 					<Label text="Nome da mãe" GridPane.columnIndex="4" GridPane.rowIndex="1">
 						<GridPane.margin>
 							<Insets left="10.0" />
 						</GridPane.margin>
 					</Label>
-					<TextField GridPane.columnIndex="5" GridPane.rowIndex="1" />
+					<TextField fx:id="nomeMaeField" GridPane.columnIndex="5" GridPane.rowIndex="1" />
 					<Label text="RG" GridPane.rowIndex="2">
 						<padding>
 							<Insets left="10.0" />
 						</padding>
 					</Label>
-					<TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+					<TextField fx:id="rgField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 					<Label text="Órgão emissor" GridPane.columnIndex="2" GridPane.rowIndex="2">
 						<padding>
 							<Insets left="10.0" />

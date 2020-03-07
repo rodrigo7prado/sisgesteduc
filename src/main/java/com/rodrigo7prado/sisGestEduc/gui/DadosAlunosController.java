@@ -17,6 +17,14 @@ public class DadosAlunosController implements Initializable {
 	private TextField matriculaField;
 	@FXML
 	private TextField nomeCompletoField;
+//	@FXML
+//	private TextField dataNascField;
+	@FXML
+	private TextField nomePaiField;
+	@FXML
+	private TextField nomeMaeField;
+	@FXML
+	private TextField rgField;
 	
 //	private AlunoPeriodoCurricularDto entity;
 	
@@ -51,6 +59,10 @@ public class DadosAlunosController implements Initializable {
 //		matriculaField.setText(entity.getMatricula());
 		matriculaField.setText(obj.getMatricula());
 		nomeCompletoField.setText(obj.getNomeCompleto());
+//		dataNascField.setText(obj.getRg());		
+		nomePaiField.setText(obj.getNomePai());
+		nomeMaeField.setText(obj.getNomeMae());
+		rgField.setText(obj.getRg());
 	}
 
 }
