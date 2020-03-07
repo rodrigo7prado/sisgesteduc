@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -27,8 +30,25 @@
 				<Button mnemonicParsing="false" text="Pesquisar Aluno" />
 			</items>
 		</ToolBar>
-		<SplitPane dividerPositions="0.7262103505843072" prefHeight="570.0" prefWidth="1200.0">
+		<SplitPane dividerPositions="0.15, 0.5" prefHeight="570.0" prefWidth="1200.0">
 			<items>
+            <VBox prefHeight="568.0" prefWidth="438.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #FFFFFF;" text="Todos os Alunos" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" style="-fx-background-color: #77DDFF;" text="Concluintes">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="171.0" style="-fx-background-color: #FFFFFF;" text="Quaisquer pendências" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="171.0" style="-fx-background-color: #FFFFFF;" text="Pendências Dados Pessoais" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="171.0" style="-fx-background-color: #FFFFFF;" text="Pendências Dados Escolares" />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="171.0" style="-fx-background-color: #FFFFFF;" text="Pendências Histórico Fund." />
+                  <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="171.0" style="-fx-background-color: #FFFFFF;" text="Pendências Histórico Médio" />
+                  <ChoiceBox prefWidth="150.0" />
+                  <ListView editable="true" prefHeight="200.0" prefWidth="200.0" />
+               </children>
+            </VBox>
 				<SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="160.0" prefWidth="1198.0">
 					<items>
 						<TreeTableView fx:id="treeTableViewAluno" onKeyPressed="#onClickTreeTableView" onMouseClicked="#onClickTreeTableView" prefHeight="568.0" prefWidth="189.0">
