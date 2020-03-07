@@ -20,7 +20,7 @@
 	<children>
 		<ToolBar prefHeight="40.0" prefWidth="200.0">
 			<items>
-				<ComboBox prefWidth="150.0" promptText="3001" />
+				<ComboBox prefWidth="150.0" promptText="Filtrar apenas Aprovados" />
 				<ToggleButton mnemonicParsing="false" text="Filtrar por pendentes" />
 				<Button mnemonicParsing="false" text="Abrir tela de edição filtrada" />
 				<ToggleButton mnemonicParsing="false" text="ToggleButton" />
@@ -31,7 +31,7 @@
 			<items>
 				<SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="160.0" prefWidth="1198.0">
 					<items>
-						<TreeTableView fx:id="treeTableViewAluno" onMouseClicked="#onClickTreeTableView" prefHeight="568.0" prefWidth="189.0">
+						<TreeTableView fx:id="treeTableViewAluno" onKeyPressed="#onClickTreeTableView" onMouseClicked="#onClickTreeTableView" prefHeight="568.0" prefWidth="189.0">
 							<columns>
 								<TreeTableColumn fx:id="treeTableColumnTurma" prefWidth="170.0" text="Turma" />
 								<TreeTableColumn fx:id="treeTableColumnAluno" prefWidth="141.0" text="Matrícula" />

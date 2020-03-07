@@ -17,9 +17,9 @@
 		<children>
 			<GridPane prefHeight="126.0" prefWidth="1003.0">
 				<columnConstraints>
-					<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="70.0" />
-					<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="80.0" />
-					<ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="98.0" />
+					<ColumnConstraints hgrow="SOMETIMES" maxWidth="77.0" minWidth="10.0" prefWidth="56.0" />
+					<ColumnConstraints hgrow="SOMETIMES" maxWidth="173.0" minWidth="10.0" prefWidth="173.0" />
+					<ColumnConstraints hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="59.0" />
 					<ColumnConstraints hgrow="SOMETIMES" maxWidth="694.6666641235352" minWidth="10.0" prefWidth="300.0" />
 					<ColumnConstraints hgrow="SOMETIMES" maxWidth="694.6666641235352" minWidth="10.0" prefWidth="70.0" />
 					<ColumnConstraints hgrow="SOMETIMES" maxWidth="694.6666641235352" minWidth="10.0" prefWidth="300.0" />
@@ -36,13 +36,13 @@
 							<Insets left="10.0" />
 						</padding>
 					</Label>
-					<TextField fx:id="matriculaField" editable="false" GridPane.columnIndex="1" />
+					<TextField fx:id="matriculaField" editable="false" prefHeight="25.0" prefWidth="122.0" GridPane.columnIndex="1" />
 					<Label prefHeight="17.0" prefWidth="105.0" text="Nome completo" GridPane.columnIndex="2">
 						<padding>
 							<Insets left="10.0" />
 						</padding>
 					</Label>
-					<TextField fx:id="nomeCompletoField" prefHeight="25.0" prefWidth="271.0" GridPane.columnIndex="3" />
+					<TextField fx:id="nomeCompletoField" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" />
 					<HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="5">
 						<children>
 							<DatePicker showWeekNumbers="true" />
