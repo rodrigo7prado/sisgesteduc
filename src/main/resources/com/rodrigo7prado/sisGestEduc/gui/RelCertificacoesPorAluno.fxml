@@ -27,7 +27,7 @@
 			<items>
             <VBox prefHeight="568.0" prefWidth="438.0">
                <children>
-                  <Label text="Filtro" />
+                  <Label text="Filtro:" />
                   <ListView fx:id="listView" editable="true" prefHeight="200.0" prefWidth="200.0" />
                </children>
             </VBox>
@@ -69,9 +69,9 @@
 									</rowConstraints>
 									<children>
 										<Label text="Aluno" />
-										<Text strokeType="OUTSIDE" strokeWidth="0.0" text="ANA BEATRIZ DA CONCEIÇÃO INACIO" GridPane.columnIndex="1" />
+										<Text strokeType="OUTSIDE" strokeWidth="0.0" text="-" GridPane.columnIndex="1" />
 										<Label prefHeight="17.0" prefWidth="78.0" text="Matrícula" GridPane.rowIndex="1" />
-										<Text strokeType="OUTSIDE" strokeWidth="0.0" text="201601911073514" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+										<Text strokeType="OUTSIDE" strokeWidth="0.0" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 									</children>
 								</GridPane>
 							</children>
