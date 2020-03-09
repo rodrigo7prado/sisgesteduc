@@ -10,7 +10,7 @@ import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
 import com.rodrigo7prado.sisGestEduc.entities.AlunoPeriodoCurricular;
 
 @Repository
-public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPeriodoCurricular, Long> {
+public interface AlunoPeriodoCurricularRepository2 extends JpaRepository<AlunoPeriodoCurricular, Long> {
 //	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto("
 //			+ "c,e"
 //			+ ", c.anoLetivo"
@@ -134,28 +134,4 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ "ORDER BY v.id.turma, v.nomeCompl"
 			)
 	List<AlunoPeriodoCurricularDto> findFilterConcluintes();
-	
-	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto("
-			+ "v,a"
-			+ ", v.id.ano"
-			+ ", v.id.turma"
-			+ ", v.id.turma"
-			+ ", v.id.turma"
-			+ ", v.nomeCompl"
-			+ ", a.nomePai"
-			+ ", a.nomeMae"
-			+ ", a.rg"
-			+ ", v.id.aluno"
-			+ ", v.id.situacaoFinal"
-
-			+ ") "
-			+ "FROM VwAlunoPeriodoCurricular v "
-			+ "LEFT JOIN AlunoExternal a "
-			+ "ON v.id.aluno = a.id "
-			+ "WHERE "
-			+ "v.id.ano LIKE 'Ano Letivo: 2018%' "
-			+ "AND v.id.situacaoFinal = 'Aprovado' "
-			+ "ORDER BY v.id.turma, v.nomeCompl"
-			)
-	List<AlunoPeriodoCurricularDto> findFilterQuaisquerPendencias();
 }
