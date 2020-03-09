@@ -146,7 +146,7 @@
 	</VBox>
    <HBox alignment="CENTER" prefHeight="32.0" prefWidth="1003.0">
       <children>
-         <Button mnemonicParsing="false" style="-fx-background-color: #AADDFF;" text="Reverter">
+         <Button mnemonicParsing="false" text="Reverter">
             <opaqueInsets>
                <Insets />
             </opaqueInsets>
@@ -154,7 +154,7 @@
                <Insets right="10.0" />
             </HBox.margin>
          </Button>
-         <Button mnemonicParsing="false" style="-fx-background-color: #66AAFF;" text="Confirmar a alterar" />
+         <Button mnemonicParsing="false" text="Confirmar a alterar" />
       </children>
    </HBox>
 </VBox>

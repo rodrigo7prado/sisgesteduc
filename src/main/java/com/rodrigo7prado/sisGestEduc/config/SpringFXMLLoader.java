@@ -40,6 +40,10 @@ public class SpringFXMLLoader {
 		ScrollPane scrollPane = loaderMain.load();
 
 		mainScene = new Scene(scrollPane);
+		
+//		mainScene.getStylesheets().add(getClass().getResource("..\\..\\..\\..\\styles\\Style2.css").toExternalForm());
+//		mainScene.getStylesheets().add(getClass().getResource("..\\..\\..\\..\\styles\\Style2.css").;
+//		mainScene.getStylesheets().add(getClass().getResource("Style2.css").toExternalForm());
 
 //    	----------------------------------------------------------------------
 		
@@ -49,8 +53,8 @@ public class SpringFXMLLoader {
 		
 		ArrayList<String> list = new ArrayList<String>();
         
-        list.add("/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorTurma.fxml");
-        list.add("/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorAluno.fxml");
+		list.add("/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorAluno.fxml");
+		list.add("/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorTurma.fxml");
         list.add("/com/rodrigo7prado/sisGestEduc/gui/Aluno.fxml");
         
         int i = 0;

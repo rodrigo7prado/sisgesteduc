@@ -8,7 +8,7 @@
 <?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox maxWidth="1200.0" prefHeight="515.0" prefWidth="1003.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.RelCertificacoesPorTurmaController">
+<VBox maxWidth="1200.0" prefHeight="515.0" prefWidth="1003.0" stylesheets="@../../../../styles/Style2.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.RelCertificacoesPorTurmaController">
 	<children>
 		<ToolBar prefHeight="40.0" prefWidth="200.0">
 			<items>

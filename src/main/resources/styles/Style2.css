@@ -1,0 +1,20 @@
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled > .check-box-table-cell:selected > .check-box > .box,
+.tree-table-view:focused > .virtual-flow > .clipped-container > .sheet > .tree-table-row-cell:filled > .check-box-table-cell:selected > .check-box > .box,
+.table-view:focused > .virtual-flow > .clipped-container > .sheet > .table-row-cell:filled:selected > .check-box-table-cell > .check-box > .box,
+.tree-table-view:focused > .virtual-flow > .clipped-container > .sheet > .tree-table-row-cell:filled:selected > .check-box-table-cell > .check-box > .box {
+    -fx-background-color: #CCCCCC, blue;
+}
+
+.tree-table-row-cell {
+    -fx-background-color: #FF00FF;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #FF5797;
+    -fx-background-insets: 0;
+    -fx-background-radius: 1;
+}
+
+.blakk {
+	-fx-background-color: #FFF000;
+}

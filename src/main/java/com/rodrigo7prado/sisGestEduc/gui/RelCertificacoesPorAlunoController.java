@@ -79,6 +79,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		listView.getItems().add("Concluintes");
 		listView.getItems().add("Todas as Certidões");
 		listView.getItems().add("Todos os Certificados");
+		listView.getItems().add("Todos ok");
 		listView.getItems().add("Quaisquer pendências");
 		listView.getItems().add("Pendência de dados pessoais");
 		listView.getItems().add("Pendência de dados escolares");
@@ -112,13 +113,6 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		treeTableViewAluno.setRoot(treeItemAlunoRoot);
 
 		for (AlunoPeriodoCurricularDto itemObsList : observableList) {
-			
-//			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(
-//					new AlunoPeriodoCurricularDto(null, null, null, itemObsList.getTurma(), itemObsList.getMatricula(),
-//							itemObsList.getNomeCompleto(), itemObsList.getNomePai(), itemObsList.getValidDadosPessoais(),
-//							itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
-//							itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()));
-			
 			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(
 					new AlunoPeriodoCurricularDto(null, null, null, itemObsList.getTurma(), itemObsList.getMatricula(),
 							itemObsList.getNomeCompleto(), itemObsList.getNomePai(), itemObsList.getNomeMae(), itemObsList.getRg(), itemObsList.getValidDadosPessoais(),
@@ -146,7 +140,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 					System.out.println("adicionar a:" + turmaNode.getValue().getTurma());
 				}
 			}
-			turmaNode.setExpanded(false);
+			turmaNode.setExpanded(true);
 			treeItemAlunoRoot.setExpanded(true);
 		}
 

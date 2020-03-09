@@ -19,11 +19,15 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
 @Controller
 public class MainViewController implements Initializable {
+	
+	@FXML
+	private ScrollPane scrollPane;
 
 	@FXML
 	private Label lbLogo;

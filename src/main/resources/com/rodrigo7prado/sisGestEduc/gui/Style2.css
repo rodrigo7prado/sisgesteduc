@@ -1,0 +1,97 @@
+/*
+.tree-table-row-cell {
+    -fx-background-color: #DDDDFF;
+}
+
+.table-row-cell:focused:selected, .tree-table-row-cell:selected:focused {
+    -fx-background-color: #FF5797;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 1.0;
+}
+
+.table-row-cell:focused, .tree-table-row-cell:focused {
+    -fx-background-color: #CCCC00;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 1.0;
+}
+
+.list-cell:focused{
+    -fx-background-color: #FFFFAA;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 1.0;
+}
+
+.list-cell:filled:focused{
+    -fx-background-color: #FFAAAA;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 1.0;
+}
+
+.list-cell:filled:selected:hover{
+    -fx-background-color: #CCCC00;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 1.0;
+}
+
+.list-cell:filled:hover{
+    -fx-background-color: #666600;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 1.0;
+}
+
+.list-cell:filled:selected:focused:disabled {
+	-fx-background-color: #CCCCCC;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 1.0;
+}
+
+.list-cell:filled:selected:disabled {
+    -fx-background-color: #EECCCC;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 1.0;
+}
+
+.tree-table-view:filled {
+	-fx-background-color: #FFAAAA;
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 1.0;
+}
+* 
+* 
+*/
+
+.root {
+	/* -fx-base: #00AAFF ;*/
+	/* CHART: #000000; */
+	/* fx-focus-color: #14AFE4; */
+	-fx-focus-color: #FFAFE4;
+	CHART_COLOR_1: #FFAFE4;
+	-fx-base: #00FF00;
+}
+
+/* Selected when control is not focused */
+.list-cell:filled:selected,
+.tree-cell:filled:selected,
+.table-row-cell:filled:selected,
+.tree-table-row-cell:filled:selected,
+.table-row-cell:filled > .table-cell:selected,
+.tree-table-row-cell:filled > .tree-table-cell:selected {
+    -fx-background: derive(CHART_COLOR_4, 60%);
+  	/* -fx-table-cell-border-color: derive(-fx-selection-bar-non-focused, 20.0%); */
+}
+
+/* focused cell (keyboard navigation) */
+.list-view:focused > .virtual-flow > .clipped-container > .sheet > .list-cell:focused,
+.tree-view:focused > .virtual-flow > .clipped-container > .sheet > .tree-cell:focused,
+.table-view:focused:row-selection > .virtual-flow > .clipped-container > .sheet > .table-row-cell:focused,
+.tree-table-view:focused:row-selection > .virtual-flow > .clipped-container > .sheet > .tree-table-row-cell:focused,
+.table-view:focused:cell-selection > .virtual-flow > .clipped-container > .sheet > .table-row-cell > .table-cell:focused,
+.tree-table-view:focused:cell-selection > .virtual-flow > .clipped-container > .sheet > .tree-table-row-cell > .tree-table-cell:focused{
+    -fx-background-color: derive(CHART_COLOR_4, 60%);
+    -fx-background-insets: 0.0;
+    -fx-background-radius: 1.0;
+}
+
+.blakk {
+	-fx-background-color: derive(CHART_COLOR_7, 90%);
+}
