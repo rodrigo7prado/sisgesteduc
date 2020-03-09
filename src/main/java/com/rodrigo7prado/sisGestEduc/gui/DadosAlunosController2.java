@@ -17,7 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 
 @Controller
-public class DadosAlunosController implements Initializable {
+public class DadosAlunosController2 implements Initializable {
 	@FXML
 	private TextField matriculaField;
 	@FXML
@@ -78,14 +78,12 @@ public class DadosAlunosController implements Initializable {
 		// Collection<integer> conjNomes = mapaNomes.keySet();
 
 		Set<Entry<TextField, String>> set = mapaNomes.entrySet();
-		@SuppressWarnings("rawtypes")
 		Iterator it = set.iterator();
 
 		// getKey() - recupera a chave do mapa
 		// getValue() - recupera o valor do mapa
 
 		while (it.hasNext()) {
-			@SuppressWarnings({ "rawtypes", "unchecked" })
 			Entry<TextField, String> entry = (Entry) it.next();
 			System.out.println("MAP: " + entry.getKey() + "\t\t" + entry.getValue());
 

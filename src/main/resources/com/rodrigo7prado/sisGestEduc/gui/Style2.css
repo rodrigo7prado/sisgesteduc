@@ -92,6 +92,12 @@
     -fx-background-radius: 1.0;
 }
 
+/* 
+tree-table-view-row-cell:odd {
+	-fx-background-color: derive(#FFFFBB, 60%);
+}
+*/
+
 .blakk {
 	-fx-background-color: derive(CHART_COLOR_7, 90%);
 }
