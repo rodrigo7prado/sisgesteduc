@@ -178,6 +178,8 @@ public class Aluno implements Serializable {
 	Set<AlunoCursoModalidade> alunosCursosModalidades = new HashSet<>();
 	@OneToMany(mappedBy = "id.aluno")
 	Set<AlunoPeriodoCurricular> alunosPeriodosCurriculares = new HashSet<>();
+	@OneToMany(mappedBy = "id.aluno")
+	Set<AlunoComponenteCurricular> componentesCurriculares = new HashSet<>();
 
 	public Aluno() {
 	}
@@ -838,6 +840,10 @@ public class Aluno implements Serializable {
 	
 	public Set<AlunoPeriodoCurricular> getAlunosPeriodosCurriculares() {
 		return alunosPeriodosCurriculares;
+	}
+	
+	public Set<AlunoComponenteCurricular> getComponentesCurriculares() {
+		return componentesCurriculares;
 	}
 
 	@Override

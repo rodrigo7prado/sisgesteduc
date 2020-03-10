@@ -1,9 +1,12 @@
 package com.rodrigo7prado.sisGestEduc.entities;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -17,6 +20,9 @@ public class ComponenteCurricular implements Serializable {
 	@EmbeddedId
 	private ComponenteCurricularPk id = new ComponenteCurricularPk();
 	// outros atributos
+	
+	@OneToMany(mappedBy = "id.componenteCurricular")
+	Set<AlunoComponenteCurricular> componentesCurriculares = new HashSet<>();
 
 	public ComponenteCurricular() {
 	}
@@ -43,5 +49,14 @@ public class ComponenteCurricular implements Serializable {
 	
 	public void setDisciplina(Disciplina disciplina) {
 		id.setDisciplina(disciplina);
+	}
+	
+	@JsonIgnore
+	public Set<Aluno> getAlunos() {
+		Set<Aluno> set = new HashSet<>();
+		for (AlunoComponenteCurricular x : componentesCurriculares) {
+			set.add(x.getAluno());
+		}
+		return set;
 	}
 }
