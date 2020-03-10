@@ -15,80 +15,76 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxWidth="1314.0" prefHeight="674.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.RelCertificacoesPorAlunoController">
+<VBox maxWidth="1314.0" prefHeight="674.0" prefWidth="1200.0"
+	xmlns="http://javafx.com/javafx/11.0.1"
+	xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.rodrigo7prado.sisGestEduc.gui.RelCertificacoesPorAlunoController">
 	<children>
-		<SplitPane dividerPositions="0.15, 0.75" prefHeight="570.0" prefWidth="1200.0">
+		<SplitPane dividerPositions="0.15, 0.75" prefHeight="570.0"
+			prefWidth="1200.0">
 			<items>
-            <VBox prefHeight="568.0" prefWidth="438.0">
-               <children>
-                  <Label text="Filtro:" />
-                  <ListView fx:id="listView" editable="true" prefWidth="200.0" />
-               </children>
-            </VBox>
-				<SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="160.0" prefWidth="1198.0">
+				<VBox prefHeight="568.0" prefWidth="438.0">
+					<children>
+						<Label text="Filtro:" />
+						<ListView fx:id="listView" editable="true"
+							prefWidth="200.0" />
+					</children>
+				</VBox>
+				<SplitPane dividerPositions="0.5" orientation="VERTICAL"
+					prefHeight="160.0" prefWidth="1198.0">
 					<items>
-                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                  		<ToolBar prefHeight="40.0" prefWidth="200.0">
-                  			<items>
-                              <Label text="Pesquisa: " />
-                              <TextField prefHeight="25.0" prefWidth="384.0" />
-                  			</items>
-                  		</ToolBar>
-      						<TreeTableView fx:id="treeTableViewAluno" onKeyPressed="#onClickTreeTableView" onMouseClicked="#onClickTreeTableView" prefHeight="568.0" prefWidth="189.0">
-      							<columns>
-      								<TreeTableColumn fx:id="treeTableColumnTurma" prefWidth="150.0" sortType="DESCENDING" text="Turma" />
-      								<TreeTableColumn fx:id="treeTableColumnAluno" prefWidth="110.0" text="Matrícula" />
-      								<TreeTableColumn fx:id="treeTableColumnNomeCompl" prefWidth="173.0" text="Aluno" />
-      								<TreeTableColumn fx:id="treeTableColumnDP" prefWidth="60.0" text="DP" />
-      								<TreeTableColumn fx:id="treeTableColumnDadosIdentif" prefWidth="50.0" text="DIdent" />
-      								<TreeTableColumn fx:id="treeTableColumnDadosHeFund" prefWidth="50.0" text="HF" />
-      								<TreeTableColumn fx:id="treeTableColumnDadosHeMedio" prefWidth="50.0" text="HM" />
-      								<TreeTableColumn prefWidth="60.0" text="Certidão" />
-      								<TreeTableColumn prefWidth="60.0" text="Certificado" />
-      								<TreeTableColumn fx:id="treeTableColumnSituacaoFinal" prefWidth="90.0" text="Situação Final" />
-      							</columns>
-      						</TreeTableView>
-                     </children>
-                  </VBox>
+						<VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+							<children>
+								<ToolBar prefHeight="40.0" prefWidth="200.0">
+									<items>
+										<Label text="Pesquisa: " />
+										<TextField prefHeight="25.0" prefWidth="384.0" />
+									</items>
+								</ToolBar>
+								<TreeTableView fx:id="treeTableViewAluno"
+									onKeyPressed="#onClickTreeTableView"
+									onMouseClicked="#onClickTreeTableView" prefHeight="568.0"
+									prefWidth="189.0">
+									<columns>
+										<TreeTableColumn fx:id="treeTableColumnTurma"
+											prefWidth="150.0" sortType="DESCENDING" text="Turma" />
+										<TreeTableColumn fx:id="treeTableColumnAluno"
+											prefWidth="110.0" text="Matrícula" />
+										<TreeTableColumn
+											fx:id="treeTableColumnNomeCompl" prefWidth="173.0"
+											text="Aluno" />
+										<TreeTableColumn fx:id="treeTableColumnDP"
+											prefWidth="60.0" text="DP" />
+										<TreeTableColumn
+											fx:id="treeTableColumnDadosIdentif" prefWidth="50.0"
+											text="DIdent" />
+										<TreeTableColumn
+											fx:id="treeTableColumnDadosHeFund" prefWidth="50.0" text="HF" />
+										<TreeTableColumn
+											fx:id="treeTableColumnDadosHeMedio" prefWidth="50.0"
+											text="HM" />
+										<TreeTableColumn prefWidth="60.0"
+											text="Certidão" />
+										<TreeTableColumn prefWidth="60.0"
+											text="Certificado" />
+										<TreeTableColumn
+											fx:id="treeTableColumnSituacaoFinal" prefWidth="90.0"
+											text="Situação Final" />
+									</columns>
+								</TreeTableView>
+							</children>
+						</VBox>
 						<VBox alignment="CENTER">
 							<VBox>
-								<fx:include fx:id="vBoxControllerDadosAlunos" source="DadosAlunos.fxml" />
+								<fx:include fx:id="vBoxControllerDadosAlunos"
+									source="DadosAlunos.fxml" />
 							</VBox>
 						</VBox>
 					</items>
 				</SplitPane>
 				<VBox>
-					<children>
-						<VBox prefHeight="200.0" prefWidth="100.0">
-							<children>
-								<GridPane>
-									<columnConstraints>
-										<ColumnConstraints hgrow="SOMETIMES" maxWidth="158.0" minWidth="10.0" prefWidth="59.0" />
-										<ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="266.0" />
-									</columnConstraints>
-									<rowConstraints>
-										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-										<RowConstraints minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
-									</rowConstraints>
-									<children>
-										<Label text="Aluno" />
-										<Text strokeType="OUTSIDE" strokeWidth="0.0" text="-" GridPane.columnIndex="1" />
-										<Label prefHeight="17.0" prefWidth="78.0" text="Matrícula" GridPane.rowIndex="1" />
-										<Text strokeType="OUTSIDE" strokeWidth="0.0" text="-" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-									</children>
-								</GridPane>
-							</children>
-						</VBox>
-						<TableView prefHeight="642.0" prefWidth="325.0">
-							<columns>
-								<TableColumn prefWidth="75.0" text="Disciplina" />
-								<TableColumn prefWidth="75.0" text="1ª série" />
-								<TableColumn prefWidth="75.0" text="2ª série" />
-								<TableColumn prefWidth="75.0" text="3ª série" />
-							</columns>
-						</TableView>
-					</children>
+					<fx:include fx:id="vBoxControllerHistoricoAluno"
+						source="HistoricoAluno.fxml" />
 				</VBox>
 			</items>
 		</SplitPane>
