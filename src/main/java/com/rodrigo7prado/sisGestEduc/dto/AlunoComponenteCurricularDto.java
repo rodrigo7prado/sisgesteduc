@@ -1,6 +1,7 @@
 package com.rodrigo7prado.sisGestEduc.dto;
 
 public class AlunoComponenteCurricularDto {
+	private String ano;
 	private String curso;
 	private String modalidade;
 	private String periodoCurricular;
@@ -14,9 +15,27 @@ public class AlunoComponenteCurricularDto {
 	public AlunoComponenteCurricularDto() {
 	}
 
-	public AlunoComponenteCurricularDto(String curso, String modalidade, String periodoCurricular,
-			String componenteCurricular, String matricula, String nomeCompleto, String totalPontos, String faltas,
+	public AlunoComponenteCurricularDto(String ano, String curso, String modalidade, String periodoCurricular,
+			String matricula, String nomeCompleto, String componenteCurricular, String totalPontos, String faltas,
 			String freqGlobal) {
+		this.ano = ano;
+		this.curso = curso;
+		this.modalidade = modalidade;
+		this.periodoCurricular = periodoCurricular;
+		this.matricula = matricula;
+		this.nomeCompleto = nomeCompleto;
+		this.componenteCurricular = componenteCurricular;
+		this.totalPontos = totalPontos;
+		this.faltas = faltas;
+		this.freqGlobal = freqGlobal;
+	}
+
+	public String getAno() {
+		return ano;
+	}
+
+	public void setAno(String ano) {
+		this.ano = ano;
 	}
 
 	public String getCurso() {

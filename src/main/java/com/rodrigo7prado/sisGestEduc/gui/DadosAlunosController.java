@@ -43,7 +43,7 @@ public class DadosAlunosController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 
-//		System.out.println("Iniciando DadosAlunosController...");
+		System.out.println("Iniciando AAAAAA");
 		matriculaField.setText("AAAA");
 	}
 

@@ -36,6 +36,9 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	@FXML
 	@Autowired
 	private DadosAlunosController dadosAlunosController;
+	@FXML
+	@Autowired
+	private HistoricoAlunoController historicoAlunoController;
 	@Lazy
 	@Autowired
 	private StageManager stageManager;
@@ -69,9 +72,11 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+//		System.out.println("relRel");
 		initializeNodes();
 		loadAlunosDetails();
 		loadListView();
+		historicoAlunoController.update();
 	}
 	
 	private void loadListView() {
