@@ -3,30 +3,22 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fx:id="scrollPane" maxHeight="-Infinity"
-	maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
-	prefHeight="600.0" prefWidth="1300.0" stylesheets="@Style2.css"
-	xmlns="http://javafx.com/javafx/11.0.1"
-	xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="com.rodrigo7prado.sisGestEduc.gui.MainViewController">
+<ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1300.0" stylesheets="@Style2.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.MainViewController">
 	<content>
-		<BorderPane prefHeight="598.0" prefWidth="1300.0">
+		<BorderPane prefHeight="680.0" prefWidth="1300.0">
 			<top>
-				<AnchorPane prefHeight="101.0" prefWidth="764.0"
-					stylesheets="@Style2.css" BorderPane.alignment="CENTER">
+				<AnchorPane prefHeight="101.0" prefWidth="764.0" stylesheets="@Style2.css" BorderPane.alignment="CENTER">
 					<children>
-						<Label fx:id="lbLogo" layoutX="-7.0" layoutY="17.0"
-							onMouseClicked="#onLogoAction" prefHeight="37.0"
-							prefWidth="106.0" text="Educ7" textFill="#afbdda">
+						<Label fx:id="lbLogo" layoutX="-7.0" layoutY="17.0" onMouseClicked="#onLogoAction" prefHeight="37.0" prefWidth="106.0" text="Educ7" textFill="#afbdda">
 							<font>
 								<Font name="System Bold" size="24.0" />
 							</font>
@@ -34,8 +26,7 @@
 								<Insets left="20.0" top="10.0" />
 							</padding>
 						</Label>
-						<Label layoutX="113.0" layoutY="16.0"
-							text="Colégio Estadual Amaro Cavalcanti" textFill="#868686">
+						<Label layoutX="113.0" layoutY="16.0" text="Colégio Estadual Amaro Cavalcanti" textFill="#868686">
 							<font>
 								<Font name="System Bold" size="18.0" />
 							</font>
@@ -45,17 +36,13 @@
 								<Font size="10.0" />
 							</font>
 						</Label>
-						<Label layoutX="209.0" layoutY="66.0"
-							text="Tela de gerenciamento de Certificação" textFill="#8a9ac6">
+						<Label layoutX="209.0" layoutY="66.0" text="Tela de gerenciamento de Certificação" textFill="#8a9ac6">
 							<font>
 								<Font name="System Bold" size="18.0" />
 							</font>
 						</Label>
-						<Label layoutX="209.0" layoutY="48.0"
-							text="Mostrar outras ações" textFill="#f58f1a" />
-						<Label fx:id="lbLogo" layoutX="-7.0" layoutY="17.0"
-							onMouseClicked="#onLogoAction" prefHeight="37.0"
-							prefWidth="106.0" text="Educ7" textFill="#afbdda">
+						<Label layoutX="209.0" layoutY="48.0" text="Mostrar outras ações" textFill="#f58f1a" />
+						<Label fx:id="lbLogo" layoutX="-7.0" layoutY="17.0" onMouseClicked="#onLogoAction" prefHeight="37.0" prefWidth="106.0" text="Educ7" textFill="#afbdda">
 							<font>
 								<Font name="System Bold" size="24.0" />
 							</font>
@@ -63,8 +50,7 @@
 								<Insets left="20.0" top="10.0" />
 							</padding>
 						</Label>
-						<Label layoutX="113.0" layoutY="16.0"
-							text="Colégio Estadual Amaro Cavalcanti" textFill="#868686">
+						<Label layoutX="113.0" layoutY="16.0" text="Colégio Estadual Amaro Cavalcanti" textFill="#868686">
 							<font>
 								<Font name="System Bold" size="18.0" />
 							</font>
@@ -74,20 +60,14 @@
 								<Font size="10.0" />
 							</font>
 						</Label>
-						<Label layoutX="209.0" layoutY="66.0"
-							text="Tela de gerenciamento de Certificação" textFill="#8a9ac6">
+						<Label layoutX="209.0" layoutY="66.0" text="Tela de gerenciamento de Certificação" textFill="#8a9ac6">
 							<font>
 								<Font name="System Bold" size="18.0" />
 							</font>
 						</Label>
-						<Label layoutX="209.0" layoutY="48.0"
-							text="Mostrar outras ações" textFill="#f58f1a" />
-						<Button fx:id="btShowIniSetup" layoutX="553.0"
-							layoutY="64.0" mnemonicParsing="false"
-							onAction="#showSetupIniFilesAction" text="File" />
-						<ComboBox fx:id="comboBoxPeriodoLetivo" layoutX="6.0"
-							layoutY="60.0" onAction="#updateViewPeriodoLetivo"
-							promptText="2018">
+						<Label layoutX="209.0" layoutY="48.0" text="Mostrar outras ações" textFill="#f58f1a" />
+						<Button fx:id="btShowIniSetup" layoutX="553.0" layoutY="64.0" mnemonicParsing="false" onAction="#showSetupIniFilesAction" text="File" />
+						<ComboBox fx:id="comboBoxPeriodoLetivo" layoutX="6.0" layoutY="60.0" onAction="#updateViewPeriodoLetivo" promptText="2018">
 							<padding>
 								<Insets left="5.0" />
 							</padding>
@@ -96,35 +76,26 @@
 				</AnchorPane>
 			</top>
 			<center>
-				<VBox prefHeight="200.0" prefWidth="100.0"
-					stylesheets="@Style2.css" BorderPane.alignment="CENTER">
+				<VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@Style2.css" BorderPane.alignment="CENTER">
 					<children>
-						<TabPane fx:id="tabPane" prefHeight="497.0"
-							prefWidth="764.0" tabClosingPolicy="UNAVAILABLE">
+						<TabPane fx:id="tabPane" prefWidth="764.0" tabClosingPolicy="UNAVAILABLE">
 							<tabs>
-								<Tab fx:id="tabPendencias"
-									onSelectionChanged="#onTabPendenciasSelectionChange"
-									text="Pendências">
+								<Tab fx:id="tabPendencias" onSelectionChanged="#onTabPendenciasSelectionChange" text="Pendências">
+									<content>
+										<VBox prefWidth="1300.0" />
+									</content>
+								</Tab>
+								<Tab fx:id="tabAlunosACertificar" onSelectionChanged="#onTabAlunosACertificarSelectionChange" text="Alunos a Certificar">
 									<content>
 										<VBox />
 									</content>
 								</Tab>
-								<Tab fx:id="tabAlunosACertificar"
-									onSelectionChanged="#onTabAlunosACertificarSelectionChange"
-									text="Alunos a Certificar">
+								<Tab fx:id="tabMigracaoConexao" onSelectionChanged="#onTabMigracaoConexaoSelectionChange" text="Migração Conexão">
 									<content>
 										<VBox />
 									</content>
 								</Tab>
-								<Tab fx:id="tabMigracaoConexao"
-									onSelectionChanged="#onTabMigracaoConexaoSelectionChange"
-									text="Migração Conexão">
-									<content>
-										<VBox />
-									</content>
-								</Tab>
-								<Tab fx:id="tabAluno"
-									onSelectionChanged="#onTabAlunoSelectionChange" text="Aluno">
+								<Tab fx:id="tabAluno" onSelectionChanged="#onTabAlunoSelectionChange" text="Aluno">
 									<content>
 										<VBox />
 									</content>

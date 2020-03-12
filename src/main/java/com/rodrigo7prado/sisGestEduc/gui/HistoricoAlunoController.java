@@ -33,8 +33,8 @@ public class HistoricoAlunoController implements Initializable {
 
 	private ObservableList<AlunoComponenteCurricularDto> list2 = FXCollections.observableArrayList();
 
-	@FXML
-	private Text aluno;
+//	@FXML
+//	private Text aluno;
 	@FXML
 	private TableColumn<AutoDto, String> disciplina;
 	@FXML
@@ -47,7 +47,7 @@ public class HistoricoAlunoController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		System.out.println("ZAYG2");
-		aluno.setText("AAAAA");
+//		aluno.setText("AAAAA");
 //		initializeNodes();
 //		loadDetails();
 	}
