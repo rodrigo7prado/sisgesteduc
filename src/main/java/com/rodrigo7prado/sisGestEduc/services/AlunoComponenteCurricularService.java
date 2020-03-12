@@ -29,4 +29,10 @@ public class AlunoComponenteCurricularService {
 		
 		return listDto;
 	}
+	
+	public List<AlunoComponenteCurricularDto> findFilterConcluintes2() {
+		List<AlunoComponenteCurricularDto> listDto = repository.findFilterConcluintes();
+		
+		return listDto;
+	}
 }

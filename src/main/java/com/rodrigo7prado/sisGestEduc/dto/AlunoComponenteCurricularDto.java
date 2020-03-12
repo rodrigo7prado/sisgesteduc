@@ -15,6 +15,15 @@ public class AlunoComponenteCurricularDto {
 	public AlunoComponenteCurricularDto() {
 	}
 
+	public AlunoComponenteCurricularDto(String curso, String modalidade, String matricula, String nomeCompleto,
+			String componenteCurricular) {
+		this.curso = curso;
+		this.modalidade = modalidade;
+		this.matricula = matricula;
+		this.nomeCompleto = nomeCompleto;
+		this.componenteCurricular = componenteCurricular;
+	}
+
 	public AlunoComponenteCurricularDto(String ano, String curso, String modalidade, String periodoCurricular,
 			String matricula, String nomeCompleto, String componenteCurricular, String totalPontos, String faltas,
 			String freqGlobal) {
