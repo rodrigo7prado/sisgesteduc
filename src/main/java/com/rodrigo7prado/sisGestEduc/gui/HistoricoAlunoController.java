@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.rodrigo7prado.sisGestEduc.dto.AlunoComponenteCurricularDto;
+import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
 import com.rodrigo7prado.sisGestEduc.dto.AutoDto;
 import com.rodrigo7prado.sisGestEduc.services.AlunoComponenteCurricularService;
 
@@ -96,10 +97,37 @@ public class HistoricoAlunoController implements Initializable {
 //		tableView.setItems();
 	}
 
-	public void update() {
-		System.out.println("ZAYG3");
-		System.out.println(service.findFilterConcluintes());
-		System.out.println("list: " + list);
-		aluno.setText("BBBB");
+	public void updateFormData(AlunoPeriodoCurricularDto obj) {
+		list.clear();
+		list.addAll(service.findFilterConcluintes());
+		list2.clear();
+		list2.addAll(service.findFilterConcluintes2());
+//		tableView.getItems().add(new AutoDto(list.get(0).getComponenteCurricular(),list.get(0).getTotalPontos()));
+		String serie1TotalPontos;
+		String serie2TotalPontos;
+		String serie3TotalPontos;
+		String cc0;
+		cc0 = "";
+		serie1TotalPontos = null;
+		serie2TotalPontos = null;
+		serie3TotalPontos = null;
+		for (AlunoComponenteCurricularDto row : list) {
+
+			if (row.getPeriodoCurricular().equals("Série: 1")) {
+				serie1TotalPontos = row.getTotalPontos();
+			} else if (row.getPeriodoCurricular().equals("Série: 2")) {
+				serie2TotalPontos = row.getTotalPontos();
+			} else if (row.getPeriodoCurricular().equals("Série: 3")) {
+				serie3TotalPontos = row.getTotalPontos();
+			}
+
+			if (!cc0.equals(row.getComponenteCurricular())) {
+				System.out.println("KERK" + cc0 + " -  " + row.getComponenteCurricular());
+				tableView.getItems().add(new AutoDto(row.getComponenteCurricular(), serie1TotalPontos,
+						serie2TotalPontos, serie3TotalPontos));
+			}
+			cc0 = row.getComponenteCurricular();
+
+		}
 	}
 }

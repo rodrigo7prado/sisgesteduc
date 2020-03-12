@@ -17,9 +17,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
@@ -76,7 +74,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		initializeNodes();
 		loadAlunosDetails();
 		loadListView();
-		historicoAlunoController.update();
+//		historicoAlunoController.updateFormData();
 	}
 	
 	private void loadListView() {
@@ -168,8 +166,12 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 		AlunoPeriodoCurricularDto obj = (AlunoPeriodoCurricularDto) treeTableView.getFocusModel().getFocusedItem()
 				.getValue();
+		AlunoPeriodoCurricularDto obj2 = (AlunoPeriodoCurricularDto) treeTableView.getFocusModel().getFocusedItem()
+				.getValue();
 
-		setDadosAlunosController(obj);
+//		setDadosAlunosController(obj);
+		dadosAlunosController.updateFormData(obj);
+		historicoAlunoController.updateFormData(obj2);
 	}
 
 	@SuppressWarnings("unused")
@@ -255,13 +257,13 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 //		System.out.println(vBoxControllerDadosAlunos  .getClass().getResource("/com/rodrigo7prado/sisGestEduc/gui/DadosAlunos.fxml"));
 
-		Parent parent = FXMLLoader.load(getClass().getResource("/com/rodrigo7prado/sisGestEduc/gui/DadosAlunos.fxml"));
+//		Parent parent = FXMLLoader.load(getClass().getResource("/com/rodrigo7prado/sisGestEduc/gui/DadosAlunos.fxml"));
 
-		System.out.println("Controller: " + dadosAlunosController);
+//		System.out.println("Controller: " + dadosAlunosController);
 
 		dadosAlunosController.updateFormData(obj);
 
-		System.out.println(parent.getProperties());
+//		System.out.println(parent.getProperties());
 //		
 //		dadosAlunosController.setController(obj);
 //		
