@@ -23,14 +23,12 @@ import javafx.scene.text.Text;
 @Controller
 public class HistoricoAlunoController implements Initializable {
 
-	@SuppressWarnings("unused")
 	@Autowired
 	private AlunoComponenteCurricularService service;
 
 	@FXML
 	private TableView<AutoDto> tableView;
 
-	@SuppressWarnings("unused")
 	private ObservableList<AlunoComponenteCurricularDto> list = FXCollections.observableArrayList();
 
 	private ObservableList<AlunoComponenteCurricularDto> list2 = FXCollections.observableArrayList();
@@ -50,8 +48,8 @@ public class HistoricoAlunoController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		System.out.println("ZAYG2");
 		aluno.setText("AAAAA");
-		initializeNodes();
-		loadDetails();
+//		initializeNodes();
+//		loadDetails();
 	}
 
 	private void initializeNodes() {
@@ -63,9 +61,9 @@ public class HistoricoAlunoController implements Initializable {
 
 	private void loadDetails() {
 		list.clear();
-		list.addAll(service.findFilterConcluintes());
+		list.addAll(service.findFilterConcluintes("201601911023339"));
 		list2.clear();
-		list2.addAll(service.findFilterConcluintes2());
+		list2.addAll(service.findFilterConcluintes2("201601911023339"));
 //		tableView.getItems().add(new AutoDto(list.get(0).getComponenteCurricular(),list.get(0).getTotalPontos()));
 		String serie1TotalPontos;
 		String serie2TotalPontos;
@@ -98,11 +96,15 @@ public class HistoricoAlunoController implements Initializable {
 	}
 
 	public void updateFormData(AlunoPeriodoCurricularDto obj) {
+		
+		initializeNodes();
+		
+		tableView.getItems().clear();
+		
 		list.clear();
-		list.addAll(service.findFilterConcluintes());
-		list2.clear();
-		list2.addAll(service.findFilterConcluintes2());
-//		tableView.getItems().add(new AutoDto(list.get(0).getComponenteCurricular(),list.get(0).getTotalPontos()));
+		list.addAll(service.findFilterConcluintes(obj.getMatricula()));
+//		list.addAll(service.findFilterConcluintes("201601911023339"));
+		
 		String serie1TotalPontos;
 		String serie2TotalPontos;
 		String serie3TotalPontos;

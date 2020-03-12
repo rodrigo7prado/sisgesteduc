@@ -24,14 +24,14 @@ public class AlunoComponenteCurricularService {
 		return obj.get();
 	}
 	
-	public List<AlunoComponenteCurricularDto> findFilterConcluintes() {
-		List<AlunoComponenteCurricularDto> listDto = repository.findFilterConcluintes();
+	public List<AlunoComponenteCurricularDto> findFilterConcluintes(String matricula) {
+		List<AlunoComponenteCurricularDto> listDto = repository.findFilterConcluintes(matricula);
 		
 		return listDto;
 	}
 	
-	public List<AlunoComponenteCurricularDto> findFilterConcluintes2() {
-		List<AlunoComponenteCurricularDto> listDto = repository.findFilterConcluintes();
+	public List<AlunoComponenteCurricularDto> findFilterConcluintes2(String matricula) {
+		List<AlunoComponenteCurricularDto> listDto = repository.findFilterConcluintes(matricula);
 		
 		return listDto;
 	}

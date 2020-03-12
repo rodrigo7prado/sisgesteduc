@@ -84,10 +84,10 @@ public interface AlunoComponenteCurricularRepository extends JpaRepository<Aluno
 			+ ") "
 			+ "FROM ResultadoFinalExternal v "
 			+ "WHERE "
-			+ "v.aluno = '201601911023339' "
+			+ "v.aluno.id = ?1 "
 			+ "ORDER BY v.disciplina1"
 			)
-	List<AlunoComponenteCurricularDto> findFilterConcluintes();
+	List<AlunoComponenteCurricularDto> findFilterConcluintes(String matricula);
 	
 	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoComponenteCurricularDto("
 			+ " v.curso"
