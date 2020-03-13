@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox maxWidth="1314.0" prefHeight="568.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.RelCertificacoesPorAlunoController">
 	<children>
@@ -23,12 +28,59 @@
 					<items>
 						<VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
 							<children>
-								<ToolBar prefHeight="40.0" prefWidth="200.0">
-									<items>
-										<Label text="Pesquisa: " />
-										<TextField prefHeight="25.0" prefWidth="384.0" />
-									</items>
-								</ToolBar>
+                        <MenuBar>
+                          <menus>
+                            <Menu mnemonicParsing="false" text="Visualização">
+                              <items>
+                                <MenuItem mnemonicParsing="false" text="Recolher linhas" />
+                              </items>
+                            </Menu>
+                          </menus>
+                        </MenuBar>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+										<Label text="Pesquisa:">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <TextField prefHeight="19.0" prefWidth="100.0" promptText="Matrícula">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+										<TextField prefHeight="19.0" prefWidth="273.0" promptText="Nome do aluno">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField prefHeight="19.0" prefWidth="90.0" promptText="N Folha Certidão">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField prefHeight="19.0" prefWidth="90.0" promptText="N Folha Certificado">
+                                 <font>
+                                    <Font size="9.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </HBox>
 								<TreeTableView fx:id="treeTableViewAluno" onKeyPressed="#onClickTreeTableView" onMouseClicked="#onClickTreeTableView" prefHeight="568.0" prefWidth="189.0">
 									<columns>
 										<TreeTableColumn fx:id="treeTableColumnTurma" prefWidth="150.0" sortType="DESCENDING" text="Turma" />

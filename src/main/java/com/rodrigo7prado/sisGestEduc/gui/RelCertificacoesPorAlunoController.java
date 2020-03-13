@@ -79,6 +79,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	
 	private void loadListView() {
 		listView.getItems().add("Todos os Alunos");
+		listView.getItems().add("Últimos períodos curriculares");
 		listView.getItems().add("Concluintes");
 		listView.getItems().add("Todas as Certidões");
 		listView.getItems().add("Todos os Certificados");
