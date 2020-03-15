@@ -2,6 +2,7 @@ package com.rodrigo7prado.sisGestEduc.gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,7 @@ import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
 import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 import com.rodrigo7prado.sisGestEduc.services.AlunoPeriodoCurricularService;
 
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
@@ -21,9 +23,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
+import javafx.scene.control.TreeTableColumn.CellDataFeatures;
 import javafx.scene.control.TreeTableView;
+import javafx.scene.control.cell.ComboBoxTreeTableCell;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 import javafx.scene.layout.VBox;
+import javafx.util.Callback;
 
 @Controller
 public class RelCertificacoesPorAlunoController implements Initializable {
@@ -66,6 +71,10 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	@FXML
 	private TreeTableColumn<AlunoPeriodoCurricularDto, StatusDocAluno> treeTableColumnDadosHeMedio;
 	@FXML
+	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnBoolCertidao;
+	@FXML
+	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnBoolCertificado;
+	@FXML
 	private VBox dialog;
 
 	@Override
@@ -74,9 +83,10 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		initializeNodes();
 		loadAlunosDetails();
 		loadListView();
+		loadElementTreeTableColumBoolCertidao();
 //		historicoAlunoController.updateFormData();
 	}
-	
+
 	private void loadListView() {
 		listView.getItems().add("Todos os Alunos");
 		listView.getItems().add("Últimos períodos curriculares");
@@ -119,15 +129,15 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		for (AlunoPeriodoCurricularDto itemObsList : observableList) {
 			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(
 					new AlunoPeriodoCurricularDto(null, null, null, itemObsList.getTurma(), itemObsList.getMatricula(),
-							itemObsList.getNomeCompleto(), itemObsList.getNomePai(), itemObsList.getNomeMae(), itemObsList.getRg(), itemObsList.getValidDadosPessoais(),
+							itemObsList.getNomeCompleto(), itemObsList.getNomePai(), itemObsList.getNomeMae(),
+							itemObsList.getRg(), itemObsList.getValidDadosPessoais(),
 							itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
 							itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()));
-			
+
 			TreeItem<AlunoPeriodoCurricularDto> turmaNode = node;
-					
+
 			TreeItem<AlunoPeriodoCurricularDto> alunoNode = node;
-			
-			
+
 			Integer size = treeItemAlunoRoot.getChildren().size();
 
 			if (size.equals(0)) {
@@ -269,5 +279,24 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 //		dadosAlunosController.setController(obj);
 //		
 //		dadosAlunosController.updateFormData();
+	}
+
+	private void loadElementTreeTableColumBoolCertidao() {
+//		CellValueFactory
+		ObservableList<String> obsList = FXCollections.observableArrayList();
+		obsList.addAll(Arrays.asList("Sim", "Não"));
+		treeTableColumnBoolCertidao.setCellValueFactory(
+				new Callback<TreeTableColumn.CellDataFeatures<AlunoPeriodoCurricularDto, String>, ObservableValue<String>>() {
+
+					@Override
+					public ObservableValue<String> call(CellDataFeatures<AlunoPeriodoCurricularDto, String> param) {
+						// TODO Auto-generated method stub
+						return null;
+					}
+
+				});
+		treeTableColumnBoolCertidao.setCellFactory(ComboBoxTreeTableCell.forTreeTableColumn(obsList));
+//		treeTableColumnBoolCertidao.setCellFactory(param -> new TableCell<AlunoPeriodoCurricularDto, Boolean>() {
+
 	}
 }

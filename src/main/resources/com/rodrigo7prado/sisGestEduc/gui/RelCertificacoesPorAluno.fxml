@@ -90,8 +90,8 @@
 										<TreeTableColumn fx:id="treeTableColumnDadosIdentif" prefWidth="50.0" text="DIdent" />
 										<TreeTableColumn fx:id="treeTableColumnDadosHeFund" prefWidth="50.0" text="HF" />
 										<TreeTableColumn fx:id="treeTableColumnDadosHeMedio" prefWidth="50.0" text="HM" />
-										<TreeTableColumn prefWidth="60.0" text="Certidão" />
-										<TreeTableColumn prefWidth="60.0" text="Certificado" />
+										<TreeTableColumn fx:id="treeTableColumnBoolCertidao" prefWidth="60.0" text="Certidão" />
+										<TreeTableColumn fx:id="treeTableColumnBoolCertificado" prefWidth="60.0" text="Certificado" />
 										<TreeTableColumn fx:id="treeTableColumnSituacaoFinal" prefWidth="90.0" text="Situação Final" />
 									</columns>
 								</TreeTableView>
