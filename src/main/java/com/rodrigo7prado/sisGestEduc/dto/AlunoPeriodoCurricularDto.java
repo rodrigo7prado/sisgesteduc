@@ -33,6 +33,7 @@ public class AlunoPeriodoCurricularDto {
 //	private String dataNasc;
 	private String nomePai;
 	private String nomeMae;
+	private String naturalidade;
 	private String rg;
 
 	private String freq;
@@ -68,7 +69,7 @@ public class AlunoPeriodoCurricularDto {
 	}
 
 	public AlunoPeriodoCurricularDto(VwAlunoPeriodoCurricular vwAlunoPeriodoCurricular, AlunoExternal alunoExternal,
-			String anoLetivo, String curso, String modalidade, String turma, String nomeCompleto, String nomePai, String nomeMae, String rg, String matricula,
+			String anoLetivo, String curso, String modalidade, String turma, String nomeCompleto, String nomePai, String nomeMae, String naturalidade, String rg, String matricula,
 			String situacaoFinal) {
 		super();
 		if (alunoExternal != null) {
@@ -115,13 +116,14 @@ public class AlunoPeriodoCurricularDto {
 		this.nomeCompleto = nomeCompleto;
 		this.nomePai = nomePai;
 		this.nomeMae = nomeMae;
+		this.naturalidade = naturalidade;
 		this.rg = rg;
 		this.situacaoFinal = situacaoFinal;
 
 	}
 
 	public AlunoPeriodoCurricularDto(String anoLetivo, String curso, String modalidade, String turma, String matricula,
-			String nomeCompleto, String nomePai,String nomeMae, String rg, StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif,
+			String nomeCompleto, String nomePai,String nomeMae, String naturalidade, String rg, StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif,
 			StatusDocAluno validDadosHeFund, StatusDocAluno validDadosHeMedio, String situacaoFinal) {
 
 		this.anoLetivo = anoLetivo;
@@ -133,6 +135,7 @@ public class AlunoPeriodoCurricularDto {
 //		this.dataNasc = dataNasc;
 		this.nomePai = nomePai;
 		this.nomeMae = nomeMae;
+		this.naturalidade = naturalidade;
 		this.rg = rg;
 		this.validDadosPessoais = validDadosPessoais;
 		this.validDadosIdentif = validDadosIdentif;
@@ -289,6 +292,14 @@ public class AlunoPeriodoCurricularDto {
 
 	public void setNomeMae(String nomeMae) {
 		this.nomeMae = nomeMae;
+	}
+
+	public String getNaturalidade() {
+		return naturalidade;
+	}
+
+	public void setNaturalidade(String naturalidade) {
+		this.naturalidade = naturalidade;
 	}
 
 	public String getRg() {

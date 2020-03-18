@@ -29,6 +29,8 @@ public class DadosAlunosController implements Initializable {
 	@FXML
 	private TextField nomeMaeField;
 	@FXML
+	private TextField naturalidade;
+	@FXML
 	private TextField rgField;
 
 //	private AlunoPeriodoCurricularDto entity;
@@ -67,11 +69,13 @@ public class DadosAlunosController implements Initializable {
 //		dataNascField.setText(obj.getRg());		
 		nomePaiField.setText(obj.getNomePai());
 		nomeMaeField.setText(obj.getNomeMae());
+		naturalidade.setText(obj.getNaturalidade());
 		rgField.setText(obj.getRg());
 
 		Map<TextField, String> mapaNomes = new HashMap<TextField, String>();
 		mapaNomes.put(matriculaField, obj.getMatricula());
 		mapaNomes.put(nomeMaeField, obj.getNomeMae());
+		mapaNomes.put(naturalidade, obj.getNaturalidade());
 		mapaNomes.put(nomePaiField, obj.getNomePai());
 		mapaNomes.put(rgField, obj.getRg());
 

@@ -90,7 +90,7 @@
 							<Insets left="10.0" />
 						</GridPane.margin>
 					</Label>
-					<TextField GridPane.columnIndex="3" GridPane.rowIndex="1" />
+					<TextField fx:id="naturalidade" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
                   <children>
                      <TextField fx:id="matriculaField" editable="false" prefHeight="25.0" prefWidth="168.0" />

@@ -129,7 +129,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		for (AlunoPeriodoCurricularDto itemObsList : observableList) {
 			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(
 					new AlunoPeriodoCurricularDto(null, null, null, itemObsList.getTurma(), itemObsList.getMatricula(),
-							itemObsList.getNomeCompleto(), itemObsList.getNomePai(), itemObsList.getNomeMae(),
+							itemObsList.getNomeCompleto(), itemObsList.getNomePai(), itemObsList.getNomeMae(),itemObsList.getNaturalidade(),
 							itemObsList.getRg(), itemObsList.getValidDadosPessoais(),
 							itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
 							itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()));
