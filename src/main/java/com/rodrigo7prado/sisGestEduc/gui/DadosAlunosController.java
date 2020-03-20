@@ -3,6 +3,7 @@ package com.rodrigo7prado.sisGestEduc.gui;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -16,6 +17,7 @@ import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
@@ -25,6 +27,8 @@ public class DadosAlunosController implements Initializable {
 	private TextField matriculaField;
 	@FXML
 	private TextField nomeCompletoField;
+	@FXML
+	private ComboBox<String> sexoField;
 	@FXML
 	private DatePicker dataNascField;
 	@FXML
@@ -52,6 +56,8 @@ public class DadosAlunosController implements Initializable {
 
 		System.out.println("Iniciando AAAAAA");
 		matriculaField.setText("AAAA");
+		sexoField.getItems().clear();
+		sexoField.getItems().addAll(Arrays.asList("-- Selecione --","Masculino","Feminino"));
 	}
 
 	public void setController(AlunoPeriodoCurricularDto obj) {
@@ -71,6 +77,7 @@ public class DadosAlunosController implements Initializable {
 //		matriculaField.setText(entity.getMatricula());
 		matriculaField.setText(obj.getMatricula());
 		nomeCompletoField.setText(obj.getNomeCompleto());
+		sexoField.setValue("-- Selecione --");
 		dataNascField.setValue(LocalDate.parse("21/12/1988",DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 //		dataNascField.setText(obj.getRg());		
 		nomePaiField.setText(obj.getNomePai());

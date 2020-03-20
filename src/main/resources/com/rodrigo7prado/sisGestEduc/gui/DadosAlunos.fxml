@@ -35,7 +35,7 @@
 						<children>
       							<DatePicker fx:id="dataNascField" showWeekNumbers="true" />
 							<Label text="Sexo" />
-							<ComboBox prefWidth="150.0" />
+							<ComboBox fx:id="sexoField" prefWidth="150.0" />
 						</children>
 					</HBox>
 					<Label prefHeight="17.0" prefWidth="132.0" text="Data de nascimento" GridPane.columnIndex="2" GridPane.rowIndex="4">
