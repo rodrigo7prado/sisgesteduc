@@ -1,5 +1,7 @@
 package com.rodrigo7prado.sisGestEduc.dto;
 
+import java.util.Date;
+
 import com.rodrigo7prado.sisGestEduc.entities.Aluno;
 import com.rodrigo7prado.sisGestEduc.entities.AlunoPeriodoCurricular;
 import com.rodrigo7prado.sisGestEduc.entities.PeriodoCurricular;
@@ -31,6 +33,7 @@ public class AlunoPeriodoCurricularDto {
 
 	private String nomeCompleto;
 //	private String dataNasc;
+	private Date dataNasc;
 	private String nomePai;
 	private String nomeMae;
 	private String nacionalidade;
@@ -70,7 +73,7 @@ public class AlunoPeriodoCurricularDto {
 	}
 
 	public AlunoPeriodoCurricularDto(VwAlunoPeriodoCurricular vwAlunoPeriodoCurricular, AlunoExternal alunoExternal,
-			String anoLetivo, String curso, String modalidade, String turma, String nomeCompleto, String nomePai, String nomeMae, String nacionalidade, String naturalidade, String rg, String matricula,
+			String anoLetivo, String curso, String modalidade, String turma, String nomeCompleto, Date dataNasc, String nomePai, String nomeMae, String nacionalidade, String naturalidade, String rg, String matricula,
 			String situacaoFinal) {
 		super();
 		if (alunoExternal != null) {
@@ -115,6 +118,7 @@ public class AlunoPeriodoCurricularDto {
 		this.turma = turma;
 		this.matricula = matricula;
 		this.nomeCompleto = nomeCompleto;
+		this.dataNasc = dataNasc;
 		this.nomePai = nomePai;
 		this.nomeMae = nomeMae;
 		this.nacionalidade = nacionalidade;
@@ -125,7 +129,7 @@ public class AlunoPeriodoCurricularDto {
 	}
 
 	public AlunoPeriodoCurricularDto(String anoLetivo, String curso, String modalidade, String turma, String matricula,
-			String nomeCompleto, String nomePai,String nomeMae, String nacionalidade, String naturalidade, String rg, StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif,
+			String nomeCompleto, Date dataNasc, String nomePai,String nomeMae, String nacionalidade, String naturalidade, String rg, StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif,
 			StatusDocAluno validDadosHeFund, StatusDocAluno validDadosHeMedio, String situacaoFinal) {
 
 		this.anoLetivo = anoLetivo;
@@ -134,7 +138,7 @@ public class AlunoPeriodoCurricularDto {
 		this.turma = turma;
 		this.matricula = matricula;
 		this.nomeCompleto = nomeCompleto;
-//		this.dataNasc = dataNasc;
+		this.dataNasc = dataNasc;
 		this.nomePai = nomePai;
 		this.nomeMae = nomeMae;
 		this.nacionalidade = nacionalidade;
@@ -219,6 +223,14 @@ public class AlunoPeriodoCurricularDto {
 
 	public String getNomeCompleto() {
 		return nomeCompleto;
+	}
+
+	public Date getDataNasc() {
+		return dataNasc;
+	}
+
+	public void setDataNasc(Date dataNasc) {
+		this.dataNasc = dataNasc;
 	}
 
 	public String getFreq() {

@@ -1,6 +1,8 @@
 package com.rodrigo7prado.sisGestEduc.gui;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -14,6 +16,7 @@ import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 
 @Controller
@@ -22,8 +25,8 @@ public class DadosAlunosController implements Initializable {
 	private TextField matriculaField;
 	@FXML
 	private TextField nomeCompletoField;
-//	@FXML
-//	private TextField dataNascField;
+	@FXML
+	private DatePicker dataNascField;
 	@FXML
 	private TextField nomePaiField;
 	@FXML
@@ -68,6 +71,7 @@ public class DadosAlunosController implements Initializable {
 //		matriculaField.setText(entity.getMatricula());
 		matriculaField.setText(obj.getMatricula());
 		nomeCompletoField.setText(obj.getNomeCompleto());
+		dataNascField.setValue(LocalDate.parse("21/12/1988",DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 //		dataNascField.setText(obj.getRg());		
 		nomePaiField.setText(obj.getNomePai());
 		nomeMaeField.setText(obj.getNomeMae());

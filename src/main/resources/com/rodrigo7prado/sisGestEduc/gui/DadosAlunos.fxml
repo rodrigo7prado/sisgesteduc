@@ -33,7 +33,7 @@
 				<children>
 					<HBox prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
 						<children>
-      							<DatePicker showWeekNumbers="true" />
+      							<DatePicker fx:id="dataNascField" showWeekNumbers="true" />
 							<Label text="Sexo" />
 							<ComboBox prefWidth="150.0" />
 						</children>
