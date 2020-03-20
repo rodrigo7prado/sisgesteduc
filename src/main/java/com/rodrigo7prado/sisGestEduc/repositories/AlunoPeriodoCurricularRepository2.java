@@ -106,6 +106,10 @@ public interface AlunoPeriodoCurricularRepository2 extends JpaRepository<AlunoPe
 
 			// nomeCompl
 //			+ ", c.id.aluno.nomeCompleto"
+			+ ", a.nacionalidade"
+			
+			// nomeCompl
+//			+ ", c.id.aluno.nomeCompleto"
 			+ ", a.naturalidade"
 			
 //			nomeCompl

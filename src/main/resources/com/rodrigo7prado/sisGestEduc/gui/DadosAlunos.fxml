@@ -84,7 +84,7 @@
 							<Insets left="10.0" />
 						</padding>
 					</Label>
-					<TextField GridPane.columnIndex="3" />
+					<TextField fx:id="nacionalidade" GridPane.columnIndex="3" />
 					<Label text="Naturalidade" GridPane.columnIndex="2" GridPane.rowIndex="1">
 						<GridPane.margin>
 							<Insets left="10.0" />
