@@ -43,6 +43,8 @@ public class DadosAlunosController implements Initializable {
 	private ComboBox<String> naturalidadeUfField;
 	@FXML
 	private TextField rgField;
+	@FXML
+	private ComboBox<String> rgEmissorField;
 
 //	private AlunoPeriodoCurricularDto entity;
 
@@ -66,6 +68,10 @@ public class DadosAlunosController implements Initializable {
 				.addAll(Arrays.asList("-- Selecione --", "RJ", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO",
 						"MA", "MT", "MS", "MG", "PA", "PB", "PE", "PI", "PR", "RN", "RS", "RO", "RO", "SC", "SP", "SE",
 						"TO"));
+		
+		
+		rgEmissorField.getItems().clear();
+		rgEmissorField.getItems().addAll(Arrays.asList("-- Selecione --", "DETRAN", "SSP", "IFP"));
 	}
 
 	public void setController(AlunoPeriodoCurricularDto obj) {
@@ -94,6 +100,7 @@ public class DadosAlunosController implements Initializable {
 		naturalidade.setText(obj.getNaturalidade());
 		naturalidadeUfField.setValue(obj.getNaturalidadeUF());
 		rgField.setText(obj.getRg());
+		rgEmissorField.setValue("DETRAN");
 
 		Map<TextField, String> mapaNomes = new HashMap<TextField, String>();
 		mapaNomes.put(matriculaField, obj.getMatricula());

@@ -62,7 +62,7 @@
 					</Label>
 					<HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
 						<children>
-							<ComboBox prefWidth="150.0">
+							<ComboBox fx:id="rgEmissorField" prefWidth="150.0">
 								<HBox.margin>
 									<Insets top="3.0" />
 								</HBox.margin>
