@@ -40,6 +40,8 @@ public class DadosAlunosController implements Initializable {
 	@FXML
 	private TextField naturalidade;
 	@FXML
+	private ComboBox<String> naturalidadeUfField;
+	@FXML
 	private TextField rgField;
 
 //	private AlunoPeriodoCurricularDto entity;
@@ -57,7 +59,13 @@ public class DadosAlunosController implements Initializable {
 		System.out.println("Iniciando AAAAAA");
 		matriculaField.setText("AAAA");
 		sexoField.getItems().clear();
-		sexoField.getItems().addAll(Arrays.asList("-- Selecione --","Masculino","Feminino"));
+		sexoField.getItems().addAll(Arrays.asList("-- Selecione --", "Masculino", "Feminino"));
+
+		naturalidadeUfField.getItems().clear();
+		naturalidadeUfField.getItems()
+				.addAll(Arrays.asList("-- Selecione --", "RJ", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO",
+						"MA", "MT", "MS", "MG", "PA", "PB", "PE", "PI", "PR", "RN", "RS", "RO", "RO", "SC", "SP", "SE",
+						"TO"));
 	}
 
 	public void setController(AlunoPeriodoCurricularDto obj) {
@@ -78,12 +86,13 @@ public class DadosAlunosController implements Initializable {
 		matriculaField.setText(obj.getMatricula());
 		nomeCompletoField.setText(obj.getNomeCompleto());
 		sexoField.setValue(obj.getSexo());
-		dataNascField.setValue(LocalDate.parse("21/12/1988",DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+		dataNascField.setValue(LocalDate.parse("21/12/1988", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 //		dataNascField.setText(obj.getRg());		
 		nomePaiField.setText(obj.getNomePai());
 		nomeMaeField.setText(obj.getNomeMae());
 		nacionalidade.setText(obj.getNacionalidade());
 		naturalidade.setText(obj.getNaturalidade());
+		naturalidadeUfField.setValue("RJ");
 		rgField.setText(obj.getRg());
 
 		Map<TextField, String> mapaNomes = new HashMap<TextField, String>();
@@ -109,7 +118,7 @@ public class DadosAlunosController implements Initializable {
 			System.out.println("MAP: " + entry.getKey() + "\t\t" + entry.getValue());
 
 			TextField textField = entry.getKey();
-			
+
 			System.out.println("Iterator" + it);
 
 			if (entry.getValue() == null) {

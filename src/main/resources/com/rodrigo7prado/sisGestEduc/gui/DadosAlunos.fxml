@@ -124,7 +124,7 @@
       							<Insets left="10.0" />
       						</padding>
       					</Label>
-      					<ComboBox prefWidth="150.0" />
+      					<ComboBox fx:id="naturalidadeUfField" prefWidth="150.0" />
                   </children>
                </HBox>
 				</children>
