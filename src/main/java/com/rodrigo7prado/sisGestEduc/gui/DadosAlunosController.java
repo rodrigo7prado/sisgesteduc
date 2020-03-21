@@ -92,7 +92,7 @@ public class DadosAlunosController implements Initializable {
 		nomeMaeField.setText(obj.getNomeMae());
 		nacionalidade.setText(obj.getNacionalidade());
 		naturalidade.setText(obj.getNaturalidade());
-		naturalidadeUfField.setValue("RJ");
+		naturalidadeUfField.setValue(obj.getNaturalidadeUF());
 		rgField.setText(obj.getRg());
 
 		Map<TextField, String> mapaNomes = new HashMap<TextField, String>();

@@ -39,6 +39,7 @@ public class AlunoPeriodoCurricularDto {
 	private String nomeMae;
 	private String nacionalidade;
 	private String naturalidade;
+	private String naturalidadeUF;
 	private String rg;
 
 	private String freq;
@@ -74,8 +75,9 @@ public class AlunoPeriodoCurricularDto {
 	}
 
 	public AlunoPeriodoCurricularDto(VwAlunoPeriodoCurricular vwAlunoPeriodoCurricular, AlunoExternal alunoExternal,
-			String anoLetivo, String curso, String modalidade, String turma, String nomeCompleto, String sexo, Date dataNasc, String nomePai, String nomeMae, String nacionalidade, String naturalidade, String rg, String matricula,
-			String situacaoFinal) {
+			String anoLetivo, String curso, String modalidade, String turma, String nomeCompleto, String sexo,
+			Date dataNasc, String nomePai, String nomeMae, String nacionalidade, String naturalidade, String naturalidadeUF, String rg,
+			String matricula, String situacaoFinal) {
 		super();
 		if (alunoExternal != null) {
 //			System.out.println("aa: " + alunoExternal.getNomeCompleto() + ", " + matricula);
@@ -125,13 +127,15 @@ public class AlunoPeriodoCurricularDto {
 		this.nomeMae = nomeMae;
 		this.nacionalidade = nacionalidade;
 		this.naturalidade = naturalidade;
+		this.naturalidadeUF = naturalidadeUF;
 		this.rg = rg;
 		this.situacaoFinal = situacaoFinal;
 
 	}
 
 	public AlunoPeriodoCurricularDto(String anoLetivo, String curso, String modalidade, String turma, String matricula,
-			String nomeCompleto, String sexo, Date dataNasc, String nomePai,String nomeMae, String nacionalidade, String naturalidade, String rg, StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif,
+			String nomeCompleto, String sexo, Date dataNasc, String nomePai, String nomeMae, String nacionalidade,
+			String naturalidade, String naturalidadeUF, String rg, StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif,
 			StatusDocAluno validDadosHeFund, StatusDocAluno validDadosHeMedio, String situacaoFinal) {
 
 		this.anoLetivo = anoLetivo;
@@ -146,6 +150,7 @@ public class AlunoPeriodoCurricularDto {
 		this.nomeMae = nomeMae;
 		this.nacionalidade = nacionalidade;
 		this.naturalidade = naturalidade;
+		this.naturalidadeUF = naturalidadeUF;
 		this.rg = rg;
 		this.validDadosPessoais = validDadosPessoais;
 		this.validDadosIdentif = validDadosIdentif;
@@ -334,6 +339,14 @@ public class AlunoPeriodoCurricularDto {
 
 	public void setNaturalidade(String naturalidade) {
 		this.naturalidade = naturalidade;
+	}
+
+	public String getNaturalidadeUF() {
+		return naturalidadeUF;
+	}
+
+	public void setNaturalidadeUF(String naturalidadeUF) {
+		this.naturalidadeUF = naturalidadeUF;
 	}
 
 	public String getRg() {
