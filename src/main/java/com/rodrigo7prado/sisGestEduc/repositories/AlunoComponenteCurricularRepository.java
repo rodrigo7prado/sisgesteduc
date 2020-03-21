@@ -109,6 +109,7 @@ public interface AlunoComponenteCurricularRepository extends JpaRepository<Aluno
 			+ ", v.id.turma"
 			+ ", v.id.turma"
 			+ ", v.nomeCompl"
+			+ ", a.sexo"
 			+ ", a.dataNasc"
 			+ ", a.nomePai"
 			+ ", a.nomeMae"

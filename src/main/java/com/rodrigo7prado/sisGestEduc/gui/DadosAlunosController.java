@@ -77,7 +77,7 @@ public class DadosAlunosController implements Initializable {
 //		matriculaField.setText(entity.getMatricula());
 		matriculaField.setText(obj.getMatricula());
 		nomeCompletoField.setText(obj.getNomeCompleto());
-		sexoField.setValue("-- Selecione --");
+		sexoField.setValue(obj.getSexo());
 		dataNascField.setValue(LocalDate.parse("21/12/1988",DateTimeFormatter.ofPattern("dd/MM/yyyy")));
 //		dataNascField.setText(obj.getRg());		
 		nomePaiField.setText(obj.getNomePai());
