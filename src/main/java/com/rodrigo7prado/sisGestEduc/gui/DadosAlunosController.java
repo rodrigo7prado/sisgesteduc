@@ -108,7 +108,7 @@ public class DadosAlunosController implements Initializable {
 		naturalidadeUfField.setValue(obj.getNaturalidadeUF());
 		rgField.setText(obj.getRg());
 		rgEmissorField.setValue(obj.getRgEmissor());
-		rgEmissorUfField.setValue("-- Selecione --");
+		rgEmissorUfField.setValue(obj.getRgEmissorUf());
 
 		Map<TextField, String> mapaNomes = new HashMap<TextField, String>();
 		mapaNomes.put(matriculaField, obj.getMatricula());
