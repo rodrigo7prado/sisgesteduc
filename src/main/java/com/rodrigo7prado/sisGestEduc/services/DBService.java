@@ -9,6 +9,7 @@ import com.rodrigo7prado.sisGestEduc.entities.ComponenteCurricular;
 import com.rodrigo7prado.sisGestEduc.entities.Curso;
 import com.rodrigo7prado.sisGestEduc.entities.CursoModalidade;
 import com.rodrigo7prado.sisGestEduc.entities.Disciplina;
+import com.rodrigo7prado.sisGestEduc.entities.FiltroGrupo;
 import com.rodrigo7prado.sisGestEduc.entities.Modalidade;
 import com.rodrigo7prado.sisGestEduc.entities.PeriodoCurricular;
 import com.rodrigo7prado.sisGestEduc.entities.Turma;
@@ -16,31 +17,28 @@ import com.rodrigo7prado.sisGestEduc.repositories.ComponenteCurricularRepository
 import com.rodrigo7prado.sisGestEduc.repositories.CursoModalidadeRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.CursoRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.DisciplinaRepository;
+import com.rodrigo7prado.sisGestEduc.repositories.FiltroGrupoRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.ModalidadeRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.PeriodoCurricularRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.TurmaRepository;
 
 @Service
 public class DBService {
-
-	@Autowired
-	private TurmaRepository turmaRepository;
-
-	@Autowired
-	private DisciplinaRepository disciplinaRepository;
-
-	@Autowired
-	private CursoRepository cursoRepository;
-
-	@Autowired
-	private ModalidadeRepository modalidadeRepository;
 	
 	@Autowired
+	private FiltroGrupoRepository filtroGrupoRepository;
+	@Autowired
+	private TurmaRepository turmaRepository;
+	@Autowired
+	private DisciplinaRepository disciplinaRepository;
+	@Autowired
+	private CursoRepository cursoRepository;
+	@Autowired
+	private ModalidadeRepository modalidadeRepository;
+	@Autowired
 	private CursoModalidadeRepository cursoModalidadeRepository;
-
 	@Autowired
 	private PeriodoCurricularRepository periodoCurricularRepository;
-
 	@Autowired
 	private ComponenteCurricularRepository componenteCurricularRepository;
 
@@ -126,5 +124,20 @@ public class DBService {
 		componenteCurricularRepository.saveAll(Arrays.asList(cc1, cc2, cc3, cc4, cc5, cc6, cc7, cc8, cc9, cc10, cc11,
 				cc12, cc13, cc14, cc15, cc16, cc17, cc18, cc19, cc20, cc21, cc22, cc23, cc24, cc25, cc26, cc27, cc28,
 				cc29, cc30, cc31, cc32, cc33, cc34, cc35));
+		
+		FiltroGrupo fg1 = new FiltroGrupo(null,"Todos os alunos");
+		FiltroGrupo fg2 = new FiltroGrupo(null,"Últimos períodos curriculares");
+		FiltroGrupo fg3 = new FiltroGrupo(null,"Concluintes");
+		FiltroGrupo fg4 = new FiltroGrupo(null,"Todas as Certidões");
+		FiltroGrupo fg5 = new FiltroGrupo(null,"Todos os Certificados");
+		FiltroGrupo fg6 = new FiltroGrupo(null,"Todos ok");
+		FiltroGrupo fg7 = new FiltroGrupo(null,"Quaisquer pendências");
+		FiltroGrupo fg8 = new FiltroGrupo(null,"Pendência de dados pessoais");
+		FiltroGrupo fg9 = new FiltroGrupo(null,"Pendência de dados escolares");
+		FiltroGrupo fg10 = new FiltroGrupo(null,"Pendência de HE fund.");
+		FiltroGrupo fg11 = new FiltroGrupo(null,"Pendência de HE médio");
+		FiltroGrupo fg12 = new FiltroGrupo(null,"Diferenças c/ Conexão Educação");
+		
+		filtroGrupoRepository.saveAll(Arrays.asList(fg1,fg2,fg3,fg4,fg5,fg6,fg7,fg8,fg9,fg10,fg11,fg12));
 	}
 }
