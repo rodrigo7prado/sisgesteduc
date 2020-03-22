@@ -100,6 +100,17 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		listView.getItems().add("Pendência de HE fund.");
 		listView.getItems().add("Pendência de HE médio");
 		listView.getItems().add("Diferenças c/ Conexão Educação");
+		listView.getItems().add("Pendências em [Nome completo]");
+		listView.getItems().add("Pendências em [Data de Nascimento]");
+		listView.getItems().add("Pendências em [Sexo]");
+		listView.getItems().add("Pendências em [Nome da mãe]");
+		listView.getItems().add("Pendências em [Nome do pai]");
+		listView.getItems().add("Pendências em [Nacionalidade]");
+		listView.getItems().add("Pendências em [Naturalidade]");
+		listView.getItems().add("Pendências em [Naturalidade UF]");
+		listView.getItems().add("Pendências em [Rg]");
+		listView.getItems().add("Pendências em [Rg Emissor]");
+		listView.getItems().add("Pendências em [Rg Emissor UF]");
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
