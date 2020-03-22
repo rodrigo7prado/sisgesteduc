@@ -72,7 +72,7 @@
 									<Insets top="3.0" />
 								</padding>
 							</Label>
-							<ComboBox prefHeight="28.0" prefWidth="90.0">
+							<ComboBox fx:id="rgEmissorUfField" prefHeight="28.0" prefWidth="90.0">
 								<padding>
 									<Insets top="3.0" />
 								</padding>
