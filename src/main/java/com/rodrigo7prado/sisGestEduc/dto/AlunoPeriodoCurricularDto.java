@@ -41,6 +41,7 @@ public class AlunoPeriodoCurricularDto {
 	private String naturalidade;
 	private String naturalidadeUF;
 	private String rg;
+	private String rgEmissor;
 
 	private String freq;
 
@@ -76,8 +77,8 @@ public class AlunoPeriodoCurricularDto {
 
 	public AlunoPeriodoCurricularDto(VwAlunoPeriodoCurricular vwAlunoPeriodoCurricular, AlunoExternal alunoExternal,
 			String anoLetivo, String curso, String modalidade, String turma, String nomeCompleto, String sexo,
-			Date dataNasc, String nomePai, String nomeMae, String nacionalidade, String naturalidade, String naturalidadeUF, String rg,
-			String matricula, String situacaoFinal) {
+			Date dataNasc, String nomePai, String nomeMae, String nacionalidade, String naturalidade,
+			String naturalidadeUF, String rg, String rgEmissor, String matricula, String situacaoFinal) {
 		super();
 		if (alunoExternal != null) {
 //			System.out.println("aa: " + alunoExternal.getNomeCompleto() + ", " + matricula);
@@ -129,14 +130,16 @@ public class AlunoPeriodoCurricularDto {
 		this.naturalidade = naturalidade;
 		this.naturalidadeUF = naturalidadeUF;
 		this.rg = rg;
+		this.rgEmissor = rgEmissor;
 		this.situacaoFinal = situacaoFinal;
 
 	}
 
 	public AlunoPeriodoCurricularDto(String anoLetivo, String curso, String modalidade, String turma, String matricula,
 			String nomeCompleto, String sexo, Date dataNasc, String nomePai, String nomeMae, String nacionalidade,
-			String naturalidade, String naturalidadeUF, String rg, StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif,
-			StatusDocAluno validDadosHeFund, StatusDocAluno validDadosHeMedio, String situacaoFinal) {
+			String naturalidade, String naturalidadeUF, String rg, String rgEmissor, StatusDocAluno validDadosPessoais,
+			StatusDocAluno validDadosIdentif, StatusDocAluno validDadosHeFund, StatusDocAluno validDadosHeMedio,
+			String situacaoFinal) {
 
 		this.anoLetivo = anoLetivo;
 		this.curso = curso;
@@ -152,6 +155,7 @@ public class AlunoPeriodoCurricularDto {
 		this.naturalidade = naturalidade;
 		this.naturalidadeUF = naturalidadeUF;
 		this.rg = rg;
+		this.rg = rgEmissor;
 		this.validDadosPessoais = validDadosPessoais;
 		this.validDadosIdentif = validDadosIdentif;
 		this.validDadosHeFund = validDadosHeFund;
@@ -351,6 +355,14 @@ public class AlunoPeriodoCurricularDto {
 
 	public String getRg() {
 		return rg;
+	}
+
+	public String getRgEmissor() {
+		return rgEmissor;
+	}
+
+	public void setRgEmissor(String rgEmissor) {
+		this.rgEmissor = rgEmissor;
 	}
 
 	public void setRg(String rg) {

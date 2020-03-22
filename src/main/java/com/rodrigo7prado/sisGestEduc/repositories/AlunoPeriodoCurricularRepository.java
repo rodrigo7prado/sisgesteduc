@@ -121,6 +121,10 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 //			+ ", c.id.aluno.nomeCompleto"
 			+ ", a.rg"
 
+//			nomeCompl
+//			+ ", c.id.aluno.nomeCompleto"
+			+ ", a.rgEmissor"
+
 			// matricula
 //			+ ", c.id.aluno.matricula"
 			+ ", v.id.aluno"
@@ -147,7 +151,9 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", a.nomePai" + ", a.nomeMae" + ", a.nacionalidade" 
 			+ ", a.naturalidade" 
 			+ ", a.naturalidadeUF"
-			+ ", a.rg" + ", v.id.aluno"
+			+ ", a.rg" 
+			+ ", a.rgEmissor"
+			+ ", v.id.aluno"
 			+ ", v.id.situacaoFinal"
 
 			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
