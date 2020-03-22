@@ -21,7 +21,7 @@
 				<VBox prefHeight="568.0" prefWidth="438.0">
 					<children>
 						<Label text="Filtro:" />
-						<ListView fx:id="listView" editable="true" prefWidth="200.0" />
+						<ListView fx:id="listView" editable="true" prefHeight="549.0" prefWidth="177.0" />
 					</children>
 				</VBox>
 				<SplitPane dividerPositions="0.5686695278969958" orientation="VERTICAL" prefHeight="160.0" prefWidth="1198.0">
