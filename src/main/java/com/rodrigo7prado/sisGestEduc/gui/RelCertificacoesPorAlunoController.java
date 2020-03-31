@@ -35,6 +35,9 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 //	@FXML
 //	private VBox vBoxControllerDadosAlunos;
+	
+	@FXML
+	private VBox vBoxControllerFiltro;
 
 	@FXML
 	@Autowired
@@ -49,9 +52,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private AlunoPeriodoCurricularService service;
 
 	private ObservableList<AlunoPeriodoCurricularDto> observableList = FXCollections.observableArrayList();
-
-	@FXML
-	private ListView<String> listView;
+	
 	@FXML
 	private TreeTableView<AlunoPeriodoCurricularDto> treeTableViewAluno;
 	@FXML
@@ -82,36 +83,11 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 //		System.out.println("relRel");
 		initializeNodes();
 		loadAlunosDetails();
-		loadListView();
 		loadElementTreeTableColumBoolCertidao();
 //		historicoAlunoController.updateFormData();
 	}
 
-	private void loadListView() {
-		listView.getItems().add("Todos os Alunos");
-		listView.getItems().add("Últimos períodos curriculares");
-		listView.getItems().add("Concluintes");
-		listView.getItems().add("Todas as Certidões");
-		listView.getItems().add("Todos os Certificados");
-		listView.getItems().add("Todos ok");
-		listView.getItems().add("Quaisquer pendências");
-		listView.getItems().add("Pendência de dados pessoais");
-		listView.getItems().add("Pendência de dados escolares");
-		listView.getItems().add("Pendência de HE fund.");
-		listView.getItems().add("Pendência de HE médio");
-		listView.getItems().add("Diferenças c/ Conexão Educação");
-		listView.getItems().add("Pendências em [Nome completo]");
-		listView.getItems().add("Pendências em [Data de Nascimento]");
-		listView.getItems().add("Pendências em [Sexo]");
-		listView.getItems().add("Pendências em [Nome da mãe]");
-		listView.getItems().add("Pendências em [Nome do pai]");
-		listView.getItems().add("Pendências em [Nacionalidade]");
-		listView.getItems().add("Pendências em [Naturalidade]");
-		listView.getItems().add("Pendências em [Naturalidade UF]");
-		listView.getItems().add("Pendências em [Rg]");
-		listView.getItems().add("Pendências em [Rg Emissor]");
-		listView.getItems().add("Pendências em [Rg Emissor UF]");
-	}
+	
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private void initializeNodes() {
