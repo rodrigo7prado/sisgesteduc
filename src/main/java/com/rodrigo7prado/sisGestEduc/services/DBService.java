@@ -146,8 +146,34 @@ public class DBService {
 		
 		filtroGrupoRepository.saveAll(Arrays.asList(fg1,fg2,fg3,fg4,fg5,fg6,fg7,fg8,fg9,fg10,fg11,fg12));
 		
-		FiltroItem fi1 = new FiltroItem(null,fg8,"Pendência de [Nome completo]");
+		FiltroItem fi1 = new FiltroItem(null,fg1,"Todos os alunos");
+		FiltroItem fi2 = new FiltroItem(null,fg2,"Últimos períodos curriculares");
+		FiltroItem fi3 = new FiltroItem(null,fg3,"Concluintes");
+		FiltroItem fi4 = new FiltroItem(null,fg4,"Todas as Certidões");
+		FiltroItem fi5 = new FiltroItem(null,fg5,"Todas as Certidões");
+		FiltroItem fi6 = new FiltroItem(null,fg6,"Todos ok");
+		FiltroItem fi7 = new FiltroItem(null,fg7,"Quaisquer pendências");
+		FiltroItem fi8 = new FiltroItem(null,fg8,"Pendências de dados pessoais");
+		FiltroItem fi9 = new FiltroItem(null,fg8,"Pendência de [Matrícula]");
+		FiltroItem fi10 = new FiltroItem(null,fg8,"Pendência de [Nome completo]");
+		FiltroItem fi11 = new FiltroItem(null,fg8,"Pendência de [Data de Nascimento]");
+		FiltroItem fi12 = new FiltroItem(null,fg8,"Pendência de [Nacionalidade]");
+		FiltroItem fi13 = new FiltroItem(null,fg8,"Pendência de [Naturalidade]");
+		FiltroItem fi14 = new FiltroItem(null,fg8,"Pendência de [Naturalidade UF]");
+		FiltroItem fi15 = new FiltroItem(null,fg8,"Pendência de [Rg]");
+		FiltroItem fi16 = new FiltroItem(null,fg8,"Pendência de [Rg emissor]");
+		FiltroItem fi17 = new FiltroItem(null,fg8,"Pendência de [Rg emissor UF]");
+		FiltroItem fi18 = new FiltroItem(null,fg8,"Pendência de [Rg]");
+		FiltroItem fi19 = new FiltroItem(null,fg8,"Pendência de [Pai]");
+		FiltroItem fi20 = new FiltroItem(null,fg8,"Pendência de [Mãe]");
 		
-		filtroItemRepository.saveAll(Arrays.asList(fi1));
+		FiltroItem fi21 = new FiltroItem(null,fg9,"Pendênci de dados escolares");
+		FiltroItem fi22 = new FiltroItem(null,fg10,"Pendência de HE fun.");
+		FiltroItem fi23 = new FiltroItem(null,fg11,"Pendência de HE médio");
+		FiltroItem fi24 = new FiltroItem(null,fg12,"Diferenças c/ Conexão Educação");
+
+		
+		
+		filtroItemRepository.saveAll(Arrays.asList(fi1,fi2,fi3,fi4,fi5,fi6,fi7,fi8,fi9,fi10,fi11,fi12,fi13,fi14,fi15,fi16,fi17,fi18,fi19,fi20,fi21,fi22,fi23,fi24));
 	}
 }

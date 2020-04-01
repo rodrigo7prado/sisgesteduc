@@ -53,5 +53,4 @@ public class AutoDto {
 	public void setSerie3(String serie3) {
 		this.serie3 = serie3;
 	}
-
 }
