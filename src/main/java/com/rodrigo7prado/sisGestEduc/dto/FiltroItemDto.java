@@ -37,4 +37,10 @@ public class FiltroItemDto {
 	public void setFiltroItemNome(String filtroItemNome) {
 		this.filtroItemNome = filtroItemNome;
 	}
+
+	@Override
+	public String toString() {
+		return "FiltroItemDto [id=" + id + ", filtroGrupoId=" + filtroGrupoId + ", filtroItemNome=" + filtroItemNome
+				+ "]";
+	}
 }

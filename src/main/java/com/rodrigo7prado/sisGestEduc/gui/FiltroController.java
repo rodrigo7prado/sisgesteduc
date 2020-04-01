@@ -61,7 +61,7 @@ public class FiltroController implements Initializable {
 		treeTableViewFiltro.setRoot(treeItemFiltroRoot);
 
 		for (FiltroItemDto itemObsList : observableList) {
-			TreeItem<FiltroItemDto> node = new TreeItem<>(new FiltroItemDto(null,itemObsList.getId(),itemObsList.getFiltroItemNome()));
+			TreeItem<FiltroItemDto> node = new TreeItem<>(new FiltroItemDto(itemObsList.getId(),itemObsList.getFiltroGrupoId(),itemObsList.getFiltroItemNome()));
 
 			TreeItem<FiltroItemDto> filtroGrupoNode = node;
 
@@ -116,9 +116,21 @@ public class FiltroController implements Initializable {
 //		listView.getItems().add("Pendências em [Rg Emissor UF]");
 	}
 	
+	@SuppressWarnings("unchecked")
 	@FXML
 	public void onMouseClicked(Event event) {
-		System.out.println(event.getSource());
+		
+		
+		TreeTableView<FiltroItemDto> source = (TreeTableView<FiltroItemDto>) event.getSource();
+		
+		FiltroItemDto obj = (FiltroItemDto) source.getFocusModel().getFocusedItem().getValue();
+		
+		System.out.println("Id: " + obj);
+		
+//		switch (obj.getId()) {
+//		
+//		}
+		
 	}
 
 }
