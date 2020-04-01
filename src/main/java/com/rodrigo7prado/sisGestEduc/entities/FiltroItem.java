@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,10 +23,15 @@ public class FiltroItem implements Serializable {
 	private Long id;
 	private String nomeFiltroItem;
 	
+	@ManyToOne
+	@JoinColumn(name = "filtroGrupoId")
+	private FiltroGrupo filtroGrupo;
+	
 	public FiltroItem() {
 	}
-	public FiltroItem(Long id, String nomeFiltroItem) {
+	public FiltroItem(Long id, FiltroGrupo filtroGrupo, String nomeFiltroItem) {
 		this.id = id;
+		this.filtroGrupo = filtroGrupo;
 		this.nomeFiltroItem = nomeFiltroItem;
 	}
 	public Long getId() {

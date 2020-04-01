@@ -10,6 +10,7 @@ import com.rodrigo7prado.sisGestEduc.entities.Curso;
 import com.rodrigo7prado.sisGestEduc.entities.CursoModalidade;
 import com.rodrigo7prado.sisGestEduc.entities.Disciplina;
 import com.rodrigo7prado.sisGestEduc.entities.FiltroGrupo;
+import com.rodrigo7prado.sisGestEduc.entities.FiltroItem;
 import com.rodrigo7prado.sisGestEduc.entities.Modalidade;
 import com.rodrigo7prado.sisGestEduc.entities.PeriodoCurricular;
 import com.rodrigo7prado.sisGestEduc.entities.Turma;
@@ -18,6 +19,7 @@ import com.rodrigo7prado.sisGestEduc.repositories.CursoModalidadeRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.CursoRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.DisciplinaRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.FiltroGrupoRepository;
+import com.rodrigo7prado.sisGestEduc.repositories.FiltroItemRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.ModalidadeRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.PeriodoCurricularRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.TurmaRepository;
@@ -28,7 +30,7 @@ public class DBService {
 	@Autowired
 	private FiltroGrupoRepository filtroGrupoRepository;
 	@Autowired
-	private FiltroGrupoRepository filtroItemRepository;
+	private FiltroItemRepository filtroItemRepository;
 	@Autowired
 	private TurmaRepository turmaRepository;
 	@Autowired
@@ -140,6 +142,12 @@ public class DBService {
 		FiltroGrupo fg11 = new FiltroGrupo(null,"Pendência de HE médio");
 		FiltroGrupo fg12 = new FiltroGrupo(null,"Diferenças c/ Conexão Educação");
 		
+		
+		
 		filtroGrupoRepository.saveAll(Arrays.asList(fg1,fg2,fg3,fg4,fg5,fg6,fg7,fg8,fg9,fg10,fg11,fg12));
+		
+		FiltroItem fi1 = new FiltroItem(null,fg8,"Pendência de [Nome completo]");
+		
+		filtroItemRepository.saveAll(Arrays.asList(fi1));
 	}
 }
