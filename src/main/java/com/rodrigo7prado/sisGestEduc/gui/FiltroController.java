@@ -18,6 +18,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
+import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 
 @Controller
 public class FiltroController implements Initializable {
@@ -40,8 +41,14 @@ public class FiltroController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		initializeColumns();
 		loadListView();
 
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	private void initializeColumns() {
+		treeTableColumnFiltro.setCellValueFactory(new TreeItemPropertyValueFactory("nomeFiltroGrupo"));
 	}
 
 	private void loadListView() {
