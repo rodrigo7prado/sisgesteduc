@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "tb_filtro_grupo")
-public class FiltroGrupo implements Serializable {
+@Table(name = "tb_filtro_item")
+public class FiltroItem implements Serializable {
 
 	/**
 	 * 
@@ -19,29 +19,24 @@ public class FiltroGrupo implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String nomeFiltroGrupo;
+	private String nomeFiltroItem;
 	
-	public FiltroGrupo() {
+	public FiltroItem() {
 	}
-	
-	public FiltroGrupo(Long id, String nomeFiltroGrupo) {
+	public FiltroItem(Long id, String nomeFiltroItem) {
 		this.id = id;
-		this.nomeFiltroGrupo = nomeFiltroGrupo;
+		this.nomeFiltroItem = nomeFiltroItem;
 	}
-	
 	public Long getId() {
 		return id;
 	}
-	
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public String getNomeFiltroGrupo() {
-		return nomeFiltroGrupo;
+	public String getNomeFiltroItem() {
+		return nomeFiltroItem;
 	}
-	
-	public void setNomeFiltroGrupo(String nomeFiltroGrupo) {
-		this.nomeFiltroGrupo = nomeFiltroGrupo;
+	public void setNomeFiltroItem(String nomeFiltroItem) {
+		this.nomeFiltroItem = nomeFiltroItem;
 	}
 }

@@ -28,6 +28,8 @@ public class DBService {
 	@Autowired
 	private FiltroGrupoRepository filtroGrupoRepository;
 	@Autowired
+	private FiltroGrupoRepository filtroItemRepository;
+	@Autowired
 	private TurmaRepository turmaRepository;
 	@Autowired
 	private DisciplinaRepository disciplinaRepository;
