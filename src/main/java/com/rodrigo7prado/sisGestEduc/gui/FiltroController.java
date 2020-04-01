@@ -6,12 +6,12 @@ import java.util.ResourceBundle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
-import com.rodrigo7prado.sisGestEduc.entities.FiltroGrupo;
-import com.rodrigo7prado.sisGestEduc.services.FiltroGrupoService;
+import com.rodrigo7prado.sisGestEduc.dto.FiltroItemDto;
+import com.rodrigo7prado.sisGestEduc.services.FiltroItemService;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
@@ -24,19 +24,19 @@ import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 public class FiltroController implements Initializable {
 	
 	@Autowired
-	private FiltroGrupoService service;
+	private FiltroItemService service;
 
-	private ObservableList<FiltroGrupo> observableList = FXCollections.observableArrayList();
+	private ObservableList<FiltroItemDto> observableList = FXCollections.observableArrayList();
 	
 	@FXML
 	private ListView<String> listView;
 	
 	@FXML
-	private TreeTableView<FiltroGrupo> treeTableViewFiltro;
+	private TreeTableView<FiltroItemDto> treeTableViewFiltro;
 	@FXML
-	private TreeTableColumn<FiltroGrupo, String> treeTableColumnFiltro;
+	private TreeTableColumn<FiltroItemDto, String> treeTableColumnFiltro;
 	@FXML
-	private TreeTableColumn<FiltroGrupo, String> treeTableColumnLinhas;
+	private TreeTableColumn<FiltroItemDto, String> treeTableColumnLinhas;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -48,42 +48,44 @@ public class FiltroController implements Initializable {
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initializeColumns() {
-		treeTableColumnFiltro.setCellValueFactory(new TreeItemPropertyValueFactory("nomeFiltroGrupo"));
+		treeTableColumnFiltro.setCellValueFactory(new TreeItemPropertyValueFactory("filtroItemNome"));
 	}
 
 	private void loadListView() {
 
 		observableList.clear();
-		observableList.addAll(service.findAll());
-		TreeItem<FiltroGrupo> treeItemFiltroRoot = new TreeItem<>(
+		observableList.addAll(service.findAllDto());
+		TreeItem<FiltroItemDto> treeItemFiltroRoot = new TreeItem<>(
 //				new AlunoPeriodoCurricularDto(null, null, null, null, null, "Turma", null, null, null)
 		);
 		treeTableViewFiltro.setRoot(treeItemFiltroRoot);
 
-		for (FiltroGrupo itemObsList : observableList) {
-			TreeItem<FiltroGrupo> node = new TreeItem<>(new FiltroGrupo(null,itemObsList.getNomeFiltroGrupo()));
+		for (FiltroItemDto itemObsList : observableList) {
+			TreeItem<FiltroItemDto> node = new TreeItem<>(new FiltroItemDto(null,itemObsList.getId(),itemObsList.getFiltroItemNome()));
 
-			TreeItem<FiltroGrupo> filtroGrupoNode = node;
+			TreeItem<FiltroItemDto> filtroGrupoNode = node;
 
-			TreeItem<FiltroGrupo> filtroItemNode = node;
+			TreeItem<FiltroItemDto> filtroItemNode = node;
 
 			Integer size = treeItemFiltroRoot.getChildren().size();
 
 			if (size.equals(0)) {
 				treeItemFiltroRoot.getChildren().add(filtroGrupoNode);
 			} else {
-				String ultimaTurmaAdd = treeItemFiltroRoot.getChildren().get(size - 1).getValue().getNomeFiltroGrupo();
+//				String ultimaTurmaAdd = treeItemFiltroRoot.getChildren().get(size - 1).getValue().getFiltroItemNome();
+				
+				Long ultimoIdGrupo = treeItemFiltroRoot.getChildren().get(size - 1).getValue().getFiltroGrupoId();
 
-				if (ultimaTurmaAdd.equals(itemObsList.getNomeFiltroGrupo())) {
+				if (ultimoIdGrupo.equals(itemObsList.getFiltroGrupoId())) {
 
 					treeItemFiltroRoot.getChildren().get(size - 1).getChildren().add(filtroItemNode);
 
 				} else {
 					treeItemFiltroRoot.getChildren().add(filtroGrupoNode);
-					System.out.println("adicionar a:" + filtroGrupoNode.getValue().getNomeFiltroGrupo());
+					System.out.println("adicionar a:" + filtroGrupoNode.getValue().getFiltroItemNome());
 				}
 			}
-			filtroGrupoNode.setExpanded(true);
+			filtroGrupoNode.setExpanded(false);
 			treeItemFiltroRoot.setExpanded(true);
 		}
 
@@ -112,6 +114,11 @@ public class FiltroController implements Initializable {
 //		listView.getItems().add("Pendências em [Rg]");
 //		listView.getItems().add("Pendências em [Rg Emissor]");
 //		listView.getItems().add("Pendências em [Rg Emissor UF]");
+	}
+	
+	@FXML
+	public void onMouseClicked(Event event) {
+		System.out.println(event.getSource());
 	}
 
 }

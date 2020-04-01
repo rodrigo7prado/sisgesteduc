@@ -8,8 +8,10 @@ public class FiltroItemDto {
 	public FiltroItemDto() {
 	}
 	
-	public FiltroItemDto(Long id) {
-		
+	public FiltroItemDto(Long id,Long filtroGrupoId,String filtroItemNome) {
+		this.id = id;
+		this.filtroGrupoId = filtroGrupoId;
+		this.filtroItemNome = filtroItemNome;
 	}
 
 	public Long getId() {

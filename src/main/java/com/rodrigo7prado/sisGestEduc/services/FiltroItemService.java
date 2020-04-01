@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.rodrigo7prado.sisGestEduc.dto.FiltroItemDto;
 import com.rodrigo7prado.sisGestEduc.entities.FiltroItem;
 import com.rodrigo7prado.sisGestEduc.repositories.FiltroItemRepository;
 
@@ -22,6 +23,10 @@ public class FiltroItemService {
 	public FiltroItem findById(Long id) {
 		Optional<FiltroItem> obj = repository.findById(id);
 		return obj.get();
+	}
+	
+	public List<FiltroItemDto> findAllDto() {
+		return repository.findAllDto();
 	}
 	
 	public FiltroItem insert(FiltroItem obj) {
