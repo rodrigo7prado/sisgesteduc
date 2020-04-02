@@ -80,18 +80,16 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-//		System.out.println("relRel");
+		
+	}
+	
+	public void updateTreeTableView() {
 		initializeNodes();
-		loadAlunosDetails();
-		loadElementTreeTableColumBoolCertidao();
-//		historicoAlunoController.updateFormData();
+		System.out.println("Agora");
 	}
 
-	
-
 	@SuppressWarnings({ "rawtypes", "unchecked" })
-	private void initializeNodes() {
-
+	public void associateTreeTableColumns() {
 		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		System.out.println("Service: " + service.findFilterConcluintes());
 		treeTableColumnTurma.setCellValueFactory(new TreeItemPropertyValueFactory("turma"));
@@ -102,6 +100,13 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		treeTableColumnDadosHeFund.setCellValueFactory(new TreeItemPropertyValueFactory("validDadosHeFund"));
 		treeTableColumnDadosHeMedio.setCellValueFactory(new TreeItemPropertyValueFactory("validDadosHeMedio"));
 		treeTableColumnSituacaoFinal.setCellValueFactory(new TreeItemPropertyValueFactory("situacaoFinal"));
+	}
+
+	@SuppressWarnings("unused")
+	private void initializeNodes() {
+		associateTreeTableColumns();
+		loadAlunosDetails();
+		loadElementTreeTableColumBoolCertidao();
 	}
 
 	private void loadAlunosDetails() {

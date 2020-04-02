@@ -25,6 +25,10 @@ public class FiltroController implements Initializable {
 
 	@Autowired
 	private FiltroItemService service;
+	
+	@FXML
+	@Autowired
+	private RelCertificacoesPorAlunoController relCertificacoesPorAlunoController;
 
 	private ObservableList<FiltroItemDto> observableList = FXCollections.observableArrayList();
 
@@ -131,6 +135,7 @@ public class FiltroController implements Initializable {
 		switch (obj.getId()) {
 		case 1:
 			System.out.println("Ok, id 1");
+			relCertificacoesPorAlunoController.updateTreeTableView();
 			break;
 		default:
 			System.out.println("Ok, outro id");
