@@ -1,24 +1,24 @@
 package com.rodrigo7prado.sisGestEduc.dto;
 
 public class FiltroItemDto {
-	private Long id;
+	private Integer id;
 	private Long filtroGrupoId;
 	private String filtroItemNome;
 	
 	public FiltroItemDto() {
 	}
 	
-	public FiltroItemDto(Long id,Long filtroGrupoId,String filtroItemNome) {
+	public FiltroItemDto(Integer id,Long filtroGrupoId,String filtroItemNome) {
 		this.id = id;
 		this.filtroGrupoId = filtroGrupoId;
 		this.filtroItemNome = filtroItemNome;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

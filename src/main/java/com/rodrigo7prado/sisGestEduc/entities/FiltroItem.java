@@ -20,7 +20,7 @@ public class FiltroItem implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private Integer id;
 	private String nomeFiltroItem;
 	
 	@ManyToOne
@@ -29,15 +29,15 @@ public class FiltroItem implements Serializable {
 	
 	public FiltroItem() {
 	}
-	public FiltroItem(Long id, FiltroGrupo filtroGrupo, String nomeFiltroItem) {
+	public FiltroItem(Integer id, FiltroGrupo filtroGrupo, String nomeFiltroItem) {
 		this.id = id;
 		this.filtroGrupo = filtroGrupo;
 		this.nomeFiltroItem = nomeFiltroItem;
 	}
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	public String getNomeFiltroItem() {

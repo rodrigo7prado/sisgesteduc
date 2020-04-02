@@ -22,15 +22,15 @@ import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 
 @Controller
 public class FiltroController implements Initializable {
-	
+
 	@Autowired
 	private FiltroItemService service;
 
 	private ObservableList<FiltroItemDto> observableList = FXCollections.observableArrayList();
-	
+
 	@FXML
 	private ListView<String> listView;
-	
+
 	@FXML
 	private TreeTableView<FiltroItemDto> treeTableViewFiltro;
 	@FXML
@@ -45,7 +45,7 @@ public class FiltroController implements Initializable {
 		loadListView();
 
 	}
-	
+
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initializeColumns() {
 		treeTableColumnFiltro.setCellValueFactory(new TreeItemPropertyValueFactory("filtroItemNome"));
@@ -61,7 +61,8 @@ public class FiltroController implements Initializable {
 		treeTableViewFiltro.setRoot(treeItemFiltroRoot);
 
 		for (FiltroItemDto itemObsList : observableList) {
-			TreeItem<FiltroItemDto> node = new TreeItem<>(new FiltroItemDto(itemObsList.getId(),itemObsList.getFiltroGrupoId(),itemObsList.getFiltroItemNome()));
+			TreeItem<FiltroItemDto> node = new TreeItem<>(new FiltroItemDto(itemObsList.getId(),
+					itemObsList.getFiltroGrupoId(), itemObsList.getFiltroItemNome()));
 
 			TreeItem<FiltroItemDto> filtroGrupoNode = node;
 
@@ -73,7 +74,7 @@ public class FiltroController implements Initializable {
 				treeItemFiltroRoot.getChildren().add(filtroGrupoNode);
 			} else {
 //				String ultimaTurmaAdd = treeItemFiltroRoot.getChildren().get(size - 1).getValue().getFiltroItemNome();
-				
+
 				Long ultimoIdGrupo = treeItemFiltroRoot.getChildren().get(size - 1).getValue().getFiltroGrupoId();
 
 				if (ultimoIdGrupo.equals(itemObsList.getFiltroGrupoId())) {
@@ -115,7 +116,7 @@ public class FiltroController implements Initializable {
 //		listView.getItems().add("Pendências em [Rg Emissor]");
 //		listView.getItems().add("Pendências em [Rg Emissor UF]");
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@FXML
 	public void onMouseClicked(Event event) {
@@ -127,9 +128,14 @@ public class FiltroController implements Initializable {
 		
 		System.out.println("Id: " + obj);
 		
-//		switch (obj.getId()) {
-//		
-//		}
+		switch (obj.getId()) {
+		case 1:
+			System.out.println("Ok, id 1");
+			break;
+		default:
+			System.out.println("Ok, outro id");
+			break;
+		}
 		
 	}
 
