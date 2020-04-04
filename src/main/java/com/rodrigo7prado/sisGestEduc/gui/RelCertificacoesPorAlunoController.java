@@ -2,8 +2,11 @@ package com.rodrigo7prado.sisGestEduc.gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -73,6 +76,8 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private List<AlunoPeriodoCurricularDto> carregamento12;
 	
 	private List<List<AlunoPeriodoCurricularDto>> carregamentos;
+	private Map<Integer,List<AlunoPeriodoCurricularDto>> mapCarregamentos = new HashMap<Integer,List<AlunoPeriodoCurricularDto>>();
+	private Map<String,List<String>> mapCarregamentos2 = new HashMap<String,List<String>>();
 
 	@FXML
 	private TreeTableView<AlunoPeriodoCurricularDto> treeTableViewAluno;
@@ -103,26 +108,17 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		
-		
-//		this.carregamentos.addAll(Arrays.asList(service.findFilterConcluintes()));
-//		this.carregamentos.add(service.findFilterConcluintes());
-		this.carregamento = service.findFilterConcluintes();
-		this.carregamento2 = service.findFilterConcluintes();
-		this.carregamento3 = service.findFilterConcluintes();
-		this.carregamento4 = service.findFilterConcluintes();
-		this.carregamento5 = service.findFilterConcluintes();
-		this.carregamento6 = service.findFilterConcluintes();
-		this.carregamento7 = service.findFilterConcluintes();
-		this.carregamento8 = service.findFilterConcluintes();
-		this.carregamento9 = service.findFilterConcluintes();
-		this.carregamento10 = service.findFilterConcluintes();
-		this.carregamento11 = service.findFilterConcluintes();
-		this.carregamento12 = service.findFilterConcluintes();
-		
-		
-//		this.carregamento = carregamentos.get(0);
 
+		this.mapCarregamentos.put(0, service.findFilterNull());
+		this.mapCarregamentos.put(1, service.findFilterTodos());
+		this.mapCarregamentos.put(2, service.findFilterUltimosPeriodosLetivos());
+		this.mapCarregamentos.put(3, service.findFilterConcluintes());
+		this.mapCarregamentos.put(11, service.findFilterPendDataNasc());
+		this.mapCarregamentos.put(15, service.findFilterPendRg());
+		this.mapCarregamentos.put(19, service.findFilterPendNomePai());
+		this.mapCarregamentos.put(20, service.findFilterPendNomeMae());
+		
+		
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -140,7 +136,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	}
 
 //	@SuppressWarnings("unused")
-	private void initializeNodes() {
+	private void initializeNodes(Integer keyMap) {
 
 //		@SuppressWarnings("rawtypes")
 //		Task task = new Task<Void>() {
@@ -176,7 +172,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 						progressBar.setProgress(0);
 
 						associateTreeTableColumns();
-						loadAlunosDetails();
+						loadAlunosDetails(keyMap);
 						loadElementTreeTableColumBoolCertidao();
 						progressBar.setProgress(1);
 					}
@@ -191,7 +187,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		thread1.start();
 		try {
 			thread1.join();
-			Thread.sleep(10);
+			Thread.sleep(100);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -201,11 +197,11 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	}
 
-	private void loadAlunosDetails() {
+	private void loadAlunosDetails(Integer keyMap) {
 
 		observableList.clear();
 
-		observableList.addAll(carregamento);
+		observableList.addAll(mapCarregamentos.get(keyMap));
 
 		TreeItem<AlunoPeriodoCurricularDto> treeItemAlunoRoot = new TreeItem<>(
 //						new AlunoPeriodoCurricularDto(null, null, null, null, null, "Turma", null, null, null)
@@ -301,8 +297,8 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	}
 
-	public void updateTreeTableView() {
-		initializeNodes();
+	public void updateTreeTableView(Integer keyMap) {
+		initializeNodes(keyMap);
 		System.out.println("Agora");
 	}
 

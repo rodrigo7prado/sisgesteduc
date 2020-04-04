@@ -135,19 +135,29 @@ public class FiltroController implements Initializable {
 		switch (obj.getId()) {
 		case 1:
 			System.out.println("Ok, id 1");
-			relCertificacoesPorAlunoController.updateTreeTableView();
+			relCertificacoesPorAlunoController.updateTreeTableView(1);
 			break;
 		case 2:
-			relCertificacoesPorAlunoController.updateProgressBar1();
+//			relCertificacoesPorAlunoController.updateProgressBar1();
+			relCertificacoesPorAlunoController.updateTreeTableView(2);
 			break;
 		case 3:
-			relCertificacoesPorAlunoController.updateProgressBar0();
+			relCertificacoesPorAlunoController.updateTreeTableView(3);
 			break;
-		case 4:
-			relCertificacoesPorAlunoController.updateProgressBarIndeterinate();
+		case 11:
+			relCertificacoesPorAlunoController.updateTreeTableView(11);
+			break;
+		case 15:
+			relCertificacoesPorAlunoController.updateTreeTableView(15);
+			break;
+		case 19:
+			relCertificacoesPorAlunoController.updateTreeTableView(19);
+			break;
+		case 20:
+			relCertificacoesPorAlunoController.updateTreeTableView(20);
 			break;
 		default:
-			System.out.println("Ok, outro id");
+			relCertificacoesPorAlunoController.updateTreeTableView(0);
 			break;
 		}
 	}

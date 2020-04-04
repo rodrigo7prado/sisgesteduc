@@ -24,8 +24,50 @@ public class AlunoPeriodoCurricularService {
 		return obj.get();
 	}
 	
+	public List<AlunoPeriodoCurricularDto> findFilterNull() {
+		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterNull();
+		
+		return listDto;
+	}
+	
+	public List<AlunoPeriodoCurricularDto> findFilterTodos() {
+		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterTodos();
+		
+		return listDto;
+	}
+	
+	public List<AlunoPeriodoCurricularDto> findFilterUltimosPeriodosLetivos() {
+		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterUltimosPeriodosLetivos();
+		
+		return listDto;
+	}
+	
 	public List<AlunoPeriodoCurricularDto> findFilterConcluintes() {
 		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterConcluintes();
+		
+		return listDto;
+	}
+	
+	public List<AlunoPeriodoCurricularDto> findFilterPendDataNasc() {
+		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterPendDataNasc();
+		
+		return listDto;
+	}
+	
+	public List<AlunoPeriodoCurricularDto> findFilterPendRg() {
+		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterPendRg();
+		
+		return listDto;
+	}
+	
+	public List<AlunoPeriodoCurricularDto> findFilterPendNomePai() {
+		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterPendNomePai();
+		
+		return listDto;
+	}
+	
+	public List<AlunoPeriodoCurricularDto> findFilterPendNomeMae() {
+		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterPendNomeMae();
 		
 		return listDto;
 	}
