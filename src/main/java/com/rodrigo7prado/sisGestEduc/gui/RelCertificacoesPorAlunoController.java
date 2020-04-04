@@ -60,6 +60,19 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private ObservableList<AlunoPeriodoCurricularDto> observableList = FXCollections.observableArrayList();
 
 	private List<AlunoPeriodoCurricularDto> carregamento;
+	private List<AlunoPeriodoCurricularDto> carregamento2;
+	private List<AlunoPeriodoCurricularDto> carregamento3;
+	private List<AlunoPeriodoCurricularDto> carregamento4;
+	private List<AlunoPeriodoCurricularDto> carregamento5;
+	private List<AlunoPeriodoCurricularDto> carregamento6;
+	private List<AlunoPeriodoCurricularDto> carregamento7;
+	private List<AlunoPeriodoCurricularDto> carregamento8;
+	private List<AlunoPeriodoCurricularDto> carregamento9;
+	private List<AlunoPeriodoCurricularDto> carregamento10;
+	private List<AlunoPeriodoCurricularDto> carregamento11;
+	private List<AlunoPeriodoCurricularDto> carregamento12;
+	
+	private List<List<AlunoPeriodoCurricularDto>> carregamentos;
 
 	@FXML
 	private TreeTableView<AlunoPeriodoCurricularDto> treeTableViewAluno;
@@ -90,23 +103,25 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-//		progressBar.setProgress(0);
+		
+		
+//		this.carregamentos.addAll(Arrays.asList(service.findFilterConcluintes()));
+//		this.carregamentos.add(service.findFilterConcluintes());
 		this.carregamento = service.findFilterConcluintes();
-
-//		this.thread3 = new Thread(new Runnable() {
-//			@Override
-//			public void run() {
-//				Platform.runLater(new Runnable() {
-//					@Override
-//					public void run() {
-//						associateTreeTableColumns();
-//						loadAlunosDetails();
-//						loadElementTreeTableColumBoolCertidao();
-////						progressBar.setProgress(1);
-//					}
-//				});
-//			}
-//		});
+		this.carregamento2 = service.findFilterConcluintes();
+		this.carregamento3 = service.findFilterConcluintes();
+		this.carregamento4 = service.findFilterConcluintes();
+		this.carregamento5 = service.findFilterConcluintes();
+		this.carregamento6 = service.findFilterConcluintes();
+		this.carregamento7 = service.findFilterConcluintes();
+		this.carregamento8 = service.findFilterConcluintes();
+		this.carregamento9 = service.findFilterConcluintes();
+		this.carregamento10 = service.findFilterConcluintes();
+		this.carregamento11 = service.findFilterConcluintes();
+		this.carregamento12 = service.findFilterConcluintes();
+		
+		
+//		this.carregamento = carregamentos.get(0);
 
 	}
 
@@ -183,82 +198,6 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		}
 		
 		thread2.start();
-//		progressBar.setProgress(0);
-
-//		try {
-//			Thread.sleep(100);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-
-//		progressBar.setProgress(0.1);
-
-//		do {
-//			progressBar.setProgress(ProgressIndicator.INDETERMINATE_PROGRESS);
-//		} while (!thread2.isAlive());
-
-//		progressBar.setProgress(1);
-//		thread2.interrupt();
-//		progressBar.progressProperty().setValue(0.23);
-
-//		System.out.println("TESTANDO!");
-
-//		thread2.start();
-
-//		while(thread2.isAlive()) {
-////			System.out.println("TESTANDO!");
-//			thread2.interrupt();
-//			progressBar.setProgress(0);
-//			progressBar.indeterminateProperty();
-//		}
-
-//		if (thread2.isAlive() == false) {
-//			progressBar.setProgress(1);
-//		}
-
-//		else {
-//			progressBar.setProgress(0);
-//		}
-
-//		thread2.run();
-//		thread2.start();
-
-//		thread.run();
-//		progressBar.setProgress(0);
-
-//		try {
-//			thread.run();
-//			thread.interrupt();
-//			progressBar.setProgress(0);
-//			thread.wait(100);
-//			thread.start();
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-
-//		thread1.start();
-//		try {
-//			thread1.join();
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		thread2.start();
-
-//		progressBar.isIndeterminate();
-
-//		ProgressBar bar = new ProgressBar();
-//		bar.progressProperty().bind(task.progressProperty());
-//		new Thread(task).start();
-
-//		new Thread() {
-//			@Override
-//			public void run() {
-//				
-//			}
-//		}.start();
 
 	}
 
@@ -337,98 +276,11 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	@SuppressWarnings("unused")
 	private void initCheckBoxDP() {
-//		treeTableColumnDP.setCellValueFactory((callback) -> {return new ReadOnlyObjectWrapper<AlunoPeriodoCurricularDto>(callback.getValue().getValue());});
-//		treeTableColumnDP.setCellFactory(param -> new TreeTableCell<AlunoPeriodoCurricularDto, Boolean>() {
-//			private CheckBox checkBox;
-//
-//			protected void updateItem(AlunoPeriodoCurricularDto obj, boolean empty) {
-//				super.updateItem(obj, empty);
-//				
-//				if (obj == null) {
-//					setGraphic(null);
-//					return;
-//				}
-//				//System.out.println(obj.getName());
-//				
-//				checkBox = new CheckBox();
-//				
-//				setGraphic(checkBox);
-//			}
-//		});
-
-//		treeTableColumnDP
-//				.setCellValueFactory(new Callback<TreeTableColumn.CellDataFeatures<AlunoPeriodoCurricularDto, Boolean>, //
-//						ObservableValue<Boolean>>() {
-//
-//					@Override
-//					public ObservableValue<Boolean> call(
-//							TreeTableColumn.CellDataFeatures<AlunoPeriodoCurricularDto, Boolean> param) {
-//						TreeItem<AlunoPeriodoCurricularDto> treeItem = param.getValue();
-//						AlunoPeriodoCurricularDto emp = treeItem.getValue();
-//						SimpleBooleanProperty booleanProp = new SimpleBooleanProperty(emp.isSingle());
-//
-//						// Note: singleCol.setOnEditCommit(): Not work for
-//						// CheckBoxTreeTableCell.
-//						// When "Single?" column change.
-//						booleanProp.addListener(new ChangeListener<Boolean>() {
-//
-//							@Override
-//							public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue,
-//									Boolean newValue) {
-//								emp.setSingle(newValue);
-//							}
-//						});
-//						return booleanProp;
-//					}
-//				});
-//
-//		treeTableColumnDP.setCellFactory(
-//				new Callback<TreeTableColumn<AlunoPeriodoCurricularDto, Boolean>, TreeTableCell<AlunoPeriodoCurricularDto, Boolean>>() {
-//					@Override
-//					public TreeTableCell<AlunoPeriodoCurricularDto, Boolean> call(
-//							TreeTableColumn<AlunoPeriodoCurricularDto, Boolean> p) {
-//						CheckBoxTreeTableCell<AlunoPeriodoCurricularDto, Boolean> cell = new CheckBoxTreeTableCell<AlunoPeriodoCurricularDto, Boolean>();
-//						cell.setAlignment(Pos.CENTER);
-//						return cell;
-//					}
-//				});
+		
 	}
 
 	private void setDadosAlunosController(AlunoPeriodoCurricularDto obj) throws IOException {
-
-//		System.out.println("gerResource: " + getClass().getResource("/com/rodrigo7prado/sisGestEduc/gui/DadosAlunos.fxml"));
-//		FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rodrigo7prado/sisGestEduc/gui/DadosAlunos.fxml"));
-//		loader.setControllerFactory(context::getBean);
-
-//		FXMLLoader loader = new FXMLLoader(getClass().getResource("/DadosAlunos.fxml"));
-//		loader.setLocation(getClass().getResource("/com/rodrigo7prado/sisGestEduc/gui/DadosAlunos.fxml"));
-//		loader.load();
-
-//		System.out.println(loader);
-
-//		DadosAlunosController dadosAlunosController = dadosAlunosController.getData();
-
-//		FXMLLoader fxmlLoader = new FXMLLoader();
-//		fxmlLoader.load(getClass().getResource("/com/rodrigo7prado/sisGestEduc/gui/DadosAlunos.fxml").openStream());
-//		DadosAlunosController dadosAlunosController = (DadosAlunosController) fxmlLoader.getController();
-
-//		FXMLLoader loader = new FXMLLoader();
-
-//		System.out.println(loader.getResources());
-
-//		System.out.println(vBoxControllerDadosAlunos  .getClass().getResource("/com/rodrigo7prado/sisGestEduc/gui/DadosAlunos.fxml"));
-
-//		Parent parent = FXMLLoader.load(getClass().getResource("/com/rodrigo7prado/sisGestEduc/gui/DadosAlunos.fxml"));
-
-//		System.out.println("Controller: " + dadosAlunosController);
-
 		dadosAlunosController.updateFormData(obj);
-
-//		System.out.println(parent.getProperties());
-//		
-//		dadosAlunosController.setController(obj);
-//		
-//		dadosAlunosController.updateFormData();
 	}
 
 	private void loadElementTreeTableColumBoolCertidao() {
@@ -446,16 +298,11 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 				});
 		treeTableColumnBoolCertidao.setCellFactory(ComboBoxTreeTableCell.forTreeTableColumn(obsList));
-//		treeTableColumnBoolCertidao.setCellFactory(param -> new TableCell<AlunoPeriodoCurricularDto, Boolean>() {
 
 	}
 
 	public void updateTreeTableView() {
-
-//		progressBar.setProgress(1);
-		// progressBar.setProgress(0);
 		initializeNodes();
-//		progressBar.setProgress(1);
 		System.out.println("Agora");
 	}
 
