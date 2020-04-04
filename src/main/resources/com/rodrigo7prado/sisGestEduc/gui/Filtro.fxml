@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.VBox?>
@@ -14,5 +15,6 @@
           <TreeTableColumn fx:id="treeTableColumnLinhas" prefWidth="44.0" text="Linhas" />
         </columns>
       </TreeTableView>
+      <ProgressBar prefWidth="200.0" progress="0.0" />
 	</children>
 </VBox>

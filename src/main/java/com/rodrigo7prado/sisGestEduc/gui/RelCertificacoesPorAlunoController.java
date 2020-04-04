@@ -3,6 +3,7 @@ package com.rodrigo7prado.sisGestEduc.gui;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,13 +15,15 @@ import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
 import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 import com.rodrigo7prado.sisGestEduc.services.AlunoPeriodoCurricularService;
 
+import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ListView;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableColumn.CellDataFeatures;
@@ -35,9 +38,12 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 //	@FXML
 //	private VBox vBoxControllerDadosAlunos;
-	
+
 	@FXML
 	private VBox vBoxControllerFiltro;
+
+	@FXML
+	ProgressBar progressBar;
 
 	@FXML
 	@Autowired
@@ -52,7 +58,9 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private AlunoPeriodoCurricularService service;
 
 	private ObservableList<AlunoPeriodoCurricularDto> observableList = FXCollections.observableArrayList();
-	
+
+	private List<AlunoPeriodoCurricularDto> carregamento;
+
 	@FXML
 	private TreeTableView<AlunoPeriodoCurricularDto> treeTableViewAluno;
 	@FXML
@@ -78,14 +86,28 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	@FXML
 	private VBox dialog;
 
+	private Thread thread3;
+
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		
-	}
-	
-	public void updateTreeTableView() {
-		initializeNodes();
-		System.out.println("Agora");
+//		progressBar.setProgress(0);
+		this.carregamento = service.findFilterConcluintes();
+
+//		this.thread3 = new Thread(new Runnable() {
+//			@Override
+//			public void run() {
+//				Platform.runLater(new Runnable() {
+//					@Override
+//					public void run() {
+//						associateTreeTableColumns();
+//						loadAlunosDetails();
+//						loadElementTreeTableColumBoolCertidao();
+////						progressBar.setProgress(1);
+//					}
+//				});
+//			}
+//		});
+
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -102,30 +124,164 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		treeTableColumnSituacaoFinal.setCellValueFactory(new TreeItemPropertyValueFactory("situacaoFinal"));
 	}
 
-	@SuppressWarnings("unused")
+//	@SuppressWarnings("unused")
 	private void initializeNodes() {
-		associateTreeTableColumns();
-		loadAlunosDetails();
-		loadElementTreeTableColumBoolCertidao();
+
+//		@SuppressWarnings("rawtypes")
+//		Task task = new Task<Void>() {
+//		    @Override public Void call() {
+//		    	
+//		        return null;
+//		    }
+//		};
+
+//		final ProgressBar bar = new ProgressBar();
+
+		Thread thread1 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				Platform.runLater(new Runnable() {
+					@Override
+					public void run() {
+//						progressBar.setProgress(0);
+						progressBar.setProgress(ProgressIndicator.INDETERMINATE_PROGRESS);
+					}
+				});
+			}
+		});
+
+		Thread thread2 = new Thread(new Runnable() {
+			@Override
+			public void run() {
+				Platform.runLater(new Runnable() {
+					@Override
+					public void run() {
+
+						// Thread.sleep(3000);
+						progressBar.setProgress(0);
+
+						associateTreeTableColumns();
+						loadAlunosDetails();
+						loadElementTreeTableColumBoolCertidao();
+						progressBar.setProgress(1);
+					}
+				});
+			}
+		});
+
+//		progressBar.setProgress(0);
+
+//		thread2.start();
+
+		thread1.start();
+		try {
+			thread1.join();
+			Thread.sleep(10);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		thread2.start();
+//		progressBar.setProgress(0);
+
+//		try {
+//			Thread.sleep(100);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+
+//		progressBar.setProgress(0.1);
+
+//		do {
+//			progressBar.setProgress(ProgressIndicator.INDETERMINATE_PROGRESS);
+//		} while (!thread2.isAlive());
+
+//		progressBar.setProgress(1);
+//		thread2.interrupt();
+//		progressBar.progressProperty().setValue(0.23);
+
+//		System.out.println("TESTANDO!");
+
+//		thread2.start();
+
+//		while(thread2.isAlive()) {
+////			System.out.println("TESTANDO!");
+//			thread2.interrupt();
+//			progressBar.setProgress(0);
+//			progressBar.indeterminateProperty();
+//		}
+
+//		if (thread2.isAlive() == false) {
+//			progressBar.setProgress(1);
+//		}
+
+//		else {
+//			progressBar.setProgress(0);
+//		}
+
+//		thread2.run();
+//		thread2.start();
+
+//		thread.run();
+//		progressBar.setProgress(0);
+
+//		try {
+//			thread.run();
+//			thread.interrupt();
+//			progressBar.setProgress(0);
+//			thread.wait(100);
+//			thread.start();
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+
+//		thread1.start();
+//		try {
+//			thread1.join();
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		thread2.start();
+
+//		progressBar.isIndeterminate();
+
+//		ProgressBar bar = new ProgressBar();
+//		bar.progressProperty().bind(task.progressProperty());
+//		new Thread(task).start();
+
+//		new Thread() {
+//			@Override
+//			public void run() {
+//				
+//			}
+//		}.start();
+
 	}
 
 	private void loadAlunosDetails() {
 
 		observableList.clear();
-		observableList.addAll(service.findFilterConcluintes());
+
+		observableList.addAll(carregamento);
+
 		TreeItem<AlunoPeriodoCurricularDto> treeItemAlunoRoot = new TreeItem<>(
-//				new AlunoPeriodoCurricularDto(null, null, null, null, null, "Turma", null, null, null)
+//						new AlunoPeriodoCurricularDto(null, null, null, null, null, "Turma", null, null, null)
 		);
 		treeTableViewAluno.setRoot(treeItemAlunoRoot);
 
 		for (AlunoPeriodoCurricularDto itemObsList : observableList) {
-			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(
-					new AlunoPeriodoCurricularDto(null, null, null, itemObsList.getTurma(), itemObsList.getMatricula(),
-							itemObsList.getNomeCompleto(),itemObsList.getSexo(), itemObsList.getDataNasc(), itemObsList.getNomePai(),
-							itemObsList.getNomeMae(), itemObsList.getNacionalidade(), itemObsList.getNaturalidade(), itemObsList.getNaturalidadeUF(),
-							itemObsList.getRg(), itemObsList.getRgEmissor(), itemObsList.getRgEmissorUf(), itemObsList.getValidDadosPessoais(),
-							itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
-							itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()));
+			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(new AlunoPeriodoCurricularDto(null, null, null,
+					itemObsList.getTurma(), itemObsList.getMatricula(), itemObsList.getNomeCompleto(),
+					itemObsList.getSexo(), itemObsList.getDataNasc(), itemObsList.getNomePai(),
+					itemObsList.getNomeMae(), itemObsList.getNacionalidade(), itemObsList.getNaturalidade(),
+					itemObsList.getNaturalidadeUF(), itemObsList.getRg(), itemObsList.getRgEmissor(),
+					itemObsList.getRgEmissorUf(), itemObsList.getValidDadosPessoais(),
+					itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
+					itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()));
 
 			TreeItem<AlunoPeriodoCurricularDto> turmaNode = node;
 
@@ -152,7 +308,8 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		}
 
 		treeTableViewAluno.setShowRoot(false);
-//		initCheckBoxDP();
+//				initCheckBoxDP();
+
 	}
 
 	@FXML
@@ -291,5 +448,26 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		treeTableColumnBoolCertidao.setCellFactory(ComboBoxTreeTableCell.forTreeTableColumn(obsList));
 //		treeTableColumnBoolCertidao.setCellFactory(param -> new TableCell<AlunoPeriodoCurricularDto, Boolean>() {
 
+	}
+
+	public void updateTreeTableView() {
+
+//		progressBar.setProgress(1);
+		// progressBar.setProgress(0);
+		initializeNodes();
+//		progressBar.setProgress(1);
+		System.out.println("Agora");
+	}
+
+	public void updateProgressBar1() {
+		progressBar.setProgress(1);
+	}
+
+	public void updateProgressBar0() {
+		progressBar.setProgress(0);
+	}
+
+	public void updateProgressBarIndeterinate() {
+		progressBar.setProgress(ProgressIndicator.INDETERMINATE_PROGRESS);
 	}
 }

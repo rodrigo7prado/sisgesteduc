@@ -137,11 +137,18 @@ public class FiltroController implements Initializable {
 			System.out.println("Ok, id 1");
 			relCertificacoesPorAlunoController.updateTreeTableView();
 			break;
+		case 2:
+			relCertificacoesPorAlunoController.updateProgressBar1();
+			break;
+		case 3:
+			relCertificacoesPorAlunoController.updateProgressBar0();
+			break;
+		case 4:
+			relCertificacoesPorAlunoController.updateProgressBarIndeterinate();
+			break;
 		default:
 			System.out.println("Ok, outro id");
 			break;
 		}
-		
 	}
-
 }
