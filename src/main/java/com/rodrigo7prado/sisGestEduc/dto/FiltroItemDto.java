@@ -4,14 +4,17 @@ public class FiltroItemDto {
 	private Integer id;
 	private Long filtroGrupoId;
 	private String filtroItemNome;
+	private Integer linhas;
+	
 	
 	public FiltroItemDto() {
 	}
 	
-	public FiltroItemDto(Integer id,Long filtroGrupoId,String filtroItemNome) {
+	public FiltroItemDto(Integer id,Long filtroGrupoId,String filtroItemNome, Integer linhas) {
 		this.id = id;
 		this.filtroGrupoId = filtroGrupoId;
 		this.filtroItemNome = filtroItemNome;
+		this.linhas = linhas;
 	}
 
 	public Integer getId() {
@@ -36,6 +39,14 @@ public class FiltroItemDto {
 
 	public void setFiltroItemNome(String filtroItemNome) {
 		this.filtroItemNome = filtroItemNome;
+	}
+
+	public Integer getLinhas() {
+		return linhas;
+	}
+
+	public void setLinhas(Integer linhas) {
+		this.linhas = linhas;
 	}
 
 	@Override

@@ -1,12 +1,17 @@
 package com.rodrigo7prado.sisGestEduc.gui;
 
 import java.net.URL;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
 import com.rodrigo7prado.sisGestEduc.dto.FiltroItemDto;
+import com.rodrigo7prado.sisGestEduc.services.AlunoPeriodoCurricularService;
 import com.rodrigo7prado.sisGestEduc.services.FiltroItemService;
 
 import javafx.collections.FXCollections;
@@ -22,9 +27,12 @@ import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 
 @Controller
 public class FiltroController implements Initializable {
-
+	
 	@Autowired
 	private FiltroItemService service;
+	
+	@Autowired
+	private AlunoPeriodoCurricularService serviceExternal;
 	
 	@FXML
 	@Autowired
@@ -40,11 +48,24 @@ public class FiltroController implements Initializable {
 	@FXML
 	private TreeTableColumn<FiltroItemDto, String> treeTableColumnFiltro;
 	@FXML
-	private TreeTableColumn<FiltroItemDto, String> treeTableColumnLinhas;
+	private TreeTableColumn<FiltroItemDto, Integer> treeTableColumnLinhas;
+	
+	private Map<Integer,Integer> mapCarregamentos = new HashMap<Integer,Integer>();
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		
+		this.mapCarregamentos.put(1, serviceExternal.findFilterTodos().size());
+		this.mapCarregamentos.put(2, serviceExternal.findFilterUltimosPeriodosLetivos().size());
+		this.mapCarregamentos.put(3, serviceExternal.findFilterConcluintes().size());
+		this.mapCarregamentos.put(11, serviceExternal.findFilterPendDataNasc().size());
+		this.mapCarregamentos.put(12, serviceExternal.findFilterPendNacionalidade().size());
+		this.mapCarregamentos.put(13, serviceExternal.findFilterPendNaturalidade().size());
+		this.mapCarregamentos.put(15, serviceExternal.findFilterPendRg().size());
+		this.mapCarregamentos.put(19, serviceExternal.findFilterPendNomePai().size());
+		this.mapCarregamentos.put(20, serviceExternal.findFilterPendNomeMae().size());
+		
 		initializeColumns();
 		loadListView();
 
@@ -53,6 +74,7 @@ public class FiltroController implements Initializable {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private void initializeColumns() {
 		treeTableColumnFiltro.setCellValueFactory(new TreeItemPropertyValueFactory("filtroItemNome"));
+		treeTableColumnLinhas.setCellValueFactory(new TreeItemPropertyValueFactory("linhas"));
 	}
 
 	private void loadListView() {
@@ -65,8 +87,11 @@ public class FiltroController implements Initializable {
 		treeTableViewFiltro.setRoot(treeItemFiltroRoot);
 
 		for (FiltroItemDto itemObsList : observableList) {
+			
+			
+			
 			TreeItem<FiltroItemDto> node = new TreeItem<>(new FiltroItemDto(itemObsList.getId(),
-					itemObsList.getFiltroGrupoId(), itemObsList.getFiltroItemNome()));
+					itemObsList.getFiltroGrupoId(), itemObsList.getFiltroItemNome(),mapCarregamentos.get(itemObsList.getId())));
 
 			TreeItem<FiltroItemDto> filtroGrupoNode = node;
 

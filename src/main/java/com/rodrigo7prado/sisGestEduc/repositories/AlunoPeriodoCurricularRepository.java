@@ -150,9 +150,9 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", v.id.situacaoFinal"
 			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
 			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' " + "AND v.id.situacaoFinal = 'Aprovado' "
-					+ "AND a.naturalidade IS NULL "
+					+ "AND a.nacionalidade IS NULL "
 			+ "ORDER BY v.id.turma, v.nomeCompl")
-	List<AlunoPeriodoCurricularDto> findFilterPendNaturalidade();
+	List<AlunoPeriodoCurricularDto> findFilterPendNacionalidade();
 	
 	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto(" + "v,a"
 			+ ", v.id.ano"
@@ -174,9 +174,9 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", v.id.situacaoFinal"
 			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
 			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' " + "AND v.id.situacaoFinal = 'Aprovado' "
-					+ "AND a.nacionalidade IS NULL "
+					+ "AND a.naturalidade IS NULL "
 			+ "ORDER BY v.id.turma, v.nomeCompl")
-	List<AlunoPeriodoCurricularDto> findFilterPendNacionalidade();
+	List<AlunoPeriodoCurricularDto> findFilterPendNaturalidade();
 	
 	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto(" + "v,a"
 			+ ", v.id.ano"

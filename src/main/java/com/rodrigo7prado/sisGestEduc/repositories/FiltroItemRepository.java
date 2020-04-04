@@ -13,7 +13,7 @@ import com.rodrigo7prado.sisGestEduc.entities.FiltroItem;
 public interface FiltroItemRepository extends JpaRepository<FiltroItem, Long> {
 
 	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.FiltroItemDto("
-			+ "f.id, f.filtroGrupo.id,f.nomeFiltroItem"
+			+ "f.id, f.filtroGrupo.id,f.nomeFiltroItem,f.id"
 			+ ") FROM FiltroItem f "
 			+ "ORDER BY  f.filtroGrupo.id, f.id")
 	List<FiltroItemDto> findAllDto();
