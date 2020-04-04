@@ -147,6 +147,12 @@ public class FiltroController implements Initializable {
 		case 11:
 			relCertificacoesPorAlunoController.updateTreeTableView(11);
 			break;
+		case 12:
+			relCertificacoesPorAlunoController.updateTreeTableView(12);
+			break;
+		case 13:
+			relCertificacoesPorAlunoController.updateTreeTableView(13);
+			break;
 		case 15:
 			relCertificacoesPorAlunoController.updateTreeTableView(15);
 			break;

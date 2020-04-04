@@ -54,6 +54,18 @@ public class AlunoPeriodoCurricularService {
 		return listDto;
 	}
 	
+	public List<AlunoPeriodoCurricularDto> findFilterPendNaturalidade() {
+		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterPendNaturalidade();
+		
+		return listDto;
+	}
+	
+	public List<AlunoPeriodoCurricularDto> findFilterPendNacionalidade() {
+		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterPendNacionalidade();
+		
+		return listDto;
+	}
+	
 	public List<AlunoPeriodoCurricularDto> findFilterPendRg() {
 		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterPendRg();
 		
