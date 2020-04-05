@@ -129,8 +129,8 @@ public class DBService {
 				cc12, cc13, cc14, cc15, cc16, cc17, cc18, cc19, cc20, cc21, cc22, cc23, cc24, cc25, cc26, cc27, cc28,
 				cc29, cc30, cc31, cc32, cc33, cc34, cc35));
 
-		FiltroGrupo fg1 = new FiltroGrupo(null, "Todos os alunos");
-		FiltroGrupo fg2 = new FiltroGrupo(null, "Últimos períodos curriculares");
+		FiltroGrupo fg1 = new FiltroGrupo(null, "Todos os alunos (2018)");
+		FiltroGrupo fg2 = new FiltroGrupo(null, "Períodos curriculares finais");
 		FiltroGrupo fg3 = new FiltroGrupo(null, "Concluintes");
 		FiltroGrupo fg4 = new FiltroGrupo(null, "Todas as Certidões");
 		FiltroGrupo fg5 = new FiltroGrupo(null, "Todos os Certificados");

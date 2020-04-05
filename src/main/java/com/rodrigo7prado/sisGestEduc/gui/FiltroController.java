@@ -59,6 +59,7 @@ public class FiltroController implements Initializable {
 		this.mapCarregamentos.put(1, serviceExternal.findFilterTodos().size());
 		this.mapCarregamentos.put(2, serviceExternal.findFilterUltimosPeriodosLetivos().size());
 		this.mapCarregamentos.put(3, serviceExternal.findFilterConcluintes().size());
+		this.mapCarregamentos.put(8, serviceExternal.findFilterPendDadosPessoais().size());
 		this.mapCarregamentos.put(11, serviceExternal.findFilterPendDataNasc().size());
 		this.mapCarregamentos.put(12, serviceExternal.findFilterPendNacionalidade().size());
 		this.mapCarregamentos.put(13, serviceExternal.findFilterPendNaturalidade().size());
@@ -168,6 +169,9 @@ public class FiltroController implements Initializable {
 			break;
 		case 3:
 			relCertificacoesPorAlunoController.updateTreeTableView(3);
+			break;
+		case 8:
+			relCertificacoesPorAlunoController.updateTreeTableView(8);
 			break;
 		case 11:
 			relCertificacoesPorAlunoController.updateTreeTableView(11);

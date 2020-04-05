@@ -79,7 +79,7 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", v.id.situacaoFinal"
 			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
 			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' "
-					+ ""
+			+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
 			+ "ORDER BY v.id.turma, v.nomeCompl")
 	List<AlunoPeriodoCurricularDto> findFilterUltimosPeriodosLetivos();
 	
@@ -103,6 +103,7 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", v.id.situacaoFinal"
 			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
 			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' " + "AND v.id.situacaoFinal = 'Aprovado' "
+			+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
 			+ "ORDER BY v.id.turma, v.nomeCompl")
 	List<AlunoPeriodoCurricularDto> findFilterConcluintes();
 	
@@ -126,7 +127,39 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", v.id.situacaoFinal"
 			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
 			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' " + "AND v.id.situacaoFinal = 'Aprovado' "
+					+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
+					+ "AND (a.dataNasc IS NULL "
+					+ "OR a.nacionalidade IS NULL "
+					+ "OR a.naturalidade IS NULL "
+					+ "OR a.rg IS NULL "
+					+ "OR a.nomePai IS NULL "
+					+ "OR a.nomeMae IS NULL "
+					+ ") "
+			+ "ORDER BY v.id.turma, v.nomeCompl")
+	List<AlunoPeriodoCurricularDto> findFilterPendDadosPessoais();
+	
+	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto(" + "v,a"
+			+ ", v.id.ano"
+			+ ", v.id.turma"
+			+ ", v.id.turma"
+			+ ", v.id.turma"
+			+ ", v.nomeCompl"
+			+ ", a.sexo"
+			+ ", a.dataNasc"
+			+ ", a.nomePai"
+			+ ", a.nomeMae"
+			+ ", a.nacionalidade"
+			+ ", a.naturalidade"
+			+ ", a.naturalidadeUF"
+			+ ", a.rg"
+			+ ", a.rgEmissor"
+			+ ", a.rgEmissorUf"
+			+ ", v.id.aluno"
+			+ ", v.id.situacaoFinal"
+			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
+			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' " + "AND v.id.situacaoFinal = 'Aprovado' "
 					+ "AND a.dataNasc IS NULL "
+					+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
 			+ "ORDER BY v.id.turma, v.nomeCompl")
 	List<AlunoPeriodoCurricularDto> findFilterPendDataNasc();
 	
@@ -151,6 +184,7 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
 			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' " + "AND v.id.situacaoFinal = 'Aprovado' "
 					+ "AND a.nacionalidade IS NULL "
+					+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
 			+ "ORDER BY v.id.turma, v.nomeCompl")
 	List<AlunoPeriodoCurricularDto> findFilterPendNacionalidade();
 	
@@ -175,6 +209,7 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
 			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' " + "AND v.id.situacaoFinal = 'Aprovado' "
 					+ "AND a.naturalidade IS NULL "
+					+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
 			+ "ORDER BY v.id.turma, v.nomeCompl")
 	List<AlunoPeriodoCurricularDto> findFilterPendNaturalidade();
 	
@@ -199,6 +234,7 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
 			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' " + "AND v.id.situacaoFinal = 'Aprovado' "
 					+ "AND a.rg IS NULL "
+					+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
 			+ "ORDER BY v.id.turma, v.nomeCompl")
 	List<AlunoPeriodoCurricularDto> findFilterPendRg();
 	
@@ -222,7 +258,8 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", v.id.situacaoFinal"
 			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
 			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' " + "AND v.id.situacaoFinal = 'Aprovado' "
-					+ "AND a.nomePai IS NULL "
+			+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "		
+			+ "AND a.nomePai IS NULL "
 			+ "ORDER BY v.id.turma, v.nomeCompl")
 	List<AlunoPeriodoCurricularDto> findFilterPendNomePai();
 	
@@ -246,7 +283,8 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", v.id.situacaoFinal"
 			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
 			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' " + "AND v.id.situacaoFinal = 'Aprovado' "
-					+ "AND a.nomeMae IS NULL "
+			+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "		
+			+ "AND a.nomeMae IS NULL "
 			+ "ORDER BY v.id.turma, v.nomeCompl")
 	List<AlunoPeriodoCurricularDto> findFilterPendNomeMae();
 

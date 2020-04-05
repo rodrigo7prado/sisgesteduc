@@ -48,6 +48,12 @@ public class AlunoPeriodoCurricularService {
 		return listDto;
 	}
 	
+	public List<AlunoPeriodoCurricularDto> findFilterPendDadosPessoais() {
+		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterPendDadosPessoais();
+		
+		return listDto;
+	}
+	
 	public List<AlunoPeriodoCurricularDto> findFilterPendDataNasc() {
 		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterPendDataNasc();
 		
