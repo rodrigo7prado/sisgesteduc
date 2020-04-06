@@ -2,7 +2,6 @@ package com.rodrigo7prado.sisGestEduc.gui;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -101,6 +100,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		this.mapCarregamentos.put(2, service.findFilterUltimosPeriodosLetivos());
 		this.mapCarregamentos.put(3, service.findFilterConcluintes());
 		
+		this.mapCarregamentos.put(9, service.findFilterTodosOk());
 		this.mapCarregamentos.put(11, service.findFilterPendDadosPessoais());
 		this.mapCarregamentos.put(14, service.findFilterPendDataNasc());
 		this.mapCarregamentos.put(15, service.findFilterPendNacionalidade());

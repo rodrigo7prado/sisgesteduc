@@ -2,14 +2,12 @@ package com.rodrigo7prado.sisGestEduc.gui;
 
 import java.net.URL;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
 import com.rodrigo7prado.sisGestEduc.dto.FiltroItemDto;
 import com.rodrigo7prado.sisGestEduc.services.AlunoPeriodoCurricularService;
 import com.rodrigo7prado.sisGestEduc.services.FiltroItemService;
@@ -59,7 +57,7 @@ public class FiltroController implements Initializable {
 		this.mapCarregamentos.put(1, serviceExternal.findFilterTodos().size());
 		this.mapCarregamentos.put(2, serviceExternal.findFilterUltimosPeriodosLetivos().size());
 		this.mapCarregamentos.put(3, serviceExternal.findFilterConcluintes().size());
-		
+		this.mapCarregamentos.put(9, serviceExternal.findFilterTodosOk().size());
 		this.mapCarregamentos.put(11, serviceExternal.findFilterPendDadosPessoais().size());
 		this.mapCarregamentos.put(14, serviceExternal.findFilterPendDataNasc().size());
 		this.mapCarregamentos.put(15, serviceExternal.findFilterPendNacionalidade().size());
@@ -170,6 +168,9 @@ public class FiltroController implements Initializable {
 			break;
 		case 3:
 			relCertificacoesPorAlunoController.updateTreeTableView(3);
+			break;
+		case 9:
+			relCertificacoesPorAlunoController.updateTreeTableView(9);
 			break;
 		case 11:
 			relCertificacoesPorAlunoController.updateTreeTableView(11);
