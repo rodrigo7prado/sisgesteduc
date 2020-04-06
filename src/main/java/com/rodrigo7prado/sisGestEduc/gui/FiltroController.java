@@ -59,13 +59,14 @@ public class FiltroController implements Initializable {
 		this.mapCarregamentos.put(1, serviceExternal.findFilterTodos().size());
 		this.mapCarregamentos.put(2, serviceExternal.findFilterUltimosPeriodosLetivos().size());
 		this.mapCarregamentos.put(3, serviceExternal.findFilterConcluintes().size());
-		this.mapCarregamentos.put(8, serviceExternal.findFilterPendDadosPessoais().size());
-		this.mapCarregamentos.put(11, serviceExternal.findFilterPendDataNasc().size());
-		this.mapCarregamentos.put(12, serviceExternal.findFilterPendNacionalidade().size());
-		this.mapCarregamentos.put(13, serviceExternal.findFilterPendNaturalidade().size());
-		this.mapCarregamentos.put(15, serviceExternal.findFilterPendRg().size());
-		this.mapCarregamentos.put(19, serviceExternal.findFilterPendNomePai().size());
-		this.mapCarregamentos.put(20, serviceExternal.findFilterPendNomeMae().size());
+		
+		this.mapCarregamentos.put(11, serviceExternal.findFilterPendDadosPessoais().size());
+		this.mapCarregamentos.put(14, serviceExternal.findFilterPendDataNasc().size());
+		this.mapCarregamentos.put(15, serviceExternal.findFilterPendNacionalidade().size());
+		this.mapCarregamentos.put(16, serviceExternal.findFilterPendNaturalidade().size());
+		this.mapCarregamentos.put(18, serviceExternal.findFilterPendRg().size());
+		this.mapCarregamentos.put(21, serviceExternal.findFilterPendNomePai().size());
+		this.mapCarregamentos.put(22, serviceExternal.findFilterPendNomeMae().size());
 		
 		initializeColumns();
 		loadListView();
@@ -170,26 +171,26 @@ public class FiltroController implements Initializable {
 		case 3:
 			relCertificacoesPorAlunoController.updateTreeTableView(3);
 			break;
-		case 8:
-			relCertificacoesPorAlunoController.updateTreeTableView(8);
-			break;
 		case 11:
 			relCertificacoesPorAlunoController.updateTreeTableView(11);
 			break;
-		case 12:
-			relCertificacoesPorAlunoController.updateTreeTableView(12);
-			break;
-		case 13:
-			relCertificacoesPorAlunoController.updateTreeTableView(13);
+		case 14:
+			relCertificacoesPorAlunoController.updateTreeTableView(14);
 			break;
 		case 15:
 			relCertificacoesPorAlunoController.updateTreeTableView(15);
 			break;
-		case 19:
-			relCertificacoesPorAlunoController.updateTreeTableView(19);
+		case 16:
+			relCertificacoesPorAlunoController.updateTreeTableView(16);
 			break;
-		case 20:
-			relCertificacoesPorAlunoController.updateTreeTableView(20);
+		case 18:
+			relCertificacoesPorAlunoController.updateTreeTableView(18);
+			break;
+		case 21:
+			relCertificacoesPorAlunoController.updateTreeTableView(21);
+			break;
+		case 22:
+			relCertificacoesPorAlunoController.updateTreeTableView(22);
 			break;
 		default:
 			relCertificacoesPorAlunoController.updateTreeTableView(0);

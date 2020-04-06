@@ -100,13 +100,14 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		this.mapCarregamentos.put(1, service.findFilterTodos());
 		this.mapCarregamentos.put(2, service.findFilterUltimosPeriodosLetivos());
 		this.mapCarregamentos.put(3, service.findFilterConcluintes());
-		this.mapCarregamentos.put(8, service.findFilterPendDadosPessoais());
-		this.mapCarregamentos.put(11, service.findFilterPendDataNasc());
-		this.mapCarregamentos.put(12, service.findFilterPendNacionalidade());
-		this.mapCarregamentos.put(13, service.findFilterPendNaturalidade());
-		this.mapCarregamentos.put(15, service.findFilterPendRg());
-		this.mapCarregamentos.put(19, service.findFilterPendNomePai());
-		this.mapCarregamentos.put(20, service.findFilterPendNomeMae());
+		
+		this.mapCarregamentos.put(11, service.findFilterPendDadosPessoais());
+		this.mapCarregamentos.put(14, service.findFilterPendDataNasc());
+		this.mapCarregamentos.put(15, service.findFilterPendNacionalidade());
+		this.mapCarregamentos.put(16, service.findFilterPendNaturalidade());
+		this.mapCarregamentos.put(18, service.findFilterPendRg());
+		this.mapCarregamentos.put(21, service.findFilterPendNomePai());
+		this.mapCarregamentos.put(22, service.findFilterPendNomeMae());
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
