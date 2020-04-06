@@ -61,19 +61,6 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private AlunoPeriodoCurricularService service;
 
 	private ObservableList<AlunoPeriodoCurricularDto> observableList = FXCollections.observableArrayList();
-
-	private List<AlunoPeriodoCurricularDto> carregamento;
-	private List<AlunoPeriodoCurricularDto> carregamento2;
-	private List<AlunoPeriodoCurricularDto> carregamento3;
-	private List<AlunoPeriodoCurricularDto> carregamento4;
-	private List<AlunoPeriodoCurricularDto> carregamento5;
-	private List<AlunoPeriodoCurricularDto> carregamento6;
-	private List<AlunoPeriodoCurricularDto> carregamento7;
-	private List<AlunoPeriodoCurricularDto> carregamento8;
-	private List<AlunoPeriodoCurricularDto> carregamento9;
-	private List<AlunoPeriodoCurricularDto> carregamento10;
-	private List<AlunoPeriodoCurricularDto> carregamento11;
-	private List<AlunoPeriodoCurricularDto> carregamento12;
 	
 	private List<List<AlunoPeriodoCurricularDto>> carregamentos;
 	private Map<Integer,List<AlunoPeriodoCurricularDto>> mapCarregamentos = new HashMap<Integer,List<AlunoPeriodoCurricularDto>>();
