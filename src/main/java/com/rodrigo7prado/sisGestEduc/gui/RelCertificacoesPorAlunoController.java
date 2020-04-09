@@ -90,8 +90,6 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	@FXML
 	private VBox dialog;
 
-	private Thread thread3;
-
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 

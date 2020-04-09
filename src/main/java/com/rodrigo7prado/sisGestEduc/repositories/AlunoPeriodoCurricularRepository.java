@@ -101,7 +101,10 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", a.rgEmissorUf"
 			+ ", v.id.aluno"
 			+ ", v.id.situacaoFinal"
-			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
+			+ ") " + "FROM VwAlunoPeriodoCurricular v " 
+			+ "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
+					+ "LEFT JOIN CertificadosCsv c "
+					+ "ON c.aluno = a.id "
 			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' " + "AND v.id.situacaoFinal = 'Aprovado' "
 			+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
 			+ "ORDER BY v.id.turma, v.nomeCompl")
