@@ -33,7 +33,7 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 //			+ ", c.nfl"
 			+ ") " + "FROM VwAlunoPeriodoCurricular v " 
 			+ "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
-//			+ "LEFT JOIN CertificadosCsv c ON c.aluno = a.id "
+			+ "LEFT JOIN CertificadosCsv c ON c.aluno = a.id "
 			;
 	String order = "ORDER BY v.id.turma, v.nomeCompl";
 	

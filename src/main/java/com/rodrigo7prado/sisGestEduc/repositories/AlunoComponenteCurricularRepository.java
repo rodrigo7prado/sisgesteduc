@@ -44,30 +44,7 @@ public interface AlunoComponenteCurricularRepository extends JpaRepository<Aluno
 			)
 	List<AlunoComponenteCurricularDto> findFilterConcluintes2();
 	
-	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto("
-			+ "v,a"
-			+ ", v.id.ano"
-			+ ", v.id.turma"
-			+ ", v.id.turma"
-			+ ", v.id.turma"
-			+ ", v.nomeCompl"
-			+ ", a.sexo"
-			+ ", a.dataNasc"
-			+ ", a.nomePai"
-			+ ", a.nomeMae"
-			+ ", a.nacionalidade"
-			+ ", a.naturalidade"
-			+ ", a.naturalidadeUF"
-			+ ", a.rg"
-			+ ", a.rgEmissor"
-			+ ", a.rgEmissorUf"
-			+ ", v.id.aluno"
-			+ ", v.id.situacaoFinal"
-
-			+ ") "
-			+ "FROM VwAlunoPeriodoCurricular v "
-			+ "LEFT JOIN AlunoExternal a "
-			+ "ON v.id.aluno = a.id "
+	@Query(AlunoPeriodoCurricularRepository.part
 			+ "WHERE "
 			+ "v.id.ano LIKE 'Ano Letivo: 2018%' "
 			+ "AND v.id.situacaoFinal = 'Aprovado' "
