@@ -12,64 +12,6 @@ import com.rodrigo7prado.sisGestEduc.entities.AlunoComponenteCurricular;
 
 @Repository
 public interface AlunoComponenteCurricularRepository extends JpaRepository<AlunoComponenteCurricular, Long> {
-//	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto("
-//			+ "c,e"
-//			+ ", c.anoLetivo"
-////			+ "e.ultimaTurma"
-//
-////			+ ", c.id.periodoCurricular.id.cursoModalidade.id.curso.nome"
-//			+ ", e.ultimaTurma"
-//
-////			+ ", c.id.periodoCurricular.id.cursoModalidade.id.modalidade.nome"
-//			+ ", e.ultimaTurma"
-//
-////			+ ", c.ultimaTurma"
-//			+ ", e.ultimaTurma"
-//
-////			+ ", c.id.aluno.nomeCompleto"
-//			+ ", e.nomeCompleto"
-//
-////			+ ", c.id.aluno.matricula"
-//			+ ", e.id"
-//
-//			+ ") "
-//			+ "FROM AlunoPeriodoCurricular c "
-//			+ "RIGHT JOIN AlunoExternal e "
-//			+ "ON c.id.aluno.id = e.id "
-////			+ "WHERE "
-////			+ "c.anoLetivo LIKE 'Ano Letivo: 2018%' "
-////			+ "AND c.situacaoFinal = 'Aprovado' "
-//			+ "ORDER BY e.ultimaTurma"
-//			)
-//	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto("
-//			+ "c,e"
-//			+ ", c.anoLetivo"
-////			+ "e.ultimaTurma"
-//
-////			+ ", c.id.periodoCurricular.id.cursoModalidade.id.curso.nome"
-//			+ ", e.ultimaTurma"
-//
-////			+ ", c.id.periodoCurricular.id.cursoModalidade.id.modalidade.nome"
-//			+ ", e.ultimaTurma"
-//
-////			+ ", c.ultimaTurma"
-//			+ ", e.ultimaTurma"
-//
-////			+ ", c.id.aluno.nomeCompleto"
-//			+ ", e.nomeCompleto"
-//
-////			+ ", c.id.aluno.matricula"
-//			+ ", e.id"
-//
-//			+ ") "
-//			+ "FROM AlunoExternal e "
-//			+ "LEFT JOIN AlunoPeriodoCurricular c "
-//			+ "ON c.id.aluno.id = e.id "
-////			+ "WHERE "
-////			+ "c.anoLetivo LIKE 'Ano Letivo: 2018%' "
-////			+ "AND c.situacaoFinal = 'Aprovado' "
-//			+ "ORDER BY e.ultimaTurma"
-//			)
 	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoComponenteCurricularDto("
 			+ "v.anoLetivo"
 			+ ", v.curso"

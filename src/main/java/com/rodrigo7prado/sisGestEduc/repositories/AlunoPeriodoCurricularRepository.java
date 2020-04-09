@@ -30,14 +30,16 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", a.rgEmissorUf"
 			+ ", v.id.aluno"
 			+ ", v.id.situacaoFinal"
+//			+ ", c.nfl"
 			+ ") " + "FROM VwAlunoPeriodoCurricular v " 
 			+ "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
-			+ "LEFT JOIN CertificadosCsv c ON c.aluno = a.id ";
+//			+ "LEFT JOIN CertificadosCsv c ON c.aluno = a.id "
+			;
 	String order = "ORDER BY v.id.turma, v.nomeCompl";
 	
 	@Query(part
 			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' "
-			+ "AND v.id.ano LIKE 'Ano Letivo: 2017%' "
+			+ "AND v.id.ano LIKE 'Ano Letivo: 2018%' "
 			+ order)
 	List<AlunoPeriodoCurricularDto> findFilterNull();
 	

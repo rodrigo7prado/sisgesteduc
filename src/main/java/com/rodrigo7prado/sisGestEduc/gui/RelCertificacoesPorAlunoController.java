@@ -203,7 +203,9 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 					itemObsList.getNaturalidadeUF(), itemObsList.getRg(), itemObsList.getRgEmissor(),
 					itemObsList.getRgEmissorUf(), itemObsList.getValidDadosPessoais(),
 					itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
-					itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()));
+					itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()
+//					,itemObsList.getNflCertificado()
+					));
 
 			TreeItem<AlunoPeriodoCurricularDto> turmaNode = node;
 

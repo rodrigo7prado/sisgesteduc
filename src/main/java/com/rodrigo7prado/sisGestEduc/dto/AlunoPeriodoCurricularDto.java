@@ -68,7 +68,9 @@ public class AlunoPeriodoCurricularDto {
 			String anoLetivo, String curso, String modalidade, String turma, String nomeCompleto, String sexo,
 			Date dataNasc, String nomePai, String nomeMae, String nacionalidade, String naturalidade,
 			String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf, String matricula,
-			String situacaoFinal) {
+			String situacaoFinal
+//			, Integer nflCertificado
+			) {
 		super();
 		if (alunoExternal != null) {
 
@@ -104,7 +106,9 @@ public class AlunoPeriodoCurricularDto {
 			String nomeCompleto, String sexo, Date dataNasc, String nomePai, String nomeMae, String nacionalidade,
 			String naturalidade, String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf,
 			StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif, StatusDocAluno validDadosHeFund,
-			StatusDocAluno validDadosHeMedio, String situacaoFinal) {
+			StatusDocAluno validDadosHeMedio, String situacaoFinal
+//			,Integer nflCertificado
+			) {
 
 		this.anoLetivo = anoLetivo;
 		this.curso = curso;
