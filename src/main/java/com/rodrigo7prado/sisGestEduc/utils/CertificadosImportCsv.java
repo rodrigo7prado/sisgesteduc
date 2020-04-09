@@ -30,50 +30,50 @@ public class CertificadosImportCsv {
 
 	ICsvBeanReader beanReader = null;
 	CellProcessor[] processors = new CellProcessor[] { 
-			new NotNull(), //1 N_FL
-			new NotNull(), //2 LIVRO
-			new Optional(), //3 CENSO
-			new Optional(), //4 Instituicao
-			new Optional(), //5 Inst_Ato_de_criacao
-			new Optional(), //6 Data_Inst_Ato_de_criacao
-			new Optional(), //7 CURSO
-			new Optional(), //8 CONSOLIDADO_Modalidade
-			new Optional(), //9 DOC_CONCL_MODALIDADES_Modalidade
-			new Optional(), //10 Lei_Modalidade
-			new Optional(), //11 Decreto_Modalidade
-			new Optional(), //12 Carga Horaria_Modalidade
-			new Optional(), //13 Ano
-			new Optional(), //14 TURMA
-			new Optional(), //15 NOME_COMPL
-			new Optional(), //16 ALUNO
-			new Optional(), //17 Tipo_Doc
-			new Optional(), //18 sexo
-			new Optional(), //19 nacionalidade
-			new Optional(), //20 naturalidadeUF
-			new Optional(), //21 naturalidade
-			new Optional(), //22 rg
-			new Optional(), //23 rg_emissor
-			new Optional(), //24 rg_emissor_UF
-			new Optional(new ParseDate("dd/MM/yyyy HH:mm:ss")), //25 rg_emissao
-			new Optional(), //26 Pai
-			new Optional(), //27 Mae
-			new Optional(new ParseDate("dd/MM/yyyy HH:mm:ss")), //28 Data_nasc
-			new Optional(), //29 SITUACAO_FINAL
-			new Optional(new ParseDate("dd/MM/yyyy HH:mm:ss")), //30 Data_conclusao
-			new Optional(new ParseDate("dd/MM/yyyy HH:mm:ss")), //31 Data_emissao_certificado
-			new Optional(), //32 CN_Cartorio
-			new Optional(), //33 CN_Municipio
-			new Optional(), //34 CN_UF
-			new Optional(), //35 CN_TERMO
-			new Optional(), //36 CN_LIVRO
-			new Optional(), //37 CN_FOLHA
-			new Optional(new ParseDate("dd/MM/yyyy HH:mm:ss")), //38 CN_EMISSAO
-			new ParseBool(), //39 A corrigir,
-			new Optional(), //40 descr_erro,
-			new ParseBool(), //41 Corrigido,
-			new ParseBool(), //42 Impresso,
-			new ParseBool(), //43 Reimpresso,
-			new ParseBool() //44 Imprimir_agora
+			new NotNull() //1 N_FL
+			, new NotNull() //2 LIVRO
+			, new Optional() //3 CENSO
+			, new Optional() //4 Instituicao
+			, new Optional() //5 Inst_Ato_de_criacao
+			, new Optional() //6 Data_Inst_Ato_de_criacao
+			, new Optional() //7 CURSO
+			, new Optional() //8 CONSOLIDADO_Modalidade
+			, new Optional() //9 DOC_CONCL_MODALIDADES_Modalidade
+			, new Optional() //10 Lei_Modalidade
+			, new Optional() //11 Decreto_Modalidade
+			, new Optional() //12 Carga Horaria_Modalidade
+			, new Optional() //13 Ano
+			, new Optional() //14 TURMA
+			, new Optional() //15 NOME_COMPL
+			, new Optional() //16 ALUNO
+			, new Optional() //17 Tipo_Doc
+			, new Optional() //18 sexo
+			, new Optional() //19 nacionalidade
+			, new Optional() //20 naturalidadeUF
+			, new Optional() //21 naturalidade
+			, new Optional() //22 rg
+			, new Optional() //23 rg_emissor
+			, new Optional() //24 rg_emissor_UF
+			, new Optional(new ParseDate("dd/MM/yyyy HH:mm:ss")) //25 rg_emissao
+			, new Optional() //26 Pai
+			, new Optional() //27 Mae
+			, new Optional(new ParseDate("dd/MM/yyyy HH:mm:ss")) //28 Data_nasc
+			, new Optional() //29 SITUACAO_FINAL
+			, new Optional(new ParseDate("dd/MM/yyyy HH:mm:ss")) //30 Data_conclusao
+			, new Optional(new ParseDate("dd/MM/yyyy HH:mm:ss")) //31 Data_emissao_certificado
+			, new Optional() //32 CN_Cartorio
+			, new Optional() //33 CN_Municipio
+			, new Optional() //34 CN_UF
+			, new Optional() //35 CN_TERMO
+			, new Optional() //36 CN_LIVRO
+			, new Optional() //37 CN_FOLHA
+			, new Optional(new ParseDate("dd/MM/yyyy HH:mm:ss")) //38 CN_EMISSAO
+			, new ParseBool() //39 A corrigir,
+			, new Optional() //40 descr_erro,
+			, new ParseBool() //41 Corrigido,
+			, new ParseBool() //42 Impresso,
+			, new ParseBool() //43 Reimpresso,
+			, new ParseBool() //44 Imprimir_agora
 	};
 	
 	public CertificadosImportCsv() {
