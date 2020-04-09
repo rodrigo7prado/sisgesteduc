@@ -127,18 +127,18 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ order)
 	List<AlunoPeriodoCurricularDto> findFilterPendNomeMae();
 
-	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto(" + "v,a" + ", v.id.ano"
-			+ ", v.id.turma" + ", v.id.turma" + ", v.id.turma" + ", v.nomeCompl" + ", a.sexo" + ", a.dataNasc"
-			+ ", a.nomePai" + ", a.nomeMae" + ", a.nacionalidade" 
-			+ ", a.naturalidade" 
-			+ ", a.naturalidadeUF"
-			+ ", a.rg" 
-			+ ", a.rgEmissor"
-			+ ", a.rgEmissorUf"
-			+ ", v.id.aluno"
-			+ ", v.id.situacaoFinal"
-			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
-			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' " + "AND v.id.situacaoFinal = 'Aprovado' "
-			+ "ORDER BY v.id.turma, v.nomeCompl")
-	List<AlunoPeriodoCurricularDto> findFilterQuaisquerPendencias();
+//	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto(" + "v,a" + ", v.id.ano"
+//			+ ", v.id.turma" + ", v.id.turma" + ", v.id.turma" + ", v.nomeCompl" + ", a.sexo" + ", a.dataNasc"
+//			+ ", a.nomePai" + ", a.nomeMae" + ", a.nacionalidade" 
+//			+ ", a.naturalidade" 
+//			+ ", a.naturalidadeUF"
+//			+ ", a.rg" 
+//			+ ", a.rgEmissor"
+//			+ ", a.rgEmissorUf"
+//			+ ", v.id.aluno"
+//			+ ", v.id.situacaoFinal"
+//			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
+//			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' " + "AND v.id.situacaoFinal = 'Aprovado' "
+//			+ "ORDER BY v.id.turma, v.nomeCompl")
+//	List<AlunoPeriodoCurricularDto> findFilterQuaisquerPendencias();
 }
