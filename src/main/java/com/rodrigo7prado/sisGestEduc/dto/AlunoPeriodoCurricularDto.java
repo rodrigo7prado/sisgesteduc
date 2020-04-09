@@ -45,8 +45,8 @@ public class AlunoPeriodoCurricularDto {
 	private String rgEmissorUf;
 
 	private String freq;
-
 	private String situacaoFinal;
+	private Integer nflCertificado;
 
 	private StatusDocAluno validDadosPessoais;
 
@@ -96,6 +96,7 @@ public class AlunoPeriodoCurricularDto {
 		this.rgEmissor = rgEmissor;
 		this.rgEmissorUf = rgEmissorUf;
 		this.situacaoFinal = situacaoFinal;
+		this.nflCertificado = 1;
 
 	}
 
@@ -126,6 +127,7 @@ public class AlunoPeriodoCurricularDto {
 		this.validDadosHeFund = validDadosHeFund;
 		this.validDadosHeMedio = validDadosHeMedio;
 		this.situacaoFinal = situacaoFinal;
+		this.nflCertificado = 2;
 	}
 
 	public Long getId() {
@@ -310,6 +312,14 @@ public class AlunoPeriodoCurricularDto {
 
 	public void setSituacaoFinal(String situacaoFinal) {
 		this.situacaoFinal = situacaoFinal;
+	}
+
+	public Integer getNflCertificado() {
+		return nflCertificado;
+	}
+
+	public void setNflCertificado(Integer nflCertificado) {
+		this.nflCertificado = nflCertificado;
 	}
 
 	public StatusDocAluno getValidDadosPessoais() {
