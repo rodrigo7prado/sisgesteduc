@@ -11,7 +11,8 @@ import com.rodrigo7prado.sisGestEduc.entities.AlunoPeriodoCurricular;
 
 @Repository
 public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPeriodoCurricular, Long> {
-	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto(" + "v,a"
+	String part = "SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto("
+			+ "v,a"
 			+ ", v.id.ano"
 			+ ", v.id.turma"
 			+ ", v.id.turma"
@@ -29,31 +30,16 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", a.rgEmissorUf"
 			+ ", v.id.aluno"
 			+ ", v.id.situacaoFinal"
-			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
+			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id ";
+	String order = "ORDER BY v.id.turma, v.nomeCompl";
+	
+	@Query(part
 			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' "
 			+ "AND v.id.ano LIKE 'Ano Letivo: 2017%' "
-			+ "ORDER BY v.id.turma, v.nomeCompl")
+			+ order)
 	List<AlunoPeriodoCurricularDto> findFilterNull();
 	
-	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto(" + "v,a"
-			+ ", v.id.ano"
-			+ ", v.id.turma"
-			+ ", v.id.turma"
-			+ ", v.id.turma"
-			+ ", v.nomeCompl"
-			+ ", a.sexo"
-			+ ", a.dataNasc"
-			+ ", a.nomePai"
-			+ ", a.nomeMae"
-			+ ", a.nacionalidade"
-			+ ", a.naturalidade"
-			+ ", a.naturalidadeUF"
-			+ ", a.rg"
-			+ ", a.rgEmissor"
-			+ ", a.rgEmissorUf"
-			+ ", v.id.aluno"
-			+ ", v.id.situacaoFinal"
-			+ ") " + "FROM VwAlunoPeriodoCurricular v " + "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
+	@Query(part
 			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' "
 			+ "OR v.id.ano LIKE 'Ano Letivo: 2017%' "
 			+ "ORDER BY v.id.turma, v.nomeCompl")
