@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.rodrigo7prado.sisGestEduc.services.DBService;
+import com.rodrigo7prado.sisGestEduc.utils.CertidoesImportCsv;
 import com.rodrigo7prado.sisGestEduc.utils.CertificadosImportCsv;
 import com.rodrigo7prado.sisGestEduc.utils.ComplexCsv2DbInserter3;
 
@@ -29,6 +30,7 @@ public class DevConfig {
 		
 		dbService.instanciateTestDatabase();
 		new ComplexCsv2DbInserter3();
+		new CertidoesImportCsv();
 		new CertificadosImportCsv();
 		return true;
 	}
