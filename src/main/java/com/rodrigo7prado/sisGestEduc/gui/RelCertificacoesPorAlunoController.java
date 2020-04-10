@@ -102,6 +102,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		this.mapCarregamentos.put(2, service.findFilterUltimosPeriodosLetivos());
 		this.mapCarregamentos.put(3, service.findFilterConcluintes());
 		
+		this.mapCarregamentos.put(4, service.findFilterTodasOsCertidoes());
 		this.mapCarregamentos.put(5, service.findFilterTodasOsCertificados());
 		this.mapCarregamentos.put(9, service.findFilterTodosOk());
 		this.mapCarregamentos.put(11, service.findFilterPendDadosPessoais());

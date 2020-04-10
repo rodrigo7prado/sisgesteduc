@@ -58,6 +58,7 @@ public class FiltroController implements Initializable {
 		this.mapCarregamentos.put(2, serviceExternal.findFilterUltimosPeriodosLetivos().size());
 		this.mapCarregamentos.put(3, serviceExternal.findFilterConcluintes().size());
 		
+		this.mapCarregamentos.put(4, serviceExternal.findFilterTodasOsCertidoes().size());
 		this.mapCarregamentos.put(5, serviceExternal.findFilterTodasOsCertificados().size());
 		this.mapCarregamentos.put(9, serviceExternal.findFilterTodosOk().size());
 		this.mapCarregamentos.put(11, serviceExternal.findFilterPendDadosPessoais().size());
