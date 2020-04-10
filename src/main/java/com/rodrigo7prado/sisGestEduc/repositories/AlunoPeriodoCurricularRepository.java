@@ -63,6 +63,13 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 	
 	@Query(part
 			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' " + "AND v.id.situacaoFinal = 'Aprovado' "
+			+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
+			+ "AND c.nfl IS NOT NULL "
+			+ order)
+	List<AlunoPeriodoCurricularDto> findFilterTodasOsCertificados();
+	
+	@Query(part
+			+ "WHERE " + "v.id.ano LIKE 'Ano Letivo: 2018%' " + "AND v.id.situacaoFinal = 'Aprovado' "
 					+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
 					+ "AND (a.dataNasc IS NOT NULL "
 					+ "AND a.nacionalidade IS NOT NULL "

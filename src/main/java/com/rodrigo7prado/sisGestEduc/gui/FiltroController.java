@@ -57,6 +57,8 @@ public class FiltroController implements Initializable {
 		this.mapCarregamentos.put(1, serviceExternal.findFilterTodos().size());
 		this.mapCarregamentos.put(2, serviceExternal.findFilterUltimosPeriodosLetivos().size());
 		this.mapCarregamentos.put(3, serviceExternal.findFilterConcluintes().size());
+		
+		this.mapCarregamentos.put(5, serviceExternal.findFilterTodasOsCertificados().size());
 		this.mapCarregamentos.put(9, serviceExternal.findFilterTodosOk().size());
 		this.mapCarregamentos.put(11, serviceExternal.findFilterPendDadosPessoais().size());
 		this.mapCarregamentos.put(14, serviceExternal.findFilterPendDataNasc().size());
@@ -157,45 +159,47 @@ public class FiltroController implements Initializable {
 		
 		System.out.println("Id: " + obj);
 		
-		switch (obj.getId()) {
-		case 1:
-			System.out.println("Ok, id 1");
-			relCertificacoesPorAlunoController.updateTreeTableView(1);
-			break;
-		case 2:
-//			relCertificacoesPorAlunoController.updateProgressBar1();
-			relCertificacoesPorAlunoController.updateTreeTableView(2);
-			break;
-		case 3:
-			relCertificacoesPorAlunoController.updateTreeTableView(3);
-			break;
-		case 9:
-			relCertificacoesPorAlunoController.updateTreeTableView(9);
-			break;
-		case 11:
-			relCertificacoesPorAlunoController.updateTreeTableView(11);
-			break;
-		case 14:
-			relCertificacoesPorAlunoController.updateTreeTableView(14);
-			break;
-		case 15:
-			relCertificacoesPorAlunoController.updateTreeTableView(15);
-			break;
-		case 16:
-			relCertificacoesPorAlunoController.updateTreeTableView(16);
-			break;
-		case 18:
-			relCertificacoesPorAlunoController.updateTreeTableView(18);
-			break;
-		case 21:
-			relCertificacoesPorAlunoController.updateTreeTableView(21);
-			break;
-		case 22:
-			relCertificacoesPorAlunoController.updateTreeTableView(22);
-			break;
-		default:
-			relCertificacoesPorAlunoController.updateTreeTableView(0);
-			break;
-		}
+		relCertificacoesPorAlunoController.updateTreeTableView(obj.getId());
+		
+//		switch (obj.getId()) {
+//		case 1:
+//			System.out.println("Ok, id 1");
+//			relCertificacoesPorAlunoController.updateTreeTableView(1);
+//			break;
+//		case 2:
+////			relCertificacoesPorAlunoController.updateProgressBar1();
+//			relCertificacoesPorAlunoController.updateTreeTableView(2);
+//			break;
+//		case 3:
+//			relCertificacoesPorAlunoController.updateTreeTableView(3);
+//			break;
+//		case 9:
+//			relCertificacoesPorAlunoController.updateTreeTableView(9);
+//			break;
+//		case 11:
+//			relCertificacoesPorAlunoController.updateTreeTableView(11);
+//			break;
+//		case 14:
+//			relCertificacoesPorAlunoController.updateTreeTableView(14);
+//			break;
+//		case 15:
+//			relCertificacoesPorAlunoController.updateTreeTableView(15);
+//			break;
+//		case 16:
+//			relCertificacoesPorAlunoController.updateTreeTableView(16);
+//			break;
+//		case 18:
+//			relCertificacoesPorAlunoController.updateTreeTableView(18);
+//			break;
+//		case 21:
+//			relCertificacoesPorAlunoController.updateTreeTableView(21);
+//			break;
+//		case 22:
+//			relCertificacoesPorAlunoController.updateTreeTableView(22);
+//			break;
+//		default:
+//			relCertificacoesPorAlunoController.updateTreeTableView(0);
+//			break;
+//		}
 	}
 }
