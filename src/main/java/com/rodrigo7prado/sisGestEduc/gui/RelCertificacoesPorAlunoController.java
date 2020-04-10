@@ -74,6 +74,8 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	@FXML
 	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnNomeCompl;
 	@FXML
+	private TreeTableColumn<AlunoPeriodoCurricularDto, Integer> treeTableColumnNflCertificado;
+	@FXML
 	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnSituacaoFinal;
 	@FXML
 	private TreeTableColumn<AlunoPeriodoCurricularDto, StatusDocAluno> treeTableColumnDP;
@@ -115,6 +117,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		treeTableColumnTurma.setCellValueFactory(new TreeItemPropertyValueFactory("turma"));
 		treeTableColumnAluno.setCellValueFactory(new TreeItemPropertyValueFactory("matricula"));
 		treeTableColumnNomeCompl.setCellValueFactory(new TreeItemPropertyValueFactory("nomeCompleto"));
+		treeTableColumnNflCertificado .setCellValueFactory(new TreeItemPropertyValueFactory("nflCertificado"));
 		treeTableColumnDP.setCellValueFactory(new TreeItemPropertyValueFactory("validDadosPessoais"));
 		treeTableColumnDadosIdentif.setCellValueFactory(new TreeItemPropertyValueFactory("validDadosIdentif"));
 		treeTableColumnDadosHeFund.setCellValueFactory(new TreeItemPropertyValueFactory("validDadosHeFund"));
@@ -204,7 +207,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 					itemObsList.getRgEmissorUf(), itemObsList.getValidDadosPessoais(),
 					itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
 					itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()
-//					,itemObsList.getNflCertificado()
+					,itemObsList.getNflCertificado()
 					));
 
 			TreeItem<AlunoPeriodoCurricularDto> turmaNode = node;

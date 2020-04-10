@@ -69,7 +69,7 @@ public class AlunoPeriodoCurricularDto {
 			Date dataNasc, String nomePai, String nomeMae, String nacionalidade, String naturalidade,
 			String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf, String matricula,
 			String situacaoFinal
-//			, Integer nflCertificado
+			, Integer nflCertificado
 			) {
 		super();
 		if (alunoExternal != null) {
@@ -98,7 +98,7 @@ public class AlunoPeriodoCurricularDto {
 		this.rgEmissor = rgEmissor;
 		this.rgEmissorUf = rgEmissorUf;
 		this.situacaoFinal = situacaoFinal;
-		this.nflCertificado = 1;
+		this.nflCertificado = nflCertificado;
 
 	}
 
@@ -107,7 +107,7 @@ public class AlunoPeriodoCurricularDto {
 			String naturalidade, String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf,
 			StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif, StatusDocAluno validDadosHeFund,
 			StatusDocAluno validDadosHeMedio, String situacaoFinal
-//			,Integer nflCertificado
+			,Integer nflCertificado
 			) {
 
 		this.anoLetivo = anoLetivo;
@@ -131,7 +131,7 @@ public class AlunoPeriodoCurricularDto {
 		this.validDadosHeFund = validDadosHeFund;
 		this.validDadosHeMedio = validDadosHeMedio;
 		this.situacaoFinal = situacaoFinal;
-		this.nflCertificado = 2;
+		this.nflCertificado = nflCertificado;
 	}
 
 	public Long getId() {
