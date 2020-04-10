@@ -46,6 +46,7 @@ public class AlunoPeriodoCurricularDto {
 
 	private String freq;
 	private String situacaoFinal;
+	private Integer nflCertidao;
 	private Integer nflCertificado;
 
 	private StatusDocAluno validDadosPessoais;
@@ -69,6 +70,7 @@ public class AlunoPeriodoCurricularDto {
 			Date dataNasc, String nomePai, String nomeMae, String nacionalidade, String naturalidade,
 			String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf, String matricula,
 			String situacaoFinal
+			, Integer nflCertidao
 			, Integer nflCertificado
 			) {
 		super();
@@ -98,6 +100,7 @@ public class AlunoPeriodoCurricularDto {
 		this.rgEmissor = rgEmissor;
 		this.rgEmissorUf = rgEmissorUf;
 		this.situacaoFinal = situacaoFinal;
+		this.nflCertidao = nflCertidao;
 		this.nflCertificado = nflCertificado;
 
 	}
@@ -107,6 +110,7 @@ public class AlunoPeriodoCurricularDto {
 			String naturalidade, String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf,
 			StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif, StatusDocAluno validDadosHeFund,
 			StatusDocAluno validDadosHeMedio, String situacaoFinal
+			,Integer nflCertidao
 			,Integer nflCertificado
 			) {
 
@@ -131,6 +135,7 @@ public class AlunoPeriodoCurricularDto {
 		this.validDadosHeFund = validDadosHeFund;
 		this.validDadosHeMedio = validDadosHeMedio;
 		this.situacaoFinal = situacaoFinal;
+		this.nflCertidao = nflCertidao;
 		this.nflCertificado = nflCertificado;
 	}
 
@@ -316,6 +321,14 @@ public class AlunoPeriodoCurricularDto {
 
 	public void setSituacaoFinal(String situacaoFinal) {
 		this.situacaoFinal = situacaoFinal;
+	}
+	
+	public Integer getNflCertidao() {
+		return nflCertidao;
+	}
+
+	public void setNflCertidao(Integer nflCertidao) {
+		this.nflCertidao = nflCertidao;
 	}
 
 	public Integer getNflCertificado() {

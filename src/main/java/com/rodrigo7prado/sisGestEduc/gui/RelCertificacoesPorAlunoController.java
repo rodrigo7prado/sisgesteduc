@@ -64,7 +64,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private List<List<AlunoPeriodoCurricularDto>> carregamentos;
 	private Map<Integer,List<AlunoPeriodoCurricularDto>> mapCarregamentos = new HashMap<Integer,List<AlunoPeriodoCurricularDto>>();
 	private Map<String,List<String>> mapCarregamentos2 = new HashMap<String,List<String>>();
-
+	
 	@FXML
 	private TreeTableView<AlunoPeriodoCurricularDto> treeTableViewAluno;
 	@FXML
@@ -73,6 +73,8 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnAluno;
 	@FXML
 	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnNomeCompl;
+	@FXML
+	private TreeTableColumn<AlunoPeriodoCurricularDto, Integer> treeTableColumnNflCertidao;
 	@FXML
 	private TreeTableColumn<AlunoPeriodoCurricularDto, Integer> treeTableColumnNflCertificado;
 	@FXML
@@ -118,7 +120,8 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		treeTableColumnTurma.setCellValueFactory(new TreeItemPropertyValueFactory("turma"));
 		treeTableColumnAluno.setCellValueFactory(new TreeItemPropertyValueFactory("matricula"));
 		treeTableColumnNomeCompl.setCellValueFactory(new TreeItemPropertyValueFactory("nomeCompleto"));
-		treeTableColumnNflCertificado .setCellValueFactory(new TreeItemPropertyValueFactory("nflCertificado"));
+		treeTableColumnNflCertidao.setCellValueFactory(new TreeItemPropertyValueFactory("nflCertidao"));
+		treeTableColumnNflCertificado.setCellValueFactory(new TreeItemPropertyValueFactory("nflCertificado"));
 		treeTableColumnDP.setCellValueFactory(new TreeItemPropertyValueFactory("validDadosPessoais"));
 		treeTableColumnDadosIdentif.setCellValueFactory(new TreeItemPropertyValueFactory("validDadosIdentif"));
 		treeTableColumnDadosHeFund.setCellValueFactory(new TreeItemPropertyValueFactory("validDadosHeFund"));
@@ -208,6 +211,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 					itemObsList.getRgEmissorUf(), itemObsList.getValidDadosPessoais(),
 					itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
 					itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()
+					,itemObsList.getNflCertidao()
 					,itemObsList.getNflCertificado()
 					));
 

@@ -30,6 +30,7 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", a.rgEmissorUf"
 			+ ", v.id.aluno"
 			+ ", v.id.situacaoFinal"
+			+ ", cd.nfl"
 			+ ", cf.nfl"
 			+ ") " + "FROM VwAlunoPeriodoCurricular v " 
 			+ "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
