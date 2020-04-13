@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.11.0.final using JasperReports Library version 6.11.0-0c4056ccaa4d25a5a8c45672d2f764ea3498bebb  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Certidaojrxml" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f4d6707c-3e6f-4a63-ae95-92672ae9c543">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.xml"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM  sisgesteduc.certidoes_external]]>
+	</queryString>
+	<field name="nfl" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.label" value="nfl"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="a_corrigir" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="a_corrigir"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="aluno" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="aluno"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="ano" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="ano"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="carga_horaria_modalidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="carga_horaria_modalidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="censo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="censo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="cn_cartorio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cn_cartorio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="cn_emissao" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="cn_emissao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="cn_folha" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cn_folha"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="cn_livro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cn_livro"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="cn_municipio" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cn_municipio"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="cn_termo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cn_termo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="cn_uf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="cn_uf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="consolidado_modalidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="consolidado_modalidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="corrigido" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="corrigido"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="curso" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="curso"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="data_conclusao" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="data_conclusao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="data_emissao_certificado" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="data_emissao_certificado"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="data_inst_ato_de_criacao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="data_inst_ato_de_criacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="data_nasc" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="data_nasc"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="decreto_modalidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="decreto_modalidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="descr_erro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="descr_erro"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="doc_concl_modalidades_modalidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="doc_concl_modalidades_modalidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="impresso" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="impresso"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="imprimir_agora" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="imprimir_agora"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="inst_ato_de_criacao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="inst_ato_de_criacao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="instituicao" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="instituicao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="lei_modalidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="lei_modalidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="livro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="livro"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="mae" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="mae"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="nacionalidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nacionalidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="naturalidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="naturalidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="naturalidade_uf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="naturalidade_uf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="nome_compl" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="nome_compl"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="pai" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="pai"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="reimpresso" class="java.lang.Boolean">
+		<property name="com.jaspersoft.studio.field.label" value="reimpresso"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="rg" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="rg"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="rg_emissao" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.label" value="rg_emissao"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="rg_emissor" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="rg_emissor"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="rg_emissor_uf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="rg_emissor_uf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="sexo" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="sexo"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="situacao_final" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="situacao_final"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="tipo_doc" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="tipo_doc"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<field name="turma" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="turma"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="certidoes_external"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="1" y="0" width="544" height="125" uuid="b7fc7030-63e9-48b4-8794-b4290c33fdba"/>
+				<textElement markup="html"/>
+				<textFieldExpression><![CDATA["Em cumprimento ao disposto na legislação em vigor, <b>CERTIFICO</b> que, verificando o arquivo escolar, consta que <b>" + $F{nome_compl} + "</b>, <b>" + $F{nacionalidade} + "</b>, " + ($F{sexo} == "Feminino"?"portadora":"portador") +
+
+($F{rg} != null ?
+	" da Cédula de Identidade <b>nº " + $F{rg} + "</b>, expedida pelo <b>" + $F{rg_emissor} + "/" + $F{rg_emissor_uf} + "</b>"
+	:
+	" da Certidão de Nascimento do <b>" + $F{cn_cartorio} + "</b>, do município de <b>" + $F{cn_municipio} + "/" 
+	+ $F{cn_uf} + "</b>, termo <b>nº " + $F{cn_termo} + "</b>, Livro <b>" + $F{cn_livro} + "</b>, folha " + $F{cn_folha} + "."
+)
+
++ "</b>, " +  ($F{sexo} == "Feminino" ? "filha" : "filho") + " de " + ($F{pai} != null ?
+		"<b>" + $F{pai} + "</b> e <b>" +  $F{mae} + "</b>"
+		: "<b>" +  $F{mae} + "</b>, "
+	)
++ "natural de <b>" + $F{naturalidade} + "/" + $F{naturalidade_uf} + "</b>, "
++ ($F{sexo} == "Feminino" ? "nascida" : "nascido")	
++ " em <b>" + $F{data_nasc}  + "</b>, "
++ "o presente certificado de conclusão do <b>Ensino Médio</b>."]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
