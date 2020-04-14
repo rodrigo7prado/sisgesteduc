@@ -51,7 +51,7 @@ public class FiltroController implements Initializable {
 	@FXML
 	private TreeTableColumn<FiltroItemDto, Integer> treeTableColumnLinhas;
 	@FXML
-	private TreeTableColumn<FiltroItemDto, Object> treeTableColumnActions;
+	private TreeTableColumn<FiltroItemDto, FiltroItemDto> treeTableColumnActions;
 
 	private Map<Integer, Integer> mapCarregamentos = new HashMap<Integer, Integer>();
 
@@ -209,12 +209,12 @@ public class FiltroController implements Initializable {
 	}
 
 	private void initButtonCertificadosAction() {
-		treeTableColumnActions.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
-		treeTableColumnActions.setCellFactory(param -> new TreeTableCell<FiltroItemDto, Object>() {
+		treeTableColumnActions.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue().getValue()));
+		treeTableColumnActions.setCellFactory(param -> new TreeTableCell<FiltroItemDto, FiltroItemDto>() {
 			private Button button;
 
 			@Override
-			protected void updateItem(Object obj, boolean empty) {
+			protected void updateItem(FiltroItemDto obj, boolean empty) {
 				super.updateItem(obj, empty);
 
 				if (obj == null) {
@@ -222,15 +222,14 @@ public class FiltroController implements Initializable {
 					return;
 				}
 				
-				if ( super.getId().equals(1) ) {
+				if ( obj.getId().equals(4) || obj.getId().equals(5) ) {
 					button = new Button("C");
-				} else {
-					button = new Button("Ca");
+					setGraphic(button);
+					
+					button.setOnAction(event -> System.out.println(""));
 				}
 
-				setGraphic(button);
 				
-				button.setOnAction(event -> System.out.println(""));
 			}
 		});
 	}
