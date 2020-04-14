@@ -132,52 +132,55 @@ public class DBService {
 		FiltroGrupo fg1 = new FiltroGrupo(null, "Todos os alunos (2018)");
 		FiltroGrupo fg2 = new FiltroGrupo(null, "Períodos curriculares finais");
 		FiltroGrupo fg3 = new FiltroGrupo(null, "Concluintes");
-		FiltroGrupo fg4 = new FiltroGrupo(null, "Todas as Certidões");
-		FiltroGrupo fg5 = new FiltroGrupo(null, "Todos os Certificados");
+		FiltroGrupo fg4 = new FiltroGrupo(null, "Concluintes sem emissão");
 		
+		FiltroGrupo fg5 = new FiltroGrupo(null, "Todas as Certidões");
 		FiltroGrupo fg6 = new FiltroGrupo(null, "Todos os Certificados");
-		FiltroGrupo fg7 = new FiltroGrupo(null, "Todos os Certificados");
-		FiltroGrupo fg8 = new FiltroGrupo(null, "Todos os Certificados");
-		FiltroGrupo fg9 = new FiltroGrupo(null, "Todos ok");
-		FiltroGrupo fg10 = new FiltroGrupo(null, "Quaisquer pendências");
-		FiltroGrupo fg11 = new FiltroGrupo(null, "Pendência de dados pessoais");
-		FiltroGrupo fg12 = new FiltroGrupo(null, "Pendência de dados escolares");
-		FiltroGrupo fg13 = new FiltroGrupo(null, "Pendência de HE fund.");
-		FiltroGrupo fg14 = new FiltroGrupo(null, "Pendência de HE médio");
-		FiltroGrupo fg15 = new FiltroGrupo(null, "Diferenças c/ Conexão Educação");
+		
+		FiltroGrupo fg7 = new FiltroGrupo(null, "Turmas completas");
+		FiltroGrupo fg8 = new FiltroGrupo(null, "-");
+		FiltroGrupo fg9 = new FiltroGrupo(null, "-");
+		FiltroGrupo fg10 = new FiltroGrupo(null, "Todos ok");
+		FiltroGrupo fg11 = new FiltroGrupo(null, "Quaisquer pendências");
+		FiltroGrupo fg12 = new FiltroGrupo(null, "Pendência de dados pessoais");
+		FiltroGrupo fg13 = new FiltroGrupo(null, "Pendência de dados escolares");
+		FiltroGrupo fg14 = new FiltroGrupo(null, "Pendência de HE fund.");
+		FiltroGrupo fg15 = new FiltroGrupo(null, "Pendência de HE médio");
+		FiltroGrupo fg16 = new FiltroGrupo(null, "Diferenças c/ Conexão Educação");
 
-		filtroGrupoRepository.saveAll(Arrays.asList(fg1, fg2, fg3, fg4, fg5, fg6, fg7, fg8, fg9, fg10, fg11, fg12));
+		filtroGrupoRepository.saveAll(Arrays.asList(fg1, fg2, fg3, fg4, fg5, fg6, fg7, fg8, fg9, fg10, fg11, fg12,fg13,fg14,fg15,fg16));
 
 		FiltroItem fi1 = new FiltroItem(null, fg1, "Todos os alunos");
-		FiltroItem fi2 = new FiltroItem(null, fg2, "Últimos períodos curriculares");
+		FiltroItem fi2 = new FiltroItem(null, fg2, "Períodos/anos finais");
 		FiltroItem fi3 = new FiltroItem(null, fg3, "Concluintes");
-		FiltroItem fi4 = new FiltroItem(null, fg4, "Todas as Certidões");
-		FiltroItem fi5 = new FiltroItem(null, fg5, "Todas os Certificados");
-		FiltroItem fi6 = new FiltroItem(null, fg6, "Turmas completas");
-		FiltroItem fi7 = new FiltroItem(null, fg7, "-");
+		FiltroItem fi4 = new FiltroItem(null, fg4, "Concluintes sem emissão");
+		FiltroItem fi5 = new FiltroItem(null, fg5, "Emissões de Certidões");
+		FiltroItem fi6 = new FiltroItem(null, fg6, "Emissões de Certificados");
+		FiltroItem fi7 = new FiltroItem(null, fg7, "Turmas completas");
 		FiltroItem fi8 = new FiltroItem(null, fg8, "-");
+		FiltroItem fi9 = new FiltroItem(null, fg9, "-");
 		
-		FiltroItem fi9 = new FiltroItem(null, fg9, "Todos ok");
-		FiltroItem fi10 = new FiltroItem(null, fg10, "Quaisquer pendências");
-		FiltroItem fi11 = new FiltroItem(null, fg11, "Pend. dados pessoais");
-		FiltroItem fi12 = new FiltroItem(null, fg11, "Pend. [Matrícula]");
-		FiltroItem fi13 = new FiltroItem(null, fg11, "Pend. [Nome completo]");
-		FiltroItem fi14 = new FiltroItem(null, fg11, "Pend. [Data de Nascimento]");
-		FiltroItem fi15 = new FiltroItem(null, fg11, "Pend. [Nacionalidade]");
-		FiltroItem fi16 = new FiltroItem(null, fg11, "Pend. [Naturalidade]");
-		FiltroItem fi17 = new FiltroItem(null, fg11, "Pend. [Naturalidade UF]");
-		FiltroItem fi18 = new FiltroItem(null, fg11, "Pend. [Rg]");
-		FiltroItem fi19 = new FiltroItem(null, fg11, "Pend. [Rg emissor]");
-		FiltroItem fi20 = new FiltroItem(null, fg11, "Pend. [Rg emissor UF]");
-		FiltroItem fi21 = new FiltroItem(null, fg11, "Pend. [Pai]");
-		FiltroItem fi22 = new FiltroItem(null, fg11, "Pend. [Mãe]");
+		FiltroItem fi10 = new FiltroItem(null, fg10, "Todos ok");
+		FiltroItem fi11 = new FiltroItem(null, fg11, "Quaisquer pendências");
+		FiltroItem fi12 = new FiltroItem(null, fg12, "Pend. dados pessoais");
+		FiltroItem fi13 = new FiltroItem(null, fg12, "Pend. [Matrícula]");
+		FiltroItem fi14 = new FiltroItem(null, fg12, "Pend. [Nome completo]");
+		FiltroItem fi15 = new FiltroItem(null, fg12, "Pend. [Data de Nascimento]");
+		FiltroItem fi16 = new FiltroItem(null, fg12, "Pend. [Nacionalidade]");
+		FiltroItem fi17 = new FiltroItem(null, fg12, "Pend. [Naturalidade]");
+		FiltroItem fi18 = new FiltroItem(null, fg12, "Pend. [Naturalidade UF]");
+		FiltroItem fi19 = new FiltroItem(null, fg12, "Pend. [Rg]");
+		FiltroItem fi20 = new FiltroItem(null, fg12, "Pend. [Rg emissor]");
+		FiltroItem fi21 = new FiltroItem(null, fg12, "Pend. [Rg emissor UF]");
+		FiltroItem fi22 = new FiltroItem(null, fg12, "Pend. [Pai]");
+		FiltroItem fi23 = new FiltroItem(null, fg12, "Pend. [Mãe]");
 
-		FiltroItem fi23 = new FiltroItem(null, fg12, "Pend. de dados escolares");
-		FiltroItem fi24 = new FiltroItem(null, fg13, "Pendência de HE fun.");
-		FiltroItem fi25 = new FiltroItem(null, fg14, "Pendência de HE médio");
-		FiltroItem fi26 = new FiltroItem(null, fg15, "Dif. c/ Conexão Educação");
+		FiltroItem fi24 = new FiltroItem(null, fg13, "Pend. de dados escolares");
+		FiltroItem fi25 = new FiltroItem(null, fg14, "Pendência de HE fun.");
+		FiltroItem fi26 = new FiltroItem(null, fg15, "Pendência de HE médio");
+		FiltroItem fi27 = new FiltroItem(null, fg16, "Dif. c/ Conexão Educação");
 
 		filtroItemRepository.saveAll(Arrays.asList(fi1, fi2, fi3, fi4, fi5, fi6, fi7, fi8, fi9, fi10, fi11, fi12, fi13,
-				fi14, fi15, fi16, fi17, fi18, fi19, fi20, fi21, fi22, fi23));
+				fi14, fi15, fi16, fi17, fi18, fi19, fi20, fi21, fi22, fi23,fi24,fi25,fi26,fi27));
 	}
 }

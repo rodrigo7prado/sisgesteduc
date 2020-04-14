@@ -102,16 +102,17 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		this.mapCarregamentos.put(2, service.findFilterUltimosPeriodosLetivos());
 		this.mapCarregamentos.put(3, service.findFilterConcluintes());
 		
-		this.mapCarregamentos.put(4, service.findFilterTodasOsCertidoes());
-		this.mapCarregamentos.put(5, service.findFilterTodasOsCertificados());
-		this.mapCarregamentos.put(9, service.findFilterTodosOk());
-		this.mapCarregamentos.put(11, service.findFilterPendDadosPessoais());
-		this.mapCarregamentos.put(14, service.findFilterPendDataNasc());
-		this.mapCarregamentos.put(15, service.findFilterPendNacionalidade());
-		this.mapCarregamentos.put(16, service.findFilterPendNaturalidade());
-		this.mapCarregamentos.put(18, service.findFilterPendRg());
-		this.mapCarregamentos.put(21, service.findFilterPendNomePai());
-		this.mapCarregamentos.put(22, service.findFilterPendNomeMae());
+		
+		this.mapCarregamentos.put(5, service.findFilterTodasOsCertidoes());
+		this.mapCarregamentos.put(6, service.findFilterTodasOsCertificados());
+		this.mapCarregamentos.put(10, service.findFilterTodosOk());
+		this.mapCarregamentos.put(12, service.findFilterPendDadosPessoais());
+		this.mapCarregamentos.put(15, service.findFilterPendDataNasc());
+		this.mapCarregamentos.put(16, service.findFilterPendNacionalidade());
+		this.mapCarregamentos.put(17, service.findFilterPendNaturalidade());
+		this.mapCarregamentos.put(19, service.findFilterPendRg());
+		this.mapCarregamentos.put(22, service.findFilterPendNomePai());
+		this.mapCarregamentos.put(23, service.findFilterPendNomeMae());
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
