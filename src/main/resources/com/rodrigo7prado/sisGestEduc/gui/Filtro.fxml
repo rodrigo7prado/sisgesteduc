@@ -14,6 +14,7 @@
         <columns>
           <TreeTableColumn fx:id="treeTableColumnFiltro" prefWidth="150.0" text="Filtro" />
           <TreeTableColumn fx:id="treeTableColumnLinhas" prefWidth="44.0" text="Linhas" />
+            <TreeTableColumn fx:id="treeTableColumnActions" prefWidth="75.0" />
         </columns>
       </TreeTableView>
       <ProgressBar prefWidth="200.0" progress="0.0" />

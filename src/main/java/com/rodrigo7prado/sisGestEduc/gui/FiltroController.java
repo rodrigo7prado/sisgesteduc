@@ -12,26 +12,29 @@ import com.rodrigo7prado.sisGestEduc.dto.FiltroItemDto;
 import com.rodrigo7prado.sisGestEduc.services.AlunoPeriodoCurricularService;
 import com.rodrigo7prado.sisGestEduc.services.FiltroItemService;
 
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TreeItem;
+import javafx.scene.control.TreeTableCell;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
 import javafx.scene.control.cell.TreeItemPropertyValueFactory;
 
 @Controller
 public class FiltroController implements Initializable {
-	
+
 	@Autowired
 	private FiltroItemService service;
-	
+
 	@Autowired
 	private AlunoPeriodoCurricularService serviceExternal;
-	
+
 	@FXML
 	@Autowired
 	private RelCertificacoesPorAlunoController relCertificacoesPorAlunoController;
@@ -47,17 +50,19 @@ public class FiltroController implements Initializable {
 	private TreeTableColumn<FiltroItemDto, String> treeTableColumnFiltro;
 	@FXML
 	private TreeTableColumn<FiltroItemDto, Integer> treeTableColumnLinhas;
-	
-	private Map<Integer,Integer> mapCarregamentos = new HashMap<Integer,Integer>();
+	@FXML
+	private TreeTableColumn<FiltroItemDto, Object> treeTableColumnActions;
+
+	private Map<Integer, Integer> mapCarregamentos = new HashMap<Integer, Integer>();
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
-		
+
 		this.mapCarregamentos.put(1, serviceExternal.findFilterTodos().size());
 		this.mapCarregamentos.put(2, serviceExternal.findFilterUltimosPeriodosLetivos().size());
 		this.mapCarregamentos.put(3, serviceExternal.findFilterConcluintes().size());
-		
+
 		this.mapCarregamentos.put(4, serviceExternal.findFilterTodasOsCertidoes().size());
 		this.mapCarregamentos.put(5, serviceExternal.findFilterTodasOsCertificados().size());
 		this.mapCarregamentos.put(9, serviceExternal.findFilterTodosOk().size());
@@ -68,7 +73,7 @@ public class FiltroController implements Initializable {
 		this.mapCarregamentos.put(18, serviceExternal.findFilterPendRg().size());
 		this.mapCarregamentos.put(21, serviceExternal.findFilterPendNomePai().size());
 		this.mapCarregamentos.put(22, serviceExternal.findFilterPendNomeMae().size());
-		
+
 		initializeColumns();
 		loadListView();
 
@@ -78,6 +83,7 @@ public class FiltroController implements Initializable {
 	private void initializeColumns() {
 		treeTableColumnFiltro.setCellValueFactory(new TreeItemPropertyValueFactory("filtroItemNome"));
 		treeTableColumnLinhas.setCellValueFactory(new TreeItemPropertyValueFactory("linhas"));
+		initButtonCertificadosAction();
 	}
 
 	private void loadListView() {
@@ -90,11 +96,10 @@ public class FiltroController implements Initializable {
 		treeTableViewFiltro.setRoot(treeItemFiltroRoot);
 
 		for (FiltroItemDto itemObsList : observableList) {
-			
-			
-			
-			TreeItem<FiltroItemDto> node = new TreeItem<>(new FiltroItemDto(itemObsList.getId(),
-					itemObsList.getFiltroGrupoId(), itemObsList.getFiltroItemNome(),mapCarregamentos.get(itemObsList.getId())));
+
+			TreeItem<FiltroItemDto> node = new TreeItem<>(
+					new FiltroItemDto(itemObsList.getId(), itemObsList.getFiltroGrupoId(),
+							itemObsList.getFiltroItemNome(), mapCarregamentos.get(itemObsList.getId())));
 
 			TreeItem<FiltroItemDto> filtroGrupoNode = node;
 
@@ -152,16 +157,15 @@ public class FiltroController implements Initializable {
 	@SuppressWarnings("unchecked")
 	@FXML
 	public void onMouseClicked(Event event) {
-		
-		
+
 		TreeTableView<FiltroItemDto> source = (TreeTableView<FiltroItemDto>) event.getSource();
-		
+
 		FiltroItemDto obj = (FiltroItemDto) source.getFocusModel().getFocusedItem().getValue();
-		
+
 		System.out.println("Id: " + obj);
-		
+
 		relCertificacoesPorAlunoController.updateTreeTableView(obj.getId());
-		
+
 //		switch (obj.getId()) {
 //		case 1:
 //			System.out.println("Ok, id 1");
@@ -202,5 +206,32 @@ public class FiltroController implements Initializable {
 //			relCertificacoesPorAlunoController.updateTreeTableView(0);
 //			break;
 //		}
+	}
+
+	private void initButtonCertificadosAction() {
+		treeTableColumnActions.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
+		treeTableColumnActions.setCellFactory(param -> new TreeTableCell<FiltroItemDto, Object>() {
+			private Button button;
+
+			@Override
+			protected void updateItem(Object obj, boolean empty) {
+				super.updateItem(obj, empty);
+
+				if (obj == null) {
+					setGraphic(null);
+					return;
+				}
+				
+				if ( super.getId().equals(1) ) {
+					button = new Button("C");
+				} else {
+					button = new Button("Ca");
+				}
+
+				setGraphic(button);
+				
+				button.setOnAction(event -> System.out.println(""));
+			}
+		});
 	}
 }
