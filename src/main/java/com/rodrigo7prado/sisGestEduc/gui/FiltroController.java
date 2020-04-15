@@ -66,15 +66,17 @@ public class FiltroController implements Initializable {
 		this.mapCarregamentos.put(5, serviceExternal.findFilterConcluintesComConcertidaoECertificado().size());
 		
 		this.mapCarregamentos.put(6, serviceExternal.findFilterTodasOsCertidoes().size());
-		this.mapCarregamentos.put(7, serviceExternal.findFilterTodasOsCertificados().size());
-		this.mapCarregamentos.put(11, serviceExternal.findFilterTodosOk().size());
-		this.mapCarregamentos.put(13, serviceExternal.findFilterPendDadosPessoais().size());
-		this.mapCarregamentos.put(16, serviceExternal.findFilterPendDataNasc().size());
-		this.mapCarregamentos.put(17, serviceExternal.findFilterPendNacionalidade().size());
-		this.mapCarregamentos.put(18, serviceExternal.findFilterPendNaturalidade().size());
-		this.mapCarregamentos.put(20, serviceExternal.findFilterPendRg().size());
-		this.mapCarregamentos.put(23, serviceExternal.findFilterPendNomePai().size());
-		this.mapCarregamentos.put(24, serviceExternal.findFilterPendNomeMae().size());
+		this.mapCarregamentos.put(7, serviceExternal.findFilterConcuintesComCertidaoSemCertificado().size());
+		
+		this.mapCarregamentos.put(8, serviceExternal.findFilterTodasOsCertificados().size());
+		this.mapCarregamentos.put(12, serviceExternal.findFilterTodosOk().size());
+		this.mapCarregamentos.put(14, serviceExternal.findFilterPendDadosPessoais().size());
+		this.mapCarregamentos.put(17, serviceExternal.findFilterPendDataNasc().size());
+		this.mapCarregamentos.put(18, serviceExternal.findFilterPendNacionalidade().size());
+		this.mapCarregamentos.put(19, serviceExternal.findFilterPendNaturalidade().size());
+		this.mapCarregamentos.put(21, serviceExternal.findFilterPendRg().size());
+		this.mapCarregamentos.put(24, serviceExternal.findFilterPendNomePai().size());
+		this.mapCarregamentos.put(25, serviceExternal.findFilterPendNomeMae().size());
 
 		initializeColumns();
 		loadListView();
@@ -130,30 +132,6 @@ public class FiltroController implements Initializable {
 		}
 
 		treeTableViewFiltro.setShowRoot(false);
-
-//		listView.getItems().add("Todos os Alunos");
-//		listView.getItems().add("Últimos períodos curriculares");
-//		listView.getItems().add("Concluintes");
-//		listView.getItems().add("Todas as Certidões");
-//		listView.getItems().add("Todos os Certificados");
-//		listView.getItems().add("Todos ok");
-//		listView.getItems().add("Quaisquer pendências");
-//		listView.getItems().add("Pendência de dados pessoais");
-//		listView.getItems().add("Pendência de dados escolares");
-//		listView.getItems().add("Pendência de HE fund.");
-//		listView.getItems().add("Pendência de HE médio");
-//		listView.getItems().add("Diferenças c/ Conexão Educação");
-//		listView.getItems().add("Pendências em [Nome completo]");
-//		listView.getItems().add("Pendências em [Data de Nascimento]");
-//		listView.getItems().add("Pendências em [Sexo]");
-//		listView.getItems().add("Pendências em [Nome da mãe]");
-//		listView.getItems().add("Pendências em [Nome do pai]");
-//		listView.getItems().add("Pendências em [Nacionalidade]");
-//		listView.getItems().add("Pendências em [Naturalidade]");
-//		listView.getItems().add("Pendências em [Naturalidade UF]");
-//		listView.getItems().add("Pendências em [Rg]");
-//		listView.getItems().add("Pendências em [Rg Emissor]");
-//		listView.getItems().add("Pendências em [Rg Emissor UF]");
 	}
 
 	@SuppressWarnings("unchecked")
@@ -183,14 +161,13 @@ public class FiltroController implements Initializable {
 					return;
 				}
 				
-				if ( obj.getId().equals(6) || obj.getId().equals(7) ) {
+				if ( obj.getId().equals(6) || obj.getId().equals(8) ) {
 					button = new Button("c");
 					setGraphic(button);
 					
 					button.setOnAction(event -> System.out.println(""));
 				}
 
-				
 			}
 		});
 	}
