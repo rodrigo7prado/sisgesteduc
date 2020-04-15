@@ -62,18 +62,19 @@ public class FiltroController implements Initializable {
 		this.mapCarregamentos.put(1, serviceExternal.findFilterTodos().size());
 		this.mapCarregamentos.put(2, serviceExternal.findFilterUltimosPeriodosLetivos().size());
 		this.mapCarregamentos.put(3, serviceExternal.findFilterConcluintes().size());
-
 		this.mapCarregamentos.put(4, serviceExternal.findFilterConcluintesSemEmissao().size());
-		this.mapCarregamentos.put(5, serviceExternal.findFilterTodasOsCertidoes().size());
-		this.mapCarregamentos.put(6, serviceExternal.findFilterTodasOsCertificados().size());
-		this.mapCarregamentos.put(10, serviceExternal.findFilterTodosOk().size());
-		this.mapCarregamentos.put(12, serviceExternal.findFilterPendDadosPessoais().size());
-		this.mapCarregamentos.put(15, serviceExternal.findFilterPendDataNasc().size());
-		this.mapCarregamentos.put(16, serviceExternal.findFilterPendNacionalidade().size());
-		this.mapCarregamentos.put(17, serviceExternal.findFilterPendNaturalidade().size());
-		this.mapCarregamentos.put(19, serviceExternal.findFilterPendRg().size());
-		this.mapCarregamentos.put(22, serviceExternal.findFilterPendNomePai().size());
-		this.mapCarregamentos.put(23, serviceExternal.findFilterPendNomeMae().size());
+		this.mapCarregamentos.put(5, serviceExternal.findFilterConcluintesComConcertidaoECertificado().size());
+		
+		this.mapCarregamentos.put(6, serviceExternal.findFilterTodasOsCertidoes().size());
+		this.mapCarregamentos.put(7, serviceExternal.findFilterTodasOsCertificados().size());
+		this.mapCarregamentos.put(11, serviceExternal.findFilterTodosOk().size());
+		this.mapCarregamentos.put(13, serviceExternal.findFilterPendDadosPessoais().size());
+		this.mapCarregamentos.put(16, serviceExternal.findFilterPendDataNasc().size());
+		this.mapCarregamentos.put(17, serviceExternal.findFilterPendNacionalidade().size());
+		this.mapCarregamentos.put(18, serviceExternal.findFilterPendNaturalidade().size());
+		this.mapCarregamentos.put(20, serviceExternal.findFilterPendRg().size());
+		this.mapCarregamentos.put(23, serviceExternal.findFilterPendNomePai().size());
+		this.mapCarregamentos.put(24, serviceExternal.findFilterPendNomeMae().size());
 
 		initializeColumns();
 		loadListView();
@@ -182,7 +183,7 @@ public class FiltroController implements Initializable {
 					return;
 				}
 				
-				if ( obj.getId().equals(5) || obj.getId().equals(6) ) {
+				if ( obj.getId().equals(6) || obj.getId().equals(7) ) {
 					button = new Button("c");
 					setGraphic(button);
 					
