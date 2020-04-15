@@ -63,6 +63,7 @@ public class FiltroController implements Initializable {
 		this.mapCarregamentos.put(2, serviceExternal.findFilterUltimosPeriodosLetivos().size());
 		this.mapCarregamentos.put(3, serviceExternal.findFilterConcluintes().size());
 
+		this.mapCarregamentos.put(4, serviceExternal.findFilterConcluintesSemEmissao().size());
 		this.mapCarregamentos.put(5, serviceExternal.findFilterTodasOsCertidoes().size());
 		this.mapCarregamentos.put(6, serviceExternal.findFilterTodasOsCertificados().size());
 		this.mapCarregamentos.put(10, serviceExternal.findFilterTodosOk().size());
@@ -182,7 +183,7 @@ public class FiltroController implements Initializable {
 				}
 				
 				if ( obj.getId().equals(5) || obj.getId().equals(6) ) {
-					button = new Button("C");
+					button = new Button("c");
 					setGraphic(button);
 					
 					button.setOnAction(event -> System.out.println(""));

@@ -101,6 +101,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		this.mapCarregamentos.put(1, service.findFilterTodos());
 		this.mapCarregamentos.put(2, service.findFilterUltimosPeriodosLetivos());
 		this.mapCarregamentos.put(3, service.findFilterConcluintes());
+		this.mapCarregamentos.put(4, service.findFilterConcluintesSemEmissao());
 		
 		
 		this.mapCarregamentos.put(5, service.findFilterTodasOsCertidoes());
@@ -205,14 +206,14 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		treeTableViewAluno.setRoot(treeItemAlunoRoot);
 
 		for (AlunoPeriodoCurricularDto itemObsList : observableList) {
-			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(new AlunoPeriodoCurricularDto(null, null, null,
-					itemObsList.getTurma(), itemObsList.getMatricula(), itemObsList.getNomeCompleto(),
-					itemObsList.getSexo(), itemObsList.getDataNasc(), itemObsList.getNomePai(),
-					itemObsList.getNomeMae(), itemObsList.getNacionalidade(), itemObsList.getNaturalidade(),
-					itemObsList.getNaturalidadeUF(), itemObsList.getRg(), itemObsList.getRgEmissor(),
-					itemObsList.getRgEmissorUf(), itemObsList.getValidDadosPessoais(),
-					itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
-					itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()
+			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(new AlunoPeriodoCurricularDto(null, null, null
+					,itemObsList.getTurma(), itemObsList.getMatricula(), itemObsList.getNomeCompleto()
+					,itemObsList.getSexo(), itemObsList.getDataNasc(), itemObsList.getNomePai()
+					,itemObsList.getNomeMae(), itemObsList.getNacionalidade(), itemObsList.getNaturalidade()
+					,itemObsList.getNaturalidadeUF(), itemObsList.getRg(), itemObsList.getRgEmissor()
+					,itemObsList.getRgEmissorUf(), itemObsList.getValidDadosPessoais()
+					,itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund()
+					,itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()
 					,itemObsList.getNflCertidao()
 					,itemObsList.getNflCertificado()
 					));
@@ -231,9 +232,11 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 				if (ultimaTurmaAdd.equals(itemObsList.getTurma())) {
 
 					treeItemAlunoRoot.getChildren().get(size - 1).getChildren().add(alunoNode);
+//					turmaNode.getValue().setTurma(turmaNode.getValue().getTurma()+"(2)");
 
 				} else {
 					treeItemAlunoRoot.getChildren().add(turmaNode);
+//					turmaNode.getValue().setTurma(turmaNode.getValue().getTurma()+"("+turmaNode.getChildren().size()+")");
 					System.out.println("adicionar a:" + turmaNode.getValue().getTurma());
 				}
 			}

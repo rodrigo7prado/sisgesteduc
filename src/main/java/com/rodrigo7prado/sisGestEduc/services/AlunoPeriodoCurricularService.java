@@ -48,6 +48,11 @@ public class AlunoPeriodoCurricularService {
 		return listDto;
 	}
 	
+	public List<AlunoPeriodoCurricularDto> findFilterConcluintesSemEmissao() {
+		 List<AlunoPeriodoCurricularDto> listDto = repository.findFilterConcluintesSemEmissao();
+		return listDto;
+	}
+	
 	public List<AlunoPeriodoCurricularDto> findFilterTodasOsCertidoes() {
 		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterTodasOsCertidoes();
 		
@@ -107,4 +112,5 @@ public class AlunoPeriodoCurricularService {
 		
 		return listDto;
 	}
+
 }
