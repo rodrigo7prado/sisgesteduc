@@ -181,7 +181,7 @@ public class FiltroController implements Initializable {
 					return;
 				}
 				
-				if ( obj.getId().equals(4) || obj.getId().equals(5) ) {
+				if ( obj.getId().equals(5) || obj.getId().equals(6) ) {
 					button = new Button("C");
 					setGraphic(button);
 					

@@ -156,7 +156,7 @@ public class DBService {
 		FiltroItem fi4 = new FiltroItem(null, fg4, "Concluintes sem emissão");
 		FiltroItem fi5 = new FiltroItem(null, fg5, "Emissões de Certidões");
 		FiltroItem fi6 = new FiltroItem(null, fg6, "Emissões de Certificados");
-		FiltroItem fi7 = new FiltroItem(null, fg7, "Turmas completas");
+		FiltroItem fi7 = new FiltroItem(null, fg7, "Turma completas");
 		FiltroItem fi8 = new FiltroItem(null, fg8, "-");
 		FiltroItem fi9 = new FiltroItem(null, fg9, "-");
 		

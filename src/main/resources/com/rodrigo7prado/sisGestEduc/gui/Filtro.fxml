@@ -12,7 +12,7 @@
       <CheckBox mnemonicParsing="false" selected="true" text="ENEJA" />
       <TreeTableView fx:id="treeTableViewFiltro" onMouseClicked="#onMouseClicked" prefHeight="485.0" prefWidth="200.0">
         <columns>
-          <TreeTableColumn fx:id="treeTableColumnFiltro" prefWidth="150.0" text="Filtro" />
+          <TreeTableColumn fx:id="treeTableColumnFiltro" prefWidth="175.0" text="Filtro" />
           <TreeTableColumn fx:id="treeTableColumnLinhas" prefWidth="44.0" text="Linhas" />
             <TreeTableColumn fx:id="treeTableColumnActions" prefWidth="75.0" />
         </columns>

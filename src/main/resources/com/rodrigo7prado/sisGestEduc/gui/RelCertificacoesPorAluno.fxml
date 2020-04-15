@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -18,7 +16,7 @@
 
 <VBox maxWidth="1314.0" prefHeight="568.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.RelCertificacoesPorAlunoController">
 	<children>
-		<SplitPane dividerPositions="0.15, 0.75" prefHeight="650.0" prefWidth="1200.0">
+		<SplitPane dividerPositions="0.2, 0.75" prefHeight="650.0" prefWidth="1200.0">
 			<items>
 				<VBox prefHeight="568.0" prefWidth="438.0">
 					<fx:include fx:id="vBoxControllerFiltro" source="Filtro.fxml" />
@@ -82,24 +80,18 @@
                         </HBox>
 								<TreeTableView fx:id="treeTableViewAluno" onKeyPressed="#onClickTreeTableView" onMouseClicked="#onClickTreeTableView" prefHeight="568.0" prefWidth="189.0">
 									<columns>
-										<TreeTableColumn fx:id="treeTableColumnTurma" prefWidth="150.0" sortType="DESCENDING" text="Turma" />
+										<TreeTableColumn fx:id="treeTableColumnTurma" prefWidth="120.0" sortType="DESCENDING" text="Turma" />
 										<TreeTableColumn fx:id="treeTableColumnAluno" prefWidth="110.0" text="Matrícula" />
 										<TreeTableColumn fx:id="treeTableColumnNomeCompl" prefWidth="173.0" text="Aluno" />
-										<TreeTableColumn fx:id="treeTableColumnDP" prefWidth="60.0" text="DP" />
-										<TreeTableColumn fx:id="treeTableColumnDadosIdentif" prefWidth="50.0" text="DIdent" />
-										<TreeTableColumn fx:id="treeTableColumnDadosHeFund" prefWidth="50.0" text="HF" />
-										<TreeTableColumn fx:id="treeTableColumnDadosHeMedio" prefWidth="50.0" text="HM" />
-										<TreeTableColumn fx:id="treeTableColumnNflCertidao" prefWidth="60.0" text="Certidão" />
-										<TreeTableColumn fx:id="treeTableColumnNflCertificado" prefWidth="60.0" text="Certificado" />
+										<TreeTableColumn fx:id="treeTableColumnDP" prefWidth="40.0" text="DP" />
+										<TreeTableColumn fx:id="treeTableColumnDadosIdentif" prefWidth="40.0" text="DIdent" />
+										<TreeTableColumn fx:id="treeTableColumnDadosHeFund" prefWidth="40.0" text="HF" />
+										<TreeTableColumn fx:id="treeTableColumnDadosHeMedio" prefWidth="40.0" text="HM" />
+										<TreeTableColumn fx:id="treeTableColumnNflCertidao" prefWidth="55.0" text="Certidão" />
+										<TreeTableColumn fx:id="treeTableColumnNflCertificado" prefWidth="55.0" text="Certificado" />
 										<TreeTableColumn fx:id="treeTableColumnSituacaoFinal" prefWidth="90.0" text="Situação Final" />
 									</columns>
 								</TreeTableView>
-                        <ButtonBar prefHeight="40.0" prefWidth="200.0">
-                          <buttons>
-                            <Button mnemonicParsing="false" text="Visualizar Certidões" />
-                              <Button mnemonicParsing="false" text="Visualizar Certificados" />
-                          </buttons>
-                        </ButtonBar>
                         <ProgressBar fx:id="progressBar" minHeight="12.0" prefWidth="200.0" progress="0.5" />
 							</children>
 						</VBox>
