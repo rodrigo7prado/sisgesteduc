@@ -23,32 +23,32 @@
       					<Label prefHeight="17.0" text="Matrícula" />
                      <TextField fx:id="matriculaField" editable="false" prefHeight="25.0" prefWidth="124.0" />
       					<Label prefHeight="17.0" text="Nome" />
-                     <TextField fx:id="nomeCompletoField" prefHeight="25.0" prefWidth="281.0" />
+                     <TextField fx:id="nomeCompletoField" prefHeight="25.0" prefWidth="310.0" />
       					<Label prefHeight="17.0" text="D/Nasc." />
       							<DatePicker fx:id="dataNascField" prefWidth="120.0" showWeekNumbers="true" />
                      <Separator prefWidth="707.0" />
       							<Label text="Sexo" />
       							<ComboBox fx:id="sexoField" prefHeight="25.0" prefWidth="89.0" />
       					<Label text="Nacionalidade" />
-                  					<TextField fx:id="nacionalidade" prefHeight="25.0" prefWidth="89.0" />
+                     <ComboBox fx:id="nacionalidade" prefHeight="25.0" prefWidth="133.0" />
       					<Label text="Naturalidade" />
-      					<TextField fx:id="naturalidade" prefWidth="230.0" />
-      					<ComboBox fx:id="naturalidadeUfField" prefWidth="50.0" />
+      					<TextField fx:id="naturalidade" prefHeight="25.0" prefWidth="225.0" />
+      					<ComboBox fx:id="naturalidadeUfField" prefWidth="55.0" />
                      <Separator prefWidth="707.0" />
       					<Label text="RG" />
                      <TextField fx:id="rgField" prefWidth="130.0" />
       					<Label text="Órgão" />
       							<ComboBox fx:id="rgEmissorField" prefWidth="119.0" />
-      							<ComboBox fx:id="rgEmissorUfField" prefWidth="47.0" />
+      							<ComboBox fx:id="rgEmissorUfField" prefWidth="55.0" />
                      <Separator orientation="VERTICAL" prefHeight="10.0" />
                      <CheckBox mnemonicParsing="false" text="Dados de Certidão" />
                      <Separator prefHeight="0.0" prefWidth="707.0" />
       					<Label text="Pai" />
-                     <TextField fx:id="nomePaiField" prefHeight="25.0" prefWidth="250.0" />
+                     <TextField fx:id="nomePaiField" prefHeight="25.0" prefWidth="265.0" />
                      <CheckBox mnemonicParsing="false" text="Não informado" />
                      <Separator orientation="VERTICAL" prefHeight="10.0" />
       					<Label text="Mãe" />
-      					<TextField fx:id="nomeMaeField" prefHeight="25.0" prefWidth="250.0" />
+      					<TextField fx:id="nomeMaeField" prefHeight="25.0" prefWidth="265.0" />
                      <Separator prefWidth="707.0" />
                   </children>
                   <padding>

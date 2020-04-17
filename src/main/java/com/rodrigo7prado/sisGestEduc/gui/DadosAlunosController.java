@@ -36,7 +36,7 @@ public class DadosAlunosController implements Initializable {
 	@FXML
 	private TextField nomeMaeField;
 	@FXML
-	private TextField nacionalidade;
+	private ComboBox<String> nacionalidade;
 	@FXML
 	private TextField naturalidade;
 	@FXML
@@ -65,6 +65,9 @@ public class DadosAlunosController implements Initializable {
 		sexoField.getItems().clear();
 		sexoField.getItems().addAll(Arrays.asList("-- Selecione --", "Masculino", "Feminino"));
 
+		nacionalidade.getItems().clear();
+		nacionalidade.getItems().addAll(Arrays.asList("-- Selecione --", "BRASILEIRA", "ESTRANGEIRA"));
+		
 		naturalidadeUfField.getItems().clear();
 		naturalidadeUfField.getItems()
 				.addAll(Arrays.asList("-- Selecione --", "RJ", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO",
@@ -103,7 +106,7 @@ public class DadosAlunosController implements Initializable {
 //		dataNascField.setText(obj.getRg());		
 		nomePaiField.setText(obj.getNomePai());
 		nomeMaeField.setText(obj.getNomeMae());
-		nacionalidade.setText(obj.getNacionalidade());
+		nacionalidade.setValue(obj.getNacionalidade());
 		naturalidade.setText(obj.getNaturalidade());
 		naturalidadeUfField.setValue(obj.getNaturalidadeUF());
 		rgField.setText(obj.getRg());
@@ -113,7 +116,7 @@ public class DadosAlunosController implements Initializable {
 		Map<TextField, String> mapaNomes = new HashMap<TextField, String>();
 		mapaNomes.put(matriculaField, obj.getMatricula());
 		mapaNomes.put(nomeMaeField, obj.getNomeMae());
-		mapaNomes.put(nacionalidade, obj.getNacionalidade());
+//		mapaNomes.put(nacionalidade, obj.getNacionalidade());
 		mapaNomes.put(naturalidade, obj.getNaturalidade());
 		mapaNomes.put(nomePaiField, obj.getNomePai());
 		mapaNomes.put(rgField, obj.getRg());
