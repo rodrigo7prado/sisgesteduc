@@ -21,6 +21,7 @@ import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -200,13 +201,23 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		observableList.clear();
 
 		observableList.addAll(mapCarregamentos.get(keyMap));
+		
+		FilteredList<AlunoPeriodoCurricularDto> filteredList = new FilteredList<>(observableList, p -> true);
+		
+		filteredList.setPredicate(obj -> {
+			if (obj.getTurma().equals("Turma: 1001-180191")) {
+				return true;
+			} else {
+				return true;
+			}
+		});
 
 		TreeItem<AlunoPeriodoCurricularDto> treeItemAlunoRoot = new TreeItem<>(
 //						new AlunoPeriodoCurricularDto(null, null, null, null, null, "Turma", null, null, null)
 		);
 		treeTableViewAluno.setRoot(treeItemAlunoRoot);
 
-		for (AlunoPeriodoCurricularDto itemObsList : observableList) {
+		for (AlunoPeriodoCurricularDto itemObsList : filteredList) {
 			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(new AlunoPeriodoCurricularDto(null, null, null
 					,itemObsList.getTurma(), itemObsList.getMatricula(), itemObsList.getNomeCompleto()
 					,itemObsList.getSexo(), itemObsList.getDataNasc(), itemObsList.getNomePai()
