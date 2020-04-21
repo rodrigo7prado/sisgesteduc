@@ -59,24 +59,40 @@ public class FiltroController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 
-		this.mapCarregamentos.put(1, serviceExternal.findFilterTodos().size());
-		this.mapCarregamentos.put(2, serviceExternal.findFilterUltimosPeriodosLetivos().size());
-		this.mapCarregamentos.put(3, serviceExternal.findFilterConcluintes().size());
-		this.mapCarregamentos.put(4, serviceExternal.findFilterConcluintesSemEmissao().size());
-		this.mapCarregamentos.put(5, serviceExternal.findFilterConcluintesComConcertidaoECertificado().size());
+		this.mapCarregamentos.put(1, serviceExternal.findFilterTodosCount());
+		this.mapCarregamentos.put(2, serviceExternal.findFilterUltimosPeriodosLetivosCount());
+		this.mapCarregamentos.put(3, serviceExternal.findFilterConcluintesCount());
+		this.mapCarregamentos.put(4, serviceExternal.findFilterConcluintesSemEmissaoCount());
+		this.mapCarregamentos.put(5, serviceExternal.findFilterConcluintesComConcertidaoECertificadoCount());
+		this.mapCarregamentos.put(6, serviceExternal.findFilterTodasOsCertidoesCount());
+		this.mapCarregamentos.put(7, serviceExternal.findFilterConcuintesComCertidaoSemCertificadoCount());
+		this.mapCarregamentos.put(8, serviceExternal.findFilterTodasOsCertificadosCount());
+		this.mapCarregamentos.put(12, serviceExternal.findFilterTodosOkCount());
+		this.mapCarregamentos.put(14, serviceExternal.findFilterPendDadosPessoaisCount());
+		this.mapCarregamentos.put(17, serviceExternal.findFilterPendDataNascCount());
+		this.mapCarregamentos.put(18, serviceExternal.findFilterPendNacionalidadeCount());
+		this.mapCarregamentos.put(19, serviceExternal.findFilterPendNaturalidadeCount());
+		this.mapCarregamentos.put(21, serviceExternal.findFilterPendRgCount());
+		this.mapCarregamentos.put(24, serviceExternal.findFilterPendNomePaiCount());
+		this.mapCarregamentos.put(25, serviceExternal.findFilterPendNomeMaeCount());
 		
-		this.mapCarregamentos.put(6, serviceExternal.findFilterTodasOsCertidoes().size());
-		this.mapCarregamentos.put(7, serviceExternal.findFilterConcuintesComCertidaoSemCertificado().size());
 		
-		this.mapCarregamentos.put(8, serviceExternal.findFilterTodasOsCertificados().size());
-		this.mapCarregamentos.put(12, serviceExternal.findFilterTodosOk().size());
-		this.mapCarregamentos.put(14, serviceExternal.findFilterPendDadosPessoais().size());
-		this.mapCarregamentos.put(17, serviceExternal.findFilterPendDataNasc().size());
-		this.mapCarregamentos.put(18, serviceExternal.findFilterPendNacionalidade().size());
-		this.mapCarregamentos.put(19, serviceExternal.findFilterPendNaturalidade().size());
-		this.mapCarregamentos.put(21, serviceExternal.findFilterPendRg().size());
-		this.mapCarregamentos.put(24, serviceExternal.findFilterPendNomePai().size());
-		this.mapCarregamentos.put(25, serviceExternal.findFilterPendNomeMae().size());
+//		this.mapCarregamentos.put(1, serviceExternal.findFilterTodos().size());
+//		this.mapCarregamentos.put(2, serviceExternal.findFilterUltimosPeriodosLetivos().size());
+//		this.mapCarregamentos.put(3, serviceExternal.findFilterConcluintes().size());
+//		this.mapCarregamentos.put(4, serviceExternal.findFilterConcluintesSemEmissao().size());
+//		this.mapCarregamentos.put(5, serviceExternal.findFilterConcluintesComConcertidaoECertificado().size());
+//		this.mapCarregamentos.put(6, serviceExternal.findFilterTodasOsCertidoes().size());
+//		this.mapCarregamentos.put(7, serviceExternal.findFilterConcuintesComCertidaoSemCertificado().size());
+//		this.mapCarregamentos.put(8, serviceExternal.findFilterTodasOsCertificados().size());
+//		this.mapCarregamentos.put(12, serviceExternal.findFilterTodosOk().size());
+//		this.mapCarregamentos.put(14, serviceExternal.findFilterPendDadosPessoais().size());
+//		this.mapCarregamentos.put(17, serviceExternal.findFilterPendDataNasc().size());
+//		this.mapCarregamentos.put(18, serviceExternal.findFilterPendNacionalidade().size());
+//		this.mapCarregamentos.put(19, serviceExternal.findFilterPendNaturalidade().size());
+//		this.mapCarregamentos.put(21, serviceExternal.findFilterPendRg().size());
+//		this.mapCarregamentos.put(24, serviceExternal.findFilterPendNomePai().size());
+//		this.mapCarregamentos.put(25, serviceExternal.findFilterPendNomeMae().size());
 
 		initializeColumns();
 		loadListView();

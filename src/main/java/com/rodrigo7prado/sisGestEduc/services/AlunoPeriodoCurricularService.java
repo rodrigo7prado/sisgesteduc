@@ -36,10 +36,22 @@ public class AlunoPeriodoCurricularService {
 		return listDto;
 	}
 	
+	public Integer findFilterTodosCount() {
+		Integer count = repository.findFilterTodosCount();
+		
+		return count;
+	}
+	
 	public List<AlunoPeriodoCurricularDto> findFilterUltimosPeriodosLetivos() {
 		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterUltimosPeriodosLetivos();
 		
 		return listDto;
+	}
+	
+	public Integer findFilterUltimosPeriodosLetivosCount() {
+		Integer count = repository.findFilterUltimosPeriodosLetivosCount();
+		
+		return count;
 	}
 	
 	public List<AlunoPeriodoCurricularDto> findFilterConcluintes() {
@@ -48,9 +60,21 @@ public class AlunoPeriodoCurricularService {
 		return listDto;
 	}
 	
+	public Integer findFilterConcluintesCount() {
+		Integer count = repository.findFilterConcluintesCount();
+		
+		return count;
+	}
+	
 	public List<AlunoPeriodoCurricularDto> findFilterConcluintesSemEmissao() {
 		 List<AlunoPeriodoCurricularDto> listDto = repository.findFilterConcluintesSemEmissao();
 		return listDto;
+	}
+	
+	public Integer findFilterConcluintesSemEmissaoCount() {
+		Integer count = repository.findFilterConcluintesSemEmissaoCount();
+		
+		return count;
 	}
 	
 	public List<AlunoPeriodoCurricularDto> findFilterConcluintesComConcertidaoECertificado() {
@@ -59,10 +83,22 @@ public class AlunoPeriodoCurricularService {
 		return listDto;
 	}
 	
+	public Integer findFilterConcluintesComConcertidaoECertificadoCount() {
+		Integer count = repository.findFilterConcluintesComConcertidaoECertificadoCount();
+		
+		return count;
+	}
+	
 	public List<AlunoPeriodoCurricularDto> findFilterTodasOsCertidoes() {
 		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterTodasOsCertidoes();
 		
 		return listDto;
+	}
+	
+	public Integer findFilterTodasOsCertidoesCount() {
+		Integer count = repository.findFilterTodasOsCertidoesCount();
+		
+		return count;
 	}
 	
 	public List<AlunoPeriodoCurricularDto> findFilterConcuintesComCertidaoSemCertificado() {
@@ -71,10 +107,22 @@ public class AlunoPeriodoCurricularService {
 		return listDto;
 	}
 	
+	public Integer findFilterConcuintesComCertidaoSemCertificadoCount() {
+		Integer count = repository.findFilterConcuintesComCertidaoSemCertificadoCount();
+		
+		return count;
+	}
+	
 	public List<AlunoPeriodoCurricularDto> findFilterTodasOsCertificados() {
 		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterTodasOsCertificados();
 		
 		return listDto;
+	}
+	
+	public Integer findFilterTodasOsCertificadosCount() {
+		Integer count = repository.findFilterTodasOsCertificadosCount();
+		
+		return count;
 	}
 	
 	public List<AlunoPeriodoCurricularDto> findFilterTodosOk() {
@@ -83,10 +131,22 @@ public class AlunoPeriodoCurricularService {
 		return listDto;
 	}
 	
+	public Integer findFilterTodosOkCount() {
+		Integer count = repository.findFilterTodosOkCount();
+		
+		return count;
+	}
+	
 	public List<AlunoPeriodoCurricularDto> findFilterPendDadosPessoais() {
 		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterPendDadosPessoais();
 		
 		return listDto;
+	}
+	
+	public Integer findFilterPendDadosPessoaisCount() {
+		Integer count = repository.findFilterPendDadosPessoaisCount();
+		
+		return count;
 	}
 	
 	public List<AlunoPeriodoCurricularDto> findFilterPendDataNasc() {
@@ -95,10 +155,22 @@ public class AlunoPeriodoCurricularService {
 		return listDto;
 	}
 	
+	public Integer findFilterPendDataNascCount() {
+		Integer count = repository.findFilterPendDataNascCount();
+		
+		return count;
+	}
+	
 	public List<AlunoPeriodoCurricularDto> findFilterPendNaturalidade() {
 		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterPendNaturalidade();
 		
 		return listDto;
+	}
+	
+	public Integer findFilterPendNaturalidadeCount() {
+		Integer count = repository.findFilterPendNaturalidadeCount();
+		
+		return count;
 	}
 	
 	public List<AlunoPeriodoCurricularDto> findFilterPendNacionalidade() {
@@ -107,10 +179,22 @@ public class AlunoPeriodoCurricularService {
 		return listDto;
 	}
 	
+	public Integer findFilterPendNacionalidadeCount() {
+		Integer count = repository.findFilterPendNacionalidadeCount();
+		
+		return count;
+	}
+	
 	public List<AlunoPeriodoCurricularDto> findFilterPendRg() {
 		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterPendRg();
 		
 		return listDto;
+	}
+	
+	public Integer findFilterPendRgCount() {
+		Integer count = repository.findFilterPendRgCount();
+		
+		return count;
 	}
 	
 	public List<AlunoPeriodoCurricularDto> findFilterPendNomePai() {
@@ -119,10 +203,22 @@ public class AlunoPeriodoCurricularService {
 		return listDto;
 	}
 	
+	public Integer findFilterPendNomePaiCount() {
+		Integer count = repository.findFilterPendNomePaiCount();
+		
+		return count;
+	}
+	
 	public List<AlunoPeriodoCurricularDto> findFilterPendNomeMae() {
 		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterPendNomeMae();
 		
 		return listDto;
+	}
+	
+	public Integer findFilterPendNomeMaeCount() {
+		Integer count = repository.findFilterPendNomeMaeCount();
+		
+		return count;
 	}
 
 }

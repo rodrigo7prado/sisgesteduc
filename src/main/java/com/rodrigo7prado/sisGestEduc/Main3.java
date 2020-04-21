@@ -27,9 +27,13 @@ public class Main3 extends Application  {
 
     @Override
     public void start(Stage stage) throws Exception {
+    	System.out.println("Início marcação do tempo");
+    	double tempoInicio = System.currentTimeMillis();
     	stageManager = springContext.getBean(StageManager.class, stage);
         System.out.println("BBBB");
         displayInitialScene();
+        System.out.println("Tempo Total: "+((System.currentTimeMillis()-tempoInicio)/1000)+" segundos");
+        System.out.println("Final marcação do tempo");
     }
 
     @Override

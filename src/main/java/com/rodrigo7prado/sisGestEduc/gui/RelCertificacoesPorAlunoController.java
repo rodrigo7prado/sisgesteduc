@@ -61,11 +61,11 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private AlunoPeriodoCurricularService service;
 
 	private ObservableList<AlunoPeriodoCurricularDto> observableList = FXCollections.observableArrayList();
-	
+
 	private List<List<AlunoPeriodoCurricularDto>> carregamentos;
-	private Map<Integer,List<AlunoPeriodoCurricularDto>> mapCarregamentos = new HashMap<Integer,List<AlunoPeriodoCurricularDto>>();
-	private Map<String,List<String>> mapCarregamentos2 = new HashMap<String,List<String>>();
-	
+	private Map<Integer, List<AlunoPeriodoCurricularDto>> mapCarregamentos = new HashMap<Integer, List<AlunoPeriodoCurricularDto>>();
+	private Map<String, List<String>> mapCarregamentos2 = new HashMap<String, List<String>>();
+
 	@FXML
 	private TreeTableView<AlunoPeriodoCurricularDto> treeTableViewAluno;
 	@FXML
@@ -97,30 +97,34 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-
-		this.mapCarregamentos.put(0, service.findFilterNull());
-		this.mapCarregamentos.put(1, service.findFilterTodos());
-		this.mapCarregamentos.put(2, service.findFilterUltimosPeriodosLetivos());
-		this.mapCarregamentos.put(3, service.findFilterConcluintes());
-		this.mapCarregamentos.put(4, service.findFilterConcluintesSemEmissao());
-		this.mapCarregamentos.put(5, service.findFilterConcluintesComConcertidaoECertificado());
-		this.mapCarregamentos.put(6, service.findFilterTodasOsCertidoes());
-		this.mapCarregamentos.put(7, service.findFilterConcuintesComCertidaoSemCertificado());
 		
-		this.mapCarregamentos.put(8, service.findFilterTodasOsCertificados());
-		this.mapCarregamentos.put(12, service.findFilterTodosOk());
-		this.mapCarregamentos.put(14, service.findFilterPendDadosPessoais());
-		this.mapCarregamentos.put(17, service.findFilterPendDataNasc());
-		this.mapCarregamentos.put(18, service.findFilterPendNacionalidade());
-		this.mapCarregamentos.put(19, service.findFilterPendNaturalidade());
-		this.mapCarregamentos.put(21, service.findFilterPendRg());
-		this.mapCarregamentos.put(24, service.findFilterPendNomePai());
-		this.mapCarregamentos.put(25, service.findFilterPendNomeMae());
+		observableList.clear();
+
+		observableList.addAll(service.findFilterTodos());
+
+//		this.mapCarregamentos.put(0, service.findFilterNull());
+//		this.mapCarregamentos.put(1, service.findFilterTodos());
+//		this.mapCarregamentos.put(2, service.findFilterUltimosPeriodosLetivos());
+//		this.mapCarregamentos.put(3, service.findFilterConcluintes());
+//		this.mapCarregamentos.put(4, service.findFilterConcluintesSemEmissao());
+//		this.mapCarregamentos.put(5, service.findFilterConcluintesComConcertidaoECertificado());
+//		this.mapCarregamentos.put(6, service.findFilterTodasOsCertidoes());
+//		this.mapCarregamentos.put(7, service.findFilterConcuintesComCertidaoSemCertificado());
+//		
+//		this.mapCarregamentos.put(8, service.findFilterTodasOsCertificados());
+//		this.mapCarregamentos.put(12, service.findFilterTodosOk());
+//		this.mapCarregamentos.put(14, service.findFilterPendDadosPessoais());
+//		this.mapCarregamentos.put(17, service.findFilterPendDataNasc());
+//		this.mapCarregamentos.put(18, service.findFilterPendNacionalidade());
+//		this.mapCarregamentos.put(19, service.findFilterPendNaturalidade());
+//		this.mapCarregamentos.put(21, service.findFilterPendRg());
+//		this.mapCarregamentos.put(24, service.findFilterPendNomePai());
+//		this.mapCarregamentos.put(25, service.findFilterPendNomeMae());
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void associateTreeTableColumns() {
-		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		
 		System.out.println("Service: " + service.findFilterConcluintes());
 		treeTableColumnTurma.setCellValueFactory(new TreeItemPropertyValueFactory("turma"));
 		treeTableColumnAluno.setCellValueFactory(new TreeItemPropertyValueFactory("matricula"));
@@ -191,26 +195,307 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		thread2.start();
 
 	}
 
 	private void loadAlunosDetails(Integer keyMap) {
 
-		observableList.clear();
+		
 
-		observableList.addAll(mapCarregamentos.get(keyMap));
-		
 		FilteredList<AlunoPeriodoCurricularDto> filteredList = new FilteredList<>(observableList, p -> true);
-		
-		filteredList.setPredicate(obj -> {
-			if (obj.getTurma().equals("Turma: 1001-180191")) {
-				return true;
-			} else {
-				return true;
-			}
-		});
+//		findFilterTodosWhere
+		if (keyMap == 1) {
+			System.out.println("AGORA!?");
+			filteredList.setPredicate(obj -> {
+				if (obj.getAnoLetivo().contains("Ano Letivo: 2018")
+					|| obj.getAnoLetivo().contains("Ano Letivo: 2017")) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+			System.out.println("Size: " + filteredList.size());
+		} 
+//		findFilterUltimosPeriodosLetivosWhere
+		else if (keyMap == 2) {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+//			findFilterConcluintesWhere
+		} else if (keyMap.equals(3)) {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ "AND v.id.situacaoFinal = 'Aprovado' "
+						&& (obj.getSituacaoFinal().equals("Aprovado") 
+//						+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))))
+						{
+					return true;
+				} else {
+					return false;
+				}
+			});
+//			findFilterConcluintesSemEmissaoWhere
+		} else if (keyMap.equals(4)) {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ "AND v.id.situacaoFinal = 'Aprovado' "
+						&& obj.getSituacaoFinal().equals("Aprovado")
+//						+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						+ "AND cd.nfl IS NULL "
+						&& obj.getNflCertidao() == null 
+//						+ "AND cf.nfl IS NULL ";
+						&& obj.getNflCertificado() == null
+						) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+//			findFilterConcluintesComConcertidaoECertificadoWhere
+		} else if (keyMap.equals(5)) {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ "AND v.id.situacaoFinal = 'Aprovado' "
+						&& obj.getSituacaoFinal().equals("Aprovado")
+//						+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						+ "AND cd.nfl IS NULL "
+						&& obj.getNflCertidao() != null 
+//						+ "AND cf.nfl IS NULL ";
+						&& obj.getNflCertificado() != null) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+//			findFilterTodasOsCertidoesWhere
+		} else if (keyMap.equals(6)) {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ "AND v.id.situacaoFinal = 'Aprovado' "
+						&& obj.getSituacaoFinal().equals("Aprovado")
+//						+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						+ "AND cd.nfl IS NOT NULL "
+						&& obj.getNflCertidao() != null) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+//			findFilterConcuintesComCertidaoSemCertificadoWhere
+		} else if (keyMap.equals(7)) {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ "AND v.id.situacaoFinal = 'Aprovado' "
+						&& obj.getSituacaoFinal().equals("Aprovado")
+//						+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						+ "AND cd.nfl IS NOT NULL "
+						&& obj.getNflCertidao() != null 
+//						+ "AND cf.nfl IS NULL ";
+						&& obj.getNflCertificado() == null) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+//			findFilterTodasOsCertificadosWhere
+		} else if (keyMap.equals(8)) {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ "AND v.id.situacaoFinal = 'Aprovado' "
+						&& obj.getSituacaoFinal().equals("Aprovado")
+//						+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						+ "AND cf.nfl IS NOT NULL "
+						&& obj.getNflCertificado() != null) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+//			findFilterTodosOkWhere
+		} else if (keyMap.equals(12)) {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						+ "AND v.id.situacaoFinal = 'Aprovado' "
+						&& obj.getSituacaoFinal().equals("Aprovado")
+//						+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						+ "AND (a.dataNasc IS NOT NULL "
+						&& obj.getDataNasc() != null
+//						+ "AND a.nacionalidade IS NOT NULL "
+						&& obj.getNacionalidade() != null
+//						+ "AND a.naturalidade IS NOT NULL "
+						&& obj.getNaturalidade() != null
+//						+ "AND a.rg IS NOT NULL "
+						&& obj.getRg() != null
+//						+ "AND a.nomePai IS NOT NULL "
+						&& obj.getNomePai() != null
+//						+ "AND a.nomeMae IS NOT NULL "
+						&& obj.getNomeMae() != null
+						) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+//			findFilterPendDadosPessoaisWhere
+		} else if (keyMap.equals(14)) {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						+ "AND v.id.situacaoFinal = 'Aprovado' "
+						&& obj.getSituacaoFinal().equals("Aprovado")
+//						+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						+ "AND (a.dataNasc IS NULL "
+						&& (obj.getDataNasc() == null
+//							+ "OR a.nacionalidade IS NULL "
+							|| obj.getNacionalidade() == null
+//							+ "OR a.naturalidade IS NULL "
+							|| obj.getNaturalidade() == null
+//							+ "OR a.rg IS NULL "
+							|| obj.getRg() == null
+//							+ "OR a.nomePai IS NULL "
+							|| obj.getNomePai() == null
+//							+ "OR a.nomeMae IS NULL ")
+							|| obj.getNomeMae() == null
+						)) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+//			findFilterPendDataNascWhere
+		} else if (keyMap.equals(17)) {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						+ "AND v.id.situacaoFinal = 'Aprovado' "
+						&& obj.getSituacaoFinal().equals("Aprovado")
+//						+ "AND a.dataNasc IS NULL ";
+						&& obj.getDataNasc() == null
+						) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+//			findFilterPendNacionalidadeWhere
+		} else if (keyMap.equals(18)) {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						+ "AND v.id.situacaoFinal = 'Aprovado' "
+						&& obj.getSituacaoFinal().equals("Aprovado")
+//						+ "AND a.nacionalidade IS NULL ";
+						&& obj.getNacionalidade() == null
+						) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+//			findFilterPendNaturalidadeWhere
+		} else if (keyMap.equals(19)) {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						+ "AND v.id.situacaoFinal = 'Aprovado' "
+						&& obj.getSituacaoFinal().equals("Aprovado")
+//						+ "AND a.naturalidade IS NULL ";
+						&& obj.getNaturalidade() == null
+						) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+//			findFilterPendRgWhere
+		} else if (keyMap.equals(21)) {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						+ "AND v.id.situacaoFinal = 'Aprovado' "
+						&& obj.getSituacaoFinal().equals("Aprovado")
+//						+ "AND a.rg IS NULL ";
+						&& obj.getRg() == null
+						) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+//			findFilterPendNomePaiWhere
+		} else if (keyMap.equals(24)) {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						+ "AND v.id.situacaoFinal = 'Aprovado' "
+						&& obj.getSituacaoFinal().equals("Aprovado")
+//						+ "AND a.NomePai IS NULL ";
+						&& obj.getNomePai() == null
+						) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+//			findFilterPendNomeMaeWhere
+		} else if (keyMap.equals(25)) {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						+ "AND v.id.situacaoFinal = 'Aprovado' "
+						&& obj.getSituacaoFinal().equals("Aprovado")
+//						+ "AND a.NomeMae IS NULL ";
+						&& obj.getNomeMae() == null
+						) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+		} else {
+			filteredList.setPredicate(obj -> {
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))) {
+					return true;
+				} else {
+					return false;
+				}
+			});
+		}
+
+//		filteredList.setPredicate(obj -> {
+//			if (obj.getTurma().equals("Turma: 1001-180191")) {
+//				return true;
+//			} else {
+//				return true;
+//			}
+//		});
 
 		TreeItem<AlunoPeriodoCurricularDto> treeItemAlunoRoot = new TreeItem<>(
 //						new AlunoPeriodoCurricularDto(null, null, null, null, null, "Turma", null, null, null)
@@ -218,17 +503,15 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		treeTableViewAluno.setRoot(treeItemAlunoRoot);
 
 		for (AlunoPeriodoCurricularDto itemObsList : filteredList) {
-			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(new AlunoPeriodoCurricularDto(null, null, null
-					,itemObsList.getTurma(), itemObsList.getMatricula(), itemObsList.getNomeCompleto()
-					,itemObsList.getSexo(), itemObsList.getDataNasc(), itemObsList.getNomePai()
-					,itemObsList.getNomeMae(), itemObsList.getNacionalidade(), itemObsList.getNaturalidade()
-					,itemObsList.getNaturalidadeUF(), itemObsList.getRg(), itemObsList.getRgEmissor()
-					,itemObsList.getRgEmissorUf(), itemObsList.getValidDadosPessoais()
-					,itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund()
-					,itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal()
-					,itemObsList.getNflCertidao()
-					,itemObsList.getNflCertificado()
-					));
+			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(new AlunoPeriodoCurricularDto(null, null, null,
+					itemObsList.getTurma(), itemObsList.getMatricula(), itemObsList.getNomeCompleto(),
+					itemObsList.getSexo(), itemObsList.getDataNasc(), itemObsList.getNomePai(),
+					itemObsList.getNomeMae(), itemObsList.getNacionalidade(), itemObsList.getNaturalidade(),
+					itemObsList.getNaturalidadeUF(), itemObsList.getRg(), itemObsList.getRgEmissor(),
+					itemObsList.getRgEmissorUf(), itemObsList.getValidDadosPessoais(),
+					itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
+					itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal(), itemObsList.getNflCertidao(),
+					itemObsList.getNflCertificado()));
 
 			TreeItem<AlunoPeriodoCurricularDto> turmaNode = node;
 
@@ -286,7 +569,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	@SuppressWarnings("unused")
 	private void initCheckBoxDP() {
-		
+
 	}
 
 	private void setDadosAlunosController(AlunoPeriodoCurricularDto obj) throws IOException {
