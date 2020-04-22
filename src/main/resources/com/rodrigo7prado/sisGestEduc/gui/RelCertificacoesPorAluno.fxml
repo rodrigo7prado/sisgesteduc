@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.control.TreeTableColumn?>
 <?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.HBox?>
@@ -33,6 +36,30 @@
                             </Menu>
                           </menus>
                         </MenuBar>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <CheckBox allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Certidões" />
+                              <CheckBox allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Certificados" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <RadioButton mnemonicParsing="false" selected="true" text="Todos">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="aa" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" text="Pendentes" toggleGroup="$aa" />
+                              <RadioButton mnemonicParsing="false" text="Ok" toggleGroup="$aa" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <CheckBox allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Pendência dados pessoais" />
+                              <CheckBox allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Pendência dados escolares" />
+                              <CheckBox allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Histórico inconsistente" />
+                           </children>
+                        </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <TextField prefHeight="19.0" prefWidth="120.0" promptText="Turma">
