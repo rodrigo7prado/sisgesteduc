@@ -53,6 +53,17 @@
                               <RadioButton mnemonicParsing="false" text="Ok" toggleGroup="$aa" />
                            </children>
                         </HBox>
+                         <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <RadioButton mnemonicParsing="false" selected="true" text="Todos">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="ab" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" text="Certidões" toggleGroup="$ab" />
+                              <RadioButton mnemonicParsing="false" text="Certificados" toggleGroup="$ab" />
+                           </children>
+                        </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <CheckBox allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Pendência dados pessoais" />

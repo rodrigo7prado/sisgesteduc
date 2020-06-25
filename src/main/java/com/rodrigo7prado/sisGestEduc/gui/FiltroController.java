@@ -158,7 +158,7 @@ public class FiltroController implements Initializable {
 
 		FiltroItemDto obj = (FiltroItemDto) source.getFocusModel().getFocusedItem().getValue();
 
-		System.out.println("Id: " + obj);
+		System.out.println("Id4: " + obj.getId());
 
 		relCertificacoesPorAlunoController.updateTreeTableView(obj.getId());
 	}
@@ -181,7 +181,7 @@ public class FiltroController implements Initializable {
 					button = new Button("c");
 					setGraphic(button);
 					
-					button.setOnAction(event -> System.out.println(""));
+					button.setOnAction(event -> System.out.println("afafa"));
 				}
 
 			}
