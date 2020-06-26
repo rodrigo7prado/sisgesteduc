@@ -40,8 +40,8 @@ import javafx.util.Callback;
 
 @Controller
 public class RelCertificacoesPorAlunoController implements Initializable {
-	
-private Map<String,String> mapObjects = new HashMap<String,String>();
+
+	private Map<String, String> mapObjects = new HashMap<String, String>();
 
 //	@FXML
 //	private VBox vBoxControllerDadosAlunos;
@@ -98,22 +98,22 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnBoolCertificado;
 	@FXML
 	private VBox dialog;
-	Predicate<AlunoPeriodoCurricularDto> p1 = obj -> 
-	obj.getAnoLetivo().contains("Ano Letivo: 2018i")
-	|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
-	
+	Predicate<AlunoPeriodoCurricularDto> p1 = 
+//			obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018i")
+//			|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
+
 //	obj -> 
-//	obj.getSituacaoFinal().equals("Reprovado");
-			
-//	obj -> (obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
-//				&& obj.getSituacaoFinal().equals("Aprovado")
-//				&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-//				&& obj.getNflCertidao() != null 
-//				&& obj.getNflCertificado() != null));
+//	obj.getSituacaoFinal().equals("Reprovado por nota");
+
+	obj -> (obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				&& obj.getSituacaoFinal().equals("Aprovado")
+				&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+				&& obj.getNflCertidao() != null 
+				&& obj.getNflCertificado() != null));
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		
+
 		observableList.clear();
 
 		observableList.addAll(service.findFilterTodos());
@@ -140,7 +140,7 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void associateTreeTableColumns() {
-		
+
 		System.out.println("Service: " + service.findFilterConcluintes());
 		treeTableColumnTurma.setCellValueFactory(new TreeItemPropertyValueFactory("turma"));
 		treeTableColumnAluno.setCellValueFactory(new TreeItemPropertyValueFactory("matricula"));
@@ -192,11 +192,11 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 
 						associateTreeTableColumns();
 						System.out.println("Ráaa 8: " + keyMap);
-						if ( keyMap == null ) {
+						if (keyMap == null) {
 //							TODO
 							System.out.println("Ráaa 7");
-//							loadAlunosDetailsByFormElements("Todos");
-							loadAlunosDetailsByFilteredList(1);
+							loadAlunosDetailsByFormElements("Todos");
+//							loadAlunosDetailsByFilteredList(1);
 						} else {
 							loadAlunosDetailsByFilteredList(keyMap);
 						}
@@ -216,52 +216,52 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			thread1.join();
 			Thread.sleep(100);
 		} catch (InterruptedException e) {
-			
+
 			e.printStackTrace();
 		}
 
 		thread2.start();
 
 	}
-	
+
 	private void loadAlunosDetailsByFormElements(String eventSource) {
 //		TODO
 		FilteredList<AlunoPeriodoCurricularDto> filteredList = new FilteredList<>(observableList, p -> true);
 		System.out.println("Ráaa 6");
-		if ( eventSource.equals("Todos") ) {
+		if (eventSource.equals("Todos")) {
 			System.out.println("Ráaa 5");
-			
-			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> 
-			obj.getAnoLetivo().contains("Ano Letivo: 2018i")
-			|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
-			
-//			filteredList.setPredicate(p2);
-			
+
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018i")
+					|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
+
+			filteredList.setPredicate(p1);
+
 //			filteredList.setPredicate(p1.and(p2).negate());
-			
+
 //			initializeNodes(null);
 		}
 		
+		buildView(filteredList);
+
 	}
-	
+
 	private void loadAlunosDetailsByFilteredList2(Integer keyMap) {
-		
+
 		FilteredList<AlunoPeriodoCurricularDto> filteredList = new FilteredList<>(observableList, p -> true);
-		
+
 		if (keyMap == 1) {
 			filteredList.setPredicate(obj -> {
 				if (obj.getAnoLetivo().contains("Ano Letivo: 2018")
-					|| obj.getAnoLetivo().contains("Ano Letivo: 2017")) {
+						|| obj.getAnoLetivo().contains("Ano Letivo: 2017")) {
 					return true;
 				} else {
 					return false;
 				}
 			});
 			System.out.println("Size: " + filteredList.size());
-		} 
-		else if (keyMap == 2) {
+		} else if (keyMap == 2) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))) {
 					return true;
 				} else {
@@ -270,10 +270,8 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else if (keyMap.equals(3)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
-						&& (obj.getSituacaoFinal().equals("Aprovado") 
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))))
-						{
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && (obj.getSituacaoFinal().equals("Aprovado")
+						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3")))) {
 					return true;
 				} else {
 					return false;
@@ -281,12 +279,9 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else if (keyMap.equals(4)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
-						&& obj.getSituacaoFinal().equals("Aprovado")
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && obj.getSituacaoFinal().equals("Aprovado")
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getNflCertidao() == null 
-						&& obj.getNflCertificado() == null
-						) {
+						&& obj.getNflCertidao() == null && obj.getNflCertificado() == null) {
 					return true;
 				} else {
 					return false;
@@ -294,11 +289,9 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else if (keyMap.equals(5)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
-						&& obj.getSituacaoFinal().equals("Aprovado")
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && obj.getSituacaoFinal().equals("Aprovado")
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getNflCertidao() != null 
-						&& obj.getNflCertificado() != null) {
+						&& obj.getNflCertidao() != null && obj.getNflCertificado() != null) {
 					return true;
 				} else {
 					return false;
@@ -306,8 +299,7 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else if (keyMap.equals(6)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
-						&& obj.getSituacaoFinal().equals("Aprovado")
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && obj.getSituacaoFinal().equals("Aprovado")
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 						&& obj.getNflCertidao() != null) {
 					return true;
@@ -317,11 +309,9 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else if (keyMap.equals(7)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
-						&& obj.getSituacaoFinal().equals("Aprovado")
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && obj.getSituacaoFinal().equals("Aprovado")
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getNflCertidao() != null 
-						&& obj.getNflCertificado() == null) {
+						&& obj.getNflCertidao() != null && obj.getNflCertificado() == null) {
 					return true;
 				} else {
 					return false;
@@ -329,8 +319,7 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else if (keyMap.equals(8)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
-						&& obj.getSituacaoFinal().equals("Aprovado")
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && obj.getSituacaoFinal().equals("Aprovado")
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 						&& obj.getNflCertificado() != null) {
 					return true;
@@ -340,17 +329,12 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else if (keyMap.equals(12)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 						&& obj.getSituacaoFinal().equals("Aprovado")
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getDataNasc() != null
-						&& obj.getNacionalidade() != null
-						&& obj.getNaturalidade() != null
-						&& obj.getRg() != null
-						&& obj.getNomePai() != null
-						&& obj.getNomeMae() != null
-						) {
+						&& obj.getDataNasc() != null && obj.getNacionalidade() != null && obj.getNaturalidade() != null
+						&& obj.getRg() != null && obj.getNomePai() != null && obj.getNomeMae() != null) {
 					return true;
 				} else {
 					return false;
@@ -358,17 +342,12 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else if (keyMap.equals(14)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 						&& obj.getSituacaoFinal().equals("Aprovado")
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& (obj.getDataNasc() == null
-							|| obj.getNacionalidade() == null
-							|| obj.getNaturalidade() == null
-							|| obj.getRg() == null
-							|| obj.getNomePai() == null
-							|| obj.getNomeMae() == null
-						)) {
+						&& (obj.getDataNasc() == null || obj.getNacionalidade() == null || obj.getNaturalidade() == null
+								|| obj.getRg() == null || obj.getNomePai() == null || obj.getNomeMae() == null)) {
 					return true;
 				} else {
 					return false;
@@ -376,11 +355,9 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else if (keyMap.equals(17)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getSituacaoFinal().equals("Aprovado")
-						&& obj.getDataNasc() == null
-						) {
+						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getDataNasc() == null) {
 					return true;
 				} else {
 					return false;
@@ -388,11 +365,9 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else if (keyMap.equals(18)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getSituacaoFinal().equals("Aprovado")
-						&& obj.getNacionalidade() == null
-						) {
+						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getNacionalidade() == null) {
 					return true;
 				} else {
 					return false;
@@ -400,11 +375,9 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else if (keyMap.equals(19)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getSituacaoFinal().equals("Aprovado")
-						&& obj.getNaturalidade() == null
-						) {
+						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getNaturalidade() == null) {
 					return true;
 				} else {
 					return false;
@@ -412,11 +385,9 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else if (keyMap.equals(21)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getSituacaoFinal().equals("Aprovado")
-						&& obj.getRg() == null
-						) {
+						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getRg() == null) {
 					return true;
 				} else {
 					return false;
@@ -424,11 +395,9 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else if (keyMap.equals(24)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getSituacaoFinal().equals("Aprovado")
-						&& obj.getNomePai() == null
-						) {
+						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getNomePai() == null) {
 					return true;
 				} else {
 					return false;
@@ -436,11 +405,9 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else if (keyMap.equals(25)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getSituacaoFinal().equals("Aprovado")
-						&& obj.getNomeMae() == null
-						) {
+						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getNomeMae() == null) {
 					return true;
 				} else {
 					return false;
@@ -448,7 +415,7 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))) {
 					return true;
 				} else {
@@ -456,35 +423,28 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 				}
 			});
 		}
-		
+
 		System.out.println("Qualquer porra");
 	}
 
 	private void loadAlunosDetailsByFilteredList(Integer keyMap) {
 
-		
-
 		FilteredList<AlunoPeriodoCurricularDto> filteredList = new FilteredList<>(observableList, p -> true);
 //		findFilterTodosWhere
 		if (keyMap == 1) {
 			System.out.println("AGORA!?");
-			
+
 //			Predicate<AlunoPeriodoCurricularDto> p1 = obj -> 
 //					obj.getAnoLetivo().contains("Ano Letivo: 2018")
 //					|| obj.getAnoLetivo().contains("Ano Letivo: 2017");
-					
-			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> 
-					obj.getAnoLetivo().contains("Ano Letivo: 2018i")
+
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018i")
 					|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
-					
-					
-			
-				filteredList.setPredicate(p1.and(p2).negate());
-				
+
+			filteredList.setPredicate(p1.and(p2).negate());
+
 //				filteredList.predicateProperty().get().and((Predicate<?>) p2);
-			
-			
-			
+
 //			filteredList.setPredicate(obj -> {
 //				if (obj.getAnoLetivo().contains("Ano Letivo: 2018")
 //					|| obj.getAnoLetivo().contains("Ano Letivo: 2017")) {
@@ -497,12 +457,12 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			System.out.println(filteredList.predicateProperty().set(p2));
 //			filteredList.predicateProperty().set(p2);
 //			filteredList.predicateProperty().getValue();
-					System.out.println("Size: " + filteredList.size());
-		} 
+			System.out.println("Size: " + filteredList.size());
+		}
 //		findFilterUltimosPeriodosLetivosWhere
 		else if (keyMap == 2) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))) {
 					return true;
@@ -513,12 +473,12 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			findFilterConcluintesWhere
 		} else if (keyMap.equals(3)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ "AND v.id.situacaoFinal = 'Aprovado' "
-						&& (obj.getSituacaoFinal().equals("Aprovado") 
+						&& (obj.getSituacaoFinal().equals("Aprovado")
 //						+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))))
-						{
+								&& (obj.getTurma().contains("Turma: NEJA-IV")
+										|| obj.getTurma().contains("Turma: 3")))) {
 					return true;
 				} else {
 					return false;
@@ -527,16 +487,15 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			findFilterConcluintesSemEmissaoWhere
 		} else if (keyMap.equals(4)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ "AND v.id.situacaoFinal = 'Aprovado' "
 						&& obj.getSituacaoFinal().equals("Aprovado")
 //						+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 //						+ "AND cd.nfl IS NULL "
-						&& obj.getNflCertidao() == null 
+						&& obj.getNflCertidao() == null
 //						+ "AND cf.nfl IS NULL ";
-						&& obj.getNflCertificado() == null
-						) {
+						&& obj.getNflCertificado() == null) {
 					return true;
 				} else {
 					return false;
@@ -545,13 +504,13 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			findFilterConcluintesComConcertidaoECertificadoWhere
 		} else if (keyMap.equals(5)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ "AND v.id.situacaoFinal = 'Aprovado' "
 						&& obj.getSituacaoFinal().equals("Aprovado")
 //						+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 //						+ "AND cd.nfl IS NULL "
-						&& obj.getNflCertidao() != null 
+						&& obj.getNflCertidao() != null
 //						+ "AND cf.nfl IS NULL ";
 						&& obj.getNflCertificado() != null) {
 					return true;
@@ -562,7 +521,7 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			findFilterTodasOsCertidoesWhere
 		} else if (keyMap.equals(6)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ "AND v.id.situacaoFinal = 'Aprovado' "
 						&& obj.getSituacaoFinal().equals("Aprovado")
 //						+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
@@ -577,13 +536,13 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			findFilterConcuintesComCertidaoSemCertificadoWhere
 		} else if (keyMap.equals(7)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ "AND v.id.situacaoFinal = 'Aprovado' "
 						&& obj.getSituacaoFinal().equals("Aprovado")
 //						+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 //						+ "AND cd.nfl IS NOT NULL "
-						&& obj.getNflCertidao() != null 
+						&& obj.getNflCertidao() != null
 //						+ "AND cf.nfl IS NULL ";
 						&& obj.getNflCertificado() == null) {
 					return true;
@@ -594,7 +553,7 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			findFilterTodasOsCertificadosWhere
 		} else if (keyMap.equals(8)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ "AND v.id.situacaoFinal = 'Aprovado' "
 						&& obj.getSituacaoFinal().equals("Aprovado")
 //						+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') "
@@ -609,7 +568,7 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			findFilterTodosOkWhere
 		} else if (keyMap.equals(12)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 //						+ "AND v.id.situacaoFinal = 'Aprovado' "
@@ -627,8 +586,7 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //						+ "AND a.nomePai IS NOT NULL "
 						&& obj.getNomePai() != null
 //						+ "AND a.nomeMae IS NOT NULL "
-						&& obj.getNomeMae() != null
-						) {
+						&& obj.getNomeMae() != null) {
 					return true;
 				} else {
 					return false;
@@ -637,7 +595,7 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			findFilterPendDadosPessoaisWhere
 		} else if (keyMap.equals(14)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 //						+ "AND v.id.situacaoFinal = 'Aprovado' "
@@ -647,16 +605,15 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //						+ "AND (a.dataNasc IS NULL "
 						&& (obj.getDataNasc() == null
 //							+ "OR a.nacionalidade IS NULL "
-							|| obj.getNacionalidade() == null
+								|| obj.getNacionalidade() == null
 //							+ "OR a.naturalidade IS NULL "
-							|| obj.getNaturalidade() == null
+								|| obj.getNaturalidade() == null
 //							+ "OR a.rg IS NULL "
-							|| obj.getRg() == null
+								|| obj.getRg() == null
 //							+ "OR a.nomePai IS NULL "
-							|| obj.getNomePai() == null
+								|| obj.getNomePai() == null
 //							+ "OR a.nomeMae IS NULL ")
-							|| obj.getNomeMae() == null
-						)) {
+								|| obj.getNomeMae() == null)) {
 					return true;
 				} else {
 					return false;
@@ -665,14 +622,13 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			findFilterPendDataNascWhere
 		} else if (keyMap.equals(17)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 //						+ "AND v.id.situacaoFinal = 'Aprovado' "
 						&& obj.getSituacaoFinal().equals("Aprovado")
 //						+ "AND a.dataNasc IS NULL ";
-						&& obj.getDataNasc() == null
-						) {
+						&& obj.getDataNasc() == null) {
 					return true;
 				} else {
 					return false;
@@ -681,14 +637,13 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			findFilterPendNacionalidadeWhere
 		} else if (keyMap.equals(18)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 //						+ "AND v.id.situacaoFinal = 'Aprovado' "
 						&& obj.getSituacaoFinal().equals("Aprovado")
 //						+ "AND a.nacionalidade IS NULL ";
-						&& obj.getNacionalidade() == null
-						) {
+						&& obj.getNacionalidade() == null) {
 					return true;
 				} else {
 					return false;
@@ -697,14 +652,13 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			findFilterPendNaturalidadeWhere
 		} else if (keyMap.equals(19)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 //						+ "AND v.id.situacaoFinal = 'Aprovado' "
 						&& obj.getSituacaoFinal().equals("Aprovado")
 //						+ "AND a.naturalidade IS NULL ";
-						&& obj.getNaturalidade() == null
-						) {
+						&& obj.getNaturalidade() == null) {
 					return true;
 				} else {
 					return false;
@@ -713,14 +667,13 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			findFilterPendRgWhere
 		} else if (keyMap.equals(21)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 //						+ "AND v.id.situacaoFinal = 'Aprovado' "
 						&& obj.getSituacaoFinal().equals("Aprovado")
 //						+ "AND a.rg IS NULL ";
-						&& obj.getRg() == null
-						) {
+						&& obj.getRg() == null) {
 					return true;
 				} else {
 					return false;
@@ -729,14 +682,13 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			findFilterPendNomePaiWhere
 		} else if (keyMap.equals(24)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 //						+ "AND v.id.situacaoFinal = 'Aprovado' "
 						&& obj.getSituacaoFinal().equals("Aprovado")
 //						+ "AND a.NomePai IS NULL ";
-						&& obj.getNomePai() == null
-						) {
+						&& obj.getNomePai() == null) {
 					return true;
 				} else {
 					return false;
@@ -745,14 +697,13 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			findFilterPendNomeMaeWhere
 		} else if (keyMap.equals(25)) {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 //						+ "AND v.id.situacaoFinal = 'Aprovado' "
 						&& obj.getSituacaoFinal().equals("Aprovado")
 //						+ "AND a.NomeMae IS NULL ";
-						&& obj.getNomeMae() == null
-						) {
+						&& obj.getNomeMae() == null) {
 					return true;
 				} else {
 					return false;
@@ -760,7 +711,7 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			});
 		} else {
 			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
 //						+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
 						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))) {
 					return true;
@@ -769,20 +720,14 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 				}
 			});
 		}
-		
-		System.out.println("qualquer porra aí 2");
-		System.out.println(filteredList.getPredicate().getClass().getSimpleName());
 
-//		filteredList.setPredicate(obj -> {
-//			if (obj.getTurma().equals("Turma: 1001-180191")) {
-//				return true;
-//			} else {
-//				return true;
-//			}
-//		});
+		buildView(filteredList);
 
+	}
+
+	private void buildView(FilteredList<AlunoPeriodoCurricularDto> filteredList) {
 		TreeItem<AlunoPeriodoCurricularDto> treeItemAlunoRoot = new TreeItem<>(
-//						new AlunoPeriodoCurricularDto(null, null, null, null, null, "Turma", null, null, null)
+//				new AlunoPeriodoCurricularDto(null, null, null, null, null, "Turma", null, null, null)
 		);
 		treeTableViewAluno.setRoot(treeItemAlunoRoot);
 
@@ -811,11 +756,9 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 				if (ultimaTurmaAdd.equals(itemObsList.getTurma())) {
 
 					treeItemAlunoRoot.getChildren().get(size - 1).getChildren().add(alunoNode);
-//					turmaNode.getValue().setTurma(turmaNode.getValue().getTurma()+"(2)");
 
 				} else {
 					treeItemAlunoRoot.getChildren().add(turmaNode);
-//					turmaNode.getValue().setTurma(turmaNode.getValue().getTurma()+"("+turmaNode.getChildren().size()+")");
 					System.out.println("adicionar a:" + turmaNode.getValue().getTurma());
 				}
 			}
@@ -824,26 +767,22 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 		}
 
 		treeTableViewAluno.setShowRoot(false);
-//				initCheckBoxDP();
-
 	}
-	
+
 	@FXML
 	public void onClickRadioButton(Event event) throws IOException {
 //		RadioButton rb = new RadioButton();
-		
+
 		RadioButton eventSource = (RadioButton) event.getSource();
 //		TODO
 //		loadAlunosDetailsByFormElements(eventSource.getText());
 		initializeNodes(null);
-		
+
 		System.out.println("Ráaaa 2: " + eventSource.getViewOrder());
 		System.out.println("Ráaaa 2: " + eventSource.getId());
 		System.out.println("Ráaaa 2: " + eventSource.getToggleGroup().getSelectedToggle());
 		System.out.println("Ráaaa 3: " + eventSource.getText());
-		
-		
-		
+
 	}
 
 	@FXML
