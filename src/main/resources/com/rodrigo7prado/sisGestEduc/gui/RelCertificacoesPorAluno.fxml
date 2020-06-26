@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -36,34 +35,52 @@
                             </Menu>
                           </menus>
                         </MenuBar>
+                        <!--
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <CheckBox allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Certidões" />
                               <CheckBox allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Certificados" />
                            </children>
                         </HBox>
-                        <HBox prefHeight="100.0" prefWidth="200.0">
+                        -->
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" selected="true" text="Todos">
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="aa" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" text="Pendentes" toggleGroup="$aa" />
-                              <RadioButton mnemonicParsing="false" text="Ok" toggleGroup="$aa" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendentes" toggleGroup="$aa" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ok" toggleGroup="$aa" />
                            </children>
                         </HBox>
-                         <HBox prefHeight="100.0" prefWidth="200.0">
+                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" selected="true" text="Todos">
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="ab" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" text="Certidões" toggleGroup="$ab" />
-                              <RadioButton mnemonicParsing="false" text="Certificados" toggleGroup="$ab" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Certidões" toggleGroup="$ab" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Certificados" toggleGroup="$ab" />
                            </children>
                         </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="ac" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendência dados pessoais" toggleGroup="$ac" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendência dados escolares" toggleGroup="$ac" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Histórico inconsistente" toggleGroup="$ac" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets right="10.0" />
+                           </opaqueInsets>
+                        </HBox>
+                        <!--
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <CheckBox allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Pendência dados pessoais" />
@@ -71,6 +88,7 @@
                               <CheckBox allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Histórico inconsistente" />
                            </children>
                         </HBox>
+                        -->
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <TextField prefHeight="19.0" prefWidth="120.0" promptText="Turma">

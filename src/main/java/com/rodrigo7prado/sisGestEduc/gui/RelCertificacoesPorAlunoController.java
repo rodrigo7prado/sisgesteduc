@@ -28,6 +28,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableColumn.CellDataFeatures;
@@ -97,6 +98,18 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnBoolCertificado;
 	@FXML
 	private VBox dialog;
+	Predicate<AlunoPeriodoCurricularDto> p1 = obj -> 
+	obj.getAnoLetivo().contains("Ano Letivo: 2018i")
+	|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
+	
+//	obj -> 
+//	obj.getSituacaoFinal().equals("Reprovado");
+			
+//	obj -> (obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//				&& obj.getSituacaoFinal().equals("Aprovado")
+//				&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//				&& obj.getNflCertidao() != null 
+//				&& obj.getNflCertificado() != null));
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -178,7 +191,15 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 						progressBar.setProgress(0);
 
 						associateTreeTableColumns();
-						loadAlunosDetailsByFilteredList(keyMap);
+						System.out.println("Ráaa 8: " + keyMap);
+						if ( keyMap == null ) {
+//							TODO
+							System.out.println("Ráaa 7");
+//							loadAlunosDetailsByFormElements("Todos");
+							loadAlunosDetailsByFilteredList(1);
+						} else {
+							loadAlunosDetailsByFilteredList(keyMap);
+						}
 						loadElementTreeTableColumBoolCertidao();
 						progressBar.setProgress(1);
 					}
@@ -195,12 +216,32 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 			thread1.join();
 			Thread.sleep(100);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 
 		thread2.start();
 
+	}
+	
+	private void loadAlunosDetailsByFormElements(String eventSource) {
+//		TODO
+		FilteredList<AlunoPeriodoCurricularDto> filteredList = new FilteredList<>(observableList, p -> true);
+		System.out.println("Ráaa 6");
+		if ( eventSource.equals("Todos") ) {
+			System.out.println("Ráaa 5");
+			
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> 
+			obj.getAnoLetivo().contains("Ano Letivo: 2018i")
+			|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
+			
+//			filteredList.setPredicate(p2);
+			
+//			filteredList.setPredicate(p1.and(p2).negate());
+			
+//			initializeNodes(null);
+		}
+		
 	}
 	
 	private void loadAlunosDetailsByFilteredList2(Integer keyMap) {
@@ -428,9 +469,9 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 		if (keyMap == 1) {
 			System.out.println("AGORA!?");
 			
-			Predicate<AlunoPeriodoCurricularDto> p1 = obj -> 
-					obj.getAnoLetivo().contains("Ano Letivo: 2018")
-					|| obj.getAnoLetivo().contains("Ano Letivo: 2017");
+//			Predicate<AlunoPeriodoCurricularDto> p1 = obj -> 
+//					obj.getAnoLetivo().contains("Ano Letivo: 2018")
+//					|| obj.getAnoLetivo().contains("Ano Letivo: 2017");
 					
 			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> 
 					obj.getAnoLetivo().contains("Ano Letivo: 2018i")
@@ -454,7 +495,7 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //			});
 			System.out.println("Ráaaa");
 //			System.out.println(filteredList.predicateProperty().set(p2));
-			filteredList.predicateProperty().set(p2);
+//			filteredList.predicateProperty().set(p2);
 //			filteredList.predicateProperty().getValue();
 					System.out.println("Size: " + filteredList.size());
 		} 
@@ -786,6 +827,24 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 //				initCheckBoxDP();
 
 	}
+	
+	@FXML
+	public void onClickRadioButton(Event event) throws IOException {
+//		RadioButton rb = new RadioButton();
+		
+		RadioButton eventSource = (RadioButton) event.getSource();
+//		TODO
+//		loadAlunosDetailsByFormElements(eventSource.getText());
+		initializeNodes(null);
+		
+		System.out.println("Ráaaa 2: " + eventSource.getViewOrder());
+		System.out.println("Ráaaa 2: " + eventSource.getId());
+		System.out.println("Ráaaa 2: " + eventSource.getToggleGroup().getSelectedToggle());
+		System.out.println("Ráaaa 3: " + eventSource.getText());
+		
+		
+		
+	}
 
 	@FXML
 	public void onClickTreeTableView(Event event) throws IOException {
@@ -828,7 +887,6 @@ private Map<String,String> mapObjects = new HashMap<String,String>();
 
 					@Override
 					public ObservableValue<String> call(CellDataFeatures<AlunoPeriodoCurricularDto, String> param) {
-						// TODO Auto-generated method stub
 						return null;
 					}
 
