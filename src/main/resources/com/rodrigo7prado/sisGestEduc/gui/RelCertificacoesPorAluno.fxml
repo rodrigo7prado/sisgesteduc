@@ -6,6 +6,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
@@ -40,9 +41,10 @@
                            <children>
                               <CheckBox allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Certidões" />
                               <CheckBox allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Certificados" />
+                              <ToggleButton mnemonicParsing="false" selected="true" text="ToggleButton" />
                            </children>
-                        </HBox>
-                        -->
+                        </HBox> 
+                         -->
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
                               <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
@@ -50,10 +52,11 @@
                                     <ToggleGroup fx:id="aa" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendentes" toggleGroup="$aa" />
                               <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ok" toggleGroup="$aa" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendentes" toggleGroup="$aa" />
                            </children>
                         </HBox>
+                        <Separator prefWidth="200.0" />
                          <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
                               <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
@@ -61,10 +64,22 @@
                                     <ToggleGroup fx:id="ab" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Certidões" toggleGroup="$ab" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Certificados" toggleGroup="$ab" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Com certidão" toggleGroup="$ab" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Sem certidão" toggleGroup="$ab" />
                            </children>
                         </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="ad" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Com certificado" toggleGroup="$ad" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Sem certificado" toggleGroup="$ad" />
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
                               <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">

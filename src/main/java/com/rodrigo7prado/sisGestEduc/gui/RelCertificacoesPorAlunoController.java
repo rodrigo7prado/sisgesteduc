@@ -98,6 +98,9 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnBoolCertificado;
 	@FXML
 	private VBox dialog;
+	
+	FilteredList<AlunoPeriodoCurricularDto> filteredList = new FilteredList<>(observableList, p -> true);
+	
 	Predicate<AlunoPeriodoCurricularDto> p1 = 
 //			obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018i")
 //			|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
@@ -117,25 +120,6 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		observableList.clear();
 
 		observableList.addAll(service.findFilterTodos());
-
-//		this.mapCarregamentos.put(0, service.findFilterNull());
-//		this.mapCarregamentos.put(1, service.findFilterTodos());
-//		this.mapCarregamentos.put(2, service.findFilterUltimosPeriodosLetivos());
-//		this.mapCarregamentos.put(3, service.findFilterConcluintes());
-//		this.mapCarregamentos.put(4, service.findFilterConcluintesSemEmissao());
-//		this.mapCarregamentos.put(5, service.findFilterConcluintesComConcertidaoECertificado());
-//		this.mapCarregamentos.put(6, service.findFilterTodasOsCertidoes());
-//		this.mapCarregamentos.put(7, service.findFilterConcuintesComCertidaoSemCertificado());
-//		
-//		this.mapCarregamentos.put(8, service.findFilterTodasOsCertificados());
-//		this.mapCarregamentos.put(12, service.findFilterTodosOk());
-//		this.mapCarregamentos.put(14, service.findFilterPendDadosPessoais());
-//		this.mapCarregamentos.put(17, service.findFilterPendDataNasc());
-//		this.mapCarregamentos.put(18, service.findFilterPendNacionalidade());
-//		this.mapCarregamentos.put(19, service.findFilterPendNaturalidade());
-//		this.mapCarregamentos.put(21, service.findFilterPendRg());
-//		this.mapCarregamentos.put(24, service.findFilterPendNomePai());
-//		this.mapCarregamentos.put(25, service.findFilterPendNomeMae());
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -226,19 +210,26 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	private void loadAlunosDetailsByFormElements(String eventSource) {
 //		TODO
-		FilteredList<AlunoPeriodoCurricularDto> filteredList = new FilteredList<>(observableList, p -> true);
+//		FilteredList<AlunoPeriodoCurricularDto> filteredList = new FilteredList<>(observableList, p -> true);
 		System.out.println("Ráaa 6");
 		if (eventSource.equals("Todos")) {
 			System.out.println("Ráaa 5");
 
 			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018i")
 					|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
+			
+			System.out.println("Size filtered list: " + filteredList.size());
 
 			filteredList.setPredicate(p1);
-
-//			filteredList.setPredicate(p1.and(p2).negate());
-
-//			initializeNodes(null);
+			
+//			filteredList.predicateProperty().set(p1);
+			
+			@SuppressWarnings("unchecked")
+			Predicate<AlunoPeriodoCurricularDto> currentPredicate = (Predicate<AlunoPeriodoCurricularDto>) filteredList.getPredicate();
+			
+			
+			
+//			filteredList.setPredicate(currentPredicate.and(p1));
 		}
 		
 		buildView(filteredList);
