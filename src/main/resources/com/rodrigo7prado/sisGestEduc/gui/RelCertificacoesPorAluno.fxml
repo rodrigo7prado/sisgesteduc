@@ -64,6 +64,33 @@
                            <children>
                               <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
                                  <toggleGroup>
+                                    <ToggleGroup fx:id="ai" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ensino Médio Regular" toggleGroup="$ai" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="ENEJA" toggleGroup="$ai" />
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="aj" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="1ª série/Módulo I" toggleGroup="$aj" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2ª série/Módulo II" toggleGroup="$aj" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="3ª série/Módulo II" toggleGroup="$aj" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Módulo IV" toggleGroup="$aj" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Anos finais" toggleGroup="$aj" />
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                                 <toggleGroup>
                                     <ToggleGroup fx:id="af" />
                                  </toggleGroup>
                               </RadioButton>
