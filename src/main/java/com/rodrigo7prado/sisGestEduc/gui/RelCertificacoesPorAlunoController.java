@@ -99,27 +99,33 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	@FXML
 	private VBox dialog;
 	
-	FilteredList<AlunoPeriodoCurricularDto> filteredList = new FilteredList<>(observableList, p -> true);
+	FilteredList<AlunoPeriodoCurricularDto> filteredList;
 	
 	Predicate<AlunoPeriodoCurricularDto> p1 = 
 //			obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018i")
 //			|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
 
-//	obj -> 
-//	obj.getSituacaoFinal().equals("Reprovado por nota");
+	obj -> 
+	obj.getSituacaoFinal().equals("Reprovado por nota");
 
-	obj -> (obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
-				&& obj.getSituacaoFinal().equals("Aprovado")
-				&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-				&& obj.getNflCertidao() != null 
-				&& obj.getNflCertificado() != null));
+//	obj -> (obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
+//				&& obj.getSituacaoFinal().equals("Aprovado")
+//				&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//				&& obj.getNflCertidao() != null 
+//				&& obj.getNflCertificado() != null));
+	
+	private Integer intTest;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
+		
+		System.out.println("COMEÇAR AGORA, para filteredList");
 
 		observableList.clear();
 
 		observableList.addAll(service.findFilterTodos());
+		
+//		filteredList = new FilteredList<>(observableList, p -> true);
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -218,9 +224,10 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018i")
 					|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
 			
+			System.out.println("intTest: " + intTest);
 			System.out.println("Size filtered list: " + filteredList.size());
 
-			filteredList.setPredicate(p1);
+//			filteredList.setPredicate(p1);
 			
 //			filteredList.predicateProperty().set(p1);
 			
@@ -429,10 +436,16 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 //					obj.getAnoLetivo().contains("Ano Letivo: 2018")
 //					|| obj.getAnoLetivo().contains("Ano Letivo: 2017");
 
-			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018i")
-					|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
+//					|| obj.getAnoLetivo().contains("Ano Letivo: 2017")
+					;
 
-			filteredList.setPredicate(p1.and(p2).negate());
+//			filteredList.setPredicate(p1.and(p2).negate());
+			filteredList.setPredicate(p2);
+			intTest = 20;
+			
+			filteredList = filteredList.filtered(p2);
+			System.out.println("SIZE new? " + filteredList.size());
 
 //				filteredList.predicateProperty().get().and((Predicate<?>) p2);
 
