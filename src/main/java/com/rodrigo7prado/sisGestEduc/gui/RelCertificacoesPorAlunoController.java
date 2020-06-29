@@ -237,6 +237,8 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 			
 			
 //			filteredList.setPredicate(currentPredicate.and(p1));
+			filteredList.setPredicate(currentPredicate.and(p1));
+			System.out.println("Size final: " + filteredList.size());
 		}
 		
 		buildView(filteredList);
@@ -427,17 +429,14 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	private void loadAlunosDetailsByFilteredList(Integer keyMap) {
 
-		FilteredList<AlunoPeriodoCurricularDto> filteredList = new FilteredList<>(observableList, p -> true);
+//		TODO
+//		FilteredList<AlunoPeriodoCurricularDto> filteredList = new FilteredList<>(observableList, p -> true);
+		filteredList = new FilteredList<>(observableList, p -> true);
 //		findFilterTodosWhere
 		if (keyMap == 1) {
-			System.out.println("AGORA!?");
-
-//			Predicate<AlunoPeriodoCurricularDto> p1 = obj -> 
-//					obj.getAnoLetivo().contains("Ano Letivo: 2018")
-//					|| obj.getAnoLetivo().contains("Ano Letivo: 2017");
 
 			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
-//					|| obj.getAnoLetivo().contains("Ano Letivo: 2017")
+					|| obj.getAnoLetivo().contains("Ano Letivo: 2017")
 					;
 
 //			filteredList.setPredicate(p1.and(p2).negate());
@@ -446,22 +445,6 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 			
 			filteredList = filteredList.filtered(p2);
 			System.out.println("SIZE new? " + filteredList.size());
-
-//				filteredList.predicateProperty().get().and((Predicate<?>) p2);
-
-//			filteredList.setPredicate(obj -> {
-//				if (obj.getAnoLetivo().contains("Ano Letivo: 2018")
-//					|| obj.getAnoLetivo().contains("Ano Letivo: 2017")) {
-//					return true;
-//				} else {
-//					return false;
-//				}
-//			});
-			System.out.println("Ráaaa");
-//			System.out.println(filteredList.predicateProperty().set(p2));
-//			filteredList.predicateProperty().set(p2);
-//			filteredList.predicateProperty().getValue();
-			System.out.println("Size: " + filteredList.size());
 		}
 //		findFilterUltimosPeriodosLetivosWhere
 		else if (keyMap == 2) {
@@ -474,6 +457,21 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 					return false;
 				}
 			});
+			
+			
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
+					&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+					;
+
+//			filteredList.setPredicate(p1.and(p2).negate());
+			filteredList.setPredicate(p2);
+			intTest = 20;
+			
+			filteredList = filteredList.filtered(p2);
+			System.out.println("SIZE new? " + filteredList.size());
+			
+			
+			
 //			findFilterConcluintesWhere
 		} else if (keyMap.equals(3)) {
 			filteredList.setPredicate(obj -> {

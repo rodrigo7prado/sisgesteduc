@@ -45,6 +45,46 @@
                            </children>
                         </HBox> 
                          -->
+                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="ae" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2020" toggleGroup="$ae" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2019" toggleGroup="$ae" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2018" toggleGroup="$ae" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2017" toggleGroup="$ae" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2016" toggleGroup="$ae" />
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="af" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Concluintes" toggleGroup="$af" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Não-concluintes" toggleGroup="$af" />
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="ag" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Aprovados" toggleGroup="$ag" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Aprovados com dep." toggleGroup="$ag" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Reprovados" toggleGroup="$ag" />
+                           </children>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
                               <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
@@ -90,6 +130,21 @@
                               <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendência dados pessoais" toggleGroup="$ac" />
                               <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendência dados escolares" toggleGroup="$ac" />
                               <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Histórico inconsistente" toggleGroup="$ac" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets right="10.0" />
+                           </opaqueInsets>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="ah" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ok" toggleGroup="$ah" />
+                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Dif. Conexão Educação" toggleGroup="$ah" />
                            </children>
                            <opaqueInsets>
                               <Insets right="10.0" />
