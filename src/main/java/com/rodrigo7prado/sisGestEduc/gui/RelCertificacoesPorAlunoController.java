@@ -145,7 +145,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	}
 
 //	@SuppressWarnings("unused")
-	private void initializeNodes(Integer keyMap) {
+	private void initializeNodes(Integer keyMap, String radioSource) {
 
 //		@SuppressWarnings("rawtypes")
 //		Task task = new Task<Void>() {
@@ -185,7 +185,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 						if (keyMap == null) {
 //							TODO
 							System.out.println("Ráaa 7");
-							loadAlunosDetailsByFormElements("Todos");
+							loadAlunosDetailsByFormElements(radioSource);
 //							loadAlunosDetailsByFilteredList(1);
 						} else {
 							loadAlunosDetailsByFilteredList(keyMap);
@@ -239,6 +239,55 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 //			filteredList.setPredicate(currentPredicate.and(p1));
 			filteredList.setPredicate(currentPredicate.and(p1));
 			System.out.println("Size final: " + filteredList.size());
+		} else if (eventSource.equals("fil02000_rb00000_TodosOsCursos")) {
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
+					&& !(obj.getTurma().contains("Turma: NEJA"))
+					;
+			
+			@SuppressWarnings("unchecked")
+			Predicate<AlunoPeriodoCurricularDto> currentPredicate = (Predicate<AlunoPeriodoCurricularDto>) filteredList.getPredicate();
+			
+//			filteredList.predicateProperty().removeListener(p2);
+			
+			filteredList.setPredicate(currentPredicate.and(p2));
+			
+		} else if (eventSource.equals("fil02000_rb01000_EnsinoMedioRegular")) {
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
+					&& !(obj.getTurma().contains("Turma: NEJA"))
+					;
+			
+			@SuppressWarnings("unchecked")
+			Predicate<AlunoPeriodoCurricularDto> currentPredicate = (Predicate<AlunoPeriodoCurricularDto>) filteredList.getPredicate();
+			
+			filteredList.setPredicate(currentPredicate.and(p2));
+			
+		} else if (eventSource.equals("fil02000_rb02000_ENEJA")) {
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
+					&& (obj.getTurma().contains("Turma: NEJA"))
+					;
+			
+			@SuppressWarnings("unchecked")
+			Predicate<AlunoPeriodoCurricularDto> currentPredicate = (Predicate<AlunoPeriodoCurricularDto>) filteredList.getPredicate();
+			
+			filteredList.setPredicate(currentPredicate.and(p2));
+			
+		} else if (eventSource.equals("Anos finais")) {
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
+					&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"));
+			
+			@SuppressWarnings("unchecked")
+			Predicate<AlunoPeriodoCurricularDto> currentPredicate = (Predicate<AlunoPeriodoCurricularDto>) filteredList.getPredicate();
+			
+			filteredList.setPredicate(currentPredicate.and(p2));
+			
+		} else if (eventSource.equals("Todos")) {
+			
+		} else if (eventSource.equals("Todos")) {
+			
+		} else if (eventSource.equals("Todos")) {
+			
+		} else if (eventSource.equals("Todos")) {
+			
 		}
 		
 		buildView(filteredList);
@@ -778,7 +827,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		RadioButton eventSource = (RadioButton) event.getSource();
 //		TODO
 //		loadAlunosDetailsByFormElements(eventSource.getText());
-		initializeNodes(null);
+		initializeNodes(null,eventSource.getId());
 
 		System.out.println("Ráaaa 2: " + eventSource.getViewOrder());
 		System.out.println("Ráaaa 2: " + eventSource.getId());
@@ -837,7 +886,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	}
 
 	public void updateTreeTableView(Integer keyMap) {
-		initializeNodes(keyMap);
+		initializeNodes(keyMap, null);
 		System.out.println("Agora");
 	}
 

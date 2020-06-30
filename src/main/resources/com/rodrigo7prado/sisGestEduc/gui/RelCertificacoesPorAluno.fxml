@@ -34,6 +34,13 @@
                                 <MenuItem mnemonicParsing="false" text="Recolher linhas" />
                               </items>
                             </Menu>
+                              <Menu mnemonicParsing="false" text="Filtros">
+                                 <items>
+                                    <MenuItem mnemonicParsing="false" text="Certificação" />
+                                    <MenuItem mnemonicParsing="false" text="Declarações em massa" />
+                                    <MenuItem mnemonicParsing="false" text="RioCard" />
+                                 </items>
+                              </Menu>
                           </menus>
                         </MenuBar>
                         <!--
@@ -47,116 +54,116 @@
                          -->
                          <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                              <RadioButton fx:id="fil01000_rb00000_TodosAnos" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="ae" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2020" toggleGroup="$ae" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2019" toggleGroup="$ae" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2018" toggleGroup="$ae" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2017" toggleGroup="$ae" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2016" toggleGroup="$ae" />
+                              <RadioButton fx:id="fil01000_rb01000_2020" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2020" toggleGroup="$ae" />
+                              <RadioButton fx:id="fil01000_rb02000_2019" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2019" toggleGroup="$ae" />
+                              <RadioButton fx:id="fil01000_rb03000_2018" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2018" toggleGroup="$ae" />
+                              <RadioButton fx:id="fil01000_rb04000_2017" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2017" toggleGroup="$ae" />
+                              <RadioButton fx:id="fil01000_rb05000_2016" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2016" toggleGroup="$ae" />
                            </children>
                         </HBox>
                         <Separator prefWidth="200.0" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                              <RadioButton fx:id="fil02000_rb00000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="ai" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ensino Médio Regular" toggleGroup="$ai" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="ENEJA" toggleGroup="$ai" />
+                              <RadioButton fx:id="fil02000_rb01000_EnsinoMedioRegular" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ensino Médio Regular" toggleGroup="$ai" />
+                              <RadioButton fx:id="fil02000_rb02000_ENEJA" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="ENEJA" toggleGroup="$ai" />
                            </children>
                         </HBox>
                         <Separator prefWidth="200.0" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                              <RadioButton fx:id="fil03000_rb00000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="aj" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="1ª série/Módulo I" toggleGroup="$aj" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2ª série/Módulo II" toggleGroup="$aj" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="3ª série/Módulo II" toggleGroup="$aj" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Módulo IV" toggleGroup="$aj" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Anos finais" toggleGroup="$aj" />
+                              <RadioButton fx:id="fil03000_rb01000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="1ª série/Módulo I" toggleGroup="$aj" />
+                              <RadioButton fx:id="fil03000_rb02000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2ª série/Módulo II" toggleGroup="$aj" />
+                              <RadioButton fx:id="fil03000_rb03000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="3ª série/Módulo II" toggleGroup="$aj" />
+                              <RadioButton fx:id="fil03000_rb04000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Módulo IV" toggleGroup="$aj" />
+                              <RadioButton fx:id="fil03000_rb05000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Anos finais" toggleGroup="$aj" />
                            </children>
                         </HBox>
                         <Separator prefWidth="200.0" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                              <RadioButton fx:id="fil04000_rb00000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="af" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Concluintes" toggleGroup="$af" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Não-concluintes" toggleGroup="$af" />
+                              <RadioButton fx:id="fil04000_rb01000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Concluintes" toggleGroup="$af" />
+                              <RadioButton fx:id="fil04000_rb02000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Não-concluintes" toggleGroup="$af" />
                            </children>
                         </HBox>
                         <Separator prefWidth="200.0" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                              <RadioButton fx:id="fil05000_rb00000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="ag" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Aprovados" toggleGroup="$ag" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Aprovados com dep." toggleGroup="$ag" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Reprovados" toggleGroup="$ag" />
+                              <RadioButton fx:id="fil05000_rb01000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Aprovados" toggleGroup="$ag" />
+                              <RadioButton fx:id="fil05000_rb02000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Aprovados com dep." toggleGroup="$ag" />
+                              <RadioButton fx:id="fil05000_rb03000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Reprovados" toggleGroup="$ag" />
                            </children>
                         </HBox>
                         <Separator prefWidth="200.0" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                              <RadioButton fx:id="fil06000_rb00000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="aa" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ok" toggleGroup="$aa" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendentes" toggleGroup="$aa" />
+                              <RadioButton fx:id="fil06000_rb01000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ok" toggleGroup="$aa" />
+                              <RadioButton fx:id="fil06000_rb02000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendentes" toggleGroup="$aa" />
                            </children>
                         </HBox>
                         <Separator prefWidth="200.0" />
                          <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                              <RadioButton fx:id="fil07000_rb00000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="ab" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Com certidão" toggleGroup="$ab" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Sem certidão" toggleGroup="$ab" />
+                              <RadioButton fx:id="fil07000_rb01000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Com certidão" toggleGroup="$ab" />
+                              <RadioButton fx:id="fil07000_rb02000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Sem certidão" toggleGroup="$ab" />
                            </children>
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                              <RadioButton fx:id="fil08000_rb00000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="ad" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Com certificado" toggleGroup="$ad" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Sem certificado" toggleGroup="$ad" />
+                              <RadioButton fx:id="fil08000_rb01000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Com certificado" toggleGroup="$ad" />
+                              <RadioButton fx:id="fil08000_rb02000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Sem certificado" toggleGroup="$ad" />
                            </children>
                         </HBox>
                         <Separator prefWidth="200.0" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                              <RadioButton fx:id="fil09000_rb00000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="ac" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendência dados pessoais" toggleGroup="$ac" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendência dados escolares" toggleGroup="$ac" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Histórico inconsistente" toggleGroup="$ac" />
+                              <RadioButton fx:id="fil09000_rb01000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendência dados pessoais" toggleGroup="$ac" />
+                              <RadioButton fx:id="fil09000_rb02000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendência dados escolares" toggleGroup="$ac" />
+                              <RadioButton fx:id="fil09000_rb03000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Histórico inconsistente" toggleGroup="$ac" />
                            </children>
                            <opaqueInsets>
                               <Insets right="10.0" />
@@ -165,13 +172,31 @@
                         <Separator prefWidth="200.0" />
                         <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
                            <children>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                              <RadioButton fx:id="fil10000_rb00000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="ak" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="fil10000_rb01000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Série faltando" toggleGroup="$ak" />
+                              <RadioButton fx:id="fil10000_rb02000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Nota(s) faltando" toggleGroup="$ak" />
+                              <RadioButton fx:id="fil10000_rb03000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Resultado/Nota(s) inconsistente(s)" toggleGroup="$ak" />
+                              <RadioButton fx:id="fil10000_rb04000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="CH inconsistente" toggleGroup="$ak" />
+                              <RadioButton fx:id="fil10000_rb05000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Dados faltando" toggleGroup="$ak" />
+                           </children>
+                           <opaqueInsets>
+                              <Insets right="10.0" />
+                           </opaqueInsets>
+                        </HBox>
+                        <Separator prefWidth="200.0" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                           <children>
+                              <RadioButton fx:id="fil11000_rb00000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
                                  <toggleGroup>
                                     <ToggleGroup fx:id="ah" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ok" toggleGroup="$ah" />
-                              <RadioButton mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Dif. Conexão Educação" toggleGroup="$ah" />
+                              <RadioButton fx:id="fil11000_rb01000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ok" toggleGroup="$ah" />
+                              <RadioButton fx:id="fil11000_rb02000_" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Dif. Conexão Educação" toggleGroup="$ah" />
                            </children>
                            <opaqueInsets>
                               <Insets right="10.0" />
