@@ -17,6 +17,7 @@ import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
@@ -47,6 +48,8 @@ public class DadosAlunosController implements Initializable {
 	private ComboBox<String> rgEmissorField;
 	@FXML
 	private ComboBox<String> rgEmissorUfField;
+	@FXML
+	private Button buttonConfirmarAlteracao;
 
 //	private AlunoPeriodoCurricularDto entity;
 
@@ -163,6 +166,12 @@ public class DadosAlunosController implements Initializable {
 //				nomeMaeField.getStyleClass().remove("blakk");
 //			}
 //		}
+		
 		System.out.println("classes" + nomeMaeField.getStyleClass());
+	}
+	
+	public void confirmarAteracao_click() {
+		System.out.println("Salvar...");
+		
 	}
 }

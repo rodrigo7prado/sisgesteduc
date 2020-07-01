@@ -99,7 +99,7 @@
 					<Insets right="10.0" />
 				</HBox.margin>
 			</Button>
-			<Button mnemonicParsing="false" text="Confirmar a alterar" />
+			<Button fx:id="buttonConfirmarAlteracao" mnemonicParsing="false" onAction="#confirmarAteracao_click" text="Confirmar a alteração" />
 		</children>
 	</HBox>
 </VBox>

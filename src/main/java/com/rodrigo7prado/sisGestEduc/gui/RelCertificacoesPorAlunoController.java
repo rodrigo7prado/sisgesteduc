@@ -1,6 +1,7 @@
 package com.rodrigo7prado.sisGestEduc.gui;
 
 import java.io.IOException;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -29,6 +30,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableColumn.CellDataFeatures;
@@ -98,34 +100,90 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnBoolCertificado;
 	@FXML
 	private VBox dialog;
+	@FXML
+	private ToggleGroup toggleGroupAnos;
 	
-	FilteredList<AlunoPeriodoCurricularDto> filteredList;
+	private Map<String,Predicate> mapFilters = new HashMap<String,Predicate>();
 	
-	Predicate<AlunoPeriodoCurricularDto> p1 = 
-//			obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018i")
-//			|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
+	private Map<ToggleGroup,RadioButton> mapToggleGroups = new HashMap<ToggleGroup,RadioButton>();
+	
+	private FilteredList<AlunoPeriodoCurricularDto> filteredList;
+	
+	private Predicate<AlunoPeriodoCurricularDto> predFilter01000Rb00000TodosAnos = 
+			obj -> 	obj.getSituacaoFinal().equals("Reprovado por nota");
+	private Predicate<AlunoPeriodoCurricularDto> p1 = 
+			obj -> 	obj.getSituacaoFinal().equals("Reprovado por nota");
+	
+	private Predicate<AlunoPeriodoCurricularDto> predFilter02000Rb01000EnsinoMedioRegular = 
+			obj -> !(obj.getTurma().contains("Turma: NEJA"));
+			
+	private Predicate<AlunoPeriodoCurricularDto> predFilter02000Rb02000Neja = 
+			obj -> (obj.getTurma().contains("Turma: NEJA"));
 
-	obj -> 
-	obj.getSituacaoFinal().equals("Reprovado por nota");
-
-//	obj -> (obj.getAnoLetivo().contains("Ano Letivo: 2018")) 
-//				&& obj.getSituacaoFinal().equals("Aprovado")
-//				&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-//				&& obj.getNflCertidao() != null 
-//				&& obj.getNflCertificado() != null));
-	
-	private Integer intTest;
+	private Class<RelCertificacoesPorAlunoController> myClass;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		
 		System.out.println("COMEÇAR AGORA, para filteredList");
+		
+		setupPredicates();
 
 		observableList.clear();
 
 		observableList.addAll(service.findFilterTodos());
 		
 //		filteredList = new FilteredList<>(observableList, p -> true);
+	}
+	
+	private void setupPredicates() {
+		System.out.println("ToggleGroupAnos: " + toggleGroupAnos.getSelectedToggle());
+		System.out.println("ToggleGroupAnos: " + toggleGroupAnos.getSelectedToggle().selectedProperty());
+		
+		
+		mapToggleGroups.put(toggleGroupAnos, (RadioButton) toggleGroupAnos.getSelectedToggle());
+		
+		RadioButton radioButtonAssociated = mapToggleGroups.get(toggleGroupAnos);
+		
+		String str = radioButtonAssociated.getId();
+		
+		RelCertificacoesPorAlunoController.class.getDeclaredFields();
+		
+		
+		Class<RelCertificacoesPorAlunoController> classe = RelCertificacoesPorAlunoController.class;
+		
+		for ( Field atributo : classe.getDeclaredFields() ) {
+			System.out.println(radioButtonAssociated.getId());
+			System.out.println("Atributo: " + atributo.getName().toString());
+			if (atributo.getName().toString().equals(str)) {
+				System.out.println("Código identificou corretamente");
+			}
+			else {
+				System.out.println("Não identificado");
+			}
+			System.out.println("___________________________________________________");
+		}
+		
+		mapFilters.put("EnsinoMedioRegular",predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("Cursos",predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("PeridosCurriculares",predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("SituacoesDeConclusao",predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("SituacoesFinais",predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("SituacoesPendenciais",predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("SituacoesDeCertidao",predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("SituacoesDeCertificado",predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("PendenciasDadosGeraisEPessoais",predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("SituacoesDeHistoricoMedio",predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("SituacoesDeConsistenciaConexao",predFilter02000Rb01000EnsinoMedioRegular);
+		
+//		System.out.println("getDeclaredFields: " + RelCertificacoesPorAlunoController.class.getD);
+		
+//		mapToggleGroups.forEach((k,v) -> 
+//		
+//		filteredList.setPredicate(p1)
+//		);
+		
+		
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -224,7 +282,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018i")
 					|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
 			
-			System.out.println("intTest: " + intTest);
+//			System.out.println("intTest: " + intTest);
 			System.out.println("Size filtered list: " + filteredList.size());
 
 //			filteredList.setPredicate(p1);
@@ -247,9 +305,12 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 			@SuppressWarnings("unchecked")
 			Predicate<AlunoPeriodoCurricularDto> currentPredicate = (Predicate<AlunoPeriodoCurricularDto>) filteredList.getPredicate();
 			
-//			filteredList.predicateProperty().removeListener(p2);
+			filteredList.setPredicate(currentPredicate.and(predFilter02000Rb01000EnsinoMedioRegular));
 			
-			filteredList.setPredicate(currentPredicate.and(p2));
+//			for() {
+//				
+//			}
+			
 			
 		} else if (eventSource.equals("fil02000_rb01000_EnsinoMedioRegular")) {
 			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
@@ -259,7 +320,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 			@SuppressWarnings("unchecked")
 			Predicate<AlunoPeriodoCurricularDto> currentPredicate = (Predicate<AlunoPeriodoCurricularDto>) filteredList.getPredicate();
 			
-			filteredList.setPredicate(currentPredicate.and(p2));
+			filteredList.setPredicate(currentPredicate.and(predFilter02000Rb02000Neja));
 			
 		} else if (eventSource.equals("fil02000_rb02000_ENEJA")) {
 			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
@@ -490,7 +551,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 //			filteredList.setPredicate(p1.and(p2).negate());
 			filteredList.setPredicate(p2);
-			intTest = 20;
+//			intTest = 20;
 			
 			filteredList = filteredList.filtered(p2);
 			System.out.println("SIZE new? " + filteredList.size());
@@ -514,7 +575,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 //			filteredList.setPredicate(p1.and(p2).negate());
 			filteredList.setPredicate(p2);
-			intTest = 20;
+//			intTest = 20;
 			
 			filteredList = filteredList.filtered(p2);
 			System.out.println("SIZE new? " + filteredList.size());
