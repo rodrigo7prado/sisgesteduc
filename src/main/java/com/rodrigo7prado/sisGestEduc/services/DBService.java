@@ -5,6 +5,7 @@ import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.rodrigo7prado.sisGestEduc.entities.Aluno;
 import com.rodrigo7prado.sisGestEduc.entities.ComponenteCurricular;
 import com.rodrigo7prado.sisGestEduc.entities.Curso;
 import com.rodrigo7prado.sisGestEduc.entities.CursoModalidade;
@@ -14,6 +15,7 @@ import com.rodrigo7prado.sisGestEduc.entities.FiltroItem;
 import com.rodrigo7prado.sisGestEduc.entities.Modalidade;
 import com.rodrigo7prado.sisGestEduc.entities.PeriodoCurricular;
 import com.rodrigo7prado.sisGestEduc.entities.Turma;
+import com.rodrigo7prado.sisGestEduc.repositories.AlunoRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.ComponenteCurricularRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.CursoModalidadeRepository;
 import com.rodrigo7prado.sisGestEduc.repositories.CursoRepository;
@@ -26,7 +28,9 @@ import com.rodrigo7prado.sisGestEduc.repositories.TurmaRepository;
 
 @Service
 public class DBService {
-
+	
+	@Autowired
+	private AlunoRepository alunoRepository;
 	@Autowired
 	private FiltroGrupoRepository filtroGrupoRepository;
 	@Autowired
@@ -47,6 +51,10 @@ public class DBService {
 	private ComponenteCurricularRepository componenteCurricularRepository;
 
 	public void instanciateTestDatabase() {
+		
+		Aluno a1 = new Aluno("1111","Alanderson","2001");
+		
+//		alunoRepository.save(a1);
 
 		Turma t1 = new Turma(null, "3001");
 

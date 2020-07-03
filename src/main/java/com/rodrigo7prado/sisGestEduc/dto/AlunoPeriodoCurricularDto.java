@@ -74,13 +74,14 @@ public class AlunoPeriodoCurricularDto {
 			, Integer nflCertificado
 			) {
 		super();
+		
+		System.out.println("USO 1");
+		
 		if (alunoExternal != null) {
-
 			this.validDadosPessoais = alunoExternal.getValidDadosPessoais();
 			this.validDadosIdentif = alunoExternal.getValidDadosIdentif();
 			this.validDadosHeFund = alunoExternal.getValidDadosHeFund();
 			this.validDadosHeMedio = alunoExternal.getValidDadosHeMedio();
-
 		}
 
 		this.anoLetivo = anoLetivo;
@@ -113,7 +114,7 @@ public class AlunoPeriodoCurricularDto {
 			,Integer nflCertidao
 			,Integer nflCertificado
 			) {
-
+		System.out.println("USO 2");
 		this.anoLetivo = anoLetivo;
 		this.curso = curso;
 		this.modalidade = modalidade;

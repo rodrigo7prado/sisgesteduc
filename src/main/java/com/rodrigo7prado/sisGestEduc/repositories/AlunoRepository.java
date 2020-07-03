@@ -1,6 +1,7 @@
 package com.rodrigo7prado.sisGestEduc.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -26,4 +27,10 @@ public interface AlunoRepository extends JpaRepository<Aluno, Long> {
 			+ "AND c.situacaoFinal = 'Aprovado' "
 			+ "ORDER BY c.turma, c.nomeCompl")
 	List<Aluno> findFilterConcluintes();
+
+	Aluno findByMatricula(String matricula);
+	
+	Aluno findOneByMatricula(String matricula);
+
+//	Optional<Aluno> findById(String id);
 }

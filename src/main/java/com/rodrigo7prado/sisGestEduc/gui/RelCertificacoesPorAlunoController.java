@@ -843,6 +843,17 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		);
 		treeTableViewAluno.setRoot(treeItemAlunoRoot);
 
+//		for (AlunoPeriodoCurricularDto itemObsList : filteredList) {
+//			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(new AlunoPeriodoCurricularDto(null, null, null, null, null,
+//					itemObsList.getTurma(), itemObsList.getNomeCompleto(),
+//					itemObsList.getSexo(), itemObsList.getDataNasc(), itemObsList.getNomePai(),
+//					itemObsList.getNomeMae(), itemObsList.getNacionalidade(), itemObsList.getNaturalidade(),
+//					itemObsList.getNaturalidadeUF(), itemObsList.getRg(), itemObsList.getRgEmissor(),
+//					itemObsList.getRgEmissorUf(), itemObsList.getMatricula(), itemObsList.getSituacaoFinal(),itemObsList.getNflCertidao(),
+//					itemObsList.getNflCertificado(), itemObsList.getValidDadosPessoais(),
+//					itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
+//					itemObsList.getValidDadosHeMedio()));
+		
 		for (AlunoPeriodoCurricularDto itemObsList : filteredList) {
 			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(new AlunoPeriodoCurricularDto(null, null, null,
 					itemObsList.getTurma(), itemObsList.getMatricula(), itemObsList.getNomeCompleto(),

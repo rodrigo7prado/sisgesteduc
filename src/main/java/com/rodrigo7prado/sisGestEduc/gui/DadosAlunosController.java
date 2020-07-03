@@ -207,7 +207,20 @@ public class DadosAlunosController implements Initializable {
 		System.out.println("Salvar...");
 		setController();
 		System.out.println("controller: " + controller);
-		service.insert(controller);
+		
+		service.findByMatricula(controller.getMatricula());
+		
+//		System.out.println("findByMatricula: " + service.findByMatricula(controller.getMatricula()));
+		
+		if (service.findByMatricula(controller.getMatricula()) == null) {
+			System.out.println("Nulo");
+			service.insert(controller);
+		} else {
+			System.out.println("Não nulo, encontrou");
+			service.update(controller.getMatricula(),controller);
+		}
+		
+//		service.insert(controller);
 //		AlunoPeriodoCurricular obj = service.fromDto(controller);
 //		System.out.println("Salvar o que: " + obj);
 //		service.saveAll(obj);

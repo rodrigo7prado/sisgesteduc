@@ -22,8 +22,8 @@ import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 public class Aluno implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(length = 25,name = "aluno_external_aluno")
-//	@Column(length = 25)
+//	@Column(length = 25,name = "aluno_external_aluno")
+	@Column(length = 25)
 	private String matricula;
 	private String nomeCompleto;
 	@Column(name = "Status_Matricula_Conex")
@@ -171,7 +171,7 @@ public class Aluno implements Serializable {
 	
 	@JsonIgnore
 	@OneToOne
-	@MapsId
+//	@MapsId
 	private AlunoExternal alunoExternal;
 	@OneToMany(mappedBy = "id.aluno")
 	Set<AlunoCurso> alunosCursos = new HashSet<>();

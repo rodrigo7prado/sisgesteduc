@@ -19,9 +19,38 @@ public class AlunoService {
 		return repository.findAll();
 	}
 	
-	public Aluno findById(Long id) {
-		Optional<Aluno> obj = repository.findById(id);
-		return obj.get();
+//	public Aluno findById(String id) {
+//		Optional<Aluno> obj = repository.findById(id);
+//		return obj.get();
+//	}
+	
+	public Aluno findOneByMatricula(String matricula) {
+//		Optional<Aluno> obj = repository.findByMatricula(matricula);
+//		
+//		System.out.println("Obj: " + obj);
+		
+		
+		System.out.println("repository: " + repository.findOneByMatricula(matricula));
+		
+		
+		return new Aluno();
+//		return obj.get();
+	}
+	
+	public Aluno findByMatricula(String matricula) {
+//		Optional<Aluno> obj = repository.findByMatricula(matricula);
+//		
+//		System.out.println("Obj: " + obj);
+		
+		
+//		System.out.println("repository: " + repository.findByMatricula(matricula));
+		
+		Aluno obj = repository.findByMatricula(matricula);
+		
+		return obj;
+		
+//		return new Aluno();
+//		return obj.get();
 	}
 	
 	public Aluno insert(Aluno obj) {
@@ -41,8 +70,14 @@ public class AlunoService {
 		repository.deleteById(id);
 	}
 	
-	public Aluno update(Long id, Aluno obj) {
-		Aluno entity = repository.getOne(id);
+//	public Aluno update(Long id, Aluno obj) {
+//		Aluno entity = repository.getOne(id);
+//		updateData(entity, obj);
+//		return repository.save(entity);
+//	}
+	
+	public Aluno update(String matricula, Aluno obj) {
+		Aluno entity = repository.findByMatricula(matricula);
 		updateData(entity, obj);
 		return repository.save(entity);
 	}
