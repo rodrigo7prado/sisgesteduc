@@ -43,6 +43,12 @@ public class AlunoPeriodoCurricular implements Serializable {
 		// outros atributos
 	}
 	
+	public AlunoPeriodoCurricular(Aluno aluno2) {
+		id.setAluno(aluno2);
+//		id.setPeriodoCurricular(periodoCurricular2);
+		// outros atributos
+	}
+	
 	@JsonIgnore
 	public Aluno getAluno() {
 		return id.getAluno();

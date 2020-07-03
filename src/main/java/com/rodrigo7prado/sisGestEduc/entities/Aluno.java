@@ -22,7 +22,8 @@ import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 public class Aluno implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-	@Column(length = 25)
+	@Column(length = 25,name = "aluno_external_aluno")
+//	@Column(length = 25)
 	private String matricula;
 	private String nomeCompleto;
 	@Column(name = "Status_Matricula_Conex")
@@ -870,4 +871,46 @@ public class Aluno implements Serializable {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return "Aluno [matricula=" + matricula + ", nomeCompleto=" + nomeCompleto + ", statusMatriculaConexao="
+				+ statusMatriculaConexao + ", certificacao=" + certificacao + ", dataConclusaoEM=" + dataConclusaoEM
+				+ ", dataNasc=" + dataNasc + ", nomePai=" + nomePai + ", nomeMae=" + nomeMae + ", sexo=" + sexo
+				+ ", nacionalidade=" + nacionalidade + ", naturalidade=" + naturalidade + ", naturalidadeUF="
+				+ naturalidadeUF + ", rg=" + rg + ", rgEmissor=" + rgEmissor + ", rgEmissorUf=" + rgEmissorUf
+				+ ", rgDataEmissao=" + rgDataEmissao + ", cnCartorio=" + cnCartorio + ", cnMunicipio=" + cnMunicipio
+				+ ", cnUF=" + cnUF + ", cnTermo=" + cnTermo + ", cnLivro=" + cnLivro + ", cnFolha=" + cnFolha
+				+ ", cnDataEmissao=" + cnDataEmissao + ", dyn_mais_de_um_curso=" + dyn_mais_de_um_curso + ", obsHist="
+				+ obsHist + ", obsHist1=" + obsHist1 + ", obsHist2=" + obsHist2 + ", faltaEntregaHeFundamental="
+				+ faltaEntregaHeFundamental + ", faltaEntregaHeMedio=" + faltaEntregaHeMedio + ", faltaEntregaRg="
+				+ faltaEntregaRg + ", faltaEntregaCn=" + faltaEntregaCn + ", dadosConferidos=" + dadosConferidos
+				+ ", maisDeUmCurso=" + maisDeUmCurso + ", ensFundEscolaConclusao=" + ensFundEscolaConclusao
+				+ ", ensFundMunicipioEscolaConclusao=" + ensFundMunicipioEscolaConclusao
+				+ ", ensFundAnoEscolaConclusao=" + ensFundAnoEscolaConclusao + ", ensFundDataEmissaoConclusao="
+				+ ensFundDataEmissaoConclusao + ", ensFundNumPaginasConclusao=" + ensFundNumPaginasConclusao
+				+ ", cidadeEstadoEscola=" + cidadeEstadoEscola + ", ultimaModalidade=" + ultimaModalidade
+				+ ", ultimoAno=" + ultimoAno + ", ultimaTurma=" + ultimaTurma + ", ultimoResultadoFinal="
+				+ ultimoResultadoFinal + ", resSerie1=" + resSerie1 + ", resSerie2=" + resSerie2 + ", resSerie3="
+				+ resSerie3 + ", resSerie4=" + resSerie4 + ", resSerie1Subst=" + resSerie1Subst + ", resSerie2Subst="
+				+ resSerie2Subst + ", resSerie3Subst=" + resSerie3Subst + ", resSerie4Subst=" + resSerie4Subst
+				+ ", anoSerie1=" + anoSerie1 + ", anoSerie2=" + anoSerie2 + ", anoSerie3=" + anoSerie3 + ", anoSerie4="
+				+ anoSerie4 + ", turmaSerie1=" + turmaSerie1 + ", turmaSerie2=" + turmaSerie2 + ", turmaSerie3="
+				+ turmaSerie3 + ", turmaSerie4=" + turmaSerie4 + ", frqG1=" + frqG1 + ", frqG2=" + frqG2 + ", frqG3="
+				+ frqG3 + ", frqG4=" + frqG4 + ", chSubst1=" + chSubst1 + ", chSubst2=" + chSubst2 + ", chSubst3="
+				+ chSubst3 + ", chSubst4=" + chSubst4 + ", freqSubst1=" + freqSubst1 + ", freqSubst2=" + freqSubst2
+				+ ", freqSubst3=" + freqSubst3 + ", freqSubst4=" + freqSubst4 + ", ensMedioEstabEnsAno1="
+				+ ensMedioEstabEnsAno1 + ", ensMedioEstabEnsAno2=" + ensMedioEstabEnsAno2 + ", ensMedioEstabEnsAno3="
+				+ ensMedioEstabEnsAno3 + ", ensMedioEstabEnsAno4=" + ensMedioEstabEnsAno4
+				+ ", ensMedioCidadeEstadoEstabEnsAno1=" + ensMedioCidadeEstadoEstabEnsAno1
+				+ ", ensMedioCidadeEstadoEstabEnsAno2=" + ensMedioCidadeEstadoEstabEnsAno2
+				+ ", ensMedioCidadeEstadoEstabEnsAno3=" + ensMedioCidadeEstadoEstabEnsAno3
+				+ ", ensMedioCidadeEstadoEstabEnsAno4=" + ensMedioCidadeEstadoEstabEnsAno4
+				+ ", statusDocumentacaoAluno=" + statusDocumentacaoAluno + ", alunoExternal=" + alunoExternal
+				+ ", alunosCursos=" + alunosCursos + ", alunosCursosModalidades=" + alunosCursosModalidades
+				+ ", alunosPeriodosCurriculares=" + alunosPeriodosCurriculares + ", componentesCurriculares="
+				+ componentesCurriculares + "]";
+	}
+	
+	
 }

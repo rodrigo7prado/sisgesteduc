@@ -220,5 +220,16 @@ public class AlunoPeriodoCurricularService {
 		
 		return count;
 	}
+	
+	public AlunoPeriodoCurricular fromDto(AlunoPeriodoCurricularDto objDto) {
+		System.out.println("Service objDto: " + objDto);
+		System.out.println("Service getAluno: " + objDto.getAluno());
+		return new AlunoPeriodoCurricular(objDto.getAluno(),objDto.getPeriodoCurricular());
+	}
+	
+	
+	public void saveAll(AlunoPeriodoCurricular entity) {
+		repository.save(entity);
+	}
 
 }

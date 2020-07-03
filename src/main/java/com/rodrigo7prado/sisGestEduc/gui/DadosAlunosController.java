@@ -11,9 +11,12 @@ import java.util.Map.Entry;
 import java.util.ResourceBundle;
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
+import com.rodrigo7prado.sisGestEduc.entities.Aluno;
+import com.rodrigo7prado.sisGestEduc.services.AlunoService;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -53,7 +56,10 @@ public class DadosAlunosController implements Initializable {
 
 //	private AlunoPeriodoCurricularDto entity;
 
-//	private AlunoPeriodoCurricularDto controller;
+	private Aluno controller = new Aluno();
+	
+	@Autowired
+	private AlunoService service;
 
 	public AlunoPeriodoCurricularDto setDadosAlunosController(AlunoPeriodoCurricularDto obj) {
 		return obj;
@@ -63,7 +69,8 @@ public class DadosAlunosController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 
-		System.out.println("Iniciando AAAAAA");
+//		controller.setMatricula("AAAAAB");
+//		System.out.println("Iniciando AAAAAA");
 		matriculaField.setText("AAAA");
 		sexoField.getItems().clear();
 		sexoField.getItems().addAll(Arrays.asList("-- Selecione --", "Masculino", "Feminino"));
@@ -87,9 +94,35 @@ public class DadosAlunosController implements Initializable {
 						"TO"));
 	}
 
-	public void setController(AlunoPeriodoCurricularDto obj) {
+	public void setController() {
+		
+		System.out.println(matriculaField.getText()); 
+		System.out.println(nomeCompletoField.getText());
+		System.out.println(sexoField.getValue());
+//		System.out.println(dataNascField.getValue());
+		System.out.println(nomePaiField.getText());
+		System.out.println(nomeMaeField.getText());
+		System.out.println(nacionalidade.getValue());		
+		System.out.println(naturalidade.getText());
+		System.out.println(naturalidadeUfField.getValue());
+		System.out.println(rgField.getText());
+		System.out.println(rgEmissorField.getValue());
+		System.out.println(rgEmissorUfField.getValue());
+		
+		controller.setMatricula(matriculaField.getText());
+		controller.setNomeCompleto(nomeCompletoField.getText());
+		controller.setSexo(sexoField.getValue());
 
-		// this.entity = obj;
+		controller.setNomePai(nomePaiField.getText());
+		controller.setNomeMae(nomeMaeField.getText());
+		controller.setNacionalidade(nacionalidade.getValue());		
+		controller.setNaturalidade(naturalidade.getText());
+		controller.setNaturalidadeUF(naturalidadeUfField.getValue());
+		controller.setRg(rgField.getText());
+		controller.setRgEmissor(rgEmissorField.getValue());
+		controller.setRgEmissorUf(rgEmissorUfField.getValue());
+		
+//		controller.setDataNasc();
 	}
 
 	public void getData() {
@@ -172,6 +205,11 @@ public class DadosAlunosController implements Initializable {
 	
 	public void confirmarAteracao_click() {
 		System.out.println("Salvar...");
-		
+		setController();
+		System.out.println("controller: " + controller);
+		service.insert(controller);
+//		AlunoPeriodoCurricular obj = service.fromDto(controller);
+//		System.out.println("Salvar o que: " + obj);
+//		service.saveAll(obj);
 	}
 }

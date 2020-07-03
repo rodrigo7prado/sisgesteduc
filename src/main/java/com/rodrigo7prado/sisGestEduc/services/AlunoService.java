@@ -25,8 +25,17 @@ public class AlunoService {
 	}
 	
 	public Aluno insert(Aluno obj) {
-		return repository.save(obj);
+		return repository.save(obj); 
+//		return new Aluno();
 	}
+	
+	public void insert2(Aluno obj) {
+		System.out.println("alou");
+	}
+	
+//	public void insert3() {
+//		System.out.println("alou");
+//	}
 	
 	public void delete(Long id) {
 		repository.deleteById(id);
