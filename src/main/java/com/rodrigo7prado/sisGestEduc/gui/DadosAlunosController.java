@@ -54,9 +54,12 @@ public class DadosAlunosController implements Initializable {
 	@FXML
 	private Button buttonConfirmarAlteracao;
 
-//	private AlunoPeriodoCurricularDto entity;
+	private AlunoPeriodoCurricularDto alunoPeriodoCurricularDto;
 
 	private Aluno controller = new Aluno();
+	
+	@Autowired
+	private RelCertificacoesPorAlunoController relCertificacoesPorAlunoController;
 	
 	@Autowired
 	private AlunoService service;
@@ -135,6 +138,9 @@ public class DadosAlunosController implements Initializable {
 //			throw new IllegalStateException("Entity was null");
 //		}
 //		matriculaField.setText(entity.getMatricula());
+		
+		alunoPeriodoCurricularDto = obj;
+		
 		matriculaField.setText(obj.getMatricula());
 		nomeCompletoField.setText(obj.getNomeCompleto());
 		sexoField.setValue(obj.getSexo());
@@ -219,6 +225,25 @@ public class DadosAlunosController implements Initializable {
 			System.out.println("Não nulo, encontrou");
 			service.update(controller.getMatricula(),controller);
 		}
+		
+		alunoPeriodoCurricularDto.setMatricula(controller.getMatricula());
+		alunoPeriodoCurricularDto.setNomeCompleto(controller.getNomeCompleto());
+		alunoPeriodoCurricularDto.setSexo(controller.getSexo());
+//		alunoPeriodoCurricularDtodataNascField.setValue(LocalDate.parse("21/12/1988", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+//		alunoPeriodoCurricularDtodataNascField.setText(obj.getRg());		
+		alunoPeriodoCurricularDto.setNomePai(controller.getNomePai());
+		alunoPeriodoCurricularDto.setNomeMae(controller.getNomeMae());
+		alunoPeriodoCurricularDto.setNacionalidade(controller.getNacionalidade());
+		alunoPeriodoCurricularDto.setNaturalidade(controller.getNaturalidade());
+		alunoPeriodoCurricularDto.setNaturalidadeUF(controller.getNaturalidadeUF());
+		alunoPeriodoCurricularDto.setRg(controller.getRg());
+		alunoPeriodoCurricularDto.setRgEmissor(controller.getRgEmissor());
+		alunoPeriodoCurricularDto.setRgEmissorUf(controller.getRgEmissorUf());
+//		AlunoPeriodoCurricularDto obj = new AlunoPeriodoCurricularDto(;
+		
+		
+		relCertificacoesPorAlunoController.setDataOfRowSelected(alunoPeriodoCurricularDto);
+//		setDataOfRowSelected(alunoPeriodoCurricularDto);
 		
 //		service.insert(controller);
 //		AlunoPeriodoCurricular obj = service.fromDto(controller);

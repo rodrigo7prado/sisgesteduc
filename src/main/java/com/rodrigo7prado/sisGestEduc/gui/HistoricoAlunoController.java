@@ -57,6 +57,8 @@ public class HistoricoAlunoController implements Initializable {
 		serie1.setCellValueFactory(new PropertyValueFactory<>("serie1"));
 		serie2.setCellValueFactory(new PropertyValueFactory<>("serie2"));
 		serie3.setCellValueFactory(new PropertyValueFactory<>("serie3"));
+		
+//		tableView.
 	}
 
 	private void loadDetails() {

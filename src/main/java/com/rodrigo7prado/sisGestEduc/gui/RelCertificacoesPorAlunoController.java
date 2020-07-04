@@ -910,23 +910,18 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	@FXML
 	public void onClickTreeTableView(Event event) throws IOException {
-//		@SuppressWarnings("unchecked")
-//		TreeTableView<AlunoPeriodoCurricularDto> treeTableView = (TreeTableView<AlunoPeriodoCurricularDto>) event.getSource();
 
 		TreeTableView<?> treeTableView = (TreeTableView<?>) event.getSource();
 
-//		AlunoPeriodoCurricularDto obj = (AlunoPeriodoCurricularDto) treeTableView.getFocusModel().getFocusedItem().getValue();
-
-		System.out.println("Clicked! " + event.getSource());
-		System.out.println("Clicked! " + treeTableView.getFocusModel().getFocusedIndex());
-		System.out.println("Clicked! " + treeTableView.getFocusModel().getFocusedItem().getValue());
+		System.out.println("Clicked1! " + event.getSource());
+		System.out.println("Clicked2! " + treeTableView.getFocusModel().getFocusedIndex());
+		System.out.println("Clicked3! " + treeTableView.getFocusModel().getFocusedItem().getValue());
 
 		AlunoPeriodoCurricularDto obj = (AlunoPeriodoCurricularDto) treeTableView.getFocusModel().getFocusedItem()
 				.getValue();
 		AlunoPeriodoCurricularDto obj2 = (AlunoPeriodoCurricularDto) treeTableView.getFocusModel().getFocusedItem()
 				.getValue();
 
-//		setDadosAlunosController(obj);
 		dadosAlunosController.updateFormData(obj);
 		historicoAlunoController.updateFormData(obj2);
 	}
@@ -938,6 +933,13 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	private void setDadosAlunosController(AlunoPeriodoCurricularDto obj) throws IOException {
 		dadosAlunosController.updateFormData(obj);
+	}
+	
+	public void setDataOfRowSelected(AlunoPeriodoCurricularDto obj) {
+		System.out.println("DataAlunoObj = " + obj);
+		System.out.println("Clicked2! " + treeTableViewAluno.getFocusModel().getFocusedIndex());
+		treeTableViewAluno.getFocusModel().getFocusedItem().setValue(obj);
+		treeTableViewAluno.refresh();
 	}
 
 	private void loadElementTreeTableColumBoolCertidao() {

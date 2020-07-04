@@ -65,23 +65,26 @@ public class AlunoPeriodoCurricularDto {
 
 	}
 
-	public AlunoPeriodoCurricularDto(VwAlunoPeriodoCurricular vwAlunoPeriodoCurricular, AlunoExternal alunoExternal,
+	public AlunoPeriodoCurricularDto(Aluno aluno, VwAlunoPeriodoCurricular vwAlunoPeriodoCurricular, AlunoExternal alunoExternal,
 			String anoLetivo, String curso, String modalidade, String turma, String nomeCompleto, String sexo,
 			Date dataNasc, String nomePai, String nomeMae, String nacionalidade, String naturalidade,
 			String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf, String matricula,
-			String situacaoFinal
-			, Integer nflCertidao
-			, Integer nflCertificado
-			) {
+			String situacaoFinal, Integer nflCertidao, Integer nflCertificado) {
 		super();
-		
+
 		System.out.println("USO 1");
-		
+
 		if (alunoExternal != null) {
 			this.validDadosPessoais = alunoExternal.getValidDadosPessoais();
 			this.validDadosIdentif = alunoExternal.getValidDadosIdentif();
 			this.validDadosHeFund = alunoExternal.getValidDadosHeFund();
 			this.validDadosHeMedio = alunoExternal.getValidDadosHeMedio();
+		}
+		
+		if (aluno == null) {
+			this.nomeCompleto = nomeCompleto;
+		} else {
+			this.nomeCompleto = aluno.getNomeCompleto();
 		}
 
 		this.anoLetivo = anoLetivo;
@@ -89,7 +92,7 @@ public class AlunoPeriodoCurricularDto {
 		this.modalidade = modalidade;
 		this.turma = turma;
 		this.matricula = matricula;
-		this.nomeCompleto = nomeCompleto;
+		
 		this.sexo = sexo;
 		this.dataNasc = dataNasc;
 		this.nomePai = nomePai;
@@ -110,10 +113,7 @@ public class AlunoPeriodoCurricularDto {
 			String nomeCompleto, String sexo, Date dataNasc, String nomePai, String nomeMae, String nacionalidade,
 			String naturalidade, String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf,
 			StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif, StatusDocAluno validDadosHeFund,
-			StatusDocAluno validDadosHeMedio, String situacaoFinal
-			,Integer nflCertidao
-			,Integer nflCertificado
-			) {
+			StatusDocAluno validDadosHeMedio, String situacaoFinal, Integer nflCertidao, Integer nflCertificado) {
 		System.out.println("USO 2");
 		this.anoLetivo = anoLetivo;
 		this.curso = curso;
@@ -323,7 +323,7 @@ public class AlunoPeriodoCurricularDto {
 	public void setSituacaoFinal(String situacaoFinal) {
 		this.situacaoFinal = situacaoFinal;
 	}
-	
+
 	public Integer getNflCertidao() {
 		return nflCertidao;
 	}

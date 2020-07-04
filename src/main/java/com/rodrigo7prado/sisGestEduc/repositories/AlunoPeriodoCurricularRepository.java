@@ -12,7 +12,7 @@ import com.rodrigo7prado.sisGestEduc.entities.AlunoPeriodoCurricular;
 @Repository
 public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPeriodoCurricular, Long> {
 	String part = "SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto("
-			+ "v,a"
+			+ "al, v,a"
 			+ ", v.id.ano"
 			+ ", v.id.turma"
 			+ ", v.id.turma"
@@ -32,8 +32,11 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", v.id.situacaoFinal"
 			+ ", cd.nfl"
 			+ ", cf.nfl"
-			+ ") " + "FROM VwAlunoPeriodoCurricular v " 
-			+ "LEFT JOIN AlunoExternal a " + "ON v.id.aluno = a.id "
+			+ ") " + "FROM Aluno al "
+			+ "RIGHT JOIN VwAlunoPeriodoCurricular v "
+			+ "ON al.id = v.id.aluno " 
+			+ "LEFT JOIN AlunoExternal a " 
+			+ "ON v.id.aluno = a.id "
 			+ "LEFT JOIN CertificadosCsv cf ON cf.aluno = a.id "
 			+ "LEFT JOIN CertidoesCsv cd ON cd.aluno = a.id "
 			;
