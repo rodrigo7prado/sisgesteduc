@@ -18,6 +18,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.text.Text;
 
 @Controller
@@ -58,7 +59,12 @@ public class HistoricoAlunoController implements Initializable {
 		serie2.setCellValueFactory(new PropertyValueFactory<>("serie2"));
 		serie3.setCellValueFactory(new PropertyValueFactory<>("serie3"));
 		
-//		tableView.
+		tableView.setEditable(true);
+//		serie1.setCellValueFactory(new PropertyValueFactory<>("serie1"));
+		serie1.setCellFactory(TextFieldTableCell.forTableColumn());
+		serie2.setCellFactory(TextFieldTableCell.forTableColumn());
+		serie3.setCellFactory(TextFieldTableCell.forTableColumn());
+		
 	}
 
 	private void loadDetails() {
