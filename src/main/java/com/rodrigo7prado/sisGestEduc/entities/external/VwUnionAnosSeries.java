@@ -1,7 +1,12 @@
 package com.rodrigo7prado.sisGestEduc.entities.external;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 
+import org.hibernate.annotations.Immutable;
+
+@Entity
+@Immutable
 public class VwUnionAnosSeries {
 	@Id
 	private String aluno;
