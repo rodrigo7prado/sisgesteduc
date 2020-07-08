@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.DadosEscolasController">
+	<!-- TODO Add Nodes -->
+	<TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0">
+		<columns>
+			<TableColumn prefWidth="61.0" text="Modalid." />
+			<TableColumn prefWidth="58.0" text="Per. Cur." />
+			<TableColumn fx:id="tableColumnAno" prefWidth="42.0" text="Ano" />
+			<TableColumn prefWidth="150.0" text="Escola" />
+		</columns>
+	</TableView>
+	<!-- <TableView prefHeight="114.0" prefWidth="313.0"> <columns> <TableColumn 
+		prefWidth="61.0" text="Modalid." /> <TableColumn prefWidth="58.0" text="Per. 
+		Cur." /> <TableColumn prefWidth="42.0" text="Ano" /> <TableColumn prefWidth="150.0" 
+		text="Escola" /> </columns> </TableView> -->
+</VBox>

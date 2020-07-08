@@ -11,10 +11,10 @@ public class VwUnionAnosSeries {
 	@Id
 	private String aluno;
 	private String serie;
-	private String ano;
+	private String anoSerie;
 	private String chSubst;
+	private String ensMedioEstabEns;
 	private String ensMedioCidadeEstadoEstabEns;
-	private String ensMedioEstabEnsino;
 	private Double freqSubst;
 	private Double frqG;
 	private String resSerie;
@@ -25,15 +25,15 @@ public class VwUnionAnosSeries {
 	public VwUnionAnosSeries() {
 	}
 	
-	public VwUnionAnosSeries(String aluno, String serie, String ano, String chSubst, String ensMedioCidadeEstadoEstabEns,
-			String ensMedioEstabEnsino, Double freqSubst, Double frqG, String resSerie, String resSerieSubst) {
+	public VwUnionAnosSeries(String aluno, String serie, String anoSerie, String chSubst, String ensMedioCidadeEstadoEstabEns,
+			String ensMedioEstabEns, Double freqSubst, Double frqG, String resSerie, String resSerieSubst) {
 		super();
 		this.aluno = aluno;
 		this.serie = serie;
-		this.ano = ano;
+		this.anoSerie = anoSerie;
 		this.chSubst = chSubst;
+		this.ensMedioEstabEns = ensMedioEstabEns;
 		this.ensMedioCidadeEstadoEstabEns = ensMedioCidadeEstadoEstabEns;
-		this.ensMedioEstabEnsino = ensMedioEstabEnsino;
 		this.freqSubst = freqSubst;
 		this.frqG = frqG;
 		this.resSerie = resSerie;
@@ -56,12 +56,12 @@ public class VwUnionAnosSeries {
 		this.serie = serie;
 	}
 
-	public String getAno() {
-		return ano;
+	public String getAnoSerie() {
+		return anoSerie;
 	}
 
-	public void setAno(String ano) {
-		this.ano = ano;
+	public void setAnoSerie(String anoSerie) {
+		this.anoSerie = anoSerie;
 	}
 
 	public String getChSubst() {
@@ -80,12 +80,12 @@ public class VwUnionAnosSeries {
 		this.ensMedioCidadeEstadoEstabEns = ensMedioCidadeEstadoEstabEns;
 	}
 
-	public String getEnsMedioEstabEnsino() {
-		return ensMedioEstabEnsino;
+	public String getEnsMedioEstabEns() {
+		return ensMedioEstabEns;
 	}
 
-	public void setEnsMedioEstabEnsino(String ensMedioEstabEnsino) {
-		this.ensMedioEstabEnsino = ensMedioEstabEnsino;
+	public void setEnsMedioEstabEns(String ensMedioEstabEnsino) {
+		this.ensMedioEstabEns = ensMedioEstabEnsino;
 	}
 
 	public Double getFreqSubst() {

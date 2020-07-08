@@ -30,12 +30,19 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", a.rgEmissorUf"
 			+ ", v.id.aluno"
 			+ ", v.id.situacaoFinal"
+			+ ", u.chSubst"
+			+ ", u.ensMedioEstabEns"
+			+ ", u.ensMedioCidadeEstadoEstabEns"
+			+ ", u.freqSubst"
+			+ ", u.frqG"
+			+ ", u.resSerie"
+			+ ", u.resSerieSubst"
 			+ ", cd.nfl"
 			+ ", cf.nfl"
 			+ ") " + "FROM Aluno al "
 			+ "RIGHT JOIN VwAlunoPeriodoCurricular v ON al.id = v.id.aluno "
-			+ "LEFT JOIN AlunoExternal a ON v.id.aluno = a.id "
-			+ "LEFT JOIN VwUnionAnosSeries u ON a.id = u.id "
+			+ "LEFT JOIN AlunoExternal a ON a.id = v.id.aluno "
+			+ "LEFT JOIN VwUnionAnosSeries u ON u.aluno = a.id AND u.anoSerie = v.id.ano "
 			+ "LEFT JOIN CertificadosCsv cf ON cf.aluno = a.id "
 			+ "LEFT JOIN CertidoesCsv cd ON cd.aluno = a.id "
 			;
@@ -50,6 +57,8 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 	
 	String findFilterTodosWhere = ""
 			+ "OR v.id.ano LIKE 'Ano Letivo: 2017%' ";
+	String findFilterDadosEscolaWhere = ""
+			+ "WHERE v.id.aluno = ?1";
 	String findFilterUltimosPeriodosLetivosWhere = ""
 			+ " AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
 	String findFilterConcluintesWhere = ""
@@ -134,6 +143,11 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ findFilterTodosWhere
 			+ order)
 	List<AlunoPeriodoCurricularDto> findFilterTodos();
+	
+	@Query(part
+			+ findFilterDadosEscolaWhere
+			)
+	List<AlunoPeriodoCurricularDto> findFilterDadosEscolas(String matricula);
 	
 	@Query(selectCount
 			+ where1

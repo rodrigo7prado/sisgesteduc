@@ -46,6 +46,15 @@ public class AlunoPeriodoCurricularDto {
 
 	private String freq;
 	private String situacaoFinal;
+	
+	private String chSubst;
+	private String ensMedioEstabEnsino;		
+	private String ensMedioCidadeEstadoEstabEns;
+	private String freqSubst;
+	private String frqG;
+	private String resSerie;
+	private String resSerieSubst;
+	
 	private Integer nflCertidao;
 	private Integer nflCertificado;
 
@@ -69,7 +78,15 @@ public class AlunoPeriodoCurricularDto {
 			String anoLetivo, String curso, String modalidade, String turma, String nomeCompleto, String sexo,
 			Date dataNasc, String nomePai, String nomeMae, String nacionalidade, String naturalidade,
 			String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf, String matricula,
-			String situacaoFinal, Integer nflCertidao, Integer nflCertificado) {
+			String situacaoFinal,
+			String chSubst,
+			String ensMedioEstabEns,	
+			String ensMedioCidadeEstadoEstabEns,
+			Double freqSubst,
+			Double frqG,
+			String resSerie,
+			String resSerieSubst,
+			Integer nflCertidao, Integer nflCertificado) {
 		super();
 
 		System.out.println("USO 1");
@@ -104,6 +121,15 @@ public class AlunoPeriodoCurricularDto {
 		this.rgEmissor = rgEmissor;
 		this.rgEmissorUf = rgEmissorUf;
 		this.situacaoFinal = situacaoFinal;
+		
+//		this.chSubst = chSubst;
+//		this.ensMedioEstabEnsino = ensMedioEstabEnsino;		
+//		this.ensMedioCidadeEstadoEstabEns = ensMedioCidadeEstadoEstabEns;
+//		this.freqSubst = freqSubst;
+//		this.frqG = frqG;
+//		this.resSerie = resSerie;
+//		this.resSerieSubst = resSerieSubst;
+		
 		this.nflCertidao = nflCertidao;
 		this.nflCertificado = nflCertificado;
 

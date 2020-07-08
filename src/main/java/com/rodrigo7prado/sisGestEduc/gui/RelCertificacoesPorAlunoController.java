@@ -50,6 +50,9 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	@FXML
 	private VBox vBoxControllerFiltro;
+	
+	@FXML
+	private VBox vBoxControllerDadosEscolas;
 
 	@FXML
 	ProgressBar progressBar;
@@ -57,6 +60,9 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	@FXML
 	@Autowired
 	private DadosAlunosController dadosAlunosController;
+	@FXML
+	@Autowired
+	private DadosEscolasController dadosEscolasController;
 	@FXML
 	@Autowired
 	private HistoricoAlunoController historicoAlunoController;
@@ -924,6 +930,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 		dadosAlunosController.updateFormData(obj);
 		historicoAlunoController.updateFormData(obj2);
+		dadosEscolasController.updateFormData(obj2);
 	}
 
 	@SuppressWarnings("unused")
