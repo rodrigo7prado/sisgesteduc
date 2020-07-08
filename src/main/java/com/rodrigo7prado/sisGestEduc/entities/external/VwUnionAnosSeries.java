@@ -25,8 +25,7 @@ public class VwUnionAnosSeries {
 	public VwUnionAnosSeries() {
 	}
 	
-	public VwUnionAnosSeries(String aluno, String serie, String anoSerie, String chSubst, String ensMedioCidadeEstadoEstabEns,
-			String ensMedioEstabEns, Double freqSubst, Double frqG, String resSerie, String resSerieSubst) {
+	public VwUnionAnosSeries(String aluno, String serie, String anoSerie, String chSubst, String ensMedioEstabEns, String ensMedioCidadeEstadoEstabEns, Double freqSubst, Double frqG, String resSerie, String resSerieSubst) {
 		super();
 		this.aluno = aluno;
 		this.serie = serie;
@@ -71,6 +70,14 @@ public class VwUnionAnosSeries {
 	public void setChSubst(String chSubst) {
 		this.chSubst = chSubst;
 	}
+	
+	public String getEnsMedioEstabEns() {
+		return ensMedioEstabEns;
+	}
+
+	public void setEnsMedioEstabEns(String ensMedioEstabEns) {
+		this.ensMedioEstabEns = ensMedioEstabEns;
+	}
 
 	public String getEnsMedioCidadeEstadoEstabEns() {
 		return ensMedioCidadeEstadoEstabEns;
@@ -78,14 +85,6 @@ public class VwUnionAnosSeries {
 
 	public void setEnsMedioCidadeEstadoEstabEns(String ensMedioCidadeEstadoEstabEns) {
 		this.ensMedioCidadeEstadoEstabEns = ensMedioCidadeEstadoEstabEns;
-	}
-
-	public String getEnsMedioEstabEns() {
-		return ensMedioEstabEns;
-	}
-
-	public void setEnsMedioEstabEns(String ensMedioEstabEnsino) {
-		this.ensMedioEstabEns = ensMedioEstabEnsino;
 	}
 
 	public Double getFreqSubst() {

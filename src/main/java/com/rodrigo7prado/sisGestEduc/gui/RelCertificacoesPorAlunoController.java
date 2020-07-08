@@ -205,7 +205,8 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		treeTableColumnDadosIdentif.setCellValueFactory(new TreeItemPropertyValueFactory("validDadosIdentif"));
 		treeTableColumnDadosHeFund.setCellValueFactory(new TreeItemPropertyValueFactory("validDadosHeFund"));
 		treeTableColumnDadosHeMedio.setCellValueFactory(new TreeItemPropertyValueFactory("validDadosHeMedio"));
-		treeTableColumnSituacaoFinal.setCellValueFactory(new TreeItemPropertyValueFactory("situacaoFinal"));
+//		treeTableColumnSituacaoFinal.setCellValueFactory(new TreeItemPropertyValueFactory("situacaoFinal"));
+		treeTableColumnSituacaoFinal.setCellValueFactory(new TreeItemPropertyValueFactory("ensMedioEstabEns"));
 	}
 
 //	@SuppressWarnings("unused")
@@ -868,7 +869,9 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 					itemObsList.getNaturalidadeUF(), itemObsList.getRg(), itemObsList.getRgEmissor(),
 					itemObsList.getRgEmissorUf(), itemObsList.getValidDadosPessoais(),
 					itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
-					itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal(), itemObsList.getNflCertidao(),
+					itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal(),
+					itemObsList.getEnsMedioEstabEns(),
+					itemObsList.getNflCertidao(),
 					itemObsList.getNflCertificado()));
 
 			TreeItem<AlunoPeriodoCurricularDto> turmaNode = node;
@@ -927,6 +930,8 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 				.getValue();
 		AlunoPeriodoCurricularDto obj2 = (AlunoPeriodoCurricularDto) treeTableView.getFocusModel().getFocusedItem()
 				.getValue();
+		
+		System.out.println("obj2: " + obj2.getEnsMedioEstabEns());
 
 		dadosAlunosController.updateFormData(obj);
 		historicoAlunoController.updateFormData(obj2);

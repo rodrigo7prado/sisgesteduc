@@ -34,6 +34,8 @@ public class DadosEscolasController implements Initializable {
 	private TableColumn<AlunoPeriodoCurricularDto, String> tableColumnPeriodoCurricular;
 	@FXML
 	private TableColumn<AlunoPeriodoCurricularDto, String> tableColumnAno;
+	@FXML
+	private TableColumn<AlunoPeriodoCurricularDto, String> tableColumnEscola;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -49,6 +51,7 @@ public class DadosEscolasController implements Initializable {
 //		tableColumnModalidade.setCellValueFactory(new PropertyValueFactory<>("componenteCurricular"));
 //		tableColumnPeriodoCurricular.setCellValueFactory(new PropertyValueFactory<>("serie1"));
 		tableColumnAno.setCellValueFactory(new PropertyValueFactory<>("anoLetivo"));
+		tableColumnEscola.setCellValueFactory(new PropertyValueFactory<>("ensMedioEstabEns"));
 	}
 
 	public void updateFormData(AlunoPeriodoCurricularDto obj) {

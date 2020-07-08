@@ -48,10 +48,10 @@ public class AlunoPeriodoCurricularDto {
 	private String situacaoFinal;
 	
 	private String chSubst;
-	private String ensMedioEstabEnsino;		
+	private String ensMedioEstabEns;		
 	private String ensMedioCidadeEstadoEstabEns;
-	private String freqSubst;
-	private String frqG;
+	private Double freqSubst;
+	private Double frqG;
 	private String resSerie;
 	private String resSerieSubst;
 	
@@ -80,7 +80,7 @@ public class AlunoPeriodoCurricularDto {
 			String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf, String matricula,
 			String situacaoFinal,
 			String chSubst,
-			String ensMedioEstabEns,	
+			String ensMedioEstabEns,
 			String ensMedioCidadeEstadoEstabEns,
 			Double freqSubst,
 			Double frqG,
@@ -122,13 +122,14 @@ public class AlunoPeriodoCurricularDto {
 		this.rgEmissorUf = rgEmissorUf;
 		this.situacaoFinal = situacaoFinal;
 		
-//		this.chSubst = chSubst;
-//		this.ensMedioEstabEnsino = ensMedioEstabEnsino;		
-//		this.ensMedioCidadeEstadoEstabEns = ensMedioCidadeEstadoEstabEns;
-//		this.freqSubst = freqSubst;
-//		this.frqG = frqG;
-//		this.resSerie = resSerie;
-//		this.resSerieSubst = resSerieSubst;
+		this.chSubst = chSubst;
+		this.ensMedioEstabEns = ensMedioEstabEns;		
+		System.out.println("Lugar: " + situacaoFinal);
+		this.ensMedioCidadeEstadoEstabEns = ensMedioCidadeEstadoEstabEns;
+		this.freqSubst = freqSubst;
+		this.frqG = frqG;
+		this.resSerie = resSerie;
+		this.resSerieSubst = resSerieSubst;
 		
 		this.nflCertidao = nflCertidao;
 		this.nflCertificado = nflCertificado;
@@ -139,7 +140,9 @@ public class AlunoPeriodoCurricularDto {
 			String nomeCompleto, String sexo, Date dataNasc, String nomePai, String nomeMae, String nacionalidade,
 			String naturalidade, String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf,
 			StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif, StatusDocAluno validDadosHeFund,
-			StatusDocAluno validDadosHeMedio, String situacaoFinal, Integer nflCertidao, Integer nflCertificado) {
+			StatusDocAluno validDadosHeMedio, String situacaoFinal,
+			String ensMedioEstabEns,
+			Integer nflCertidao, Integer nflCertificado) {
 		System.out.println("USO 2");
 		this.anoLetivo = anoLetivo;
 		this.curso = curso;
@@ -162,6 +165,9 @@ public class AlunoPeriodoCurricularDto {
 		this.validDadosHeFund = validDadosHeFund;
 		this.validDadosHeMedio = validDadosHeMedio;
 		this.situacaoFinal = situacaoFinal;
+		
+		this.ensMedioEstabEns = ensMedioEstabEns;
+		
 		this.nflCertidao = nflCertidao;
 		this.nflCertificado = nflCertificado;
 	}
@@ -348,6 +354,62 @@ public class AlunoPeriodoCurricularDto {
 
 	public void setSituacaoFinal(String situacaoFinal) {
 		this.situacaoFinal = situacaoFinal;
+	}
+
+	public String getChSubst() {
+		return chSubst;
+	}
+
+	public void setChSubst(String chSubst) {
+		this.chSubst = chSubst;
+	}
+
+	public String getEnsMedioEstabEns() {
+		return ensMedioEstabEns;
+	}
+
+	public void setEnsMedioEstabEns(String ensMedioEstabEns) {
+		this.ensMedioEstabEns = ensMedioEstabEns;
+	}
+
+	public String getEnsMedioCidadeEstadoEstabEns() {
+		return ensMedioCidadeEstadoEstabEns;
+	}
+
+	public void setEnsMedioCidadeEstadoEstabEns(String ensMedioCidadeEstadoEstabEns) {
+		this.ensMedioCidadeEstadoEstabEns = ensMedioCidadeEstadoEstabEns;
+	}
+
+	public Double getFreqSubst() {
+		return freqSubst;
+	}
+
+	public void setFreqSubst(Double freqSubst) {
+		this.freqSubst = freqSubst;
+	}
+
+	public Double getFrqG() {
+		return frqG;
+	}
+
+	public void setFrqG(Double frqG) {
+		this.frqG = frqG;
+	}
+
+	public String getResSerie() {
+		return resSerie;
+	}
+
+	public void setResSerie(String resSerie) {
+		this.resSerie = resSerie;
+	}
+
+	public String getResSerieSubst() {
+		return resSerieSubst;
+	}
+
+	public void setResSerieSubst(String resSerieSubst) {
+		this.resSerieSubst = resSerieSubst;
 	}
 
 	public Integer getNflCertidao() {
