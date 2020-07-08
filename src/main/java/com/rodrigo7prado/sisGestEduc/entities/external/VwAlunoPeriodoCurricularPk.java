@@ -12,6 +12,12 @@ public class VwAlunoPeriodoCurricularPk implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private String curso;
+	
+	private String modalidade;
+	
+	private String periodoCurricular;
+	
 	private String ano;
 	
 	private String turma;
@@ -19,6 +25,32 @@ public class VwAlunoPeriodoCurricularPk implements Serializable {
 	private String aluno;
 	
 	private String situacaoFinal;
+	
+	
+
+	public String getCurso() {
+		return curso;
+	}
+
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
+
+	public String getModalidade() {
+		return modalidade;
+	}
+
+	public void setModalidade(String modalidade) {
+		this.modalidade = modalidade;
+	}
+
+	public String getPeriodoCurricular() {
+		return periodoCurricular;
+	}
+
+	public void setPeriodoCurricular(String periodoCurricular) {
+		this.periodoCurricular = periodoCurricular;
+	}
 
 	public String getAno() {
 		return ano;
