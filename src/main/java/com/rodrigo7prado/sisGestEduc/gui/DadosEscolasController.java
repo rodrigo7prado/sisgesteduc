@@ -50,6 +50,7 @@ public class DadosEscolasController implements Initializable {
 	private void initializeNodes() {
 //		tableColumnModalidade.setCellValueFactory(new PropertyValueFactory<>("componenteCurricular"));
 //		tableColumnPeriodoCurricular.setCellValueFactory(new PropertyValueFactory<>("serie1"));
+		tableColumnModalidade.setCellValueFactory(new PropertyValueFactory<>("modalidade"));
 		tableColumnAno.setCellValueFactory(new PropertyValueFactory<>("anoLetivo"));
 		tableColumnEscola.setCellValueFactory(new PropertyValueFactory<>("ensMedioEstabEns"));
 	}
