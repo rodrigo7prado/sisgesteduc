@@ -12,6 +12,8 @@ public class VwAlunoPeriodoCurricular {
 	@EmbeddedId
 	private VwAlunoPeriodoCurricularPk id;
 	
+	private String ano2;
+	
 	private String nomeCompl;
 	
 //	@ManyToOne
@@ -27,6 +29,16 @@ public class VwAlunoPeriodoCurricular {
 
 	public void setId(VwAlunoPeriodoCurricularPk id) {
 		this.id = id;
+	}
+	
+	
+
+	public String getAno2() {
+		return ano2;
+	}
+
+	public void setAno2(String ano2) {
+		this.ano2 = ano2;
 	}
 
 	public String getNomeCompl() {
