@@ -75,7 +75,7 @@ public class AlunoPeriodoCurricularDto {
 	}
 
 	public AlunoPeriodoCurricularDto(Aluno aluno, VwAlunoPeriodoCurricular vwAlunoPeriodoCurricular, AlunoExternal alunoExternal,
-			String anoLetivo, String curso, String modalidade, String turma, String nomeCompleto, String sexo,
+			String anoLetivo, String curso, String modalidade, String serie, String turma, String nomeCompleto, String sexo,
 			Date dataNasc, String nomePai, String nomeMae, String nacionalidade, String naturalidade,
 			String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf, String matricula,
 			String situacaoFinal,
@@ -107,6 +107,7 @@ public class AlunoPeriodoCurricularDto {
 		this.anoLetivo = anoLetivo;
 		this.curso = curso;
 		this.modalidade = modalidade;
+		this.serie = serie;
 		this.turma = turma;
 		this.matricula = matricula;
 		
@@ -136,7 +137,7 @@ public class AlunoPeriodoCurricularDto {
 
 	}
 
-	public AlunoPeriodoCurricularDto(String anoLetivo, String curso, String modalidade, String turma, String matricula,
+	public AlunoPeriodoCurricularDto(String anoLetivo, String curso, String modalidade, String serie, String turma, String matricula,
 			String nomeCompleto, String sexo, Date dataNasc, String nomePai, String nomeMae, String nacionalidade,
 			String naturalidade, String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf,
 			StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif, StatusDocAluno validDadosHeFund,
@@ -147,6 +148,7 @@ public class AlunoPeriodoCurricularDto {
 		this.anoLetivo = anoLetivo;
 		this.curso = curso;
 		this.modalidade = modalidade;
+		this.serie = serie;
 		this.turma = turma;
 		this.matricula = matricula;
 		this.nomeCompleto = nomeCompleto;

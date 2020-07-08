@@ -16,6 +16,7 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ", v.id.ano"
 			+ ", v.id.curso"
 			+ ", v.id.modalidade"
+			+ ", v.id.periodoCurricular"
 			+ ", v.id.turma"
 			+ ", v.nomeCompl"
 			+ ", a.sexo"

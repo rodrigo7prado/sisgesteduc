@@ -49,15 +49,15 @@ public class DadosEscolasController implements Initializable {
 
 	private void initializeNodes() {
 //		tableColumnModalidade.setCellValueFactory(new PropertyValueFactory<>("componenteCurricular"));
-//		tableColumnPeriodoCurricular.setCellValueFactory(new PropertyValueFactory<>("serie1"));
+//		
 		tableColumnModalidade.setCellValueFactory(new PropertyValueFactory<>("modalidade"));
 		tableColumnAno.setCellValueFactory(new PropertyValueFactory<>("anoLetivo"));
+		tableColumnPeriodoCurricular.setCellValueFactory(new PropertyValueFactory<>("serie"));
 		tableColumnEscola.setCellValueFactory(new PropertyValueFactory<>("ensMedioEstabEns"));
 	}
 
 	public void updateFormData(AlunoPeriodoCurricularDto obj) {
 		System.out.println("Cliquei!");
-		
 
 		tableView.getItems().clear();
 		
