@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1"
+	xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+		<SplitPane dividerPositions="0.5" prefHeight="160.0"
+			prefWidth="200.0">
+			<items>
+				<VBox>
+					<children>
+						<Text strokeType="OUTSIDE" strokeWidth="0.0"
+							text="Períodos Curriculares" />
+						<TabPane prefHeight="200.0" prefWidth="693.0"
+							tabClosingPolicy="UNAVAILABLE">
+							<tabs>
+								<Tab text="Nível Nacional">
+									<content>
+										<VBox>
+											<children>
+												<TableView prefHeight="171.0" prefWidth="460.0">
+													<columns>
+														<TableColumn prefWidth="75.0" text="Vigência" />
+														<TableColumn prefWidth="129.0"
+															text="Curso/Modalidade" />
+														<TableColumn prefWidth="167.0"
+															text="(num) Períodos Curriculares" />
+														<TableColumn prefWidth="51.0" text="Nome" />
+													</columns>
+												</TableView>
+											</children>
+										</VBox>
+									</content>
+								</Tab>
+								<Tab text="Nível Rede Ensino">
+									<content>
+										<VBox>
+											<TableView prefHeight="171.0" prefWidth="460.0">
+												<columns>
+													<TableColumn prefWidth="75.0" text="Vigência" />
+													<TableColumn prefWidth="187.0" text="Rede" />
+													<TableColumn prefWidth="129.0"
+														text="Curso/Modalidade" />
+													<TableColumn prefWidth="167.0"
+														text="(num) Períodos Curriculares" />
+													<TableColumn prefWidth="51.0" text="Nome" />
+												</columns>
+											</TableView>
+										</VBox>
+									</content>
+								</Tab>
+								<Tab text="Nível Unidade Ensino">
+									<content>
+										<AnchorPane minHeight="0.0" minWidth="0.0"
+											prefHeight="180.0" prefWidth="200.0" />
+									</content>
+								</Tab>
+							</tabs>
+						</TabPane>
+					</children>
+				</VBox>
+				<VBox>
+					<children>
+						<Text strokeType="OUTSIDE" strokeWidth="0.0"
+							text="Componentes Curriculares" />
+						<TabPane prefHeight="200.0" prefWidth="693.0"
+							tabClosingPolicy="UNAVAILABLE">
+							<tabs>
+								<Tab text="Ensino Médio Regular">
+									<content>
+										<VBox>
+											<children>
+												<TableView prefHeight="171.0" prefWidth="460.0">
+													<columns>
+														<TableColumn prefWidth="187.0"
+															text="Componente Curricular" />
+														<TableColumn prefWidth="75.0" text="1ª série" />
+														<TableColumn prefWidth="129.0" text="2ª série" />
+														<TableColumn prefWidth="136.0" text="3ª série" />
+													</columns>
+												</TableView>
+											</children>
+										</VBox>
+									</content>
+								</Tab>
+								<Tab text="NEJA">
+									<content>
+										<AnchorPane minHeight="0.0" minWidth="0.0"
+											prefHeight="180.0" prefWidth="200.0" />
+									</content>
+								</Tab>
+							</tabs>
+						</TabPane>
+					</children>
+				</VBox>
+			</items>
+		</SplitPane>
+		<Text strokeType="OUTSIDE" strokeWidth="0.0"
+			text="Componentes Curriculares" />
+		<TabPane prefHeight="200.0" prefWidth="693.0"
+			tabClosingPolicy="UNAVAILABLE">
+			<tabs>
+				<Tab text="Ensino Médio Regular">
+					<content>
+						<VBox>
+							<children>
+								<TableView prefHeight="171.0" prefWidth="460.0">
+									<columns>
+										<TableColumn prefWidth="187.0"
+											text="Componente Curricular" />
+										<TableColumn prefWidth="75.0" text="1ª série">
+											<columns>
+												<TableColumn prefWidth="78.0"
+													text="1º bimestre" />
+												<TableColumn prefWidth="78.0"
+													text="2º bimestre" />
+												<TableColumn prefWidth="78.0"
+													text="3º bimestre" />
+												<TableColumn prefWidth="78.0"
+													text="4º bimestre" />
+											</columns>
+										</TableColumn>
+										<TableColumn prefWidth="75.0" text="2ª série">
+											<columns>
+												<TableColumn prefWidth="78.0"
+													text="1º bimestre" />
+												<TableColumn prefWidth="78.0"
+													text="2º bimestre" />
+												<TableColumn prefWidth="78.0"
+													text="3º bimestre" />
+												<TableColumn prefWidth="78.0"
+													text="4º bimestre" />
+											</columns>
+										</TableColumn>
+										<TableColumn prefWidth="75.0" text="3ª série">
+											<columns>
+												<TableColumn prefWidth="78.0"
+													text="1º bimestre" />
+												<TableColumn prefWidth="78.0"
+													text="2º bimestre" />
+												<TableColumn prefWidth="78.0"
+													text="3º bimestre" />
+												<TableColumn prefWidth="78.0"
+													text="4º bimestre" />
+											</columns>
+										</TableColumn>
+									</columns>
+								</TableView>
+							</children>
+						</VBox>
+					</content>
+				</Tab>
+				<Tab text="NEJA">
+					<content>
+						<AnchorPane minHeight="0.0" minWidth="0.0"
+							prefHeight="180.0" prefWidth="200.0" />
+					</content>
+				</Tab>
+			</tabs>
+		</TabPane>
+		<SplitPane dividerPositions="0.5" prefHeight="160.0"
+			prefWidth="200.0">
+			<items>
+				<TabPane prefHeight="200.0" prefWidth="693.0"
+					tabClosingPolicy="UNAVAILABLE">
+					<tabs>
+						<Tab text="Nível Adm">
+							<content>
+								<VBox>
+									<children>
+										<TableView prefHeight="171.0" prefWidth="460.0">
+											<columns>
+												<TableColumn prefWidth="187.0"
+													text="Curso/Modalidade" />
+												<TableColumn prefWidth="49.0" text="Turno" />
+												<TableColumn prefWidth="67.0" text="(n) Aulas" />
+												<TableColumn prefWidth="84.0"
+													text="Duração aula" />
+												<TableColumn prefWidth="76.0" text="Hora início" />
+											</columns>
+										</TableView>
+									</children>
+								</VBox>
+							</content>
+						</Tab>
+						<Tab text="NEJA">
+							<content>
+								<AnchorPane minHeight="0.0" minWidth="0.0"
+									prefHeight="180.0" prefWidth="200.0" />
+							</content>
+						</Tab>
+					</tabs>
+				</TabPane>
+				<TabPane prefHeight="200.0" prefWidth="693.0"
+					tabClosingPolicy="UNAVAILABLE">
+					<tabs>
+						<Tab text="Nível Adm">
+							<content>
+								<VBox>
+									<children>
+										<TableView prefHeight="171.0" prefWidth="460.0">
+											<columns>
+												<TableColumn prefWidth="187.0"
+													text="Curso/Modalidade" />
+												<TableColumn prefWidth="49.0" text="Turno" />
+												<TableColumn prefWidth="125.33331298828125"
+													text="Período Curricular" />
+												<TableColumn prefWidth="73.6666259765625"
+													text="(n) Turmas" />
+											</columns>
+										</TableView>
+									</children>
+								</VBox>
+							</content>
+						</Tab>
+						<Tab text="NEJA">
+							<content>
+								<AnchorPane minHeight="0.0" minWidth="0.0"
+									prefHeight="180.0" prefWidth="200.0" />
+							</content>
+						</Tab>
+					</tabs>
+				</TabPane>
+			</items>
+		</SplitPane>
+	</children>
+</VBox>

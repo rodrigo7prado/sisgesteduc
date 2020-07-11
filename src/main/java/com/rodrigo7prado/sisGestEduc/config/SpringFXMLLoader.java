@@ -30,9 +30,11 @@ public class SpringFXMLLoader {
 	}
 
 	public Parent load(String fxmlPath) throws IOException {
-		
-		System.out.println("VAMOS VER AGORA");
 
+		return buildInTabs(fxmlPath);
+	}
+	
+	private Parent buildInGeneric(String fxmlPath) throws IOException {
 		FXMLLoader loaderMain = new FXMLLoader();
 		loaderMain.setControllerFactory(context::getBean); // Spring now FXML Controller Factory
 		loaderMain.setResources(resourceBundle);
@@ -41,11 +43,63 @@ public class SpringFXMLLoader {
 
 		mainScene = new Scene(scrollPane);
 		
-//		mainScene.getStylesheets().add(getClass().getResource("..\\..\\..\\..\\styles\\Style2.css").toExternalForm());
-//		mainScene.getStylesheets().add(getClass().getResource("..\\..\\..\\..\\styles\\Style2.css").;
-//		mainScene.getStylesheets().add(getClass().getResource("Style2.css").toExternalForm());
+		BorderPane borderPane = (BorderPane) ((ScrollPane) mainScene.getRoot()).getContent();
+		VBox vBox = (VBox) borderPane.getCenter();
+//		TabPane tabPane = (TabPane) vBox.getChildren().get(0);
+		
+		ArrayList<String> list = new ArrayList<String>();
+        
+		list.add("/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorAluno.fxml");
+		list.add("/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorTurma.fxml");
+        list.add("/com/rodrigo7prado/sisGestEduc/gui/Aluno.fxml");
+        
+        String fxml = "/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorAluno.fxml";
+        
+        FXMLLoader loader = new FXMLLoader();
+		loader.setControllerFactory(context::getBean); // Spring now FXML Controller Factory
+		loader.setResources(resourceBundle);
+		loader.setLocation(getClass().getResource(fxml));
+		
+		
+		VBox newVBox = loader.load();
+		
+		vBox.getChildren();
+		vBox.getChildren().clear();
+		vBox.getChildren().addAll(newVBox.getChildren());
+		
+//    	Tab tab = (Tab) tabPane.getTabs().get(i);    
+//        VBox vBoxInTab = (VBox) tab.getContent();
+//        vBoxInTab.getChildren();
+//        vBoxInTab.getChildren().clear();
+//        vBoxInTab.getChildren().addAll(newVBox.getChildren());
+        
+//        int i = 0;
+//        for (String fxml: list) {
+//        	
+//        	if(!fxml.equals(null)) {
+//        		
+//        	} else {
+//        		Tab tab = (Tab) tabPane.getTabs().get(i);
+//            	VBox vBoxInTab = (VBox) tab.getContent();
+//                vBoxInTab.getChildren();
+//                vBoxInTab.getChildren().clear();
+//                vBoxInTab.getChildren().addAll();
+//        	}
+//        	
+//        	i++;
+//        }
 
-//    	----------------------------------------------------------------------
+		return borderPane;
+	}
+	
+	private Parent buildInTabs(String fxmlPath) throws IOException {
+		FXMLLoader loaderMain = new FXMLLoader();
+		loaderMain.setControllerFactory(context::getBean); // Spring now FXML Controller Factory
+		loaderMain.setResources(resourceBundle);
+		loaderMain.setLocation(getClass().getResource("/com/rodrigo7prado/sisGestEduc/gui/MainView.fxml"));
+		ScrollPane scrollPane = loaderMain.load();
+
+		mainScene = new Scene(scrollPane);
 		
 		BorderPane borderPane = (BorderPane) ((ScrollPane) mainScene.getRoot()).getContent();
 		VBox vBox = (VBox) borderPane.getCenter();
@@ -56,6 +110,7 @@ public class SpringFXMLLoader {
 		list.add("/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorAluno.fxml");
 		list.add("/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorTurma.fxml");
         list.add("/com/rodrigo7prado/sisGestEduc/gui/Aluno.fxml");
+        list.add("/com/rodrigo7prado/sisGestEduc/gui/Anterioridades.fxml");
         
         int i = 0;
         for (String fxml: list) {

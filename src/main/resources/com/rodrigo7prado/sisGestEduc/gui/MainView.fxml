@@ -54,39 +54,24 @@
 			<center>
 				<VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@Style2.css" BorderPane.alignment="CENTER">
 					<children>
-						<TabPane fx:id="tabPane" prefWidth="764.0" tabClosingPolicy="UNAVAILABLE">
+						<TabPane fx:id="tabPane" prefWidth="764.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
 							<tabs>
-								<Tab fx:id="tabPendencias" onSelectionChanged="#onTabPendenciasSelectionChange" text="Pendências">
+								<Tab fx:id="tabPendencias" onSelectionChanged="#onTabPendenciasSelectionChange" text="Alunos">
 									<content>
 										<VBox prefWidth="1300.0" />
 									</content>
 								</Tab>
-								<Tab fx:id="tabAlunosACertificar" onSelectionChanged="#onTabAlunosACertificarSelectionChange" text="Alunos a Certificar">
+								<Tab fx:id="tabMigracaoConexao" onSelectionChanged="#onTabMigracaoConexaoSelectionChange" text="Migração">
 									<content>
 										<VBox />
 									</content>
 								</Tab>
-								<Tab fx:id="tabMigracaoConexao" onSelectionChanged="#onTabMigracaoConexaoSelectionChange" text="Migração Conexão">
+								<Tab fx:id="tabAlunosACertificar" onSelectionChanged="#onTabAlunosACertificarSelectionChange" text="Escola">
 									<content>
 										<VBox />
 									</content>
 								</Tab>
-								<Tab fx:id="tabAluno" onSelectionChanged="#onTabAlunoSelectionChange" text="Aluno">
-									<content>
-										<VBox />
-									</content>
-								</Tab>
-								<Tab text="Certidões">
-									<content>
-										<VBox />
-									</content>
-								</Tab>
-								<Tab text="Certificados">
-									<content>
-										<VBox />
-									</content>
-								</Tab>
-								<Tab text="Históricos">
+								<Tab fx:id="tabAluno" onSelectionChanged="#onTabAlunoSelectionChange" text="Anterioridades">
 									<content>
 										<VBox />
 									</content>

@@ -43,7 +43,8 @@ public interface AlunoPeriodoCurricularRepository extends JpaRepository<AlunoPer
 			+ ") " + "FROM Aluno al "
 			+ "RIGHT JOIN VwAlunoPeriodoCurricular v ON al.id = v.id.aluno "
 			+ "LEFT JOIN AlunoExternal a ON a.id = v.id.aluno "
-			+ "LEFT JOIN VwUnionAnosSeries u ON u.aluno = a.id AND u.serie = v.id.periodoCurricular "
+			+ "RIGHT JOIN VwUnionAnosSeries u ON u.aluno = a.id "
+//				+ "AND u.serie = v.id.periodoCurricular "
 			+ "LEFT JOIN CertificadosCsv cf ON cf.aluno = a.id "
 			+ "LEFT JOIN CertidoesCsv cd ON cd.aluno = a.id "
 			;
