@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="421.0" prefWidth="1179.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+      <HBox prefHeight="428.0" prefWidth="1179.0">
+         <children>
+            <VBox prefHeight="421.0" prefWidth="441.0">
+               <children>
+						<HBox prefHeight="28.0" prefWidth="276.0">
+							<children>
+
+								<RadioButton mnemonicParsing="false" text="1º bimestre" toggleGroup="$toggleGroupBimestres">
+									<toggleGroup>
+										<ToggleGroup fx:id="toggleGroupBimestres" />
+									</toggleGroup>
+								</RadioButton>
+								<RadioButton mnemonicParsing="false" text="2º bimestre" toggleGroup="$toggleGroupBimestres" />
+								<RadioButton mnemonicParsing="false" text="3º bimestre" toggleGroup="$toggleGroupBimestres" />
+								<RadioButton mnemonicParsing="false" text="4º bimestre" toggleGroup="$toggleGroupBimestres" />
+							</children>
+						</HBox>
+      						<TableView prefHeight="394.0" prefWidth="255.0">
+      							<columns>
+      								<TableColumn prefWidth="75.0" text="Dia" />
+      								<TableColumn prefWidth="108.0" text="Currículo Mínimo" />
+      								<TableColumn prefWidth="42.0" text="Tema" />
+      								<TableColumn prefWidth="210.0" text="Observações" />
+      							</columns>
+      						</TableView>
+               </children>
+            </VBox>
+            <VBox prefHeight="421.0" prefWidth="517.0">
+               <children>
+            		<HBox prefHeight="251.0" prefWidth="1179.0">
+            			<children>
+            				<VBox prefHeight="148.0" prefWidth="191.0">
+            					<children>
+            						<Button mnemonicParsing="false" text="Adicionar observação" />
+            						<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Observação sobre a aula" />
+            						<Text strokeType="OUTSIDE" strokeWidth="0.0" text="Observação sobre aluno" />
+            					</children>
+            				</VBox>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Button mnemonicParsing="false" text="Avaliação 1" />
+                              <Button mnemonicParsing="false" text="Avaliação 2" />
+                              <Button mnemonicParsing="false" text="Avaliação 3" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="148.0" prefWidth="226.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                           </children>
+                        </VBox>
+            			</children>
+            		</HBox>
+            		<HBox prefHeight="173.0" prefWidth="1179.0">
+            			<children>
+            				<AnchorPane>
+            					<children>
+            						<TextField layoutX="183.0" layoutY="15.0" prefHeight="25.0" prefWidth="271.0" text="Estudo introdutório" />
+            						<TextArea layoutX="183.0" layoutY="43.0" prefHeight="63.0" prefWidth="271.0" text="Perceber que a transmissão de conhecimento não é neutra e que todos somos agentes da História" wrapText="true" />
+            						<Label layoutX="14.0" layoutY="56.0" prefHeight="17.0" prefWidth="158.0" text="Habilidades e Competências" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="56.0" />
+            						<Label layoutX="14.0" layoutY="19.0" prefHeight="17.0" prefWidth="158.0" text="Conteúdo" />
+            						<Separator layoutX="14.0" layoutY="116.0" prefHeight="0.0" prefWidth="450.0" />
+            						<TextField layoutX="184.0" layoutY="125.0" prefHeight="25.0" prefWidth="271.0" text="Renascimento" />
+            						<TextArea layoutX="184.0" layoutY="153.0" prefHeight="111.0" prefWidth="271.0" text="- Comparar o Renascimento com o período medieval;&#10;- Associar o Renascimento aos novos paradigmas nas artes e ciências;&#10;- Compreender a ênfase dos renascentistas no antropocentrismo." wrapText="true" />
+            						<Label layoutX="15.0" layoutY="166.0" prefHeight="17.0" prefWidth="158.0" text="Habilidades e Competências" />
+            						<Label layoutX="15.0" layoutY="129.0" prefHeight="17.0" prefWidth="158.0" text="Conteúdo" />
+            						<Separator layoutX="15.0" layoutY="270.0" prefHeight="0.0" prefWidth="450.0" />
+            					</children>
+            				</AnchorPane>
+            				<!-->
+            				<TableView prefHeight="349.0" prefWidth="715.0">
+                  					<columns>
+                  						<TableColumn prefWidth="202.0" text="Aluno" />
+                  						<TableColumn prefWidth="186.0" text="Março">
+                  							<columns>
+                  								<TableColumn prefWidth="20.0" text="2" />
+                  								<TableColumn prefWidth="20.0" text="4" />
+                  								<TableColumn prefWidth="20.0" text="6" />
+                  								<TableColumn prefWidth="20.0" text="9" />
+                  								<TableColumn prefWidth="20.0" text="11" />
+                  								<TableColumn prefWidth="20.0" text="13" />
+                  								<TableColumn prefWidth="20.0" text="16" />
+                  								<TableColumn prefWidth="20.0" text="18" />
+                  								<TableColumn prefWidth="20.0" text="20" />
+                  								<TableColumn prefWidth="20.0" text="23" />
+                  								<TableColumn prefWidth="20.0" text="25" />
+                  								<TableColumn prefWidth="20.0" text="27" />
+                  							</columns>
+                  						</TableColumn>
+                  						<TableColumn prefWidth="240" text="Abril">
+                  							<columns>
+                  								<TableColumn prefWidth="20.0" text="3" />
+                  								<TableColumn prefWidth="20.0" text="5" />
+                  								<TableColumn prefWidth="20.0" text="7" />
+                  								<TableColumn prefWidth="20.0" text="10" />
+                  								<TableColumn prefWidth="20.0" text="12" />
+                  								<TableColumn prefWidth="20.0" text="14" />
+                  								<TableColumn prefWidth="20.0" text="17" />
+                  								<TableColumn prefWidth="20.0" text="19" />
+                  								<TableColumn prefWidth="20.0" text="21" />
+                  								<TableColumn prefWidth="20.0" text="23" />
+                  								<TableColumn prefWidth="20.0" text="26" />
+                  								<TableColumn prefWidth="20.0" text="28" />
+                  								<TableColumn prefWidth="20.0" text="30" />
+                  							</columns>
+                  						</TableColumn>
+                  					</columns>
+                  				</TableView>
+                  				-->
+            			</children>
+            		</HBox>
+               </children>
+            </VBox>
+            <VBox>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Registros dialógicos do aluno:" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+	</children>
+</VBox>

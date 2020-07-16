@@ -12,6 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+
 <ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1300.0" stylesheets="@Style2.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.MainViewController">
 	<content>
 		<BorderPane prefHeight="680.0" prefWidth="1300.0">
@@ -72,6 +73,21 @@
 									</content>
 								</Tab>
 								<Tab fx:id="tabAluno" onSelectionChanged="#onTabAlunoSelectionChange" text="Anterioridades">
+									<content>
+										<VBox />
+									</content>
+								</Tab>
+								<Tab onSelectionChanged="#onTabAlunoSelectionChange" text="Controle de Presença e QHI">
+									<content>
+										<VBox />
+									</content>
+								</Tab>
+								<Tab onSelectionChanged="#onTabAlunoSelectionChange" text="Diário">
+									<content>
+										<VBox />
+									</content>
+								</Tab>
+								<Tab onSelectionChanged="#onTabAlunoSelectionChange" text="Formulário Aluno">
 									<content>
 										<VBox />
 									</content>

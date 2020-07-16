@@ -111,6 +111,9 @@ public class SpringFXMLLoader {
 		list.add("/com/rodrigo7prado/sisGestEduc/gui/RelCertificacoesPorTurma.fxml");
         list.add("/com/rodrigo7prado/sisGestEduc/gui/Aluno.fxml");
         list.add("/com/rodrigo7prado/sisGestEduc/gui/Anterioridades.fxml");
+        list.add("/com/rodrigo7prado/sisGestEduc/gui/QhiEtControlePresenca.fxml");
+        list.add("/com/rodrigo7prado/sisGestEduc/gui/Diario.fxml");
+        list.add("/com/rodrigo7prado/sisGestEduc/gui/FormAluno.fxml");
         
         int i = 0;
         for (String fxml: list) {

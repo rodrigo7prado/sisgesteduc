@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+	<children>
+      <SplitPane dividerPositions="0.4015025041736227" prefHeight="405.0" prefWidth="1000.0">
+        <items>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+            		<TableView prefHeight="409.0" prefWidth="478.0">
+            			<columns>
+                        <TableColumn prefWidth="25.0" text="N" />
+            				<TableColumn prefWidth="278.0" text="Aluno" />
+            				<TableColumn minWidth="0.0" prefWidth="247.0" text="Presença">
+            					<columns>
+            						<TableColumn prefWidth="29.0" text="1º t" />
+            						<TableColumn prefWidth="29.0" text="2º t" />
+            						<TableColumn prefWidth="29.0" text="3º t" />
+            						<TableColumn prefWidth="29.0" text="4º t" />
+            						<TableColumn prefWidth="29.0" text="5º t" />
+            						<TableColumn prefWidth="29.0" text="6º t" />
+            					</columns>
+            				</TableColumn>
+            			</columns>
+            		</TableView>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+            		<HBox prefHeight="27.0" prefWidth="1000.0">
+            			<children>
+            				<Pane prefHeight="27.0" prefWidth="301.0" />
+            				<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            					<children>
+            						<Button mnemonicParsing="false" text="&lt;" />
+            						<Button mnemonicParsing="false" text="Hoje" />
+            						<Button mnemonicParsing="false" text="&gt;" />
+            					</children>
+            				</HBox>
+            			</children>
+            		</HBox>
+            		<GridPane prefHeight="380.0" prefWidth="1000.0">
+            			<columnConstraints>
+            				<ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="75.0" />
+            				<ColumnConstraints hgrow="SOMETIMES" maxWidth="141.0" minWidth="10.0" prefWidth="125.0" />
+            				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            				<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            			</columnConstraints>
+            			<rowConstraints>
+            				<RowConstraints minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+            				<RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            				<RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            				<RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            				<RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            				<RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            				<RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+            			</rowConstraints>
+            			<children>
+            				<Label text="Segunda-feira" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+            				<Label text="Terça-feira" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+            				<Label text="Quarta-feira" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+            				<Label text="Quinta-feira" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
+            				<Label text="Sexta-feira" GridPane.columnIndex="5" GridPane.halignment="CENTER" />
+            				<Label text="1º tempo" GridPane.rowIndex="1">
+            					<padding>
+            						<Insets left="15.0" />
+            					</padding>
+            				</Label>
+            				<Label text="2º tempo" GridPane.rowIndex="2">
+            					<padding>
+            						<Insets left="15.0" />
+            					</padding>
+            				</Label>
+            				<Label text="3º tempo" GridPane.rowIndex="3">
+            					<padding>
+            						<Insets left="15.0" />
+            					</padding>
+            				</Label>
+            				<Label text="4º tempo" GridPane.rowIndex="4">
+            					<padding>
+            						<Insets left="15.0" />
+            					</padding>
+            				</Label>
+            				<Label text="5º tempo" GridPane.rowIndex="5">
+            					<padding>
+            						<Insets left="15.0" />
+            					</padding>
+            				</Label>
+            				<Label text="6º tempo" GridPane.rowIndex="6">
+            					<padding>
+            						<Insets left="15.0" />
+            					</padding>
+            				</Label>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textDefaultNull" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textDefaultNull" text="Larissa Resende" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="textDefaultNull" text="Biologia" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="4" GridPane.rowIndex="1">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="5" GridPane.rowIndex="1">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="3" GridPane.rowIndex="2">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="4" GridPane.rowIndex="2">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="5" GridPane.rowIndex="2">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="4" GridPane.rowIndex="3">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="5" GridPane.rowIndex="3">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            
+            
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="3" GridPane.rowIndex="4">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="4" GridPane.rowIndex="4">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="5" GridPane.rowIndex="4">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            
+            
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="2" GridPane.rowIndex="5">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="3" GridPane.rowIndex="5">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="4" GridPane.rowIndex="5">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            				<VBox alignment="CENTER" prefHeight="71.0" prefWidth="141.0" GridPane.columnIndex="5" GridPane.rowIndex="5">
+            					<children>
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Matricula" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Professor" textAlignment="CENTER" />
+            						<Text disable="true" strokeType="OUTSIDE" strokeWidth="0.0" text="Disciplina" textAlignment="CENTER" />
+            					</children>
+            					<GridPane.margin>
+            						<Insets />
+            					</GridPane.margin>
+            				</VBox>
+            			</children>
+            		</GridPane>
+               </children>
+            </VBox>
+        </items>
+      </SplitPane>
+	</children>
+</VBox>
