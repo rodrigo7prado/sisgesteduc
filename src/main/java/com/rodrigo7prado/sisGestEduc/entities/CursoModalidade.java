@@ -20,6 +20,7 @@ public class CursoModalidade implements Serializable {
 	@EmbeddedId
 	private CursoModalidadePk id = new CursoModalidadePk();
 	// outros atributos
+	private String nomeExternal; 
 	
 	@OneToMany(mappedBy = "id.cursoModalidade")
 	Set<PeriodoCurricular> periodosCurriculares = new HashSet<>();
@@ -57,7 +58,15 @@ public class CursoModalidade implements Serializable {
 	public Set<PeriodoCurricular> getPeriodosCurriculares() {
 		return periodosCurriculares;
 	}
-	
+
+	public String getNomeExternal() {
+		return nomeExternal;
+	}
+
+	public void setNomeExternal(String nomeExternal) {
+		this.nomeExternal = nomeExternal;
+	}
+
 	@JsonIgnore
 	public Set<Aluno> getAlunos() {
 		Set<Aluno> set = new HashSet<>();

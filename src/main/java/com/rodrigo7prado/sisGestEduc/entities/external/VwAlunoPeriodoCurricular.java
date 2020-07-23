@@ -16,6 +16,8 @@ public class VwAlunoPeriodoCurricular {
 	
 	private String nomeCompl;
 	
+	private Long cursoId;
+	
 //	@ManyToOne
 //	@JoinColumn(name = "alunoExternalId")
 //	private AlunoExternal alunoExternal;
@@ -29,9 +31,7 @@ public class VwAlunoPeriodoCurricular {
 
 	public void setId(VwAlunoPeriodoCurricularPk id) {
 		this.id = id;
-	}
-	
-	
+	} 
 
 	public String getAno2() {
 		return ano2;
@@ -47,5 +47,13 @@ public class VwAlunoPeriodoCurricular {
 
 	public void setNomeCompl(String nomeCompl) {
 		this.nomeCompl = nomeCompl;
+	}
+
+	public Long getCursoId() {
+		return cursoId;
+	}
+
+	public void setCursoId(Long cursoId) {
+		this.cursoId = cursoId;
 	}
 }

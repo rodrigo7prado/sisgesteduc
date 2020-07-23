@@ -25,6 +25,7 @@ public class Curso implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
+	private String nomeExternal;
 	
 	@OneToMany(mappedBy = "id.curso")
 	Set<CursoModalidade> cursosModalidades = new HashSet<>();
@@ -57,6 +58,14 @@ public class Curso implements Serializable {
 		this.nome = nome;
 	}
 	
+	public String getNomeExternal() {
+		return nomeExternal;
+	}
+
+	public void setNomeExternal(String nomeExternal) {
+		this.nomeExternal = nomeExternal;
+	}
+
 	public Set<CursoModalidade> getCursosModalidades() {
 		return cursosModalidades;
 	}
