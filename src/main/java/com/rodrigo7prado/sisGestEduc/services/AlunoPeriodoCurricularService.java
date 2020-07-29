@@ -31,6 +31,7 @@ public class AlunoPeriodoCurricularService {
 	}
 
 	public List<AlunoPeriodoCurricularDto> findFilterTodos() {
+		System.out.println("Chamando sql?");
 		List<AlunoPeriodoCurricularDto> listDto = repository.findFilterTodos();
 
 		return listDto;

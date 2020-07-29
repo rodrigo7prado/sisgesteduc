@@ -862,6 +862,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 //					itemObsList.getValidDadosHeMedio()));
 		
 		for (AlunoPeriodoCurricularDto itemObsList : filteredList) {
+			System.out.println("Repetições onde?");
 			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(new AlunoPeriodoCurricularDto(null, itemObsList.getCurso(), itemObsList.getModalidade(),
 					itemObsList.getSerie(), itemObsList.getTurma(), itemObsList.getMatricula(), itemObsList.getNomeCompleto(),
 					itemObsList.getSexo(), itemObsList.getDataNasc(), itemObsList.getNomePai(),

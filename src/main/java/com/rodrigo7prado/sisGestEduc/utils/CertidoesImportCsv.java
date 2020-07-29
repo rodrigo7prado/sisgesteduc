@@ -22,7 +22,7 @@ import com.rodrigo7prado.sisGestEduc.entities.external.CertidoesCsv;
 
 public class CertidoesImportCsv {
 
-	String jdbcURL = "jdbc:mysql://localhost:3306/sisgesteduc?useTimezone=true&serverTimezone=UTC";
+	String jdbcURL = "jdbc:mysql://localhost:3307/sisgesteduc?useTimezone=true&serverTimezone=UTC";
 	String username = "root";
 	String password = "";
 

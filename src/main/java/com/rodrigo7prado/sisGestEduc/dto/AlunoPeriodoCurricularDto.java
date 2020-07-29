@@ -67,7 +67,7 @@ public class AlunoPeriodoCurricularDto {
 	private StatusDocAluno validDadosHeMedio;
 
 	public AlunoPeriodoCurricularDto() {
-		System.out.println("CONSTRUTOR: " + this.nomeCompleto);
+//		System.out.println("CONSTRUTOR: " + this.nomeCompleto);
 	}
 
 	public AlunoPeriodoCurricularDto(AlunoPeriodoCurricular obj) {
@@ -125,7 +125,7 @@ public class AlunoPeriodoCurricularDto {
 		
 		this.chSubst = chSubst;
 		this.ensMedioEstabEns = ensMedioEstabEns;		
-		System.out.println("Lugar: " + situacaoFinal);
+//		System.out.println("Lugar: " + situacaoFinal);
 		this.ensMedioCidadeEstadoEstabEns = ensMedioCidadeEstadoEstabEns;
 		this.freqSubst = freqSubst;
 		this.frqG = frqG;
@@ -136,6 +136,52 @@ public class AlunoPeriodoCurricularDto {
 		this.nflCertificado = nflCertificado;
 
 	}
+	
+	public AlunoPeriodoCurricularDto(Aluno aluno, VwAlunoPeriodoCurricular vwAlunoPeriodoCurricular, AlunoExternal alunoExternal,
+			String anoLetivo, String curso, String modalidade, String serie, String turma, String nomeCompleto, String sexo,
+			Date dataNasc, String nomePai, String nomeMae, String nacionalidade, String naturalidade,
+			String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf, String matricula,
+			String situacaoFinal
+//			, Integer nflCertidao, Integer nflCertificado
+			) {
+		super();
+
+		if (alunoExternal != null) {
+			this.validDadosPessoais = alunoExternal.getValidDadosPessoais();
+			this.validDadosIdentif = alunoExternal.getValidDadosIdentif();
+			this.validDadosHeFund = alunoExternal.getValidDadosHeFund();
+			this.validDadosHeMedio = alunoExternal.getValidDadosHeMedio();
+		}
+		
+		if (aluno == null) {
+			this.nomeCompleto = nomeCompleto;
+		} else {
+			this.nomeCompleto = aluno.getNomeCompleto();
+		}
+
+		this.anoLetivo = anoLetivo;
+		this.curso = curso;
+		this.modalidade = modalidade;
+		this.serie = serie;
+		this.turma = turma;
+		this.matricula = matricula;
+		
+		this.sexo = sexo;
+		this.dataNasc = dataNasc;
+		this.nomePai = nomePai;
+		this.nomeMae = nomeMae;
+		this.nacionalidade = nacionalidade;
+		this.naturalidade = naturalidade;
+		this.naturalidadeUF = naturalidadeUF;
+		this.rg = rg;
+		this.rgEmissor = rgEmissor;
+		this.rgEmissorUf = rgEmissorUf;
+		this.situacaoFinal = situacaoFinal;
+		
+//		this.nflCertidao = nflCertidao;
+//		this.nflCertificado = nflCertificado;
+
+	}
 
 	public AlunoPeriodoCurricularDto(String anoLetivo, String curso, String modalidade, String serie, String turma, String matricula,
 			String nomeCompleto, String sexo, Date dataNasc, String nomePai, String nomeMae, String nacionalidade,
@@ -143,8 +189,8 @@ public class AlunoPeriodoCurricularDto {
 			StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif, StatusDocAluno validDadosHeFund,
 			StatusDocAluno validDadosHeMedio, String situacaoFinal,
 			String ensMedioEstabEns,
-			Integer nflCertidao, Integer nflCertificado) {
-		System.out.println("USO 2");
+			Integer nflCertidao, Integer nflCertificado
+			) {
 		this.anoLetivo = anoLetivo;
 		this.curso = curso;
 		this.modalidade = modalidade;

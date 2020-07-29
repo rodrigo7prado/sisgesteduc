@@ -71,11 +71,12 @@ public class DBService {
 		Disciplina d11 = new Disciplina(null, "Educação Física");
 		Disciplina d12 = new Disciplina(null, "Língua Inglesa");
 
-		Curso c1 = new Curso(null, "Ensino Fundamental");
-		Curso c2 = new Curso(null, "Ensino Médio");
+		Curso c1 = new Curso(null, "Ensino Fundamental","Curso: ENSINO FUNDAMENTAL");
+		Curso c2 = new Curso(null, "Ensino Médio","Curso: ENSINO MÉDIO");
+		Curso c3 = new Curso(null, "Ensino Médio","Curso: EJA ENSINO MÉDIO");
 
 		Modalidade m1 = new Modalidade(null, "Regular", c2);
-		Modalidade m2 = new Modalidade(null, "EJA", c2);
+		Modalidade m2 = new Modalidade(null, "EJA", c3);
 
 		CursoModalidade cm1 = new CursoModalidade(c1, m1);
 		CursoModalidade cm2 = new CursoModalidade(c2, m1);

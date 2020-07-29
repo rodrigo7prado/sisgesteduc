@@ -21,7 +21,7 @@ import com.rodrigo7prado.sisGestEduc.entities.external.AlunoExternal3;
 
 public class ComplexCsv2DbInserter3 {
 
-	private String jdbcURL = "jdbc:mysql://localhost:3306/sisgesteduc?useTimezone=true&serverTimezone=UTC";
+	private String jdbcURL = "jdbc:mysql://localhost:3307/sisgesteduc?useTimezone=true&serverTimezone=UTC";
 	private String username = "root";
 	private String password = "";
 
