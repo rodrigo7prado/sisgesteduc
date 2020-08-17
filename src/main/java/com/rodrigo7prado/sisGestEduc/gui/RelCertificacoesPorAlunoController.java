@@ -138,7 +138,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		observableList.clear();
 
 		observableList.addAll(service.findFilterTodos());
-		
+		 
 //		filteredList = new FilteredList<>(observableList, p -> true);
 	}
 	
