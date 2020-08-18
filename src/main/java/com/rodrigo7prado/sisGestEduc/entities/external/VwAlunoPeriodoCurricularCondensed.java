@@ -1,28 +1,20 @@
-package com.rodrigo7prado.sisGestEduc.entities;
+package com.rodrigo7prado.sisGestEduc.entities.external;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Table;
 
 import org.hibernate.annotations.Immutable;
 
-import com.rodrigo7prado.sisGestEduc.entities.pk.AlunoPeriodoCurricularCondensedPk;
-
 @Entity
 @Immutable
-@Table(name = "vw_aluno_periodo_curricular_condensed")
-public class AlunoPeriodoCurricularCondensed implements Serializable {
-	private static final long serialVersionUID = 1L;
-//	+ "al, v,a"
+public class VwAlunoPeriodoCurricularCondensed {
 
 	@EmbeddedId
-	private AlunoPeriodoCurricularCondensedPk id;
-
+	private VwAlunoPeriodoCurricularCondensedPk id;
+	
 	private String nomeCompl;
-
 	private String sexo;
 	private Date dataNasc;
 	private String nomePai;
@@ -42,9 +34,16 @@ public class AlunoPeriodoCurricularCondensed implements Serializable {
 	private String resSerie;
 	private String resSerieSubst;
 	private Integer cdNfl;
-	private Integer cfNfl;
+	private Integer cfNfl;	
+	public VwAlunoPeriodoCurricularCondensed() {
+	}
 
-	public AlunoPeriodoCurricularCondensed() {
+	public VwAlunoPeriodoCurricularCondensedPk getId() {
+		return id;
+	}
+
+	public void setId(VwAlunoPeriodoCurricularCondensedPk id) {
+		this.id = id;
 	}
 
 	public String getNomeCompl() {
@@ -213,6 +212,5 @@ public class AlunoPeriodoCurricularCondensed implements Serializable {
 
 	public void setCfNfl(Integer cfNfl) {
 		this.cfNfl = cfNfl;
-	}
-
+	} 
 }
