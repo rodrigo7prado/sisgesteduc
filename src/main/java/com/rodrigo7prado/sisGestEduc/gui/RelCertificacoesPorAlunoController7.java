@@ -15,9 +15,9 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 
 import com.rodrigo7prado.sisGestEduc.config.StageManager;
-import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularCondensedDto;
+import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
 import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
-import com.rodrigo7prado.sisGestEduc.services.AlunoPeriodoCurricularCondensedService;
+import com.rodrigo7prado.sisGestEduc.services.AlunoPeriodoCurricularService;
 
 import javafx.application.Platform;
 import javafx.beans.value.ObservableValue;
@@ -41,7 +41,7 @@ import javafx.scene.layout.VBox;
 import javafx.util.Callback;
 
 @Controller
-public class RelCertificacoesPorAlunoController implements Initializable {
+public class RelCertificacoesPorAlunoController7 implements Initializable {
 
 	private Map<String, String> mapObjects = new HashMap<String, String>();
 
@@ -70,40 +70,40 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	@Autowired
 	private StageManager stageManager;
 	@Autowired
-	private AlunoPeriodoCurricularCondensedService service;
+	private AlunoPeriodoCurricularService service;
 
-	private ObservableList<AlunoPeriodoCurricularCondensedDto> observableList = FXCollections.observableArrayList();
+	private ObservableList<AlunoPeriodoCurricularDto> observableList = FXCollections.observableArrayList();
 
-	private List<List<AlunoPeriodoCurricularCondensedDto>> carregamentos;
-	private Map<Integer, List<AlunoPeriodoCurricularCondensedDto>> mapCarregamentos = new HashMap<Integer, List<AlunoPeriodoCurricularCondensedDto>>();
+	private List<List<AlunoPeriodoCurricularDto>> carregamentos;
+	private Map<Integer, List<AlunoPeriodoCurricularDto>> mapCarregamentos = new HashMap<Integer, List<AlunoPeriodoCurricularDto>>();
 	private Map<String, List<String>> mapCarregamentos2 = new HashMap<String, List<String>>();
 
 	@FXML
-	private TreeTableView<AlunoPeriodoCurricularCondensedDto> treeTableViewAluno;
+	private TreeTableView<AlunoPeriodoCurricularDto> treeTableViewAluno;
 	@FXML
-	private TreeTableColumn<AlunoPeriodoCurricularCondensedDto, String> treeTableColumnTurma;
+	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnTurma;
 	@FXML
-	private TreeTableColumn<AlunoPeriodoCurricularCondensedDto, String> treeTableColumnAluno;
+	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnAluno;
 	@FXML
-	private TreeTableColumn<AlunoPeriodoCurricularCondensedDto, String> treeTableColumnNomeCompl;
+	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnNomeCompl;
 	@FXML
-	private TreeTableColumn<AlunoPeriodoCurricularCondensedDto, Integer> treeTableColumnNflCertidao;
+	private TreeTableColumn<AlunoPeriodoCurricularDto, Integer> treeTableColumnNflCertidao;
 	@FXML
-	private TreeTableColumn<AlunoPeriodoCurricularCondensedDto, Integer> treeTableColumnNflCertificado;
+	private TreeTableColumn<AlunoPeriodoCurricularDto, Integer> treeTableColumnNflCertificado;
 	@FXML
-	private TreeTableColumn<AlunoPeriodoCurricularCondensedDto, String> treeTableColumnSituacaoFinal;
+	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnSituacaoFinal;
 	@FXML
-	private TreeTableColumn<AlunoPeriodoCurricularCondensedDto, StatusDocAluno> treeTableColumnDP;
+	private TreeTableColumn<AlunoPeriodoCurricularDto, StatusDocAluno> treeTableColumnDP;
 	@FXML
-	private TreeTableColumn<AlunoPeriodoCurricularCondensedDto, StatusDocAluno> treeTableColumnDadosIdentif;
+	private TreeTableColumn<AlunoPeriodoCurricularDto, StatusDocAluno> treeTableColumnDadosIdentif;
 	@FXML
-	private TreeTableColumn<AlunoPeriodoCurricularCondensedDto, StatusDocAluno> treeTableColumnDadosHeFund;
+	private TreeTableColumn<AlunoPeriodoCurricularDto, StatusDocAluno> treeTableColumnDadosHeFund;
 	@FXML
-	private TreeTableColumn<AlunoPeriodoCurricularCondensedDto, StatusDocAluno> treeTableColumnDadosHeMedio;
+	private TreeTableColumn<AlunoPeriodoCurricularDto, StatusDocAluno> treeTableColumnDadosHeMedio;
 	@FXML
-	private TreeTableColumn<AlunoPeriodoCurricularCondensedDto, String> treeTableColumnBoolCertidao;
+	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnBoolCertidao;
 	@FXML
-	private TreeTableColumn<AlunoPeriodoCurricularCondensedDto, String> treeTableColumnBoolCertificado;
+	private TreeTableColumn<AlunoPeriodoCurricularDto, String> treeTableColumnBoolCertificado;
 	@FXML
 	private VBox dialog;
 	@FXML
@@ -113,20 +113,20 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	
 	private Map<ToggleGroup,RadioButton> mapToggleGroups = new HashMap<ToggleGroup,RadioButton>();
 	
-	private FilteredList<AlunoPeriodoCurricularCondensedDto> filteredList;
+	private FilteredList<AlunoPeriodoCurricularDto> filteredList;
 	
-	private Predicate<AlunoPeriodoCurricularCondensedDto> predFilter01000Rb00000TodosAnos = 
+	private Predicate<AlunoPeriodoCurricularDto> predFilter01000Rb00000TodosAnos = 
 			obj -> 	obj.getSituacaoFinal().equals("Reprovado por nota");
-	private Predicate<AlunoPeriodoCurricularCondensedDto> p1 = 
+	private Predicate<AlunoPeriodoCurricularDto> p1 = 
 			obj -> 	obj.getSituacaoFinal().equals("Reprovado por nota");
 	
-	private Predicate<AlunoPeriodoCurricularCondensedDto> predFilter02000Rb01000EnsinoMedioRegular = 
+	private Predicate<AlunoPeriodoCurricularDto> predFilter02000Rb01000EnsinoMedioRegular = 
 			obj -> !(obj.getTurma().contains("Turma: NEJA"));
 			
-	private Predicate<AlunoPeriodoCurricularCondensedDto> predFilter02000Rb02000Neja = 
+	private Predicate<AlunoPeriodoCurricularDto> predFilter02000Rb02000Neja = 
 			obj -> (obj.getTurma().contains("Turma: NEJA"));
 
-	private Class<RelCertificacoesPorAlunoController> myClass;
+	private Class<RelCertificacoesPorAlunoController7> myClass;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -153,10 +153,10 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		
 		String str = radioButtonAssociated.getId();
 		
-		RelCertificacoesPorAlunoController.class.getDeclaredFields();
+		RelCertificacoesPorAlunoController7.class.getDeclaredFields();
 		
 		
-		Class<RelCertificacoesPorAlunoController> classe = RelCertificacoesPorAlunoController.class;
+		Class<RelCertificacoesPorAlunoController7> classe = RelCertificacoesPorAlunoController7.class;
 		
 		for ( Field atributo : classe.getDeclaredFields() ) {
 			System.out.println(radioButtonAssociated.getId());
@@ -195,7 +195,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void associateTreeTableColumns() {
 
-//		System.out.println("Service: " + service.findFilterConcluintes());
+		System.out.println("Service: " + service.findFilterConcluintes());
 		treeTableColumnTurma.setCellValueFactory(new TreeItemPropertyValueFactory("turma"));
 		treeTableColumnAluno.setCellValueFactory(new TreeItemPropertyValueFactory("matricula"));
 		treeTableColumnNomeCompl.setCellValueFactory(new TreeItemPropertyValueFactory("nomeCompleto"));
@@ -281,12 +281,12 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	private void loadAlunosDetailsByFormElements(String eventSource) {
 //		TODO
-//		FilteredList<AlunoPeriodoCurricularCondensedDto> filteredList = new FilteredList<>(observableList, p -> true);
+//		FilteredList<AlunoPeriodoCurricularDto> filteredList = new FilteredList<>(observableList, p -> true);
 		System.out.println("Ráaa 6");
 		if (eventSource.equals("Todos")) {
 			System.out.println("Ráaa 5");
 
-			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018i")
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018i")
 					|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
 			
 //			System.out.println("intTest: " + intTest);
@@ -297,7 +297,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 //			filteredList.predicateProperty().set(p1);
 			
 			@SuppressWarnings("unchecked")
-			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList.getPredicate();
+			Predicate<AlunoPeriodoCurricularDto> currentPredicate = (Predicate<AlunoPeriodoCurricularDto>) filteredList.getPredicate();
 			
 			
 			
@@ -305,12 +305,12 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 			filteredList.setPredicate(currentPredicate.and(p1));
 			System.out.println("Size final: " + filteredList.size());
 		} else if (eventSource.equals("fil02000_rb00000_TodosOsCursos")) {
-			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
 					&& !(obj.getTurma().contains("Turma: NEJA"))
 					;
 			
 			@SuppressWarnings("unchecked")
-			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList.getPredicate();
+			Predicate<AlunoPeriodoCurricularDto> currentPredicate = (Predicate<AlunoPeriodoCurricularDto>) filteredList.getPredicate();
 			
 			filteredList.setPredicate(currentPredicate.and(predFilter02000Rb01000EnsinoMedioRegular));
 			
@@ -320,31 +320,31 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 			
 			
 		} else if (eventSource.equals("fil02000_rb01000_EnsinoMedioRegular")) {
-			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
 					&& !(obj.getTurma().contains("Turma: NEJA"))
 					;
 			
 			@SuppressWarnings("unchecked")
-			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList.getPredicate();
+			Predicate<AlunoPeriodoCurricularDto> currentPredicate = (Predicate<AlunoPeriodoCurricularDto>) filteredList.getPredicate();
 			
 			filteredList.setPredicate(currentPredicate.and(predFilter02000Rb02000Neja));
 			
 		} else if (eventSource.equals("fil02000_rb02000_ENEJA")) {
-			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
 					&& (obj.getTurma().contains("Turma: NEJA"))
 					;
 			
 			@SuppressWarnings("unchecked")
-			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList.getPredicate();
+			Predicate<AlunoPeriodoCurricularDto> currentPredicate = (Predicate<AlunoPeriodoCurricularDto>) filteredList.getPredicate();
 			
 			filteredList.setPredicate(currentPredicate.and(p2));
 			
 		} else if (eventSource.equals("Anos finais")) {
-			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
 					&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"));
 			
 			@SuppressWarnings("unchecked")
-			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList.getPredicate();
+			Predicate<AlunoPeriodoCurricularDto> currentPredicate = (Predicate<AlunoPeriodoCurricularDto>) filteredList.getPredicate();
 			
 			filteredList.setPredicate(currentPredicate.and(p2));
 			
@@ -364,7 +364,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	private void loadAlunosDetailsByFilteredList2(Integer keyMap) {
 
-		FilteredList<AlunoPeriodoCurricularCondensedDto> filteredList = new FilteredList<>(observableList, p -> true);
+		FilteredList<AlunoPeriodoCurricularDto> filteredList = new FilteredList<>(observableList, p -> true);
 
 		if (keyMap == 1) {
 			filteredList.setPredicate(obj -> {
@@ -547,12 +547,12 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private void loadAlunosDetailsByFilteredList(Integer keyMap) {
 
 //		TODO
-//		FilteredList<AlunoPeriodoCurricularCondensedDto> filteredList = new FilteredList<>(observableList, p -> true);
+//		FilteredList<AlunoPeriodoCurricularDto> filteredList = new FilteredList<>(observableList, p -> true);
 		filteredList = new FilteredList<>(observableList, p -> true);
 //		findFilterTodosWhere
 		if (keyMap == 1) {
 
-			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
 					|| obj.getAnoLetivo().contains("Ano Letivo: 2017")
 					;
 
@@ -576,7 +576,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 			});
 			
 			
-			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
+			Predicate<AlunoPeriodoCurricularDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
 					&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
 					;
 
@@ -844,14 +844,14 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	}
 
-	private void buildView(FilteredList<AlunoPeriodoCurricularCondensedDto> filteredList) {
-		TreeItem<AlunoPeriodoCurricularCondensedDto> treeItemAlunoRoot = new TreeItem<>(
-//				new AlunoPeriodoCurricularCondensedDto(null, null, null, null, null, "Turma", null, null, null)
+	private void buildView(FilteredList<AlunoPeriodoCurricularDto> filteredList) {
+		TreeItem<AlunoPeriodoCurricularDto> treeItemAlunoRoot = new TreeItem<>(
+//				new AlunoPeriodoCurricularDto(null, null, null, null, null, "Turma", null, null, null)
 		);
 		treeTableViewAluno.setRoot(treeItemAlunoRoot);
 
-//		for (AlunoPeriodoCurricularCondensedDto itemObsList : filteredList) {
-//			TreeItem<AlunoPeriodoCurricularCondensedDto> node = new TreeItem<>(new AlunoPeriodoCurricularCondensedDto(null, null, null, null, null,
+//		for (AlunoPeriodoCurricularDto itemObsList : filteredList) {
+//			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(new AlunoPeriodoCurricularDto(null, null, null, null, null,
 //					itemObsList.getTurma(), itemObsList.getNomeCompleto(),
 //					itemObsList.getSexo(), itemObsList.getDataNasc(), itemObsList.getNomePai(),
 //					itemObsList.getNomeMae(), itemObsList.getNacionalidade(), itemObsList.getNaturalidade(),
@@ -861,9 +861,9 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 //					itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
 //					itemObsList.getValidDadosHeMedio()));
 		
-		for (AlunoPeriodoCurricularCondensedDto itemObsList : filteredList) {
+		for (AlunoPeriodoCurricularDto itemObsList : filteredList) {
 			System.out.println("Repetições onde?");
-			TreeItem<AlunoPeriodoCurricularCondensedDto> node = new TreeItem<>(new AlunoPeriodoCurricularCondensedDto(null, itemObsList.getCurso(), itemObsList.getModalidade(),
+			TreeItem<AlunoPeriodoCurricularDto> node = new TreeItem<>(new AlunoPeriodoCurricularDto(null, itemObsList.getCurso(), itemObsList.getModalidade(),
 					itemObsList.getSerie(), itemObsList.getTurma(), itemObsList.getMatricula(), itemObsList.getNomeCompleto(),
 					itemObsList.getSexo(), itemObsList.getDataNasc(), itemObsList.getNomePai(),
 					itemObsList.getNomeMae(), itemObsList.getNacionalidade(), itemObsList.getNaturalidade(),
@@ -875,9 +875,9 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 					itemObsList.getNflCertidao(),
 					itemObsList.getNflCertificado()));
 
-			TreeItem<AlunoPeriodoCurricularCondensedDto> turmaNode = node;
+			TreeItem<AlunoPeriodoCurricularDto> turmaNode = node;
 
-			TreeItem<AlunoPeriodoCurricularCondensedDto> alunoNode = node;
+			TreeItem<AlunoPeriodoCurricularDto> alunoNode = node;
 
 			Integer size = treeItemAlunoRoot.getChildren().size();
 
@@ -927,16 +927,16 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		System.out.println("Clicked2! " + treeTableView.getFocusModel().getFocusedIndex());
 		System.out.println("Clicked3! " + treeTableView.getFocusModel().getFocusedItem().getValue());
 
-		AlunoPeriodoCurricularCondensedDto obj = (AlunoPeriodoCurricularCondensedDto) treeTableView.getFocusModel().getFocusedItem()
+		AlunoPeriodoCurricularDto obj = (AlunoPeriodoCurricularDto) treeTableView.getFocusModel().getFocusedItem()
 				.getValue();
-		AlunoPeriodoCurricularCondensedDto obj2 = (AlunoPeriodoCurricularCondensedDto) treeTableView.getFocusModel().getFocusedItem()
+		AlunoPeriodoCurricularDto obj2 = (AlunoPeriodoCurricularDto) treeTableView.getFocusModel().getFocusedItem()
 				.getValue();
 		
 		System.out.println("obj2: " + obj2.getEnsMedioEstabEns());
 
-//		dadosAlunosController.updateFormData(obj);
-//		historicoAlunoController.updateFormData(obj2);
-//		dadosEscolasController.updateFormData(obj2);
+		dadosAlunosController.updateFormData(obj);
+		historicoAlunoController.updateFormData(obj2);
+		dadosEscolasController.updateFormData(obj2);
 	}
 
 	@SuppressWarnings("unused")
@@ -944,11 +944,11 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	}
 
-	private void setDadosAlunosController(AlunoPeriodoCurricularCondensedDto obj) throws IOException {
-//		dadosAlunosController.updateFormData(obj);
+	private void setDadosAlunosController(AlunoPeriodoCurricularDto obj) throws IOException {
+		dadosAlunosController.updateFormData(obj);
 	}
 	
-	public void setDataOfRowSelected(AlunoPeriodoCurricularCondensedDto obj) {
+	public void setDataOfRowSelected(AlunoPeriodoCurricularDto obj) {
 		System.out.println("DataAlunoObj = " + obj);
 		System.out.println("Clicked2! " + treeTableViewAluno.getFocusModel().getFocusedIndex());
 		treeTableViewAluno.getFocusModel().getFocusedItem().setValue(obj);
@@ -960,10 +960,10 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		ObservableList<String> obsList = FXCollections.observableArrayList();
 		obsList.addAll(Arrays.asList("Sim", "Não"));
 		treeTableColumnBoolCertidao.setCellValueFactory(
-				new Callback<TreeTableColumn.CellDataFeatures<AlunoPeriodoCurricularCondensedDto, String>, ObservableValue<String>>() {
+				new Callback<TreeTableColumn.CellDataFeatures<AlunoPeriodoCurricularDto, String>, ObservableValue<String>>() {
 
 					@Override
-					public ObservableValue<String> call(CellDataFeatures<AlunoPeriodoCurricularCondensedDto, String> param) {
+					public ObservableValue<String> call(CellDataFeatures<AlunoPeriodoCurricularDto, String> param) {
 						return null;
 					}
 

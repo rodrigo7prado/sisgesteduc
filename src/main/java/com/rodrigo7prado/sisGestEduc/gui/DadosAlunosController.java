@@ -242,12 +242,6 @@ public class DadosAlunosController implements Initializable {
 //		AlunoPeriodoCurricularDto obj = new AlunoPeriodoCurricularDto(;
 		
 		
-		relCertificacoesPorAlunoController.setDataOfRowSelected(alunoPeriodoCurricularDto);
-//		setDataOfRowSelected(alunoPeriodoCurricularDto);
-		
-//		service.insert(controller);
-//		AlunoPeriodoCurricular obj = service.fromDto(controller);
-//		System.out.println("Salvar o que: " + obj);
-//		service.saveAll(obj);
+//		relCertificacoesPorAlunoController.setDataOfRowSelected(alunoPeriodoCurricularDto); tentar depois
 	}
 }

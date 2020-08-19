@@ -90,7 +90,7 @@ public class AlunoPeriodoCurricularCondensedDto {
 			Integer nflCertidao, Integer nflCertificado) {
 		super();
 
-		System.out.println("USO 1");
+//		System.out.println("USO 1");
 
 //		if (alunoExternal != null) {
 //			this.validDadosPessoais = alunoExternal.getValidDadosPessoais();

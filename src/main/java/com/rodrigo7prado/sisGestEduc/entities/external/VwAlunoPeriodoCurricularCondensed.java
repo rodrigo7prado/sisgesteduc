@@ -30,7 +30,7 @@ public class VwAlunoPeriodoCurricularCondensed {
 	private String ensMedioEstabEns;
 	private String ensMedioCidadeEstadoEstabEns;
 	private Double freqSubst;
-	private Double frqG;
+	private Double frqg;
 	private String resSerie;
 	private String resSerieSubst;
 	private Integer cdNfl;
@@ -174,12 +174,12 @@ public class VwAlunoPeriodoCurricularCondensed {
 		this.freqSubst = freqSubst;
 	}
 
-	public Double getFrqG() {
-		return frqG;
+	public Double getFrqg() {
+		return frqg;
 	}
 
-	public void setFrqG(Double frqG) {
-		this.frqG = frqG;
+	public void setFrqg(Double frqg) {
+		this.frqg = frqg;
 	}
 
 	public String getResSerie() {

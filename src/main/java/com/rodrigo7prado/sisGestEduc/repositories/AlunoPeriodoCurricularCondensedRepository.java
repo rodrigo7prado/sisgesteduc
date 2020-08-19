@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
+import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularCondensedDto;
 import com.rodrigo7prado.sisGestEduc.entities.external.VwAlunoPeriodoCurricularCondensed;
 
 @Repository
@@ -34,7 +34,7 @@ public interface AlunoPeriodoCurricularCondensedRepository extends JpaRepository
 			+ ", c.ensMedioEstabEns"
 			+ ", c.ensMedioCidadeEstadoEstabEns"
 			+ ", c.freqSubst"
-			+ ", c.frqG"
+			+ ", c.frqg"
 			+ ", c.resSerie"
 			+ ", c.resSerieSubst"
 			+ ", c.cdNfl"
@@ -43,6 +43,6 @@ public interface AlunoPeriodoCurricularCondensedRepository extends JpaRepository
 			;
 	@Query(part
 			)
-	List<AlunoPeriodoCurricularDto> findFilterTodos();
+	List<AlunoPeriodoCurricularCondensedDto> findFilterTodos();
 	
 	}
