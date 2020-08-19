@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 
 import org.hibernate.annotations.Immutable;
 
+import com.rodrigo7prado.sisGestEduc.entities.Aluno;
+import com.rodrigo7prado.sisGestEduc.entities.PeriodoCurricular;
+
 @Entity
 @Immutable
 public class VwAlunoPeriodoCurricularCondensed {
@@ -35,7 +38,15 @@ public class VwAlunoPeriodoCurricularCondensed {
 	private String resSerieSubst;
 	private Integer cdNfl;
 	private Integer cfNfl;	
+	
 	public VwAlunoPeriodoCurricularCondensed() {
+	}
+	
+	public VwAlunoPeriodoCurricularCondensed(Aluno aluno, PeriodoCurricular periodoCurricular) {
+		super();
+//		id.setAluno(aluno);
+//		id.setPeriodoCurricular(periodoCurricular);
+		// outros atributos
 	}
 
 	public VwAlunoPeriodoCurricularCondensedPk getId() {
