@@ -23,7 +23,7 @@
       					<Label prefHeight="17.0" text="Matrícula" />
                      <TextField fx:id="matriculaField" editable="false" prefHeight="25.0" prefWidth="124.0" />
       					<Label prefHeight="17.0" text="Nome" />
-                     <TextField fx:id="nomeCompletoField" prefHeight="25.0" prefWidth="310.0" />
+                     <TextField fx:id="nomeCompletoField" prefHeight="30.0" prefWidth="284.0" />
       					<Label prefHeight="17.0" text="D/Nasc." />
       							<DatePicker fx:id="dataNascField" prefWidth="120.0" showWeekNumbers="true" />
                      <Separator prefWidth="707.0" />
@@ -32,7 +32,7 @@
       					<Label text="Nacionalidade" />
                      <ComboBox fx:id="nacionalidade" prefHeight="25.0" prefWidth="133.0" />
       					<Label text="Naturalidade" />
-      					<TextField fx:id="naturalidade" prefHeight="25.0" prefWidth="225.0" />
+      					<TextField fx:id="naturalidade" prefHeight="30.0" prefWidth="194.0" />
       					<ComboBox fx:id="naturalidadeUfField" prefWidth="55.0" />
                      <Separator prefWidth="707.0" />
       					<Label text="RG" />
@@ -44,7 +44,7 @@
                      <CheckBox mnemonicParsing="false" text="Dados de Certidão" />
                      <Separator prefHeight="0.0" prefWidth="707.0" />
       					<Label text="Pai" />
-                     <TextField fx:id="nomePaiField" prefHeight="25.0" prefWidth="265.0" />
+                     <TextField fx:id="nomePaiField" prefHeight="30.0" prefWidth="240.0" />
                      <CheckBox mnemonicParsing="false" text="Não informado" />
                      <Separator orientation="VERTICAL" prefHeight="10.0" />
       					<Label text="Mãe" />
