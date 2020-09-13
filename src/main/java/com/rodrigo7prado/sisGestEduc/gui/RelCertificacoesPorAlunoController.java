@@ -182,14 +182,6 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		mapFilters.put("SituacoesDeHistoricoMedio",predFilter02000Rb01000EnsinoMedioRegular);
 		mapFilters.put("SituacoesDeConsistenciaConexao",predFilter02000Rb01000EnsinoMedioRegular);
 		
-//		System.out.println("getDeclaredFields: " + RelCertificacoesPorAlunoController.class.getD);
-		
-//		mapToggleGroups.forEach((k,v) -> 
-//		
-//		filteredList.setPredicate(p1)
-//		);
-		
-		
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
