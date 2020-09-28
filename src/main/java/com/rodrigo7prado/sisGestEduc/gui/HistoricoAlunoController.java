@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.rodrigo7prado.sisGestEduc.dto.AlunoComponenteCurricularDto;
-import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
+import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularCondensedDto;
 import com.rodrigo7prado.sisGestEduc.dto.AutoDto;
 import com.rodrigo7prado.sisGestEduc.services.AlunoComponenteCurricularService;
 
@@ -103,7 +103,7 @@ public class HistoricoAlunoController implements Initializable {
 //		tableView.setItems();
 	}
 
-	public void updateFormData(AlunoPeriodoCurricularDto obj) {
+	public void updateFormData(AlunoPeriodoCurricularCondensedDto obj) {
 		
 		initializeNodes();
 		

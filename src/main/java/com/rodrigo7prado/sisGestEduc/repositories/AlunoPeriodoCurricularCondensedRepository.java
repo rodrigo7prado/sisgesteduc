@@ -140,8 +140,8 @@ public interface AlunoPeriodoCurricularCondensedRepository extends JpaRepository
 	List<AlunoPeriodoCurricularCondensedDto> findFilterNull();
 	
 	@Query(part
-			+ where1
-			+ findFilterTodosWhere
+//			+ where1
+//			+ findFilterTodosWhere
 			+ order)
 	List<AlunoPeriodoCurricularCondensedDto> findFilterTodos();
 	

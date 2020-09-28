@@ -14,7 +14,7 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
+import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularCondensedDto;
 import com.rodrigo7prado.sisGestEduc.entities.Aluno;
 import com.rodrigo7prado.sisGestEduc.services.AlunoService;
 
@@ -54,7 +54,7 @@ public class DadosAlunosController implements Initializable {
 	@FXML
 	private Button buttonConfirmarAlteracao;
 
-	private AlunoPeriodoCurricularDto alunoPeriodoCurricularDto;
+	private AlunoPeriodoCurricularCondensedDto alunoPeriodoCurricularCondensedDto;
 
 	private Aluno controller = new Aluno();
 	
@@ -64,7 +64,7 @@ public class DadosAlunosController implements Initializable {
 	@Autowired
 	private AlunoService service;
 
-	public AlunoPeriodoCurricularDto setDadosAlunosController(AlunoPeriodoCurricularDto obj) {
+	public AlunoPeriodoCurricularCondensedDto setDadosAlunosController(AlunoPeriodoCurricularCondensedDto obj) {
 		return obj;
 	}
 
@@ -133,13 +133,13 @@ public class DadosAlunosController implements Initializable {
 		nomeCompletoField.setText("BBBBBB");
 	}
 
-	public void updateFormData(AlunoPeriodoCurricularDto obj) {
+	public void updateFormData(AlunoPeriodoCurricularCondensedDto obj) {
 //		if (entity == null) {
 //			throw new IllegalStateException("Entity was null");
 //		}
 //		matriculaField.setText(entity.getMatricula());
 		
-		alunoPeriodoCurricularDto = obj;
+		alunoPeriodoCurricularCondensedDto = obj;
 		
 		matriculaField.setText(obj.getMatricula());
 		nomeCompletoField.setText(obj.getNomeCompleto());
@@ -226,22 +226,22 @@ public class DadosAlunosController implements Initializable {
 			service.update(controller.getMatricula(),controller);
 		}
 		
-		alunoPeriodoCurricularDto.setMatricula(controller.getMatricula());
-		alunoPeriodoCurricularDto.setNomeCompleto(controller.getNomeCompleto());
-		alunoPeriodoCurricularDto.setSexo(controller.getSexo());
-//		alunoPeriodoCurricularDtodataNascField.setValue(LocalDate.parse("21/12/1988", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
-//		alunoPeriodoCurricularDtodataNascField.setText(obj.getRg());		
-		alunoPeriodoCurricularDto.setNomePai(controller.getNomePai());
-		alunoPeriodoCurricularDto.setNomeMae(controller.getNomeMae());
-		alunoPeriodoCurricularDto.setNacionalidade(controller.getNacionalidade());
-		alunoPeriodoCurricularDto.setNaturalidade(controller.getNaturalidade());
-		alunoPeriodoCurricularDto.setNaturalidadeUF(controller.getNaturalidadeUF());
-		alunoPeriodoCurricularDto.setRg(controller.getRg());
-		alunoPeriodoCurricularDto.setRgEmissor(controller.getRgEmissor());
-		alunoPeriodoCurricularDto.setRgEmissorUf(controller.getRgEmissorUf());
-//		AlunoPeriodoCurricularDto obj = new AlunoPeriodoCurricularDto(;
+		alunoPeriodoCurricularCondensedDto.setMatricula(controller.getMatricula());
+		alunoPeriodoCurricularCondensedDto.setNomeCompleto(controller.getNomeCompleto());
+		alunoPeriodoCurricularCondensedDto.setSexo(controller.getSexo());
+//		alunoPeriodoCurricularCondensedDtodataNascField.setValue(LocalDate.parse("21/12/1988", DateTimeFormatter.ofPattern("dd/MM/yyyy")));
+//		alunoPeriodoCurricularCondensedDtodataNascField.setText(obj.getRg());		
+		alunoPeriodoCurricularCondensedDto.setNomePai(controller.getNomePai());
+		alunoPeriodoCurricularCondensedDto.setNomeMae(controller.getNomeMae());
+		alunoPeriodoCurricularCondensedDto.setNacionalidade(controller.getNacionalidade());
+		alunoPeriodoCurricularCondensedDto.setNaturalidade(controller.getNaturalidade());
+		alunoPeriodoCurricularCondensedDto.setNaturalidadeUF(controller.getNaturalidadeUF());
+		alunoPeriodoCurricularCondensedDto.setRg(controller.getRg());
+		alunoPeriodoCurricularCondensedDto.setRgEmissor(controller.getRgEmissor());
+		alunoPeriodoCurricularCondensedDto.setRgEmissorUf(controller.getRgEmissorUf());
+//		alunoPeriodoCurricularCondensedDto obj = new alunoPeriodoCurricularCondensedDto(;
 		
 		
-//		relCertificacoesPorAlunoController.setDataOfRowSelected(alunoPeriodoCurricularDto); tentar depois
+//		relCertificacoesPorAlunoController.setDataOfRowSelected(alunoPeriodoCurricularCondensedDto); tentar depois
 	}
 }

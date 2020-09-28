@@ -44,7 +44,12 @@ import javafx.util.Callback;
 public class RelCertificacoesPorAlunoController implements Initializable {
 
 	private Map<String, String> mapObjects = new HashMap<String, String>();
-
+	private List<List<AlunoPeriodoCurricularCondensedDto>> carregamentos;
+	private Map<Integer, List<AlunoPeriodoCurricularCondensedDto>> mapCarregamentos = new HashMap<Integer, List<AlunoPeriodoCurricularCondensedDto>>();
+	private Map<String, List<String>> mapCarregamentos2 = new HashMap<String, List<String>>();
+	private Map<String,Predicate> mapFilters = new HashMap<String,Predicate>();
+	
+	
 //	@FXML
 //	private VBox vBoxControllerDadosAlunos;
 
@@ -74,9 +79,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	private ObservableList<AlunoPeriodoCurricularCondensedDto> observableList = FXCollections.observableArrayList();
 
-	private List<List<AlunoPeriodoCurricularCondensedDto>> carregamentos;
-	private Map<Integer, List<AlunoPeriodoCurricularCondensedDto>> mapCarregamentos = new HashMap<Integer, List<AlunoPeriodoCurricularCondensedDto>>();
-	private Map<String, List<String>> mapCarregamentos2 = new HashMap<String, List<String>>();
+	
 
 	@FXML
 	private TreeTableView<AlunoPeriodoCurricularCondensedDto> treeTableViewAluno;
@@ -109,14 +112,14 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	@FXML
 	private ToggleGroup toggleGroupAnos;
 	
-	private Map<String,Predicate> mapFilters = new HashMap<String,Predicate>();
+	
 	
 	private Map<ToggleGroup,RadioButton> mapToggleGroups = new HashMap<ToggleGroup,RadioButton>();
 	
 	private FilteredList<AlunoPeriodoCurricularCondensedDto> filteredList;
 	
-	private Predicate<AlunoPeriodoCurricularCondensedDto> predFilter01000Rb00000TodosAnos = 
-			obj -> 	obj.getSituacaoFinal().equals("Reprovado por nota");
+//	private Predicate<AlunoPeriodoCurricularCondensedDto> predFilter01000Rb00000TodosAnos = 
+//			obj -> 	obj.getSituacaoFinal().equals("Reprovado por nota");
 	private Predicate<AlunoPeriodoCurricularCondensedDto> p1 = 
 			obj -> 	obj.getSituacaoFinal().equals("Reprovado por nota");
 	
@@ -126,7 +129,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private Predicate<AlunoPeriodoCurricularCondensedDto> predFilter02000Rb02000Neja = 
 			obj -> (obj.getTurma().contains("Turma: NEJA"));
 
-	private Class<RelCertificacoesPorAlunoController> myClass;
+//	private Class<RelCertificacoesPorAlunoController> myClass;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
@@ -138,6 +141,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		observableList.clear();
 
 		observableList.addAll(service.findFilterTodos());
+//		observableList.addAll(service.findFilterConcluintes());
 		 
 //		filteredList = new FilteredList<>(observableList, p -> true);
 	}
@@ -204,23 +208,12 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 //	@SuppressWarnings("unused")
 	private void initializeNodes(Integer keyMap, String radioSource) {
 
-//		@SuppressWarnings("rawtypes")
-//		Task task = new Task<Void>() {
-//		    @Override public Void call() {
-//		    	
-//		        return null;
-//		    }
-//		};
-
-//		final ProgressBar bar = new ProgressBar();
-
 		Thread thread1 = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				Platform.runLater(new Runnable() {
 					@Override
 					public void run() {
-//						progressBar.setProgress(0);
 						progressBar.setProgress(ProgressIndicator.INDETERMINATE_PROGRESS);
 					}
 				});
@@ -272,49 +265,38 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	}
 
 	private void loadAlunosDetailsByFormElements(String eventSource) {
-//		TODO
-//		FilteredList<AlunoPeriodoCurricularCondensedDto> filteredList = new FilteredList<>(observableList, p -> true);
 		System.out.println("Ráaa 6");
 		if (eventSource.equals("Todos")) {
 			System.out.println("Ráaa 5");
 
-			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018i")
-					|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
+//			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018i")
+//					|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
 			
-//			System.out.println("intTest: " + intTest);
 			System.out.println("Size filtered list: " + filteredList.size());
 
-//			filteredList.setPredicate(p1);
-			
-//			filteredList.predicateProperty().set(p1);
+
 			
 			@SuppressWarnings("unchecked")
 			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList.getPredicate();
 			
 			
-			
-//			filteredList.setPredicate(currentPredicate.and(p1));
 			filteredList.setPredicate(currentPredicate.and(p1));
 			System.out.println("Size final: " + filteredList.size());
 		} else if (eventSource.equals("fil02000_rb00000_TodosOsCursos")) {
-			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
-					&& !(obj.getTurma().contains("Turma: NEJA"))
-					;
+//			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
+//					&& !(obj.getTurma().contains("Turma: NEJA"))
+//					;
 			
 			@SuppressWarnings("unchecked")
 			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList.getPredicate();
 			
 			filteredList.setPredicate(currentPredicate.and(predFilter02000Rb01000EnsinoMedioRegular));
 			
-//			for() {
-//				
-//			}
-			
 			
 		} else if (eventSource.equals("fil02000_rb01000_EnsinoMedioRegular")) {
-			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
-					&& !(obj.getTurma().contains("Turma: NEJA"))
-					;
+//			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
+//					&& !(obj.getTurma().contains("Turma: NEJA"))
+//					;
 			
 			@SuppressWarnings("unchecked")
 			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList.getPredicate();
@@ -354,187 +336,187 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	}
 
-	private void loadAlunosDetailsByFilteredList2(Integer keyMap) {
-
-		FilteredList<AlunoPeriodoCurricularCondensedDto> filteredList = new FilteredList<>(observableList, p -> true);
-
-		if (keyMap == 1) {
-			filteredList.setPredicate(obj -> {
-				if (obj.getAnoLetivo().contains("Ano Letivo: 2018")
-						|| obj.getAnoLetivo().contains("Ano Letivo: 2017")) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-			System.out.println("Size: " + filteredList.size());
-		} else if (keyMap == 2) {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		} else if (keyMap.equals(3)) {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && (obj.getSituacaoFinal().equals("Aprovado")
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3")))) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		} else if (keyMap.equals(4)) {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && obj.getSituacaoFinal().equals("Aprovado")
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getNflCertidao() == null && obj.getNflCertificado() == null) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		} else if (keyMap.equals(5)) {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && obj.getSituacaoFinal().equals("Aprovado")
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getNflCertidao() != null && obj.getNflCertificado() != null) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		} else if (keyMap.equals(6)) {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && obj.getSituacaoFinal().equals("Aprovado")
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getNflCertidao() != null) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		} else if (keyMap.equals(7)) {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && obj.getSituacaoFinal().equals("Aprovado")
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getNflCertidao() != null && obj.getNflCertificado() == null) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		} else if (keyMap.equals(8)) {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && obj.getSituacaoFinal().equals("Aprovado")
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getNflCertificado() != null) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		} else if (keyMap.equals(12)) {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getSituacaoFinal().equals("Aprovado")
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getDataNasc() != null && obj.getNacionalidade() != null && obj.getNaturalidade() != null
-						&& obj.getRg() != null && obj.getNomePai() != null && obj.getNomeMae() != null) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		} else if (keyMap.equals(14)) {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getSituacaoFinal().equals("Aprovado")
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& (obj.getDataNasc() == null || obj.getNacionalidade() == null || obj.getNaturalidade() == null
-								|| obj.getRg() == null || obj.getNomePai() == null || obj.getNomeMae() == null)) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		} else if (keyMap.equals(17)) {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getDataNasc() == null) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		} else if (keyMap.equals(18)) {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getNacionalidade() == null) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		} else if (keyMap.equals(19)) {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getNaturalidade() == null) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		} else if (keyMap.equals(21)) {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getRg() == null) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		} else if (keyMap.equals(24)) {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getNomePai() == null) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		} else if (keyMap.equals(25)) {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getNomeMae() == null) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		} else {
-			filteredList.setPredicate(obj -> {
-				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
-						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))) {
-					return true;
-				} else {
-					return false;
-				}
-			});
-		}
-
-		System.out.println("Qualquer porra");
-	}
+//	private void loadAlunosDetailsByFilteredList2(Integer keyMap) {
+//
+//		FilteredList<AlunoPeriodoCurricularCondensedDto> filteredList = new FilteredList<>(observableList, p -> true);
+//
+//		if (keyMap == 1) {
+//			filteredList.setPredicate(obj -> {
+//				if (obj.getAnoLetivo().contains("Ano Letivo: 2018")
+//						|| obj.getAnoLetivo().contains("Ano Letivo: 2017")) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//			System.out.println("Size: " + filteredList.size());
+//		} else if (keyMap == 2) {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		} else if (keyMap.equals(3)) {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && (obj.getSituacaoFinal().equals("Aprovado")
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3")))) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		} else if (keyMap.equals(4)) {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && obj.getSituacaoFinal().equals("Aprovado")
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						&& obj.getNflCertidao() == null && obj.getNflCertificado() == null) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		} else if (keyMap.equals(5)) {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && obj.getSituacaoFinal().equals("Aprovado")
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						&& obj.getNflCertidao() != null && obj.getNflCertificado() != null) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		} else if (keyMap.equals(6)) {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && obj.getSituacaoFinal().equals("Aprovado")
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						&& obj.getNflCertidao() != null) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		} else if (keyMap.equals(7)) {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && obj.getSituacaoFinal().equals("Aprovado")
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						&& obj.getNflCertidao() != null && obj.getNflCertificado() == null) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		} else if (keyMap.equals(8)) {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018")) && obj.getSituacaoFinal().equals("Aprovado")
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						&& obj.getNflCertificado() != null) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		} else if (keyMap.equals(12)) {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						&& obj.getSituacaoFinal().equals("Aprovado")
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						&& obj.getDataNasc() != null && obj.getNacionalidade() != null && obj.getNaturalidade() != null
+//						&& obj.getRg() != null && obj.getNomePai() != null && obj.getNomeMae() != null) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		} else if (keyMap.equals(14)) {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						&& obj.getSituacaoFinal().equals("Aprovado")
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						&& (obj.getDataNasc() == null || obj.getNacionalidade() == null || obj.getNaturalidade() == null
+//								|| obj.getRg() == null || obj.getNomePai() == null || obj.getNomeMae() == null)) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		} else if (keyMap.equals(17)) {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getDataNasc() == null) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		} else if (keyMap.equals(18)) {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getNacionalidade() == null) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		} else if (keyMap.equals(19)) {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getNaturalidade() == null) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		} else if (keyMap.equals(21)) {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getRg() == null) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		} else if (keyMap.equals(24)) {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getNomePai() == null) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		} else if (keyMap.equals(25)) {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
+//						&& obj.getSituacaoFinal().equals("Aprovado") && obj.getNomeMae() == null) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		} else {
+//			filteredList.setPredicate(obj -> {
+//				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
+//						&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))) {
+//					return true;
+//				} else {
+//					return false;
+//				}
+//			});
+//		}
+//
+//		System.out.println("Qualquer porra");
+//	}
 
 	private void loadAlunosDetailsByFilteredList(Integer keyMap) {
 
@@ -841,17 +823,6 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 //				new AlunoPeriodoCurricularCondensedDto(null, null, null, null, null, "Turma", null, null, null)
 		);
 		treeTableViewAluno.setRoot(treeItemAlunoRoot);
-
-//		for (AlunoPeriodoCurricularCondensedDto itemObsList : filteredList) {
-//			TreeItem<AlunoPeriodoCurricularCondensedDto> node = new TreeItem<>(new AlunoPeriodoCurricularCondensedDto(null, null, null, null, null,
-//					itemObsList.getTurma(), itemObsList.getNomeCompleto(),
-//					itemObsList.getSexo(), itemObsList.getDataNasc(), itemObsList.getNomePai(),
-//					itemObsList.getNomeMae(), itemObsList.getNacionalidade(), itemObsList.getNaturalidade(),
-//					itemObsList.getNaturalidadeUF(), itemObsList.getRg(), itemObsList.getRgEmissor(),
-//					itemObsList.getRgEmissorUf(), itemObsList.getMatricula(), itemObsList.getSituacaoFinal(),itemObsList.getNflCertidao(),
-//					itemObsList.getNflCertificado(), itemObsList.getValidDadosPessoais(),
-//					itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
-//					itemObsList.getValidDadosHeMedio()));
 		
 		for (AlunoPeriodoCurricularCondensedDto itemObsList : filteredList) {
 			System.out.println("Repetições onde?");
@@ -919,27 +890,19 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		System.out.println("Clicked2! " + treeTableView.getFocusModel().getFocusedIndex());
 		System.out.println("Clicked3! " + treeTableView.getFocusModel().getFocusedItem().getValue());
 
-		AlunoPeriodoCurricularCondensedDto obj = (AlunoPeriodoCurricularCondensedDto) treeTableView.getFocusModel().getFocusedItem()
-				.getValue();
+//		AlunoPeriodoCurricularCondensedDto obj = (AlunoPeriodoCurricularCondensedDto) treeTableView.getFocusModel().getFocusedItem()
+//				.getValue();
 		AlunoPeriodoCurricularCondensedDto obj2 = (AlunoPeriodoCurricularCondensedDto) treeTableView.getFocusModel().getFocusedItem()
 				.getValue();
 		
 		System.out.println("obj2: " + obj2.getEnsMedioEstabEns());
 
-//		dadosAlunosController.updateFormData(obj);
-//		historicoAlunoController.updateFormData(obj2);
-//		dadosEscolasController.updateFormData(obj2);
+		dadosAlunosController.updateFormData(obj2);
+		historicoAlunoController.updateFormData(obj2);
+		dadosEscolasController.updateFormData(obj2);
 	}
 
 	@SuppressWarnings("unused")
-	private void initCheckBoxDP() {
-
-	}
-
-	private void setDadosAlunosController(AlunoPeriodoCurricularCondensedDto obj) throws IOException {
-//		dadosAlunosController.updateFormData(obj);
-	}
-	
 	public void setDataOfRowSelected(AlunoPeriodoCurricularCondensedDto obj) {
 		System.out.println("DataAlunoObj = " + obj);
 		System.out.println("Clicked2! " + treeTableViewAluno.getFocusModel().getFocusedIndex());
@@ -964,6 +927,10 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 	}
 
+//	private void initCheckBoxDP() {
+//
+//	}
+	
 	public void updateTreeTableView(Integer keyMap) {
 		initializeNodes(keyMap, null);
 		System.out.println("Agora");

@@ -6,9 +6,8 @@ import java.util.ResourceBundle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import com.rodrigo7prado.sisGestEduc.dto.AlunoComponenteCurricularDto;
-import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularDto;
-import com.rodrigo7prado.sisGestEduc.services.AlunoPeriodoCurricularService;
+import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularCondensedDto;
+import com.rodrigo7prado.sisGestEduc.services.AlunoPeriodoCurricularCondensedService;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -22,20 +21,20 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class DadosEscolasController implements Initializable {
 
 	@Autowired
-	private AlunoPeriodoCurricularService service;
+	private AlunoPeriodoCurricularCondensedService service;
 
-	private ObservableList<AlunoPeriodoCurricularDto> observableList = FXCollections.observableArrayList();
+	private ObservableList<AlunoPeriodoCurricularCondensedDto> observableList = FXCollections.observableArrayList();
 
 	@FXML
-	private TableView<AlunoPeriodoCurricularDto> tableView;
+	private TableView<AlunoPeriodoCurricularCondensedDto> tableView;
 	@FXML
-	private TableColumn<AlunoPeriodoCurricularDto, String> tableColumnModalidade;
+	private TableColumn<AlunoPeriodoCurricularCondensedDto, String> tableColumnModalidade;
 	@FXML
-	private TableColumn<AlunoPeriodoCurricularDto, String> tableColumnPeriodoCurricular;
+	private TableColumn<AlunoPeriodoCurricularCondensedDto, String> tableColumnPeriodoCurricular;
 	@FXML
-	private TableColumn<AlunoPeriodoCurricularDto, String> tableColumnAno;
+	private TableColumn<AlunoPeriodoCurricularCondensedDto, String> tableColumnAno;
 	@FXML
-	private TableColumn<AlunoPeriodoCurricularDto, String> tableColumnEscola;
+	private TableColumn<AlunoPeriodoCurricularCondensedDto, String> tableColumnEscola;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -43,7 +42,7 @@ public class DadosEscolasController implements Initializable {
 
 		observableList.clear();
 
-//		observableList.addAll(service.findFilterTodos());
+		observableList.addAll(service.findFilterTodos());
 
 	}
 
@@ -56,7 +55,7 @@ public class DadosEscolasController implements Initializable {
 		tableColumnEscola.setCellValueFactory(new PropertyValueFactory<>("ensMedioEstabEns"));
 	}
 
-	public void updateFormData(AlunoPeriodoCurricularDto obj) {
+	public void updateFormData(AlunoPeriodoCurricularCondensedDto obj) {
 		System.out.println("Cliquei!");
 
 		tableView.getItems().clear();
@@ -64,6 +63,7 @@ public class DadosEscolasController implements Initializable {
 		initializeNodes();
 
 		observableList.clear();
+//		Ainda por ajustar
 		observableList.addAll(service.findFilterDadosEscolas(obj.getMatricula()));
 		tableView.getItems().addAll(observableList);
 	}
