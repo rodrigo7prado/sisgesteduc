@@ -43,6 +43,13 @@ public class AlunoPeriodoCurricularCondensedService {
 
 		return listDto;
 	}
+	
+	public List<AlunoPeriodoCurricularCondensedDto> findFilterTodosInterno() {
+		System.out.println("Chamando sql?");
+		List<AlunoPeriodoCurricularCondensedDto> listDto = repository.findFilterTodosInterno();
+
+		return listDto;
+	}
 
 	public Integer findFilterTodosCount() {
 		Integer count = repository.findFilterTodosCount();

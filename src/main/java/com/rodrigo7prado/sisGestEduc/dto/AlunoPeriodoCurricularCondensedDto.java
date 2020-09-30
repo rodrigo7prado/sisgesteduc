@@ -41,6 +41,19 @@ public class AlunoPeriodoCurricularCondensedDto {
 	private String rg;
 	private String rgEmissor;
 	private String rgEmissorUf;
+	
+	private String nomeCompleto2;
+	private String sexo2;
+//	private String dataNasc2;
+	private Date dataNasc2;
+	private String nomePai2;
+	private String nomeMae2;
+	private String nacionalidade2;
+	private String naturalidade2;
+	private String naturalidadeUF2;
+	private String rg2;
+	private String rgEmissor2;
+	private String rgEmissorUf2;
 
 	private String freq;
 	private String situacaoFinal;
@@ -76,9 +89,14 @@ public class AlunoPeriodoCurricularCondensedDto {
 //			Aluno aluno,
 //			VwAlunoPeriodoCurricular vwAlunoPeriodoCurricular,
 //			AlunoExternal alunoExternal,
-			String anoLetivo, String curso, String modalidade, String serie, String turma, String nomeCompleto, String sexo,
+			String anoLetivo, String curso, String modalidade, String serie, String turma,
+			String matricula,
+			String nomeCompleto, String sexo,
 			Date dataNasc, String nomePai, String nomeMae, String nacionalidade, String naturalidade,
-			String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf, String matricula,
+			String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf,
+			String nomeCompleto2, String sexo2,
+			Date dataNasc2, String nomePai2, String nomeMae2, String nacionalidade2, String naturalidade2,
+			String naturalidadeUF2, String rg2, String rgEmissor2, String rgEmissorUf2,
 			String situacaoFinal,
 			String chSubst,
 			String ensMedioEstabEns,
@@ -101,6 +119,7 @@ public class AlunoPeriodoCurricularCondensedDto {
 		
 		if (aluno == null) {
 			this.nomeCompleto = nomeCompleto;
+			this.nomeCompleto2 = nomeCompleto2;
 		} else {
 			this.nomeCompleto = aluno.getNomeCompleto();
 		}
@@ -124,6 +143,17 @@ public class AlunoPeriodoCurricularCondensedDto {
 		this.rgEmissorUf = rgEmissorUf;
 		this.situacaoFinal = situacaoFinal;
 		
+		this.sexo2 = sexo2;
+		this.dataNasc2 = dataNasc2;
+		this.nomePai2 = nomePai2;
+		this.nomeMae2 = nomeMae2;
+		this.nacionalidade2 = nacionalidade2;
+		this.naturalidade2 = naturalidade2;
+		this.naturalidadeUF2 = naturalidadeUF2;
+		this.rg2 = rg2;
+		this.rgEmissor2 = rgEmissor2;
+		this.rgEmissorUf2 = rgEmissorUf2;
+		
 		this.chSubst = chSubst;
 		this.ensMedioEstabEns = ensMedioEstabEns;		
 //		System.out.println("Lugar: " + situacaoFinal);
@@ -142,9 +172,12 @@ public class AlunoPeriodoCurricularCondensedDto {
 //			Aluno aluno,
 //			VwAlunoPeriodoCurricular vwAlunoPeriodoCurricular,
 //			AlunoExternal alunoExternal,
-			String anoLetivo, String curso, String modalidade, String serie, String turma, String nomeCompleto, String sexo,
-			Date dataNasc, String nomePai, String nomeMae, String nacionalidade, String naturalidade,
-			String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf, String matricula,
+			String anoLetivo, String curso, String modalidade, String serie, String turma,
+			String matricula,
+			String nomeCompleto, String sexo, Date dataNasc, String nomePai, String nomeMae, String nacionalidade, String naturalidade,
+			String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf, 
+			String nomeCompleto2, String sexo2, Date dataNasc2, String nomePai2, String nomeMae2, String nacionalidade2, String naturalidade2,
+			String naturalidadeUF2, String rg2, String rgEmissor2, String rgEmissorUf2,
 			String situacaoFinal
 //			, Integer nflCertidao, Integer nflCertificado
 			) {
@@ -190,6 +223,8 @@ public class AlunoPeriodoCurricularCondensedDto {
 	public AlunoPeriodoCurricularCondensedDto(String anoLetivo, String curso, String modalidade, String serie, String turma, String matricula,
 			String nomeCompleto, String sexo, Date dataNasc, String nomePai, String nomeMae, String nacionalidade,
 			String naturalidade, String naturalidadeUF, String rg, String rgEmissor, String rgEmissorUf,
+			String nomeCompleto2, String sexo2, Date dataNasc2, String nomePai2, String nomeMae2, String nacionalidade2,
+			String naturalidade2, String naturalidadeUF2, String rg2, String rgEmissor2, String rgEmissorUf2,
 			StatusDocAluno validDadosPessoais, StatusDocAluno validDadosIdentif, StatusDocAluno validDadosHeFund,
 			StatusDocAluno validDadosHeMedio, String situacaoFinal,
 			String ensMedioEstabEns,
@@ -201,6 +236,7 @@ public class AlunoPeriodoCurricularCondensedDto {
 		this.serie = serie;
 		this.turma = turma;
 		this.matricula = matricula;
+		
 		this.nomeCompleto = nomeCompleto;
 		this.sexo = sexo;
 		this.dataNasc = dataNasc;
@@ -212,6 +248,19 @@ public class AlunoPeriodoCurricularCondensedDto {
 		this.rg = rg;
 		this.rgEmissor = rgEmissor;
 		this.rgEmissorUf = rgEmissorUf;
+		
+		this.nomeCompleto2 = nomeCompleto2;
+		this.sexo2 = sexo2;
+		this.dataNasc2 = dataNasc2;
+		this.nomePai2 = nomePai2;
+		this.nomeMae2 = nomeMae2;
+		this.nacionalidade2 = nacionalidade2;
+		this.naturalidade2 = naturalidade2;
+		this.naturalidadeUF2 = naturalidadeUF2;
+		this.rg2 = rg2;
+		this.rgEmissor2 = rgEmissor2;
+		this.rgEmissorUf2 = rgEmissorUf2;
+		
 		this.validDadosPessoais = validDadosPessoais;
 		this.validDadosIdentif = validDadosIdentif;
 		this.validDadosHeFund = validDadosHeFund;
@@ -398,6 +447,94 @@ public class AlunoPeriodoCurricularCondensedDto {
 
 	public void setRg(String rg) {
 		this.rg = rg;
+	}
+	
+	public String getNomeCompleto2() {
+		return nomeCompleto2;
+	}
+
+	public void setNomeCompleto2(String nomeCompleto2) {
+		this.nomeCompleto2 = nomeCompleto2;
+	}
+
+	public String getSexo2() {
+		return sexo2;
+	}
+
+	public void setSexo2(String sexo2) {
+		this.sexo2 = sexo2;
+	}
+
+	public Date getDataNasc2() {
+		return dataNasc2;
+	}
+
+	public void setDataNasc2(Date dataNasc2) {
+		this.dataNasc2 = dataNasc2;
+	}
+
+	public String getNomePai2() {
+		return nomePai2;
+	}
+
+	public void setNomePai2(String nomePai2) {
+		this.nomePai2 = nomePai2;
+	}
+
+	public String getNomeMae2() {
+		return nomeMae2;
+	}
+
+	public void setNomeMae2(String nomeMae2) {
+		this.nomeMae2 = nomeMae2;
+	}
+
+	public String getNacionalidade2() {
+		return nacionalidade2;
+	}
+
+	public void setNacionalidade2(String nacionalidade2) {
+		this.nacionalidade2 = nacionalidade2;
+	}
+
+	public String getNaturalidade2() {
+		return naturalidade2;
+	}
+
+	public void setNaturalidade2(String naturalidade2) {
+		this.naturalidade2 = naturalidade2;
+	}
+
+	public String getNaturalidadeUF2() {
+		return naturalidadeUF2;
+	}
+
+	public void setNaturalidadeUF2(String naturalidadeUF2) {
+		this.naturalidadeUF2 = naturalidadeUF2;
+	}
+
+	public String getRg2() {
+		return rg2;
+	}
+
+	public void setRg2(String rg2) {
+		this.rg2 = rg2;
+	}
+
+	public String getRgEmissor2() {
+		return rgEmissor2;
+	}
+
+	public void setRgEmissor2(String rgEmissor2) {
+		this.rgEmissor2 = rgEmissor2;
+	}
+
+	public String getRgEmissorUf2() {
+		return rgEmissorUf2;
+	}
+
+	public void setRgEmissorUf2(String rgEmissorUf2) {
+		this.rgEmissorUf2 = rgEmissorUf2;
 	}
 
 	public void setFreq(String freq) {

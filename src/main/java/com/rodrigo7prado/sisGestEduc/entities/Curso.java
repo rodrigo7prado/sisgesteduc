@@ -26,6 +26,7 @@ public class Curso implements Serializable {
 	private Long id;
 	private String nome;
 	private String nomeExternal;
+	private String nomeExternalReplace;
 	
 	@OneToMany(mappedBy = "id.curso")
 	Set<CursoModalidade> cursosModalidades = new HashSet<>();
@@ -65,6 +66,14 @@ public class Curso implements Serializable {
 
 	public void setNomeExternal(String nomeExternal) {
 		this.nomeExternal = nomeExternal;
+	}
+
+	public String getNomeExternalReplace() {
+		return nomeExternalReplace;
+	}
+
+	public void setNomeExternalReplace(String nomeExternalReplace) {
+		this.nomeExternalReplace = nomeExternalReplace;
 	}
 
 	public Set<CursoModalidade> getCursosModalidades() {

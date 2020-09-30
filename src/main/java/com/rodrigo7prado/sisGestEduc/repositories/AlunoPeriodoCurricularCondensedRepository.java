@@ -17,6 +17,7 @@ public interface AlunoPeriodoCurricularCondensedRepository extends JpaRepository
 			+ ", c.id.modalidade"
 			+ ", c.id.periodoCurricular"
 			+ ", c.id.turma"
+			+ ", c.id.aluno"
 			+ ", c.nomeCompl"
 			+ ", c.sexo"
 			+ ", c.dataNasc"
@@ -28,7 +29,17 @@ public interface AlunoPeriodoCurricularCondensedRepository extends JpaRepository
 			+ ", c.rg"
 			+ ", c.rgEmissor"
 			+ ", c.rgEmissorUf"
-			+ ", c.id.aluno"
+			+ ", c.nomeCompl2"
+			+ ", c.sexo2"
+			+ ", c.dataNasc2"
+			+ ", c.nomePai2"
+			+ ", c.nomeMae2"
+			+ ", c.nacionalidade2"
+			+ ", c.naturalidade2"
+			+ ", c.naturalidadeUF2"
+			+ ", c.rg2"
+			+ ", c.rgEmissor2"
+			+ ", c.rgEmissorUf2"
 			+ ", c.situacaoFinal"
 			+ ", c.chSubst"
 			+ ", c.ensMedioEstabEns"
@@ -55,6 +66,7 @@ public interface AlunoPeriodoCurricularCondensedRepository extends JpaRepository
 	
 	String order = "ORDER BY c.id.turma, c.nomeCompl";
 	String where1 = "WHERE " + "c.id.ano LIKE 'Ano Letivo: 2018%' ";
+	String whereInterno = " AND " + "c.id.turma IS NOT NULL ";
 	
 	String findFilterTodosWhere = ""
 			+ "OR c.id.ano LIKE 'Ano Letivo: 2017%' ";
@@ -144,6 +156,13 @@ public interface AlunoPeriodoCurricularCondensedRepository extends JpaRepository
 //			+ findFilterTodosWhere
 			+ order)
 	List<AlunoPeriodoCurricularCondensedDto> findFilterTodos();
+	
+	@Query(part
+			+ where1
+			+ whereInterno
+//			+ findFilterTodosWhere
+			+ order)
+	List<AlunoPeriodoCurricularCondensedDto> findFilterTodosInterno();
 	
 	@Query(part
 			+ findFilterDadosEscolaWhere

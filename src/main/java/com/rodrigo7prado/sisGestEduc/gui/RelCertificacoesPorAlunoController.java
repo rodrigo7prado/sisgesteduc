@@ -47,15 +47,14 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private List<List<AlunoPeriodoCurricularCondensedDto>> carregamentos;
 	private Map<Integer, List<AlunoPeriodoCurricularCondensedDto>> mapCarregamentos = new HashMap<Integer, List<AlunoPeriodoCurricularCondensedDto>>();
 	private Map<String, List<String>> mapCarregamentos2 = new HashMap<String, List<String>>();
-	private Map<String,Predicate> mapFilters = new HashMap<String,Predicate>();
-	
-	
+	private Map<String, Predicate> mapFilters = new HashMap<String, Predicate>();
+
 //	@FXML
 //	private VBox vBoxControllerDadosAlunos;
 
 	@FXML
 	private VBox vBoxControllerFiltro;
-	
+
 	@FXML
 	private VBox vBoxControllerDadosEscolas;
 
@@ -78,8 +77,6 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private AlunoPeriodoCurricularCondensedService service;
 
 	private ObservableList<AlunoPeriodoCurricularCondensedDto> observableList = FXCollections.observableArrayList();
-
-	
 
 	@FXML
 	private TreeTableView<AlunoPeriodoCurricularCondensedDto> treeTableViewAluno;
@@ -111,81 +108,78 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 	private VBox dialog;
 	@FXML
 	private ToggleGroup toggleGroupAnos;
-	
-	
-	
-	private Map<ToggleGroup,RadioButton> mapToggleGroups = new HashMap<ToggleGroup,RadioButton>();
-	
+
+	private Map<ToggleGroup, RadioButton> mapToggleGroups = new HashMap<ToggleGroup, RadioButton>();
+
 	private FilteredList<AlunoPeriodoCurricularCondensedDto> filteredList;
-	
+
 //	private Predicate<AlunoPeriodoCurricularCondensedDto> predFilter01000Rb00000TodosAnos = 
 //			obj -> 	obj.getSituacaoFinal().equals("Reprovado por nota");
-	private Predicate<AlunoPeriodoCurricularCondensedDto> p1 = 
-			obj -> 	obj.getSituacaoFinal().equals("Reprovado por nota");
-	
-	private Predicate<AlunoPeriodoCurricularCondensedDto> predFilter02000Rb01000EnsinoMedioRegular = 
-			obj -> !(obj.getTurma().contains("Turma: NEJA"));
-			
-	private Predicate<AlunoPeriodoCurricularCondensedDto> predFilter02000Rb02000Neja = 
-			obj -> (obj.getTurma().contains("Turma: NEJA"));
+	private Predicate<AlunoPeriodoCurricularCondensedDto> p1 = obj -> obj.getSituacaoFinal()
+			.equals("Reprovado por nota");
+
+	private Predicate<AlunoPeriodoCurricularCondensedDto> predFilter02000Rb01000EnsinoMedioRegular = obj -> !(obj
+			.getTurma().contains("Turma: NEJA"));
+
+	private Predicate<AlunoPeriodoCurricularCondensedDto> predFilter02000Rb02000Neja = obj -> (obj.getTurma()
+			.contains("Turma: NEJA"));
 
 //	private Class<RelCertificacoesPorAlunoController> myClass;
 
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		
+
 		System.out.println("COMEÇAR AGORA, para filteredList");
-		
+
 		setupPredicates();
 
 		observableList.clear();
 
-		observableList.addAll(service.findFilterTodos());
+		System.out.println("AIAIAI: " + service.findFilterTodosInterno());
+		
+		observableList.addAll(service.findFilterTodosInterno());
 //		observableList.addAll(service.findFilterConcluintes());
-		 
+
 //		filteredList = new FilteredList<>(observableList, p -> true);
 	}
-	
+
 	private void setupPredicates() {
 		System.out.println("ToggleGroupAnos: " + toggleGroupAnos.getSelectedToggle());
 		System.out.println("ToggleGroupAnos: " + toggleGroupAnos.getSelectedToggle().selectedProperty());
-		
-		
+
 		mapToggleGroups.put(toggleGroupAnos, (RadioButton) toggleGroupAnos.getSelectedToggle());
-		
+
 		RadioButton radioButtonAssociated = mapToggleGroups.get(toggleGroupAnos);
-		
+
 		String str = radioButtonAssociated.getId();
-		
+
 		RelCertificacoesPorAlunoController.class.getDeclaredFields();
-		
-		
+
 		Class<RelCertificacoesPorAlunoController> classe = RelCertificacoesPorAlunoController.class;
-		
-		for ( Field atributo : classe.getDeclaredFields() ) {
+
+		for (Field atributo : classe.getDeclaredFields()) {
 			System.out.println(radioButtonAssociated.getId());
 			System.out.println("Atributo: " + atributo.getName().toString());
 			if (atributo.getName().toString().equals(str)) {
 				System.out.println("Código identificou corretamente");
-			}
-			else {
+			} else {
 				System.out.println("Não identificado");
 			}
 			System.out.println("___________________________________________________");
 		}
-		
-		mapFilters.put("EnsinoMedioRegular",predFilter02000Rb01000EnsinoMedioRegular);
-		mapFilters.put("Cursos",predFilter02000Rb01000EnsinoMedioRegular);
-		mapFilters.put("PeridosCurriculares",predFilter02000Rb01000EnsinoMedioRegular);
-		mapFilters.put("SituacoesDeConclusao",predFilter02000Rb01000EnsinoMedioRegular);
-		mapFilters.put("SituacoesFinais",predFilter02000Rb01000EnsinoMedioRegular);
-		mapFilters.put("SituacoesPendenciais",predFilter02000Rb01000EnsinoMedioRegular);
-		mapFilters.put("SituacoesDeCertidao",predFilter02000Rb01000EnsinoMedioRegular);
-		mapFilters.put("SituacoesDeCertificado",predFilter02000Rb01000EnsinoMedioRegular);
-		mapFilters.put("PendenciasDadosGeraisEPessoais",predFilter02000Rb01000EnsinoMedioRegular);
-		mapFilters.put("SituacoesDeHistoricoMedio",predFilter02000Rb01000EnsinoMedioRegular);
-		mapFilters.put("SituacoesDeConsistenciaConexao",predFilter02000Rb01000EnsinoMedioRegular);
-		
+
+		mapFilters.put("EnsinoMedioRegular", predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("Cursos", predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("PeridosCurriculares", predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("SituacoesDeConclusao", predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("SituacoesFinais", predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("SituacoesPendenciais", predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("SituacoesDeCertidao", predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("SituacoesDeCertificado", predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("PendenciasDadosGeraisEPessoais", predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("SituacoesDeHistoricoMedio", predFilter02000Rb01000EnsinoMedioRegular);
+		mapFilters.put("SituacoesDeConsistenciaConexao", predFilter02000Rb01000EnsinoMedioRegular);
+
 	}
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
@@ -236,7 +230,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 //							TODO
 							System.out.println("Ráaa 7");
 							loadAlunosDetailsByFormElements(radioSource);
-//							loadAlunosDetailsByFilteredList(1);
+							loadAlunosDetailsByFilteredList(1);
 						} else {
 							loadAlunosDetailsByFilteredList(keyMap);
 						}
@@ -271,68 +265,69 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 //			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018i")
 //					|| obj.getAnoLetivo().contains("Ano Letivo: 2017i");
-			
+
 			System.out.println("Size filtered list: " + filteredList.size());
 
-
-			
 			@SuppressWarnings("unchecked")
-			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList.getPredicate();
-			
-			
+			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList
+					.getPredicate();
+
 			filteredList.setPredicate(currentPredicate.and(p1));
 			System.out.println("Size final: " + filteredList.size());
 		} else if (eventSource.equals("fil02000_rb00000_TodosOsCursos")) {
 //			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
 //					&& !(obj.getTurma().contains("Turma: NEJA"))
 //					;
-			
+
 			@SuppressWarnings("unchecked")
-			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList.getPredicate();
-			
+			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList
+					.getPredicate();
+
 			filteredList.setPredicate(currentPredicate.and(predFilter02000Rb01000EnsinoMedioRegular));
-			
-			
+
 		} else if (eventSource.equals("fil02000_rb01000_EnsinoMedioRegular")) {
 //			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
 //					&& !(obj.getTurma().contains("Turma: NEJA"))
 //					;
-			
+
 			@SuppressWarnings("unchecked")
-			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList.getPredicate();
-			
+			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList
+					.getPredicate();
+
 			filteredList.setPredicate(currentPredicate.and(predFilter02000Rb02000Neja));
-			
+
 		} else if (eventSource.equals("fil02000_rb02000_ENEJA")) {
 			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
-					&& (obj.getTurma().contains("Turma: NEJA"))
-					;
-			
+					&& (obj.getTurma().contains("Turma: NEJA"));
+
 			@SuppressWarnings("unchecked")
-			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList.getPredicate();
-			
+			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList
+					.getPredicate();
+
 			filteredList.setPredicate(currentPredicate.and(p2));
-			
+
 		} else if (eventSource.equals("Anos finais")) {
 			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
 					&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"));
-			
+
 			@SuppressWarnings("unchecked")
-			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList.getPredicate();
-			
+			Predicate<AlunoPeriodoCurricularCondensedDto> currentPredicate = (Predicate<AlunoPeriodoCurricularCondensedDto>) filteredList
+					.getPredicate();
+
 			filteredList.setPredicate(currentPredicate.and(p2));
-			
+
 		} else if (eventSource.equals("Todos")) {
-			
+
 		} else if (eventSource.equals("Todos")) {
-			
+
 		} else if (eventSource.equals("Todos")) {
-			
+
 		} else if (eventSource.equals("Todos")) {
-			
+
 		}
-		
+
 		buildView(filteredList);
+//		buildView();
 
 	}
 
@@ -527,13 +522,12 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		if (keyMap == 1) {
 
 			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
-					|| obj.getAnoLetivo().contains("Ano Letivo: 2017")
-					;
+					|| obj.getAnoLetivo().contains("Ano Letivo: 2017");
 
 //			filteredList.setPredicate(p1.and(p2).negate());
 			filteredList.setPredicate(p2);
 //			intTest = 20;
-			
+
 			filteredList = filteredList.filtered(p2);
 			System.out.println("SIZE new? " + filteredList.size());
 		}
@@ -548,28 +542,22 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 					return false;
 				}
 			});
-			
-			
+
 			Predicate<AlunoPeriodoCurricularCondensedDto> p2 = obj -> obj.getAnoLetivo().contains("Ano Letivo: 2018")
-					&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"))
-					;
+					&& (obj.getTurma().contains("Turma: NEJA-IV") || obj.getTurma().contains("Turma: 3"));
 
 //			filteredList.setPredicate(p1.and(p2).negate());
 			filteredList.setPredicate(p2);
 //			intTest = 20;
-			
+
 			filteredList = filteredList.filtered(p2);
 			System.out.println("SIZE new? " + filteredList.size());
-			
-			
-			
+
 //			findFilterConcluintesWhere
 		} else if (keyMap.equals(3)) {
 			filteredList.setPredicate(obj -> {
 				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
-//						+ "AND v.id.situacaoFinal = 'Aprovado' "
 						&& (obj.getSituacaoFinal().equals("Aprovado")
-//						+ "AND (v.id.turma LIKE 'Turma: NEJA-IV%' OR v.id.turma LIKE 'Turma: 3%') ";
 								&& (obj.getTurma().contains("Turma: NEJA-IV")
 										|| obj.getTurma().contains("Turma: 3")))) {
 					return true;
@@ -577,7 +565,6 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 					return false;
 				}
 			});
-//			findFilterConcluintesSemEmissaoWhere
 		} else if (keyMap.equals(4)) {
 			filteredList.setPredicate(obj -> {
 				if ((obj.getAnoLetivo().contains("Ano Letivo: 2018"))
@@ -813,30 +800,44 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 				}
 			});
 		}
-
+		
+//		filteredList = null;
 		buildView(filteredList);
+//		buildView();
 
 	}
 
 	private void buildView(FilteredList<AlunoPeriodoCurricularCondensedDto> filteredList) {
+//	private void buildView() {
+		System.out.println("aaaaaaaaaaaaaaaaai");
+		System.out.println("Então: " + service.findFilterConcluintes());
 		TreeItem<AlunoPeriodoCurricularCondensedDto> treeItemAlunoRoot = new TreeItem<>(
-//				new AlunoPeriodoCurricularCondensedDto(null, null, null, null, null, "Turma", null, null, null)
+
 		);
 		treeTableViewAluno.setRoot(treeItemAlunoRoot);
+
 		
-		for (AlunoPeriodoCurricularCondensedDto itemObsList : filteredList) {
+		
+				for (AlunoPeriodoCurricularCondensedDto itemObsList : filteredList) {
+//				for (AlunoPeriodoCurricularCondensedDto itemObsList : observableList) {
 			System.out.println("Repetições onde?");
-			TreeItem<AlunoPeriodoCurricularCondensedDto> node = new TreeItem<>(new AlunoPeriodoCurricularCondensedDto(null, itemObsList.getCurso(), itemObsList.getModalidade(),
-					itemObsList.getSerie(), itemObsList.getTurma(), itemObsList.getMatricula(), itemObsList.getNomeCompleto(),
+			TreeItem<AlunoPeriodoCurricularCondensedDto> node = new TreeItem<>(new AlunoPeriodoCurricularCondensedDto(
+					null, itemObsList.getCurso(), itemObsList.getModalidade(), itemObsList.getSerie(),
+					itemObsList.getTurma(), itemObsList.getMatricula(),
+					itemObsList.getNomeCompleto(),
 					itemObsList.getSexo(), itemObsList.getDataNasc(), itemObsList.getNomePai(),
 					itemObsList.getNomeMae(), itemObsList.getNacionalidade(), itemObsList.getNaturalidade(),
 					itemObsList.getNaturalidadeUF(), itemObsList.getRg(), itemObsList.getRgEmissor(),
-					itemObsList.getRgEmissorUf(), itemObsList.getValidDadosPessoais(),
+					itemObsList.getRgEmissorUf(),
+					itemObsList.getNomeCompleto2(),
+					itemObsList.getSexo2(), itemObsList.getDataNasc2(), itemObsList.getNomePai2(),
+					itemObsList.getNomeMae2(), itemObsList.getNacionalidade2(), itemObsList.getNaturalidade2(),
+					itemObsList.getNaturalidadeUF2(), itemObsList.getRg2(), itemObsList.getRgEmissor2(),
+					itemObsList.getRgEmissorUf2(),
+					itemObsList.getValidDadosPessoais(),
 					itemObsList.getValidDadosIdentif(), itemObsList.getValidDadosHeFund(),
 					itemObsList.getValidDadosHeMedio(), itemObsList.getSituacaoFinal(),
-					itemObsList.getEnsMedioEstabEns(),
-					itemObsList.getNflCertidao(),
-					itemObsList.getNflCertificado()));
+					itemObsList.getEnsMedioEstabEns(), itemObsList.getNflCertidao(), itemObsList.getNflCertificado()));
 
 			TreeItem<AlunoPeriodoCurricularCondensedDto> turmaNode = node;
 
@@ -872,7 +873,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 		RadioButton eventSource = (RadioButton) event.getSource();
 //		TODO
 //		loadAlunosDetailsByFormElements(eventSource.getText());
-		initializeNodes(null,eventSource.getId());
+		initializeNodes(null, eventSource.getId());
 
 		System.out.println("Ráaaa 2: " + eventSource.getViewOrder());
 		System.out.println("Ráaaa 2: " + eventSource.getId());
@@ -892,9 +893,9 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 
 //		AlunoPeriodoCurricularCondensedDto obj = (AlunoPeriodoCurricularCondensedDto) treeTableView.getFocusModel().getFocusedItem()
 //				.getValue();
-		AlunoPeriodoCurricularCondensedDto obj2 = (AlunoPeriodoCurricularCondensedDto) treeTableView.getFocusModel().getFocusedItem()
-				.getValue();
-		
+		AlunoPeriodoCurricularCondensedDto obj2 = (AlunoPeriodoCurricularCondensedDto) treeTableView.getFocusModel()
+				.getFocusedItem().getValue();
+
 		System.out.println("obj2: " + obj2.getEnsMedioEstabEns());
 
 		dadosAlunosController.updateFormData(obj2);
@@ -918,7 +919,8 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 				new Callback<TreeTableColumn.CellDataFeatures<AlunoPeriodoCurricularCondensedDto, String>, ObservableValue<String>>() {
 
 					@Override
-					public ObservableValue<String> call(CellDataFeatures<AlunoPeriodoCurricularCondensedDto, String> param) {
+					public ObservableValue<String> call(
+							CellDataFeatures<AlunoPeriodoCurricularCondensedDto, String> param) {
 						return null;
 					}
 
@@ -930,7 +932,7 @@ public class RelCertificacoesPorAlunoController implements Initializable {
 //	private void initCheckBoxDP() {
 //
 //	}
-	
+
 	public void updateTreeTableView(Integer keyMap) {
 		initializeNodes(keyMap, null);
 		System.out.println("Agora");
