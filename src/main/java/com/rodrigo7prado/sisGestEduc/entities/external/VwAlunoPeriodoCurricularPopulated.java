@@ -35,6 +35,41 @@ public class VwAlunoPeriodoCurricularPopulated {
 //		id.setPeriodoCurricular(periodoCurricular);
 		// outros atributos
 	}
+	
+	public VwAlunoPeriodoCurricularPopulated(
+			String ano,
+			String curso,
+			String modalidade,
+			String periodoCurricular,
+			String turma,
+			String aluno,
+			String nomeCompl,
+			String situacaoFinal,
+			String chSubst,
+			String ensMedioEstabEns,
+			String ensMedioCidadeEstadoEstabEns,
+			Double freqSubst,
+			Double frqg,
+			String resSerie,
+			String resSerieSubst
+			) {
+//		super();
+		this.id.setAno(ano);
+		this.id.setCurso(curso);
+		this.id.setModalidade(modalidade);
+		this.id.setPeriodoCurricular(periodoCurricular);
+		this.id.setTurma(turma);
+		this.id.setAluno(aluno);
+		this.nomeCompl = nomeCompl;
+		this.situacaoFinal = situacaoFinal;
+		this.chSubst = chSubst;
+		this.ensMedioEstabEns = ensMedioEstabEns;
+		this.ensMedioCidadeEstadoEstabEns = ensMedioCidadeEstadoEstabEns;
+		this.freqSubst = freqSubst;
+		this.frqg = frqg;
+		this.resSerie = resSerie;
+		this.resSerieSubst = resSerieSubst;
+	}
 
 	public VwAlunoPeriodoCurricularPopulatedPk getId() {
 		return id;
