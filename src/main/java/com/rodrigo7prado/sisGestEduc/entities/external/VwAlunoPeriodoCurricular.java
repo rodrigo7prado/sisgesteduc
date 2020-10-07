@@ -2,11 +2,13 @@ package com.rodrigo7prado.sisGestEduc.entities.external;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 import org.hibernate.annotations.Immutable;
 
 @Entity
 @Immutable
+@Table(name = "ts_aluno_periodo_curricular_external")
 public class VwAlunoPeriodoCurricular {
 
 	@EmbeddedId

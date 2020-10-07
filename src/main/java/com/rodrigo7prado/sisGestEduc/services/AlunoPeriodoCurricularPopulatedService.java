@@ -22,6 +22,13 @@ public class AlunoPeriodoCurricularPopulatedService {
 		Optional<VwAlunoPeriodoCurricularPopulated> obj = repository.findById(id);
 		return obj.get();
 	}
+	
+	public List<VwAlunoPeriodoCurricularPopulated> findFilterAluno(String aluno) {
+		System.out.println("ALUNNNO: " + aluno);
+		List<VwAlunoPeriodoCurricularPopulated> listDto = repository.findFilterAluno(aluno);
+		System.out.println("ALUNNO2: " + listDto);
+		return listDto;
+	}
 
 	public List<VwAlunoPeriodoCurricularPopulated> findFilterTodos() {
 		System.out.println("Chamando sql?");

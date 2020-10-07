@@ -7,6 +7,7 @@ import org.hibernate.annotations.Immutable;
 
 import com.rodrigo7prado.sisGestEduc.entities.Aluno;
 import com.rodrigo7prado.sisGestEduc.entities.PeriodoCurricular;
+//import com.rodrigo7prado.sisGestEduc.entities.external.VwAlunoPeriodoCurricularPopulatedPk;
 
 @Entity
 @Immutable
@@ -37,6 +38,7 @@ public class VwAlunoPeriodoCurricularPopulated {
 	}
 	
 	public VwAlunoPeriodoCurricularPopulated(
+			VwAlunoPeriodoCurricularPopulatedPk id,
 			String ano,
 			String curso,
 			String modalidade,
@@ -54,12 +56,13 @@ public class VwAlunoPeriodoCurricularPopulated {
 			String resSerieSubst
 			) {
 //		super();
-		this.id.setAno(ano);
-		this.id.setCurso(curso);
-		this.id.setModalidade(modalidade);
-		this.id.setPeriodoCurricular(periodoCurricular);
-		this.id.setTurma(turma);
-		this.id.setAluno(aluno);
+//		this.id.setAno(ano);
+//		this.id.setCurso(curso);
+//		this.id.setModalidade(modalidade);
+//		this.id.setPeriodoCurricular(periodoCurricular);
+//		this.id.setTurma(turma);
+//		this.id.setAluno(aluno);
+		this.id = id;
 		this.nomeCompl = nomeCompl;
 		this.situacaoFinal = situacaoFinal;
 		this.chSubst = chSubst;
@@ -149,5 +152,13 @@ public class VwAlunoPeriodoCurricularPopulated {
 
 	public void setResSerieSubst(String resSerieSubst) {
 		this.resSerieSubst = resSerieSubst;
+	}
+
+	@Override
+	public String toString() {
+		return "VwAlunoPeriodoCurricularPopulated [id=" + id + ", nomeCompl=" + nomeCompl + ", situacaoFinal="
+				+ situacaoFinal + ", chSubst=" + chSubst + ", ensMedioEstabEns=" + ensMedioEstabEns
+				+ ", ensMedioCidadeEstadoEstabEns=" + ensMedioCidadeEstadoEstabEns + ", freqSubst=" + freqSubst
+				+ ", frqg=" + frqg + ", resSerie=" + resSerie + ", resSerieSubst=" + resSerieSubst + "]";
 	} 
 }

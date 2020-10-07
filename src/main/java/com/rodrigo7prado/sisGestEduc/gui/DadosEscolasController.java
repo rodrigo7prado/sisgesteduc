@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import com.rodrigo7prado.sisGestEduc.dto.AlunoPeriodoCurricularCondensedDto;
-import com.rodrigo7prado.sisGestEduc.services.AlunoPeriodoCurricularCondensedService;
+import com.rodrigo7prado.sisGestEduc.entities.external.VwAlunoPeriodoCurricularPopulated;
+import com.rodrigo7prado.sisGestEduc.services.AlunoPeriodoCurricularPopulatedService;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,51 +23,66 @@ import javafx.scene.control.cell.PropertyValueFactory;
 public class DadosEscolasController implements Initializable {
 
 	@Autowired
-	private AlunoPeriodoCurricularCondensedService service;
+	private AlunoPeriodoCurricularPopulatedService service;
 
-	private ObservableList<AlunoPeriodoCurricularCondensedDto> observableList = FXCollections.observableArrayList();
+	private ObservableList<VwAlunoPeriodoCurricularPopulated> observableList = FXCollections.observableArrayList();
 
 	@FXML
-	private TableView<AlunoPeriodoCurricularCondensedDto> tableView;
+	private TableView<VwAlunoPeriodoCurricularPopulated> tableView;
 	@FXML
-	private TableColumn<AlunoPeriodoCurricularCondensedDto, String> tableColumnModalidade;
+	private TableColumn<VwAlunoPeriodoCurricularPopulated, String> tableColumnModalidade;
 	@FXML
-	private TableColumn<AlunoPeriodoCurricularCondensedDto, String> tableColumnPeriodoCurricular;
+	private TableColumn<VwAlunoPeriodoCurricularPopulated, String> tableColumnPeriodoCurricular;
 	@FXML
-	private TableColumn<AlunoPeriodoCurricularCondensedDto, String> tableColumnAno;
+	private TableColumn<VwAlunoPeriodoCurricularPopulated, String> tableColumnAno;
 	@FXML
-	private TableColumn<AlunoPeriodoCurricularCondensedDto, String> tableColumnEscola;
+	private TableColumn<VwAlunoPeriodoCurricularPopulated, String> tableColumnEscola;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 
-		observableList.clear();
+//		observableList.clear();
 
-		observableList.addAll(service.findFilterTodos());
+//		observableList.addAll(service.findFilterAluno());
 
 	}
 
 	private void initializeNodes() {
 //		tableColumnModalidade.setCellValueFactory(new PropertyValueFactory<>("componenteCurricular"));
-//		
-		tableColumnModalidade.setCellValueFactory(new PropertyValueFactory<>("modalidade"));
-		tableColumnAno.setCellValueFactory(new PropertyValueFactory<>("anoLetivo"));
-		tableColumnPeriodoCurricular.setCellValueFactory(new PropertyValueFactory<>("serie"));
+		tableColumnModalidade.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId().getModalidade()));
+		tableColumnPeriodoCurricular.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId().getPeriodoCurricular()));
+		tableColumnAno.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getId().getAno()));
+		
+//		tableColumnAno.setCellValueFactory(new PropertyValueFactory<>("anoLetivo"));
+//		tableColumnPeriodoCurricular.setCellValueFactory(new PropertyValueFactory<>("periodoCurricular"));
 		tableColumnEscola.setCellValueFactory(new PropertyValueFactory<>("ensMedioEstabEns"));
 	}
 
 	public void updateFormData(AlunoPeriodoCurricularCondensedDto obj) {
-		System.out.println("Cliquei!");
-
-		tableView.getItems().clear();
+//		System.out.println("Cliquei!");
+//
+//		tableView.getItems().clear();
+//		
+//		initializeNodes();
+//
+//		observableList.clear();
+//		observableList.addAll(service.findFilterAluno(obj.getMatricula()));
+//		tableView.getItems().addAll(observableList);
 		
 		initializeNodes();
-
+		
+		tableView.getItems().clear();
+		
+		
+		
 		observableList.clear();
-//		Ainda por ajustar
-		observableList.addAll(service.findFilterDadosEscolas(obj.getMatricula()));
+		observableList.addAll(service.findFilterAluno(obj.getMatricula()));
+//		tableView.getItems().addAll(observableList);
+		
+		
 		tableView.getItems().addAll(observableList);
+//		tableView.refresh();
 	}
 
 }
