@@ -12,11 +12,11 @@ import com.rodrigo7prado.sisGestEduc.entities.external.VwAlunoPeriodoCurricularP
 public interface AlunoPeriodoCurricularPopulatedRepository extends JpaRepository<VwAlunoPeriodoCurricularPopulated, Long> {
 	String part = "SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.entities.external.VwAlunoPeriodoCurricularPopulated("
 			+ "c.id"
-			+ ", c.id.ano"
+			+ ", c.ano"
 			+ ", c.id.curso"
 			+ ", c.id.modalidade"
 			+ ", c.id.periodoCurricular"
-			+ ", c.id.turma"
+			+ ", c.turma"
 			+ ", c.id.aluno"
 			+ ", c.nomeCompl"
 			+ ", c.situacaoFinal"
@@ -34,7 +34,7 @@ public interface AlunoPeriodoCurricularPopulatedRepository extends JpaRepository
 			+ "FROM VwAlunoPeriodoCurricularPopulated c "
 			;
 	
-	String where1 = " WHERE " + "c.id.aluno = ?1 ";
+	String where1 = " WHERE " + "c.id.aluno = ?1 AND (c.situacaoFinal = 'Aprovado com dependência' OR c.situacaoFinal = 'Aprovado' OR c.situacaoFinal IS NULL)";
 	String order = "ORDER BY c.id.turma, c.nomeCompl";
 	String whereInterno = " AND " + "c.id.turma IS NOT NULL ";
 	

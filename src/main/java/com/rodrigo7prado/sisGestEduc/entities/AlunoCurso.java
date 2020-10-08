@@ -25,6 +25,8 @@ public class AlunoCurso implements Serializable {
 	@OneToMany(mappedBy = "alunoCurso")
 	private List<AlunoCursoModalidade> alunoCursoModalidade = new ArrayList<>();
 
+	private Integer countDisciplinasFaltandoNota;
+	
 	public AlunoCurso() {
 	}
 
@@ -51,4 +53,19 @@ public class AlunoCurso implements Serializable {
 	public void setCurso(Curso curso) {
 		id.setCurso(curso);
 	}
+
+	public Integer getCountDisciplinasFaltandoNota() {
+		
+//		double sum = 0.0;
+//		for (AlunoComponenteCurricular x : items) {
+//			sum += x.getSubTotal();
+//		}
+//		return sum;
+				return countDisciplinasFaltandoNota;
+	}
+
+	public void setCountDisciplinasFaltandoNota(Integer countDisciplinasFaltandoNota) {
+		this.countDisciplinasFaltandoNota = countDisciplinasFaltandoNota;
+	}
+	
 }

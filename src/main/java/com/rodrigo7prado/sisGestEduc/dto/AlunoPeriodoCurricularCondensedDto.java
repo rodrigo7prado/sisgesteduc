@@ -76,6 +76,8 @@ public class AlunoPeriodoCurricularCondensedDto {
 	private StatusDocAluno validDadosHeFund;
 
 	private StatusDocAluno validDadosHeMedio;
+	
+	private Integer countDisciplinasFaltandoNota;
 
 	public AlunoPeriodoCurricularCondensedDto() {
 //		System.out.println("CONSTRUTOR: " + this.nomeCompleto);
@@ -647,6 +649,21 @@ public class AlunoPeriodoCurricularCondensedDto {
 
 	public void setValidDadosHeMedio(StatusDocAluno validDadosHeMedio) {
 		this.validDadosHeMedio = validDadosHeMedio;
+	}
+
+	public Integer getCountDisciplinasFaltandoNota() {
+		
+//		double sum = 0.0;
+//		for (OrderItem x : items) {
+//			sum += x.getSubTotal();
+//		}
+//		return sum;
+		
+		return countDisciplinasFaltandoNota;
+	}
+
+	public void setCountDisciplinasFaltandoNota(Integer countDisciplinasFaltandoNota) {
+		this.countDisciplinasFaltandoNota = countDisciplinasFaltandoNota;
 	}
 
 	@Override

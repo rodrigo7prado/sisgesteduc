@@ -18,10 +18,6 @@ public class VwAlunoPeriodoCurricularPopulatedPk implements Serializable {
 	
 	private String periodoCurricular;
 	
-	private String ano;
-	
-	private String turma;
-	
 	private String aluno;
 
 	public VwAlunoPeriodoCurricularPopulatedPk() {
@@ -34,8 +30,6 @@ public class VwAlunoPeriodoCurricularPopulatedPk implements Serializable {
 		this.curso = curso;
 		this.modalidade = modalidade;
 		this.periodoCurricular = periodoCurricular;
-		this.ano = ano;
-		this.turma = turma;
 		this.aluno = aluno;
 	}
 
@@ -63,22 +57,6 @@ public class VwAlunoPeriodoCurricularPopulatedPk implements Serializable {
 		this.periodoCurricular = periodoCurricular;
 	}
 
-	public String getAno() {
-		return ano;
-	}
-
-	public void setAno(String ano) {
-		this.ano = ano;
-	}
-
-	public String getTurma() {
-		return turma;
-	}
-
-	public void setTurma(String turma) {
-		this.turma = turma;
-	}
-
 	public String getAluno() {
 		return aluno;
 	}
@@ -90,9 +68,8 @@ public class VwAlunoPeriodoCurricularPopulatedPk implements Serializable {
 	@Override
 	public String toString() {
 		return "VwAlunoPeriodoCurricularPopulatedPk [curso=" + curso + ", modalidade=" + modalidade
-				+ ", periodoCurricular=" + periodoCurricular + ", ano=" + ano + ", turma=" + turma + ", aluno=" + aluno
+				+ ", periodoCurricular=" + periodoCurricular + ", aluno=" + aluno
 				+ "]";
 	}
-	
 	
 }

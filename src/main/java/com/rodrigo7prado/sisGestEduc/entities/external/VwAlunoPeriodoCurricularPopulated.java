@@ -19,6 +19,9 @@ public class VwAlunoPeriodoCurricularPopulated {
 	private String nomeCompl;
 	private String situacaoFinal;
 	
+	private String ano;
+	private String turma;
+	
 	private String chSubst;
 	private String ensMedioEstabEns;
 	private String ensMedioCidadeEstadoEstabEns;
@@ -64,6 +67,10 @@ public class VwAlunoPeriodoCurricularPopulated {
 //		this.id.setAluno(aluno);
 		this.id = id;
 		this.nomeCompl = nomeCompl;
+		
+		this.ano = ano;
+		this.turma = turma;
+		
 		this.situacaoFinal = situacaoFinal;
 		this.chSubst = chSubst;
 		this.ensMedioEstabEns = ensMedioEstabEns;
@@ -88,6 +95,22 @@ public class VwAlunoPeriodoCurricularPopulated {
 
 	public void setNomeCompl(String nomeCompl) {
 		this.nomeCompl = nomeCompl;
+	}
+
+	public String getAno() {
+		return ano;
+	}
+
+	public void setAno(String ano) {
+		this.ano = ano;
+	}
+
+	public String getTurma() {
+		return turma;
+	}
+
+	public void setTurma(String turma) {
+		this.turma = turma;
 	}
 
 	public String getSituacaoFinal() {
