@@ -82,13 +82,13 @@ public class DBService {
 		CursoModalidade cm2 = new CursoModalidade(c2, m1);
 		CursoModalidade cm3 = new CursoModalidade(c2, m2);
 
-		PeriodoCurricular pc1 = new PeriodoCurricular(cm2, 1);
-		PeriodoCurricular pc2 = new PeriodoCurricular(cm2, 2);
-		PeriodoCurricular pc3 = new PeriodoCurricular(cm2, 3);
-		PeriodoCurricular pc4 = new PeriodoCurricular(cm3, 1);
-		PeriodoCurricular pc5 = new PeriodoCurricular(cm3, 2);
-		PeriodoCurricular pc6 = new PeriodoCurricular(cm3, 3);
-		PeriodoCurricular pc7 = new PeriodoCurricular(cm3, 4);
+		PeriodoCurricular pc1 = new PeriodoCurricular(cm2, 1L);
+		PeriodoCurricular pc2 = new PeriodoCurricular(cm2, 2L);
+		PeriodoCurricular pc3 = new PeriodoCurricular(cm2, 3L);
+		PeriodoCurricular pc4 = new PeriodoCurricular(cm3, 1L);
+		PeriodoCurricular pc5 = new PeriodoCurricular(cm3, 2L);
+		PeriodoCurricular pc6 = new PeriodoCurricular(cm3, 3L);
+		PeriodoCurricular pc7 = new PeriodoCurricular(cm3, 4L);
 
 		ComponenteCurricular cc1 = new ComponenteCurricular(pc1, d1);
 		ComponenteCurricular cc2 = new ComponenteCurricular(pc1, d2);

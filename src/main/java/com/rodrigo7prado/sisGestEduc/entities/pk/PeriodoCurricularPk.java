@@ -20,7 +20,7 @@ public class PeriodoCurricularPk  implements Serializable {
 	})
 	private CursoModalidade cursoModalidade;
 		
-	private Integer periodoCurricular;
+	private Long periodoCurricular;
 	
 	public CursoModalidade getCursoModalidade() {
 		return cursoModalidade;
@@ -30,11 +30,11 @@ public class PeriodoCurricularPk  implements Serializable {
 		this.cursoModalidade = cursoModalidade;
 	}
 
-	public Integer getPeriodoCurricular() {
+	public Long getPeriodoCurricular() {
 		return periodoCurricular;
 	}
 
-	public void setPeriodoCurricular(Integer periodoCurricular) {
+	public void setPeriodoCurricular(Long periodoCurricular) {
 		this.periodoCurricular = periodoCurricular;
 	}
 	// hashcode e equals omitidos

@@ -29,7 +29,7 @@ public class PeriodoCurricular implements Serializable {
 	public PeriodoCurricular() {
 	}
 
-	public PeriodoCurricular(CursoModalidade cursoModalidade, Integer periodoCurricular) {
+	public PeriodoCurricular(CursoModalidade cursoModalidade, Long periodoCurricular) {
 		super();
 		id.setCursoModalidade(cursoModalidade);
 		id.setPeriodoCurricular(periodoCurricular);
@@ -45,11 +45,11 @@ public class PeriodoCurricular implements Serializable {
 		id.setCursoModalidade(cursoModalidade);
 	}
 	
-	public Integer getPeriodoCurricular() {
+	public Long getPeriodoCurricular() {
 		return id.getPeriodoCurricular();
 	}
 	
-	public void setPeriodoCurricular(Integer periodoCurricular) {
+	public void setPeriodoCurricular(Long periodoCurricular) {
 		id.setPeriodoCurricular(periodoCurricular);
 	}
 	
