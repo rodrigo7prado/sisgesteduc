@@ -38,10 +38,12 @@ public class Modalidade implements Serializable {
 	public Modalidade() {
 	}
 
-	public Modalidade(Long id, String nome, Curso curso) {
+	public Modalidade(Long id, String nome, Curso curso, String nomeExternal, String nomeExternalReplace) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.nomeExternal = nomeExternal;
+		this.nomeExternalReplace = nomeExternalReplace;
 	}
 
 	public Long getId() {

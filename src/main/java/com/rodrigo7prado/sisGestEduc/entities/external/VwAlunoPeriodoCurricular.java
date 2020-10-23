@@ -8,7 +8,8 @@ import org.hibernate.annotations.Immutable;
 
 @Entity
 @Immutable
-@Table(name = "ts_aluno_periodo_curricular_external")
+//@Table(name = "ts_aluno_periodo_curricular_external")
+@Table(name = "vw_aluno_periodo_curricular")
 public class VwAlunoPeriodoCurricular {
 
 	@EmbeddedId

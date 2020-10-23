@@ -21,7 +21,7 @@ public class AlunoComponenteCurricularPk  implements Serializable {
 	@ManyToOne
 	@JoinColumns({
 		@JoinColumn(name = "curso_id"),
-		@JoinColumn(name = "modadidade_id"),
+		@JoinColumn(name = "modalidade_id"),
 		@JoinColumn(name = "periodo_curricular_id"),
 		@JoinColumn(name = "componente_curricular_id")
 	})

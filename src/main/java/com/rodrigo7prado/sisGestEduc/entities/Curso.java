@@ -37,11 +37,12 @@ public class Curso implements Serializable {
 	public Curso() {
 	}
 
-	public Curso(Long id, String nome, String nomeExternal) {
+	public Curso(Long id, String nome, String nomeExternal, String nomeExternalReplace) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.nomeExternal = nomeExternal;
+		this.nomeExternalReplace = nomeExternalReplace;
 	}
 
 	public Long getId() {

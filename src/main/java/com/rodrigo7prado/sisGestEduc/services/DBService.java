@@ -71,24 +71,26 @@ public class DBService {
 		Disciplina d11 = new Disciplina(null, "Educação Física");
 		Disciplina d12 = new Disciplina(null, "Língua Inglesa");
 
-		Curso c1 = new Curso(null, "Ensino Fundamental","Curso: ENSINO FUNDAMENTAL");
-		Curso c2 = new Curso(null, "Ensino Médio","Curso: ENSINO MÉDIO");
-		Curso c3 = new Curso(null, "Ensino Médio","Curso: EJA ENSINO MÉDIO");
+		Curso c1 = new Curso(null, "Ensino Fundamental","Curso: ENSINO FUNDAMENTAL","ENSINO FUNDAMENTAL");
+		Curso c2 = new Curso(null, "Ensino Médio","Curso: ENSINO MÉDIO","ENSINO MÉDIO");
+		Curso c3 = new Curso(null, "EJA Ensino Médio","Curso: EJA ENSINO MÉDIO","EJA ENSINO MÉDIO");
 
-		Modalidade m1 = new Modalidade(null, "Regular", c2);
-		Modalidade m2 = new Modalidade(null, "EJA", c3);
+		Modalidade m1 = new Modalidade(null, "Regular", c2,"Modalidade: REGULAR","REGULAR");
+		Modalidade m2 = new Modalidade(null, "EJA", c2,"Modalidade: EJA","EJA");
+		Modalidade m3 = new Modalidade(null, "NEJA", c3,"Modalidade: NOVA EDUCAÇĂO DE JOVENS E ADULTOS","NOVA EDUCAÇĂO DE JOVENS E ADULTOS");
 
 		CursoModalidade cm1 = new CursoModalidade(c1, m1);
 		CursoModalidade cm2 = new CursoModalidade(c2, m1);
 		CursoModalidade cm3 = new CursoModalidade(c2, m2);
+		CursoModalidade cm4 = new CursoModalidade(c3, m3);
 
 		PeriodoCurricular pc1 = new PeriodoCurricular(cm2, 1L);
 		PeriodoCurricular pc2 = new PeriodoCurricular(cm2, 2L);
 		PeriodoCurricular pc3 = new PeriodoCurricular(cm2, 3L);
-		PeriodoCurricular pc4 = new PeriodoCurricular(cm3, 1L);
-		PeriodoCurricular pc5 = new PeriodoCurricular(cm3, 2L);
-		PeriodoCurricular pc6 = new PeriodoCurricular(cm3, 3L);
-		PeriodoCurricular pc7 = new PeriodoCurricular(cm3, 4L);
+		PeriodoCurricular pc4 = new PeriodoCurricular(cm4, 1L);
+		PeriodoCurricular pc5 = new PeriodoCurricular(cm4, 2L);
+		PeriodoCurricular pc6 = new PeriodoCurricular(cm4, 3L);
+		PeriodoCurricular pc7 = new PeriodoCurricular(cm4, 4L);
 
 		ComponenteCurricular cc1 = new ComponenteCurricular(pc1, d1);
 		ComponenteCurricular cc2 = new ComponenteCurricular(pc1, d2);
@@ -128,10 +130,10 @@ public class DBService {
 
 		turmaRepository.saveAll(Arrays.asList(t1));
 		disciplinaRepository.saveAll(Arrays.asList(d1, d2, d3, d4, d5, d6, d7, d8, d9, d10, d11, d12));
-		cursoRepository.saveAll(Arrays.asList(c1, c2));
-		modalidadeRepository.saveAll(Arrays.asList(m1, m2));
+		cursoRepository.saveAll(Arrays.asList(c1, c2, c3));
+		modalidadeRepository.saveAll(Arrays.asList(m1, m2, m3));
 
-		cursoModalidadeRepository.saveAll(Arrays.asList(cm1, cm2, cm3));
+		cursoModalidadeRepository.saveAll(Arrays.asList(cm1, cm2, cm3, cm4));
 		System.out.println("pc1" + pc1);
 		periodoCurricularRepository.saveAll(Arrays.asList(pc1, pc2, pc3, pc4, pc5, pc6, pc7));
 		componenteCurricularRepository.saveAll(Arrays.asList(cc1, cc2, cc3, cc4, cc5, cc6, cc7, cc8, cc9, cc10, cc11,

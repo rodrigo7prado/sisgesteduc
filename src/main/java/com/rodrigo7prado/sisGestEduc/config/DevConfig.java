@@ -28,10 +28,11 @@ public class DevConfig {
 			return false;
 		}
 		
-		dbService.instanciateTestDatabase();
+//		dbService.instanciateTestDatabase();
 		new ComplexCsv2DbInserter3();
 		new CertidoesImportCsv();
 		new CertificadosImportCsv();
+		dbService.instanciateTestDatabase();
 		return true;
 	}
 	
