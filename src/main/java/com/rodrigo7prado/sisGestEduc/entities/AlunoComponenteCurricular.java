@@ -21,6 +21,9 @@ public class AlunoComponenteCurricular implements Serializable {
 	private AlunoComponenteCurricularPk id = new AlunoComponenteCurricularPk();
 	// outros atributos
 	
+	private String totalPontos;
+	
+	private String freqGlobal;
 	
 	@ManyToOne
 	@JoinColumns({
@@ -56,5 +59,21 @@ public class AlunoComponenteCurricular implements Serializable {
 	
 	public void setComponenteCurricular(ComponenteCurricular componenteCurricular) {
 		id.setComponenteCurricular(componenteCurricular);
+	}
+
+	public String getTotalPontos() {
+		return totalPontos;
+	}
+
+	public void setTotalPontos(String totalPontos) {
+		this.totalPontos = totalPontos;
+	}
+
+	public String getFreqGlobal() {
+		return freqGlobal;
+	}
+
+	public void setFreqGlobal(String freqGlobal) {
+		this.freqGlobal = freqGlobal;
 	}
 }

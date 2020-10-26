@@ -88,4 +88,15 @@ public class AlunoPeriodoCurricular implements Serializable {
 	public void setTurma(String turma) {
 		this.turma = turma;
 	}
+	
+	public Double getTotal() {
+		double sum = 0.0;
+		for (AlunoComponenteCurricular x : alunosCompoentnesCurriculares) {
+			if (!x.getTotalPontos().equals("-") || !x.getTotalPontos().equals(null)) {
+				sum = sum + 1;
+			}
+//			sum += x.    .getClass().   .getSubTotal();
+		}
+		return sum;
+	}
 }
