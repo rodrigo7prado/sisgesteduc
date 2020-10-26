@@ -22,7 +22,6 @@ public class AlunoComponenteCurricular implements Serializable {
 	// outros atributos
 	
 	private String totalPontos;
-	
 	private String freqGlobal;
 	
 	@ManyToOne
@@ -41,7 +40,7 @@ public class AlunoComponenteCurricular implements Serializable {
 		super();
 		id.setAluno(aluno);
 		id.setComponenteCurricular(componenteCurricular);
-		// outros atributos
+//		 outros atributos
 	}
 	
 	@JsonIgnore

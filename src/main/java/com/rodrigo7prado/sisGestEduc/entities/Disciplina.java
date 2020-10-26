@@ -54,6 +54,14 @@ public class Disciplina implements Serializable {
 		this.nome = nome;
 	}
 	
+	public Set<ComponenteCurricular> getComponentesCurriculares() {
+		return componentesCurriculares;
+	}
+
+	public void setComponentesCurriculares(Set<ComponenteCurricular> componentesCurriculares) {
+		this.componentesCurriculares = componentesCurriculares;
+	}
+
 	@JsonIgnore
 	public Set<PeriodoCurricular> getPeriodoCurriculars() {
 		Set<PeriodoCurricular> set = new HashSet<>();

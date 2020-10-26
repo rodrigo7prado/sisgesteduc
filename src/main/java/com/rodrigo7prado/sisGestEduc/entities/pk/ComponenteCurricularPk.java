@@ -41,5 +41,6 @@ public class ComponenteCurricularPk  implements Serializable {
 	public void setDisciplina(Disciplina disciplina) {
 		this.disciplina = disciplina;
 	}
+	
 	// hashcode e equals omitidos
 }

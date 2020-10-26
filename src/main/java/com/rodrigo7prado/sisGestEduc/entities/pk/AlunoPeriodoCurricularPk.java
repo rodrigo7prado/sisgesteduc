@@ -22,7 +22,7 @@ public class AlunoPeriodoCurricularPk  implements Serializable {
 	@JoinColumns({
 		@JoinColumn(name = "curso_id"),
 		@JoinColumn(name = "modalidade_id"),
-		@JoinColumn(name = "periodoCurricular_id")
+		@JoinColumn(name = "periodo_curricular_id")
 	})
 	private PeriodoCurricular periodoCurricular;
 	

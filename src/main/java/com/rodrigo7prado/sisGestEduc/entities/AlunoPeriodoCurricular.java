@@ -50,12 +50,6 @@ public class AlunoPeriodoCurricular implements Serializable {
 		// outros atributos
 	}
 	
-	public AlunoPeriodoCurricular(Aluno aluno2) {
-		id.setAluno(aluno2);
-//		id.setPeriodoCurricular(periodoCurricular2);
-		// outros atributos
-	}
-	
 	@JsonIgnore
 	public Aluno getAluno() {
 		return id.getAluno();
@@ -89,14 +83,13 @@ public class AlunoPeriodoCurricular implements Serializable {
 		this.turma = turma;
 	}
 	
-	public Double getTotal() {
-		double sum = 0.0;
-		for (AlunoComponenteCurricular x : alunosCompoentnesCurriculares) {
-			if (!x.getTotalPontos().equals("-") || !x.getTotalPontos().equals(null)) {
-				sum = sum + 1;
-			}
-//			sum += x.    .getClass().   .getSubTotal();
-		}
-		return sum;
-	}
+//	public Double getTotal() {
+//		double sum = 0.0;
+//		for (AlunoComponenteCurricular x : alunosCompoentnesCurriculares) {
+//			if (!x.getTotalPontos().equals("-") || !x.getTotalPontos().equals(null)) {
+//				sum = sum + 1;
+//			}
+//		}
+//		return sum;
+//	}
 }

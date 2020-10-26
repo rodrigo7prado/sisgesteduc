@@ -20,10 +20,10 @@ public class AlunoComponenteCurricularPk  implements Serializable {
 		
 	@ManyToOne
 	@JoinColumns({
+		@JoinColumn(name = "disciplina_id"),
 		@JoinColumn(name = "curso_id"),
 		@JoinColumn(name = "modalidade_id"),
-		@JoinColumn(name = "periodo_curricular_id"),
-		@JoinColumn(name = "componente_curricular_id")
+		@JoinColumn(name = "periodo_curricular_id")
 	})
 	private ComponenteCurricular componenteCurricular;
 	
@@ -42,5 +42,6 @@ public class AlunoComponenteCurricularPk  implements Serializable {
 	public void setComponenteCurricular(ComponenteCurricular componenteCurricular) {
 		this.componenteCurricular = componenteCurricular;
 	}
+	
 	// hashcode e equals omitidos
 }
