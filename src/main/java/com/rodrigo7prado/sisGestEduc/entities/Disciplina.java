@@ -25,6 +25,7 @@ public class Disciplina implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
+	private String nomeExternal;
 
 	@OneToMany(mappedBy = "id.disciplina")
 	Set<ComponenteCurricular> componentesCurriculares = new HashSet<>();
@@ -32,10 +33,11 @@ public class Disciplina implements Serializable {
 	public Disciplina() {
 	}
 
-	public Disciplina(Long id, String nome) {
+	public Disciplina(Long id, String nome, String nomeExternal) {
 		super();
 		this.id = id;
 		this.nome = nome;
+		this.nomeExternal = nomeExternal;
 	}
 
 	public Long getId() {
@@ -60,6 +62,14 @@ public class Disciplina implements Serializable {
 
 	public void setComponentesCurriculares(Set<ComponenteCurricular> componentesCurriculares) {
 		this.componentesCurriculares = componentesCurriculares;
+	}
+
+	public String getNomeExternal() {
+		return nomeExternal;
+	}
+
+	public void setNomeExternal(String nomeExternal) {
+		this.nomeExternal = nomeExternal;
 	}
 
 	@JsonIgnore
