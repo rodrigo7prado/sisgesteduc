@@ -22,15 +22,9 @@ import com.rodrigo7prado.sisGestEduc.enums.StatusDocAluno;
 public class Aluno implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
-//	@Column(length = 25,name = "aluno_external_aluno")
 	@Column(length = 25)
-	private String matricula;
+	private String matricula;	
 	private String nomeCompleto;
-	@Column(name = "Status_Matricula_Conex")
-	private String statusMatriculaConexao;
-	private Boolean certificacao;
-	@Column(name = "data_conclusao_em")
-	private Date dataConclusaoEM;
 	private Date dataNasc;
 	private String nomePai;
 	private String nomeMae;
@@ -66,8 +60,8 @@ public class Aluno implements Serializable {
 	private String cnDataEmissao;
 	private Boolean dyn_mais_de_um_curso;
 	private String obsHist;
-	private String obsHist1;
-	private String obsHist2;
+	private String obsHist1o;
+	private String obsHist2o;
 	private Boolean faltaEntregaHeFundamental;
 	private Boolean faltaEntregaHeMedio;
 	private Boolean faltaEntregaRg;
@@ -75,99 +69,45 @@ public class Aluno implements Serializable {
 	private Boolean dadosConferidos;
 	private Boolean maisDeUmCurso;
 	@Column(length = 60)
-	private String ensFundEscolaConclusao;
-	@Column(length = 30)
-	private String ensFundMunicipioEscolaConclusao;
-	@Column(length = 20)
-	private String ensFundAnoEscolaConclusao;
-	@Column(length = 20)
-	private String ensFundDataEmissaoConclusao;
-	@Column(length = 30)
-	private String ensFundNumPaginasConclusao;
-	@Column(length = 30)
-	private String cidadeEstadoEscola;
-	@Column(length = 50)
-	private String ultimaModalidade;
-	@Column(length = 20)
-	private String ultimoAno;
-	@Column(length = 30)
-	private String ultimaTurma;
-	@Column(length = 30)
-	private String ultimoResultadoFinal;
-	@Column(length = 30)
-	private String resSerie1;
-	@Column(length = 30)
-	private String resSerie2;
-	@Column(length = 30)
-	private String resSerie3;
-	@Column(length = 30)
-	private String resSerie4;
-	@Column(length = 30)
-	private String resSerie1Subst;
-	@Column(length = 30)
-	private String resSerie2Subst;
-	@Column(length = 30)
-	private String resSerie3Subst;
-	@Column(length = 30)
-	private String resSerie4Subst;
-	@Column(length = 30)
-	private String anoSerie1;
-	@Column(length = 20)
-	private String anoSerie2;
-	@Column(length = 20)
-	private String anoSerie3;
-	@Column(length = 20)
-	private String anoSerie4;
-	@Column(length = 20)
-	private String turmaSerie1;
-	@Column(length = 20)
-	private String turmaSerie2;
-	@Column(length = 20)
-	private String turmaSerie3;
-	@Column(length = 20)
-	private String turmaSerie4;
-	@Column(length = 10)
-	private String frqG1;
-	@Column(length = 10)
-	private String frqG2;
-	@Column(length = 10)
-	private String frqG3;
-	@Column(length = 10)
-	private String frqG4;
-	@Column(length = 10)
-	private String chSubst1;
-	@Column(length = 10)
-	private String chSubst2;
-	@Column(length = 10)
-	private String chSubst3;
-	@Column(length = 10)
-	private String chSubst4;
-	@Column(length = 10)
-	private String freqSubst1;
-	@Column(length = 10)
-	private String freqSubst2;
-	@Column(length = 10)
-	private String freqSubst3;
-	@Column(length = 10)
-	private String freqSubst4;
-	@Column(length = 60)
-	private String ensMedioEstabEnsAno1;
-	@Column(length = 60)
-	private String ensMedioEstabEnsAno2;
-	@Column(length = 60)
-	private String ensMedioEstabEnsAno3;
-	@Column(length = 60)
-	private String ensMedioEstabEnsAno4;
-	@Column(length = 60)
-	private String ensMedioCidadeEstadoEstabEnsAno1;
-	@Column(length = 60)
-	private String ensMedioCidadeEstadoEstabEnsAno2;
-	@Column(length = 60)
-	private String ensMedioCidadeEstadoEstabEnsAno3;
-	@Column(length = 60)
-	private String ensMedioCidadeEstadoEstabEnsAno4;
-	
 	private StatusDocAluno statusDocumentacaoAluno;
+	
+	private String nomeCompleto2;
+	private Date dataNasc2;
+	private String nomePai2;
+	private String nomeMae2;
+	@Column(length = 10)
+	private String sexo2;
+	@Column(length = 20)
+	private String nacionalidade2;
+	@Column(length = 30)
+	private String naturalidade2;
+	@Column(length = 20)
+	private String naturalidadeUF2;
+	@Column(length = 20)
+	private String rg2;
+	@Column(length = 20)
+	private String rgEmissor2;
+	@Column(length = 20)
+	private String rgEmissorUf2;
+	@Column(length = 20)
+	private String rgDataEmissao2;
+	@Column(length = 120)
+	private String cnCartorio2;
+	@Column(length = 30)
+	private String cnMunicipio2;
+	@Column(length = 2)
+	private String cnUF2;
+	@Column(length = 20)
+	private String cnTermo2;
+	@Column(length = 10)
+	private String cnLivro2;
+	@Column(length = 10)
+	private String cnFolha2;
+	@Column(length = 20)
+	private String cnDataEmissao2;
+	
+	
+	
 	
 	@JsonIgnore
 	@OneToOne
@@ -205,30 +145,6 @@ public class Aluno implements Serializable {
 
 	public void setNomeCompleto(String nomeCompleto) {
 		this.nomeCompleto = nomeCompleto;
-	}
-
-	public String getStatusMatriculaConexao() {
-		return statusMatriculaConexao;
-	}
-
-	public void setStatusMatriculaConexao(String statusMatriculaConexao) {
-		this.statusMatriculaConexao = statusMatriculaConexao;
-	}
-
-	public Boolean getCertificacao() {
-		return certificacao;
-	}
-
-	public void setCertificacao(Boolean certificacao) {
-		this.certificacao = certificacao;
-	}
-
-	public Date getDataConclusaoEM() {
-		return dataConclusaoEM;
-	}
-
-	public void setDataConclusaoEM(Date dataConclusaoEM) {
-		this.dataConclusaoEM = dataConclusaoEM;
 	}
 
 	public Date getDataNasc() {
@@ -392,19 +308,19 @@ public class Aluno implements Serializable {
 	}
 
 	public String getObsHist1() {
-		return obsHist1;
+		return obsHist1o;
 	}
 
-	public void setObsHist1(String obsHist1) {
-		this.obsHist1 = obsHist1;
+	public void setObsHist1(String obsHist1o) {
+		this.obsHist1o = obsHist1o;
 	}
 
 	public String getObsHist2() {
-		return obsHist2;
+		return obsHist2o;
 	}
 
-	public void setObsHist2(String obsHist2) {
-		this.obsHist2 = obsHist2;
+	public void setObsHist2(String obsHist2o) {
+		this.obsHist2o = obsHist2o;
 	}
 
 	public Boolean getFaltaEntregaHeFundamental() {
@@ -455,374 +371,6 @@ public class Aluno implements Serializable {
 		this.maisDeUmCurso = maisDeUmCurso;
 	}
 
-	public String getEnsFundEscolaConclusao() {
-		return ensFundEscolaConclusao;
-	}
-
-	public void setEnsFundEscolaConclusao(String ensFundEscolaConclusao) {
-		this.ensFundEscolaConclusao = ensFundEscolaConclusao;
-	}
-
-	public String getEnsFundMunicipioEscolaConclusao() {
-		return ensFundMunicipioEscolaConclusao;
-	}
-
-	public void setEnsFundMunicipioEscolaConclusao(String ensFundMunicipioEscolaConclusao) {
-		this.ensFundMunicipioEscolaConclusao = ensFundMunicipioEscolaConclusao;
-	}
-
-	public String getEnsFundAnoEscolaConclusao() {
-		return ensFundAnoEscolaConclusao;
-	}
-
-	public void setEnsFundAnoEscolaConclusao(String ensFundAnoEscolaConclusao) {
-		this.ensFundAnoEscolaConclusao = ensFundAnoEscolaConclusao;
-	}
-
-	public String getEnsFundDataEmissaoConclusao() {
-		return ensFundDataEmissaoConclusao;
-	}
-
-	public void setEnsFundDataEmissaoConclusao(String ensFundDataEmissaoConclusao) {
-		this.ensFundDataEmissaoConclusao = ensFundDataEmissaoConclusao;
-	}
-
-	public String getEnsFundNumPaginasConclusao() {
-		return ensFundNumPaginasConclusao;
-	}
-
-	public void setEnsFundNumPaginasConclusao(String ensFundNumPaginasConclusao) {
-		this.ensFundNumPaginasConclusao = ensFundNumPaginasConclusao;
-	}
-
-	public String getCidadeEstadoEscola() {
-		return cidadeEstadoEscola;
-	}
-
-	public void setCidadeEstadoEscola(String cidadeEstadoEscola) {
-		this.cidadeEstadoEscola = cidadeEstadoEscola;
-	}
-
-	public String getUltimaModalidade() {
-		return ultimaModalidade;
-	}
-
-	public void setUltimaModalidade(String ultimaModalidade) {
-		this.ultimaModalidade = ultimaModalidade;
-	}
-
-	public String getUltimoAno() {
-		return ultimoAno;
-	}
-
-	public void setUltimoAno(String ultimoAno) {
-		this.ultimoAno = ultimoAno;
-	}
-
-	public String getUltimaTurma() {
-		return ultimaTurma;
-	}
-
-	public void setUltimaTurma(String ultimaTurma) {
-		this.ultimaTurma = ultimaTurma;
-	}
-
-	public String getUltimoResultadoFinal() {
-		return ultimoResultadoFinal;
-	}
-
-	public void setUltimoResultadoFinal(String ultimoResultadoFinal) {
-		this.ultimoResultadoFinal = ultimoResultadoFinal;
-	}
-
-	public String getResSerie1() {
-		return resSerie1;
-	}
-
-	public void setResSerie1(String resSerie1) {
-		this.resSerie1 = resSerie1;
-	}
-
-	public String getResSerie2() {
-		return resSerie2;
-	}
-
-	public void setResSerie2(String resSerie2) {
-		this.resSerie2 = resSerie2;
-	}
-
-	public String getResSerie3() {
-		return resSerie3;
-	}
-
-	public void setResSerie3(String resSerie3) {
-		this.resSerie3 = resSerie3;
-	}
-
-	public String getResSerie4() {
-		return resSerie4;
-	}
-
-	public void setResSerie4(String resSerie4) {
-		this.resSerie4 = resSerie4;
-	}
-
-	public String getResSerie1Subst() {
-		return resSerie1Subst;
-	}
-
-	public void setResSerie1Subst(String resSerie1Subst) {
-		this.resSerie1Subst = resSerie1Subst;
-	}
-
-	public String getResSerie2Subst() {
-		return resSerie2Subst;
-	}
-
-	public void setResSerie2Subst(String resSerie2Subst) {
-		this.resSerie2Subst = resSerie2Subst;
-	}
-
-	public String getResSerie3Subst() {
-		return resSerie3Subst;
-	}
-
-	public void setResSerie3Subst(String resSerie3Subst) {
-		this.resSerie3Subst = resSerie3Subst;
-	}
-
-	public String getResSerie4Subst() {
-		return resSerie4Subst;
-	}
-
-	public void setResSerie4Subst(String resSerie4Subst) {
-		this.resSerie4Subst = resSerie4Subst;
-	}
-
-	public String getAnoSerie1() {
-		return anoSerie1;
-	}
-
-	public void setAnoSerie1(String anoSerie1) {
-		this.anoSerie1 = anoSerie1;
-	}
-
-	public String getAnoSerie2() {
-		return anoSerie2;
-	}
-
-	public void setAnoSerie2(String anoSerie2) {
-		this.anoSerie2 = anoSerie2;
-	}
-
-	public String getAnoSerie3() {
-		return anoSerie3;
-	}
-
-	public void setAnoSerie3(String anoSerie3) {
-		this.anoSerie3 = anoSerie3;
-	}
-
-	public String getAnoSerie4() {
-		return anoSerie4;
-	}
-
-	public void setAnoSerie4(String anoSerie4) {
-		this.anoSerie4 = anoSerie4;
-	}
-
-	public String getTurmaSerie1() {
-		return turmaSerie1;
-	}
-
-	public void setTurmaSerie1(String turmaSerie1) {
-		this.turmaSerie1 = turmaSerie1;
-	}
-
-	public String getTurmaSerie2() {
-		return turmaSerie2;
-	}
-
-	public void setTurmaSerie2(String turmaSerie2) {
-		this.turmaSerie2 = turmaSerie2;
-	}
-
-	public String getTurmaSerie3() {
-		return turmaSerie3;
-	}
-
-	public void setTurmaSerie3(String turmaSerie3) {
-		this.turmaSerie3 = turmaSerie3;
-	}
-
-	public String getTurmaSerie4() {
-		return turmaSerie4;
-	}
-
-	public void setTurmaSerie4(String turmaSerie4) {
-		this.turmaSerie4 = turmaSerie4;
-	}
-
-	public String getFrqG1() {
-		return frqG1;
-	}
-
-	public void setFrqG1(String frqG1) {
-		this.frqG1 = frqG1;
-	}
-
-	public String getFrqG2() {
-		return frqG2;
-	}
-
-	public void setFrqG2(String frqG2) {
-		this.frqG2 = frqG2;
-	}
-
-	public String getFrqG3() {
-		return frqG3;
-	}
-
-	public void setFrqG3(String frqG3) {
-		this.frqG3 = frqG3;
-	}
-
-	public String getFrqG4() {
-		return frqG4;
-	}
-
-	public void setFrqG4(String frqG4) {
-		this.frqG4 = frqG4;
-	}
-
-	public String getChSubst1() {
-		return chSubst1;
-	}
-
-	public void setChSubst1(String chSubst1) {
-		this.chSubst1 = chSubst1;
-	}
-
-	public String getChSubst2() {
-		return chSubst2;
-	}
-
-	public void setChSubst2(String chSubst2) {
-		this.chSubst2 = chSubst2;
-	}
-
-	public String getChSubst3() {
-		return chSubst3;
-	}
-
-	public void setChSubst3(String chSubst3) {
-		this.chSubst3 = chSubst3;
-	}
-
-	public String getChSubst4() {
-		return chSubst4;
-	}
-
-	public void setChSubst4(String chSubst4) {
-		this.chSubst4 = chSubst4;
-	}
-
-	public String getFreqSubst1() {
-		return freqSubst1;
-	}
-
-	public void setFreqSubst1(String freqSubst1) {
-		this.freqSubst1 = freqSubst1;
-	}
-
-	public String getFreqSubst2() {
-		return freqSubst2;
-	}
-
-	public void setFreqSubst2(String freqSubst2) {
-		this.freqSubst2 = freqSubst2;
-	}
-
-	public String getFreqSubst3() {
-		return freqSubst3;
-	}
-
-	public void setFreqSubst3(String freqSubst3) {
-		this.freqSubst3 = freqSubst3;
-	}
-
-	public String getFreqSubst4() {
-		return freqSubst4;
-	}
-
-	public void setFreqSubst4(String freqSubst4) {
-		this.freqSubst4 = freqSubst4;
-	}
-
-	public String getEnsMedioEstabEnsAno1() {
-		return ensMedioEstabEnsAno1;
-	}
-
-	public void setEnsMedioEstabEnsAno1(String ensMedioEstabEnsAno1) {
-		this.ensMedioEstabEnsAno1 = ensMedioEstabEnsAno1;
-	}
-
-	public String getEnsMedioEstabEnsAno2() {
-		return ensMedioEstabEnsAno2;
-	}
-
-	public void setEnsMedioEstabEnsAno2(String ensMedioEstabEnsAno2) {
-		this.ensMedioEstabEnsAno2 = ensMedioEstabEnsAno2;
-	}
-
-	public String getEnsMedioEstabEnsAno3() {
-		return ensMedioEstabEnsAno3;
-	}
-
-	public void setEnsMedioEstabEnsAno3(String ensMedioEstabEnsAno3) {
-		this.ensMedioEstabEnsAno3 = ensMedioEstabEnsAno3;
-	}
-
-	public String getEnsMedioEstabEnsAno4() {
-		return ensMedioEstabEnsAno4;
-	}
-
-	public void setEnsMedioEstabEnsAno4(String ensMedioEstabEnsAno4) {
-		this.ensMedioEstabEnsAno4 = ensMedioEstabEnsAno4;
-	}
-
-	public String getEnsMedioCidadeEstadoEstabEnsAno1() {
-		return ensMedioCidadeEstadoEstabEnsAno1;
-	}
-
-	public void setEnsMedioCidadeEstadoEstabEnsAno1(String ensMedioCidadeEstadoEstabEnsAno1) {
-		this.ensMedioCidadeEstadoEstabEnsAno1 = ensMedioCidadeEstadoEstabEnsAno1;
-	}
-
-	public String getEnsMedioCidadeEstadoEstabEnsAno2() {
-		return ensMedioCidadeEstadoEstabEnsAno2;
-	}
-
-	public void setEnsMedioCidadeEstadoEstabEnsAno2(String ensMedioCidadeEstadoEstabEnsAno2) {
-		this.ensMedioCidadeEstadoEstabEnsAno2 = ensMedioCidadeEstadoEstabEnsAno2;
-	}
-
-	public String getEnsMedioCidadeEstadoEstabEnsAno3() {
-		return ensMedioCidadeEstadoEstabEnsAno3;
-	}
-
-	public void setEnsMedioCidadeEstadoEstabEnsAno3(String ensMedioCidadeEstadoEstabEnsAno3) {
-		this.ensMedioCidadeEstadoEstabEnsAno3 = ensMedioCidadeEstadoEstabEnsAno3;
-	}
-
-	public String getEnsMedioCidadeEstadoEstabEnsAno4() {
-		return ensMedioCidadeEstadoEstabEnsAno4;
-	}
-
-	public void setEnsMedioCidadeEstadoEstabEnsAno4(String ensMedioCidadeEstadoEstabEnsAno4) {
-		this.ensMedioCidadeEstadoEstabEnsAno4 = ensMedioCidadeEstadoEstabEnsAno4;
-	}
-
 	public StatusDocAluno getStatusDocumentacaoAluno() {
 		return statusDocumentacaoAluno;
 	}
@@ -831,6 +379,182 @@ public class Aluno implements Serializable {
 		this.statusDocumentacaoAluno = statusDocumentacaoAluno;
 	}
 	
+	public String getObsHist1o() {
+		return obsHist1o;
+	}
+
+	public void setObsHist1o(String obsHist1o) {
+		this.obsHist1o = obsHist1o;
+	}
+
+	public String getObsHist2o() {
+		return obsHist2o;
+	}
+
+	public void setObsHist2o(String obsHist2o) {
+		this.obsHist2o = obsHist2o;
+	}
+
+	public String getNomeCompleto2() {
+		return nomeCompleto2;
+	}
+
+	public void setNomeCompleto2(String nomeCompleto2) {
+		this.nomeCompleto2 = nomeCompleto2;
+	}
+
+	public Date getDataNasc2() {
+		return dataNasc2;
+	}
+
+	public void setDataNasc2(Date dataNasc2) {
+		this.dataNasc2 = dataNasc2;
+	}
+
+	public String getNomePai2() {
+		return nomePai2;
+	}
+
+	public void setNomePai2(String nomePai2) {
+		this.nomePai2 = nomePai2;
+	}
+
+	public String getNomeMae2() {
+		return nomeMae2;
+	}
+
+	public void setNomeMae2(String nomeMae2) {
+		this.nomeMae2 = nomeMae2;
+	}
+
+	public String getSexo2() {
+		return sexo2;
+	}
+
+	public void setSexo2(String sexo2) {
+		this.sexo2 = sexo2;
+	}
+
+	public String getNacionalidade2() {
+		return nacionalidade2;
+	}
+
+	public void setNacionalidade2(String nacionalidade2) {
+		this.nacionalidade2 = nacionalidade2;
+	}
+
+	public String getNaturalidade2() {
+		return naturalidade2;
+	}
+
+	public void setNaturalidade2(String naturalidade2) {
+		this.naturalidade2 = naturalidade2;
+	}
+
+	public String getNaturalidadeUF2() {
+		return naturalidadeUF2;
+	}
+
+	public void setNaturalidadeUF2(String naturalidadeUF2) {
+		this.naturalidadeUF2 = naturalidadeUF2;
+	}
+
+	public String getRg2() {
+		return rg2;
+	}
+
+	public void setRg2(String rg2) {
+		this.rg2 = rg2;
+	}
+
+	public String getRgEmissor2() {
+		return rgEmissor2;
+	}
+
+	public void setRgEmissor2(String rgEmissor2) {
+		this.rgEmissor2 = rgEmissor2;
+	}
+
+	public String getRgEmissorUf2() {
+		return rgEmissorUf2;
+	}
+
+	public void setRgEmissorUf2(String rgEmissorUf2) {
+		this.rgEmissorUf2 = rgEmissorUf2;
+	}
+
+	public String getRgDataEmissao2() {
+		return rgDataEmissao2;
+	}
+
+	public void setRgDataEmissao2(String rgDataEmissao2) {
+		this.rgDataEmissao2 = rgDataEmissao2;
+	}
+
+	public String getCnCartorio2() {
+		return cnCartorio2;
+	}
+
+	public void setCnCartorio2(String cnCartorio2) {
+		this.cnCartorio2 = cnCartorio2;
+	}
+
+	public String getCnMunicipio2() {
+		return cnMunicipio2;
+	}
+
+	public void setCnMunicipio2(String cnMunicipio2) {
+		this.cnMunicipio2 = cnMunicipio2;
+	}
+
+	public String getCnUF2() {
+		return cnUF2;
+	}
+
+	public void setCnUF2(String cnUF2) {
+		this.cnUF2 = cnUF2;
+	}
+
+	public String getCnTermo2() {
+		return cnTermo2;
+	}
+
+	public void setCnTermo2(String cnTermo2) {
+		this.cnTermo2 = cnTermo2;
+	}
+
+	public String getCnLivro2() {
+		return cnLivro2;
+	}
+
+	public void setCnLivro2(String cnLivro2) {
+		this.cnLivro2 = cnLivro2;
+	}
+
+	public String getCnFolha2() {
+		return cnFolha2;
+	}
+
+	public void setCnFolha2(String cnFolha2) {
+		this.cnFolha2 = cnFolha2;
+	}
+
+	public String getCnDataEmissao2() {
+		return cnDataEmissao2;
+	}
+
+	public void setCnDataEmissao2(String cnDataEmissao2) {
+		this.cnDataEmissao2 = cnDataEmissao2;
+	}
+
+	public AlunoExternal getAlunoExternal() {
+		return alunoExternal;
+	}
+
+	public void setAlunoExternal(AlunoExternal alunoExternal) {
+		this.alunoExternal = alunoExternal;
+	}
+
 	public Set<AlunoCurso> getAlunosCursos() {
 		return alunosCursos;
 	}
@@ -874,43 +598,19 @@ public class Aluno implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Aluno [matricula=" + matricula + ", nomeCompleto=" + nomeCompleto + ", statusMatriculaConexao="
-				+ statusMatriculaConexao + ", certificacao=" + certificacao + ", dataConclusaoEM=" + dataConclusaoEM
-				+ ", dataNasc=" + dataNasc + ", nomePai=" + nomePai + ", nomeMae=" + nomeMae + ", sexo=" + sexo
+		return "Aluno [matricula=" + matricula + ", nomeCompleto=" + nomeCompleto + ", dataNasc=" + dataNasc + ", nomePai=" + nomePai + ", nomeMae=" + nomeMae + ", sexo=" + sexo
 				+ ", nacionalidade=" + nacionalidade + ", naturalidade=" + naturalidade + ", naturalidadeUF="
 				+ naturalidadeUF + ", rg=" + rg + ", rgEmissor=" + rgEmissor + ", rgEmissorUf=" + rgEmissorUf
 				+ ", rgDataEmissao=" + rgDataEmissao + ", cnCartorio=" + cnCartorio + ", cnMunicipio=" + cnMunicipio
 				+ ", cnUF=" + cnUF + ", cnTermo=" + cnTermo + ", cnLivro=" + cnLivro + ", cnFolha=" + cnFolha
 				+ ", cnDataEmissao=" + cnDataEmissao + ", dyn_mais_de_um_curso=" + dyn_mais_de_um_curso + ", obsHist="
-				+ obsHist + ", obsHist1=" + obsHist1 + ", obsHist2=" + obsHist2 + ", faltaEntregaHeFundamental="
+				+ obsHist + ", obsHist1o=" + obsHist1o + ", obsHist2o=" + obsHist2o + ", faltaEntregaHeFundamental="
 				+ faltaEntregaHeFundamental + ", faltaEntregaHeMedio=" + faltaEntregaHeMedio + ", faltaEntregaRg="
 				+ faltaEntregaRg + ", faltaEntregaCn=" + faltaEntregaCn + ", dadosConferidos=" + dadosConferidos
-				+ ", maisDeUmCurso=" + maisDeUmCurso + ", ensFundEscolaConclusao=" + ensFundEscolaConclusao
-				+ ", ensFundMunicipioEscolaConclusao=" + ensFundMunicipioEscolaConclusao
-				+ ", ensFundAnoEscolaConclusao=" + ensFundAnoEscolaConclusao + ", ensFundDataEmissaoConclusao="
-				+ ensFundDataEmissaoConclusao + ", ensFundNumPaginasConclusao=" + ensFundNumPaginasConclusao
-				+ ", cidadeEstadoEscola=" + cidadeEstadoEscola + ", ultimaModalidade=" + ultimaModalidade
-				+ ", ultimoAno=" + ultimoAno + ", ultimaTurma=" + ultimaTurma + ", ultimoResultadoFinal="
-				+ ultimoResultadoFinal + ", resSerie1=" + resSerie1 + ", resSerie2=" + resSerie2 + ", resSerie3="
-				+ resSerie3 + ", resSerie4=" + resSerie4 + ", resSerie1Subst=" + resSerie1Subst + ", resSerie2Subst="
-				+ resSerie2Subst + ", resSerie3Subst=" + resSerie3Subst + ", resSerie4Subst=" + resSerie4Subst
-				+ ", anoSerie1=" + anoSerie1 + ", anoSerie2=" + anoSerie2 + ", anoSerie3=" + anoSerie3 + ", anoSerie4="
-				+ anoSerie4 + ", turmaSerie1=" + turmaSerie1 + ", turmaSerie2=" + turmaSerie2 + ", turmaSerie3="
-				+ turmaSerie3 + ", turmaSerie4=" + turmaSerie4 + ", frqG1=" + frqG1 + ", frqG2=" + frqG2 + ", frqG3="
-				+ frqG3 + ", frqG4=" + frqG4 + ", chSubst1=" + chSubst1 + ", chSubst2=" + chSubst2 + ", chSubst3="
-				+ chSubst3 + ", chSubst4=" + chSubst4 + ", freqSubst1=" + freqSubst1 + ", freqSubst2=" + freqSubst2
-				+ ", freqSubst3=" + freqSubst3 + ", freqSubst4=" + freqSubst4 + ", ensMedioEstabEnsAno1="
-				+ ensMedioEstabEnsAno1 + ", ensMedioEstabEnsAno2=" + ensMedioEstabEnsAno2 + ", ensMedioEstabEnsAno3="
-				+ ensMedioEstabEnsAno3 + ", ensMedioEstabEnsAno4=" + ensMedioEstabEnsAno4
-				+ ", ensMedioCidadeEstadoEstabEnsAno1=" + ensMedioCidadeEstadoEstabEnsAno1
-				+ ", ensMedioCidadeEstadoEstabEnsAno2=" + ensMedioCidadeEstadoEstabEnsAno2
-				+ ", ensMedioCidadeEstadoEstabEnsAno3=" + ensMedioCidadeEstadoEstabEnsAno3
-				+ ", ensMedioCidadeEstadoEstabEnsAno4=" + ensMedioCidadeEstadoEstabEnsAno4
-				+ ", statusDocumentacaoAluno=" + statusDocumentacaoAluno + ", alunoExternal=" + alunoExternal
+				+ ", maisDeUmCurso=" + maisDeUmCurso + ", statusDocumentacaoAluno=" + statusDocumentacaoAluno + ", alunoExternal=" + alunoExternal
 				+ ", alunosCursos=" + alunosCursos + ", alunosCursosModalidades=" + alunosCursosModalidades
 				+ ", alunosPeriodosCurriculares=" + alunosPeriodosCurriculares + ", componentesCurriculares="
 				+ alunosComponentesCurriculares + "]";
 	}
-	
-	
+
 }

@@ -26,6 +26,19 @@ public class AlunoPeriodoCurricular implements Serializable {
 	
 	private String anoLetivo;
 	private String turma;
+	private String situacaoFinal;
+	
+//	private String anoLetivo_2;
+//	private String turma_2;
+//	private String situacaoFinal_2;
+	
+	private String anoLetivo2;
+	private String turma2;
+	private String situacaoFinal2;
+	
+//	private String anoLetivoExternal;
+//	private String turmaExternal;
+//	private String situacaoFinalExternal;
 	
 	// Parte muitos
 	@ManyToOne
@@ -82,6 +95,39 @@ public class AlunoPeriodoCurricular implements Serializable {
 	public void setTurma(String turma) {
 		this.turma = turma;
 	}
+
+	public String getSituacaoFinal() {
+		return situacaoFinal;
+	}
+
+	public void setSituacaoFinal(String situacaoFinal) {
+		this.situacaoFinal = situacaoFinal;
+	}
+
+	public String getAnoLetivo2() {
+		return anoLetivo2;
+	}
+
+	public void setAnoLetivo2(String anoLetivo2) {
+		this.anoLetivo2 = anoLetivo2;
+	}
+
+	public String getTurma2() {
+		return turma2;
+	}
+
+	public void setTurma2(String turma2) {
+		this.turma2 = turma2;
+	}
+
+	public String getSituacaoFinal2() {
+		return situacaoFinal2;
+	}
+
+	public void setSituacaoFinal2(String situacaoFinal2) {
+		this.situacaoFinal2 = situacaoFinal2;
+	}
+
 	
 //	public Double getTotal() {
 //		double sum = 0.0;
