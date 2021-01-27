@@ -6,11 +6,11 @@
 <?import javafx.scene.control.TreeTableView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="499.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.FiltroController">
+<VBox prefHeight="715.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.FiltroController">
 	<children>
       <CheckBox mnemonicParsing="false" selected="true" text="Ensino Médio Regular" />
       <CheckBox mnemonicParsing="false" selected="true" text="ENEJA" />
-      <TreeTableView fx:id="treeTableViewFiltro" onMouseClicked="#onMouseClicked" prefHeight="485.0" prefWidth="200.0">
+      <TreeTableView fx:id="treeTableViewFiltro" onMouseClicked="#onMouseClicked" prefHeight="655.0" prefWidth="200.0">
         <columns>
           <TreeTableColumn fx:id="treeTableColumnFiltro" prefWidth="175.0" text="Filtro" />
           <TreeTableColumn fx:id="treeTableColumnLinhas" prefWidth="44.0" text="Linhas" />

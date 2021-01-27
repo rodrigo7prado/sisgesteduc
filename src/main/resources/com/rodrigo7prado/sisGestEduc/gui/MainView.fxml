@@ -12,9 +12,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1300.0" stylesheets="@Style2.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.MainViewController">
+<ScrollPane fx:id="scrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" stylesheets="@Style2.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.MainViewController">
 	<content>
-		<BorderPane prefHeight="680.0" prefWidth="1300.0">
+		<BorderPane prefHeight="750.0" prefWidth="1366.0">
 			<top>
 				<AnchorPane prefHeight="41.0" prefWidth="1300.0" stylesheets="@Style2.css" BorderPane.alignment="CENTER">
 					<children>
@@ -54,7 +54,7 @@
 			<center>
 				<VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@Style2.css" BorderPane.alignment="CENTER">
 					<children>
-						<TabPane fx:id="tabPane" prefWidth="764.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
+						<TabPane fx:id="tabPane" prefHeight="704.0" prefWidth="764.0" side="RIGHT" tabClosingPolicy="UNAVAILABLE">
 							<tabs>
 								<Tab fx:id="tabPendencias" onSelectionChanged="#onTabPendenciasSelectionChange" text="Alunos">
 									<content>
