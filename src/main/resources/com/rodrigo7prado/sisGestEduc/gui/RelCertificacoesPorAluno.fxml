@@ -20,14 +20,14 @@
 	<children>
       <SplitPane dividerPositions="0.7078464106844741" prefHeight="704.0" prefWidth="200.0">
          <items>
-            <SplitPane dividerPositions="0.5655270655270656" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+            <SplitPane dividerPositions="0.40028490028490027" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
               <items>
-            		<SplitPane dividerPositions="0.2962085308056872" prefHeight="704.0" prefWidth="1200.0">
+            		<SplitPane dividerPositions="0.2962085308056872" prefHeight="333.0" prefWidth="950.0">
             			<items>
             				<VBox prefHeight="568.0" prefWidth="438.0">
             					<fx:include fx:id="vBoxControllerFiltro" source="Filtro.fxml" />
             				</VBox>
-      						<VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0">
+      						<VBox alignment="CENTER" prefHeight="314.0" prefWidth="665.0">
       							<children>
       								<MenuBar>
       									<menus>
@@ -200,83 +200,83 @@
       										<Insets right="10.0" />
       									</opaqueInsets>
       								</HBox>
-      								<!-- <HBox prefHeight="100.0" prefWidth="200.0"> <children> <CheckBox 
-      									allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Pendência 
-            									dados pessoais" /> <CheckBox allowIndeterminate="true" indeterminate="true" 
-            									mnemonicParsing="false" text="Pendência dados escolares" /> <CheckBox allowIndeterminate="true" 
-            									indeterminate="true" mnemonicParsing="false" text="Histórico inconsistente" 
-            									/> </children> </HBox> -->
-      								<HBox prefHeight="100.0" prefWidth="200.0">
-      									<children>
-      										<TextField prefHeight="19.0" prefWidth="120.0" promptText="Turma">
-      											<font>
-      												<Font size="9.0" />
-      											</font>
-      										</TextField>
-      										<TextField prefHeight="19.0" prefWidth="110.0" promptText="Matrícula">
-      											<font>
-      												<Font size="9.0" />
-      											</font>
-      										</TextField>
-      										<TextField prefHeight="19.0" prefWidth="173.0" promptText="Nome do aluno">
-      											<font>
-      												<Font size="9.0" />
-      											</font>
-      											<HBox.margin>
-      												<Insets />
-      											</HBox.margin>
-      										</TextField>
-      										<TextField prefHeight="19.0" prefWidth="120.0" promptText="Matrícula">
-      											<font>
-      												<Font size="9.0" />
-      											</font>
-      											<HBox.margin>
-      												<Insets />
-      											</HBox.margin>
-      										</TextField>
-      										<TextField prefHeight="19.0" prefWidth="55.0" promptText="N Fl Certidão">
-      											<font>
-      												<Font size="9.0" />
-      											</font>
-      											<HBox.margin>
-      												<Insets />
-      											</HBox.margin>
-      										</TextField>
-      										<TextField prefHeight="19.0" prefWidth="55.0" promptText="N Fl Certificado">
-      											<font>
-      												<Font size="9.0" />
-      											</font>
-      											<HBox.margin>
-      												<Insets right="5.0" />
-      											</HBox.margin>
-      										</TextField>
-      									</children>
-      									<opaqueInsets>
-      										<Insets />
-      									</opaqueInsets>
-      								</HBox>
-      								<TreeTableView fx:id="treeTableViewAluno" onKeyPressed="#onClickTreeTableView" onMouseClicked="#onClickTreeTableView" prefHeight="568.0" prefWidth="189.0">
-      									<columns>
-      										<TreeTableColumn fx:id="treeTableColumnTurma" prefWidth="120.0" sortType="DESCENDING" text="Turma" />
-      										<TreeTableColumn fx:id="treeTableColumnAluno" prefWidth="110.0" text="Matrícula" />
-      										<TreeTableColumn fx:id="treeTableColumnNomeCompl" prefWidth="173.0" text="Aluno" />
-      										<TreeTableColumn fx:id="treeTableColumnDP" prefWidth="30.0" text="DP" />
-      										<TreeTableColumn fx:id="treeTableColumnDadosIdentif" prefWidth="30.0" text="DIdent" />
-      										<TreeTableColumn fx:id="treeTableColumnDadosHeFund" prefWidth="30.0" text="HF" />
-      										<TreeTableColumn fx:id="treeTableColumnDadosHeMedio" prefWidth="30.0" text="HM" />
-      										<TreeTableColumn fx:id="treeTableColumnNflCertidao" prefWidth="55.0" text="Certidão" />
-      										<TreeTableColumn fx:id="treeTableColumnNflCertificado" prefWidth="55.0" text="Certificado" />
-      										<TreeTableColumn fx:id="treeTableColumnSituacaoFinal" prefWidth="90.0" text="Situação Final" />
-      									</columns>
-      								</TreeTableView>
-      								<ProgressBar fx:id="progressBar" minHeight="12.0" prefWidth="200.0" progress="0.5" />
       							</children>
       						</VBox>
             			</items>
             		</SplitPane>
       				<SplitPane orientation="VERTICAL" prefHeight="160.0" prefWidth="1198.0">
       					<items>
-      						<VBox alignment="CENTER">
+      						<VBox alignment="CENTER" prefHeight="255.0" prefWidth="950.0">
+   								<!-- <HBox prefHeight="100.0" prefWidth="200.0"> <children> <CheckBox 
+   									allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Pendência 
+            									dados pessoais" /> <CheckBox allowIndeterminate="true" indeterminate="true" 
+            									mnemonicParsing="false" text="Pendência dados escolares" /> <CheckBox allowIndeterminate="true" 
+            									indeterminate="true" mnemonicParsing="false" text="Histórico inconsistente" 
+            									/> </children> </HBox> -->
+   								<HBox prefHeight="176.0" prefWidth="950.0">
+   									<children>
+   										<TextField prefHeight="19.0" prefWidth="120.0" promptText="Turma">
+   											<font>
+   												<Font size="9.0" />
+   											</font>
+   										</TextField>
+   										<TextField prefHeight="19.0" prefWidth="110.0" promptText="Matrícula">
+   											<font>
+   												<Font size="9.0" />
+   											</font>
+   										</TextField>
+   										<TextField prefHeight="19.0" prefWidth="173.0" promptText="Nome do aluno">
+   											<font>
+   												<Font size="9.0" />
+   											</font>
+   											<HBox.margin>
+   												<Insets />
+   											</HBox.margin>
+   										</TextField>
+   										<TextField prefHeight="19.0" prefWidth="120.0" promptText="Matrícula">
+   											<font>
+   												<Font size="9.0" />
+   											</font>
+   											<HBox.margin>
+   												<Insets />
+   											</HBox.margin>
+   										</TextField>
+   										<TextField prefHeight="19.0" prefWidth="55.0" promptText="N Fl Certidão">
+   											<font>
+   												<Font size="9.0" />
+   											</font>
+   											<HBox.margin>
+   												<Insets />
+   											</HBox.margin>
+   										</TextField>
+   										<TextField prefHeight="19.0" prefWidth="55.0" promptText="N Fl Certificado">
+   											<font>
+   												<Font size="9.0" />
+   											</font>
+   											<HBox.margin>
+   												<Insets right="5.0" />
+   											</HBox.margin>
+   										</TextField>
+   									</children>
+   									<opaqueInsets>
+   										<Insets />
+   									</opaqueInsets>
+   								</HBox>
+   								<TreeTableView fx:id="treeTableViewAluno" onKeyPressed="#onClickTreeTableView" onMouseClicked="#onClickTreeTableView" prefHeight="568.0" prefWidth="189.0">
+   									<columns>
+   										<TreeTableColumn fx:id="treeTableColumnTurma" prefWidth="120.0" sortType="DESCENDING" text="Turma" />
+   										<TreeTableColumn fx:id="treeTableColumnAluno" prefWidth="110.0" text="Matrícula" />
+   										<TreeTableColumn fx:id="treeTableColumnNomeCompl" prefWidth="173.0" text="Aluno" />
+   										<TreeTableColumn fx:id="treeTableColumnDP" prefWidth="30.0" text="DP" />
+   										<TreeTableColumn fx:id="treeTableColumnDadosIdentif" prefWidth="30.0" text="DIdent" />
+   										<TreeTableColumn fx:id="treeTableColumnDadosHeFund" prefWidth="30.0" text="HF" />
+   										<TreeTableColumn fx:id="treeTableColumnDadosHeMedio" prefWidth="30.0" text="HM" />
+   										<TreeTableColumn fx:id="treeTableColumnNflCertidao" prefWidth="55.0" text="Certidão" />
+   										<TreeTableColumn fx:id="treeTableColumnNflCertificado" prefWidth="55.0" text="Certificado" />
+   										<TreeTableColumn fx:id="treeTableColumnSituacaoFinal" prefWidth="90.0" text="Situação Final" />
+   									</columns>
+   								</TreeTableView>
+   								<ProgressBar fx:id="progressBar" minHeight="12.0" prefWidth="200.0" progress="0.5" />
       							<VBox prefHeight="292.0" prefWidth="1198.0">
       								<fx:include fx:id="vBoxControllerDadosAlunos" source="DadosAlunos.fxml" />
       							</VBox>
