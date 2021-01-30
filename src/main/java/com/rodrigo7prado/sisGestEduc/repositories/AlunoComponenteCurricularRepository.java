@@ -13,7 +13,20 @@ import com.rodrigo7prado.sisGestEduc.entities.AlunoComponenteCurricular;
 @Repository
 public interface AlunoComponenteCurricularRepository extends JpaRepository<AlunoComponenteCurricular, Long> {
 	@Query("SELECT DISTINCT new com.rodrigo7prado.sisGestEduc.dto.AlunoComponenteCurricularDto(" + "v.anoLetivo"
-			+ ", v.curso" + ", v.modalidade" + ", v.serie" + ", v.aluno.id" + ", v.nomeCompl" + ", v.disciplina1"
+			
+//			+ ", v.cursoId" + 
+//			", v.modalidadeId" 
+//			+ ", v.periodoCurricularId" + 
+//			", v.aluno.id" 
+//			+ ", v.nomeCompl" 
+//			+ ", v.disciplina1"
+			
+			+ ", v.curso" + 
+			", v.modalidade" 
+			+ ", v.serie" + 
+			", v.aluno.id" 
+			+ ", v.nomeCompl" 
+			+ ", v.disciplina1"
 			+ ", v.total_pontos" + ", v.faltas" + ", v.freq" + ") " + "FROM ResultadoFinalExternal v " + "WHERE "
 			+ "v.aluno.id = ?1 " + "ORDER BY v.disciplina1")
 	List<AlunoComponenteCurricularDto> findFilterConcluintes(String matricula);

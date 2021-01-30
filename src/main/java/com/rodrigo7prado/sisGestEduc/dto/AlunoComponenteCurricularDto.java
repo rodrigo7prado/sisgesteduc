@@ -2,6 +2,10 @@ package com.rodrigo7prado.sisGestEduc.dto;
 
 public class AlunoComponenteCurricularDto {
 	private String ano;
+	private Integer cursoId;
+	private Integer modalidadeId;
+	private Integer periodoCurricularId;
+	private Integer componenteCurricularId;
 	private String curso;
 	private String modalidade;
 	private String periodoCurricular;
@@ -24,6 +28,21 @@ public class AlunoComponenteCurricularDto {
 		this.componenteCurricular = componenteCurricular;
 	}
 
+	public AlunoComponenteCurricularDto(String ano, Integer cursoId, Integer modalidadeId, Integer periodoCurricularId, Integer disciplinaId, String curso, String modalidade, String periodoCurricular,
+			String matricula, String nomeCompleto, String componenteCurricular, String totalPontos, String faltas,
+			String freqGlobal) {
+		this.ano = ano;
+		this.curso = curso;
+		this.modalidade = modalidade;
+		this.periodoCurricular = periodoCurricular;
+		this.matricula = matricula;
+		this.nomeCompleto = nomeCompleto;
+		this.componenteCurricular = componenteCurricular;
+		this.totalPontos = totalPontos;
+		this.faltas = faltas;
+		this.freqGlobal = freqGlobal;
+	}
+	
 	public AlunoComponenteCurricularDto(String ano, String curso, String modalidade, String periodoCurricular,
 			String matricula, String nomeCompleto, String componenteCurricular, String totalPontos, String faltas,
 			String freqGlobal) {
@@ -45,6 +64,38 @@ public class AlunoComponenteCurricularDto {
 
 	public void setAno(String ano) {
 		this.ano = ano;
+	}
+
+	public Integer getCursoId() {
+		return cursoId;
+	}
+
+	public void setCursoId(Integer cursoId) {
+		this.cursoId = cursoId;
+	}
+
+	public Integer getModalidadeId() {
+		return modalidadeId;
+	}
+
+	public void setModalidadeId(Integer modalidadeId) {
+		this.modalidadeId = modalidadeId;
+	}
+
+	public Integer getPeriodoCurricularId() {
+		return periodoCurricularId;
+	}
+
+	public void setPeriodoCurricularId(Integer periodoCurricularId) {
+		this.periodoCurricularId = periodoCurricularId;
+	}
+
+	public Integer getComponenteCurricularId() {
+		return componenteCurricularId;
+	}
+
+	public void setComponenteCurricularId(Integer componenteCurricularId) {
+		this.componenteCurricularId = componenteCurricularId;
 	}
 
 	public String getCurso() {
