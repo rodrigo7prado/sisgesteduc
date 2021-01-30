@@ -1,6 +1,7 @@
 package com.rodrigo7prado.sisGestEduc.gui;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +47,11 @@ public class HistoricoAlunoController implements Initializable {
 	@FXML
 	private TableColumn<AutoDto, String> serie3;
 	
+	private AlunoPeriodoCurricularCondensedDto alunoDadosParam;
+	
 	private AlunoComponenteCurricularDto controller = new AlunoComponenteCurricularDto();
+	
+	private List<AlunoComponenteCurricularDto> listController;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -138,6 +143,21 @@ public class HistoricoAlunoController implements Initializable {
         
 		System.out.println("Salvando...:" + event.getNewValue());
 		
+
+		System.out.println("listController é: " + listController);
+		
+		System.out.println("alunoDadosParam é: " + alunoDadosParam);
+		
+		System.out.println("Controller 0: " + listController.get(0).getCurso());
+		
+		System.out.println(service.findFilterConcluintes(alunoDadosParam.getMatricula()));
+		
+//		service.findByIndex(alunoId, cursoId, cursoModalidadeId, periodoCurricularId, disciplinaId)
+		
+//		listController.get(0)
+		
+//		service.findByIndex(alunoDadosParam.getMatricula(), cursoId, cursoModalidadeId, periodoCurricularId, disciplinaId)
+		
 //		controller.get
 		
 //		System.out.println("Salvando...:" + col2.);
@@ -148,7 +168,14 @@ public class HistoricoAlunoController implements Initializable {
 
 	public void updateFormData(AlunoPeriodoCurricularCondensedDto obj) {
 		
+		
 		initializeNodes();
+		
+		alunoDadosParam = obj;
+		
+		listController = service.findFilterConcluintes(obj.getMatricula());
+		
+		System.out.println("listController is: " + listController);
 		
 		tableView.getItems().clear();
 		

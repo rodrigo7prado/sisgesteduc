@@ -7,7 +7,7 @@
 <VBox prefHeight="547.0" prefWidth="313.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.HistoricoAlunoController">
 	<children>
       
-		<TableView fx:id="tableView" prefHeight="433.0" prefWidth="313.0">
+		<TableView fx:id="tableView" prefHeight="547.0" prefWidth="313.0">
 			<columns>
 				<TableColumn fx:id="disciplina" prefWidth="75.0" text="Disciplina" />
 				<TableColumn fx:id="serie1" onEditCommit="#onEditCommit" prefWidth="75.0" text="1ª série" />
