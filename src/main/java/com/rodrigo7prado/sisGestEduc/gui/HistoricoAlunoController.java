@@ -16,10 +16,11 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableColumn.CellEditEvent;
+import javafx.scene.control.TablePosition;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
-import javafx.scene.text.Text;
 
 @Controller
 public class HistoricoAlunoController implements Initializable {
@@ -44,6 +45,8 @@ public class HistoricoAlunoController implements Initializable {
 	private TableColumn<AutoDto, String> serie2;
 	@FXML
 	private TableColumn<AutoDto, String> serie3;
+	
+	private AlunoComponenteCurricularDto controller = new AlunoComponenteCurricularDto();
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -101,6 +104,46 @@ public class HistoricoAlunoController implements Initializable {
 		}
 
 //		tableView.setItems();
+	}
+	
+	public void onEditCommit(CellEditEvent<?,?> event) {
+		
+		
+//		TablePosition pos = tableView.getSelectionModel().getSelectedCells().get(0);
+		
+		TablePosition pos = tableView.editingCellProperty().get();
+		
+//		tableView.getSelectionModel().getSelectedItem().getSerie1();
+		
+		Integer row = pos.getRow();
+		
+		// Item here is the table view type:
+        AutoDto item = tableView.getItems().get(row);
+        
+        
+		
+        TableColumn col = (TableColumn) event.getSource();
+        
+//        TableColumn col2 = (TableColumn) col.getCellFactory();
+//        TableColumn col = pos.getTableColumn();
+        
+     // this gives the value in the selected cell:
+        String data = (String) col.getCellObservableValue(item).getValue();
+//        String data = (String) col.get;
+//        .getCellObservableValue(item).getValue();
+		
+//        col.get
+        
+        
+        
+		System.out.println("Salvando...:" + event.getNewValue());
+		
+//		controller.get
+		
+//		System.out.println("Salvando...:" + col2.);
+
+//		System.out.println("Salvando...:" + tableView.getEditingCell().get);
+//		service.findByIndex(alunoId, cursoId, cursoModalidadeId, periodoCurricularId, disciplinaId);
 	}
 
 	public void updateFormData(AlunoPeriodoCurricularCondensedDto obj) {

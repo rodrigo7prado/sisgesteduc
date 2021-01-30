@@ -10,9 +10,9 @@
 		<TableView fx:id="tableView" prefHeight="433.0" prefWidth="313.0">
 			<columns>
 				<TableColumn fx:id="disciplina" prefWidth="75.0" text="Disciplina" />
-				<TableColumn fx:id="serie1" prefWidth="75.0" text="1ª série" />
-				<TableColumn fx:id="serie2" prefWidth="75.0" text="2ª série" />
-				<TableColumn fx:id="serie3" prefWidth="75.0" text="3ª série" />
+				<TableColumn fx:id="serie1" onEditCommit="#onEditCommit" prefWidth="75.0" text="1ª série" />
+				<TableColumn fx:id="serie2" onEditCommit="#onEditCommit" prefWidth="75.0" text="2ª série" />
+				<TableColumn fx:id="serie3" onEditCommit="#onEditCommit" prefWidth="75.0" text="3ª série" />
 			</columns>
 		</TableView>
 	</children>
