@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="288.0" prefWidth="776.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.DadosAlunosController">
+<VBox prefHeight="239.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.DadosAlunosController">
 	<VBox prefHeight="174.0" prefWidth="712.0">
 		<children>
 			<HBox alignment="CENTER" prefHeight="35.0" prefWidth="871.0" />
@@ -23,32 +23,33 @@
       					<Label prefHeight="17.0" text="Matrícula" />
                      <TextField fx:id="matriculaField" editable="false" prefHeight="25.0" prefWidth="124.0" />
       					<Label prefHeight="17.0" text="Nome" />
-                     <TextField fx:id="nomeCompletoField" prefHeight="30.0" prefWidth="518.0" />
-                     <Separator prefWidth="750.0" />
+                     <TextField fx:id="nomeCompletoField" prefHeight="30.0" prefWidth="513.0" />
       					<Label prefHeight="17.0" text="D/Nasc." />
       							<DatePicker fx:id="dataNascField" prefWidth="120.0" showWeekNumbers="true" />
+                     <Separator prefWidth="930.0" />
       							<Label text="Sexo" />
       							<ComboBox fx:id="sexoField" prefHeight="30.0" prefWidth="152.0" />
       					<Label text="Nacionalidade" />
                      <ComboBox fx:id="nacionalidade" prefHeight="25.0" prefWidth="133.0" />
-      					<Label text="RG" />
-                     <TextField fx:id="rgField" prefWidth="130.0" />
-                     <Separator prefWidth="750.0" />
       					<Label text="Naturalidade" />
       					<TextField fx:id="naturalidade" prefHeight="30.0" prefWidth="357.0" />
       					<ComboBox fx:id="naturalidadeUfField" prefWidth="55.0" />
+                     <Separator prefWidth="930.0" />
+      					<Label text="RG" />
+                     <TextField fx:id="rgField" prefWidth="130.0" />
       					<Label text="Órgão" />
       							<ComboBox fx:id="rgEmissorField" prefWidth="119.0" />
       							<ComboBox fx:id="rgEmissorUfField" prefWidth="55.0" />
-                     <Separator prefWidth="750.0" />
+                     <Separator orientation="VERTICAL" prefHeight="10.0" />
+                     <CheckBox mnemonicParsing="false" text="Dados de Certidão" />
+                     <Separator prefHeight="0.0" prefWidth="930.0" />
       					<Label text="Pai" />
                      <TextField fx:id="nomePaiField" prefHeight="30.0" prefWidth="366.0" />
                      <CheckBox mnemonicParsing="false" text="Não informado" />
-                     <Separator prefWidth="750.0" />
+                     <Separator orientation="VERTICAL" prefHeight="10.0" />
       					<Label text="Mãe" />
       					<TextField fx:id="nomeMaeField" prefHeight="30.0" prefWidth="366.0" />
-                     <CheckBox mnemonicParsing="false" text="Dados de Certidão" />
-                     <Separator prefWidth="750.0" />
+                     <Separator prefWidth="930.0" />
                   </children>
                   <padding>
                      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

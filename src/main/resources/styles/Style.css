@@ -10,7 +10,8 @@
 }
 
 .table-row-cell:selected {
-    -fx-background-color: #FF5797;
+ /* -fx-background-color: #FF5797; */
+    -fx-background-color: #FF0000;
     -fx-background-insets: 0;
     -fx-background-radius: 1;
 }

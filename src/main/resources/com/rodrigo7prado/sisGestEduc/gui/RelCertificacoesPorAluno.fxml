@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -19,320 +19,328 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxWidth="1314.0" prefHeight="704.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.RelCertificacoesPorAlunoController">
+<VBox maxWidth="1314.0" prefHeight="704.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodrigo7prado.sisGestEduc.gui.RelCertificacoesPorAlunoController">
 	<children>
-      <SplitPane dividerPositions="0.7078464106844741" prefHeight="704.0" prefWidth="200.0">
+      <SplitPane dividerPositions="0.18258859784283513, 0.7873651771956857" prefHeight="704.0" prefWidth="200.0">
          <items>
-            <SplitPane dividerPositions="0.443019943019943" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
+            <VBox prefHeight="702.0" prefWidth="290.0">
+               <children>
+								<!-- <HBox prefHeight="100.0" prefWidth="200.0"> <children> <CheckBox 
+									allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Pendência 
+            									dados pessoais" /> <CheckBox allowIndeterminate="true" indeterminate="true" 
+                  									mnemonicParsing="false" text="Pendência dados escolares" /> <CheckBox allowIndeterminate="true" 
+                  									indeterminate="true" mnemonicParsing="false" text="Histórico inconsistente" 
+                  									/> </children> </HBox> -->
+								<HBox prefHeight="21.0" prefWidth="390.0">
+									<children>
+										<TextField prefHeight="19.0" prefWidth="120.0" promptText="Turma">
+											<font>
+												<Font size="9.0" />
+											</font>
+										</TextField>
+										<TextField prefHeight="19.0" prefWidth="110.0" promptText="Matrícula">
+											<font>
+												<Font size="9.0" />
+											</font>
+										</TextField>
+										<TextField prefHeight="19.0" prefWidth="173.0" promptText="Nome do aluno">
+											<font>
+												<Font size="9.0" />
+											</font>
+											<HBox.margin>
+												<Insets />
+											</HBox.margin>
+										</TextField>
+										<TextField prefHeight="19.0" prefWidth="120.0" promptText="Matrícula">
+											<font>
+												<Font size="9.0" />
+											</font>
+											<HBox.margin>
+												<Insets />
+											</HBox.margin>
+										</TextField>
+										<TextField prefHeight="19.0" prefWidth="55.0" promptText="N Fl Certidão">
+											<font>
+												<Font size="9.0" />
+											</font>
+											<HBox.margin>
+												<Insets />
+											</HBox.margin>
+										</TextField>
+										<TextField prefHeight="19.0" prefWidth="55.0" promptText="N Fl Certificado">
+											<font>
+												<Font size="9.0" />
+											</font>
+											<HBox.margin>
+												<Insets right="5.0" />
+											</HBox.margin>
+										</TextField>
+									</children>
+									<opaqueInsets>
+										<Insets />
+									</opaqueInsets>
+								</HBox>
+								<TreeTableView fx:id="treeTableViewAluno" onKeyPressed="#onClickTreeTableView" onMouseClicked="#onClickTreeTableView" prefHeight="662.0" prefWidth="390.0">
+									<columns>
+										<TreeTableColumn fx:id="treeTableColumnTurma" prefWidth="120.0" sortType="DESCENDING" text="Turma" />
+										<TreeTableColumn fx:id="treeTableColumnNomeCompl" prefWidth="173.0" text="Aluno" />
+										<TreeTableColumn fx:id="treeTableColumnAluno" prefWidth="110.0" text="Matrícula" />
+										<TreeTableColumn fx:id="treeTableColumnDP" prefWidth="30.0" text="DP" />
+										<TreeTableColumn fx:id="treeTableColumnDadosIdentif" prefWidth="30.0" text="DIdent" />
+										<TreeTableColumn fx:id="treeTableColumnDadosHeFund" prefWidth="30.0" text="HF" />
+										<TreeTableColumn fx:id="treeTableColumnDadosHeMedio" prefWidth="30.0" text="HM" />
+										<TreeTableColumn fx:id="treeTableColumnNflCertidao" prefWidth="55.0" text="Certidão" />
+										<TreeTableColumn fx:id="treeTableColumnNflCertificado" prefWidth="55.0" text="Certificado" />
+										<TreeTableColumn fx:id="treeTableColumnSituacaoFinal" prefWidth="90.0" text="Situação Final" />
+									</columns>
+								</TreeTableView>
+								<ProgressBar fx:id="progressBar" minHeight="12.0" prefHeight="21.0" prefWidth="389.0" progress="0.5" />
+               </children>
+            </VBox>
+            <SplitPane dividerPositions="0.443019943019943" orientation="VERTICAL" prefHeight="702.0" prefWidth="897.0">
               <items>
-            		<SplitPane dividerPositions="0.29578947368421055" prefHeight="333.0" prefWidth="950.0">
-            			<items>
-            				<VBox prefHeight="568.0" prefWidth="438.0">
-            					<fx:include fx:id="vBoxControllerFiltro" source="Filtro.fxml" />
-            				</VBox>
-                        <VBox>
+                  <VBox>
+                     <children>
+                        <HBox prefHeight="25.0" prefWidth="665.0">
                            <children>
-                              <HBox prefHeight="25.0" prefWidth="665.0">
-                                 <children>
-                                    <ComboBox prefHeight="30.0" prefWidth="161.0" promptText="Concluintes 2018" />
-                                    <ComboBox prefHeight="30.0" prefWidth="156.0" promptText="Todos os Cursos" />
-                                    <ComboBox prefHeight="30.0" prefWidth="212.0" promptText="Todas as Situações Finais" />
-                                 </children>
-                              </HBox>
-                              <HBox>
-                                 <children>
-                                    <VBox>
-                                       <children>
-                                          <HBox prefHeight="100.0" prefWidth="200.0">
-                                             <children>
-                                                <FlowPane prefHeight="277.0" prefWidth="355.0">
-                                                   <children>
-                                                      <VBox>
-                                                         <children>
-                                                            <CheckBox mnemonicParsing="false" selected="true" text="Ensino Médio Regular" />
-                                                            <CheckBox mnemonicParsing="false" selected="true" text="ENEJA" />
-                                                            <Separator prefWidth="200.0" />
-                                                         </children>
-                                                      </VBox>
-                                                      <HBox>
-                                                         <children>
-                                                            <RadioButton fx:id="predFilter04000Rb000001" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
-                                                               <toggleGroup>
-                                                                  <ToggleGroup fx:id="af1" />
-                                                               </toggleGroup>
-                                                            </RadioButton>
-                                                            <RadioButton fx:id="predFilter04000Rb010001" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Concluintes">
-                                                               <toggleGroup>
-                                                                  <ToggleGroup fx:id="af1" />
-                                                               </toggleGroup>
-                                                            </RadioButton>
-                                                            <RadioButton fx:id="predFilter04000Rb020001" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Não-concluintes">
-                                                               <toggleGroup>
-                                                                  <ToggleGroup fx:id="af1" />
-                                                               </toggleGroup>
-                                                            </RadioButton>
-                                                         </children>
-                                                      </HBox>
-                                                   </children>
-                                                </FlowPane>
-                                             </children>
-                                          </HBox>
-                                       </children>
-                                    </VBox>
-                  						<VBox alignment="CENTER" prefHeight="314.0" prefWidth="665.0">
-                  							<children>
-                  								<MenuBar>
-                  									<menus>
-                  										<Menu mnemonicParsing="false" text="Visualização">
-                  											<items>
-                  												<MenuItem mnemonicParsing="false" text="Recolher linhas" />
-                  											</items>
-                  										</Menu>
-                  										<Menu mnemonicParsing="false" text="Filtros">
-                  											<items>
-                  												<MenuItem mnemonicParsing="false" text="Certificação" />
-                  												<MenuItem mnemonicParsing="false" text="Declarações em massa" />
-                  												<MenuItem mnemonicParsing="false" text="RioCard" />
-                  											</items>
-                  										</Menu>
-                  									</menus>
-                  								</MenuBar>
-                  								<!-- <HBox prefHeight="100.0" prefWidth="200.0"> <children> <CheckBox 
-                  									allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Certidões" 
-                              									/> <CheckBox allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" 
-                              									text="Certificados" /> <ToggleButton mnemonicParsing="false" selected="true" 
-                              									text="ToggleButton" /> </children> </HBox> -->
-                  								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
-                  									<children>
-                  										<RadioButton fx:id="predFilter01000Rb00000TodosAnos" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
-                  											<toggleGroup>
-                  												<ToggleGroup fx:id="toggleGroupAnos" />
-                  											</toggleGroup>
-                  										</RadioButton>
-                  										<RadioButton fx:id="predFilter01000Rb010002020" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2020" toggleGroup="$toggleGroupAnos" />
-                  										<RadioButton fx:id="predFilter01000Rb020002019" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2019" toggleGroup="$toggleGroupAnos" />
-                  										<RadioButton fx:id="predFilter01000Rb030002018" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2018" toggleGroup="$toggleGroupAnos" />
-                  										<RadioButton fx:id="predFilter01000Rb040002017" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2017" toggleGroup="$toggleGroupAnos" />
-                  										<RadioButton fx:id="predFilter01000Rb050002016" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2016" toggleGroup="$toggleGroupAnos" />
-                  									</children>
-                  								</HBox>
-                  								<Separator prefWidth="200.0" />
-                  								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
-                  									<children>
-                  										<RadioButton fx:id="predFilter02000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
-                  											<toggleGroup>
-                  												<ToggleGroup fx:id="ai" />
-                  											</toggleGroup>
-                  										</RadioButton>
-                  										<RadioButton fx:id="predFilter02000Rb01000EnsinoMedioRegular" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ensino Médio Regular" toggleGroup="$ai" />
-                  										<RadioButton fx:id="predFilter02000Rb02000ENEJA" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="ENEJA" toggleGroup="$ai" />
-                  									</children>
-                  								</HBox>
-                  								<Separator prefWidth="200.0" />
-                  								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
-                  									<children>
-                  										<RadioButton fx:id="predFilter03000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
-                  											<toggleGroup>
-                  												<ToggleGroup fx:id="aj" />
-                  											</toggleGroup>
-                  										</RadioButton>
-                  										<RadioButton fx:id="predFilter03000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="1ª série/Módulo I" toggleGroup="$aj" />
-                  										<RadioButton fx:id="predFilter03000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2ª série/Módulo II" toggleGroup="$aj" />
-                  										<RadioButton fx:id="predFilter03000Rb03000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="3ª série/Módulo II" toggleGroup="$aj" />
-                  										<RadioButton fx:id="predFilter03000Rb04000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Módulo IV" toggleGroup="$aj" />
-                  										<RadioButton fx:id="predFilter03000Rb05000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Anos finais" toggleGroup="$aj" />
-                  									</children>
-                  								</HBox>
-                  								<Separator prefWidth="200.0" />
-                  								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
-                  									<children>
-                  										<RadioButton fx:id="predFilter04000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
-                  											<toggleGroup>
-                  												<ToggleGroup fx:id="af" />
-                  											</toggleGroup>
-                  										</RadioButton>
-                  										<RadioButton fx:id="predFilter04000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Concluintes" toggleGroup="$af" />
-                  										<RadioButton fx:id="predFilter04000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Não-concluintes" toggleGroup="$af" />
-                  									</children>
-                  								</HBox>
-                  								<Separator prefWidth="200.0" />
-                  								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
-                  									<children>
-                  										<RadioButton fx:id="predFilter05000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
-                  											<toggleGroup>
-                  												<ToggleGroup fx:id="ag" />
-                  											</toggleGroup>
-                  										</RadioButton>
-                  										<RadioButton fx:id="predFilter05000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Aprovados" toggleGroup="$ag" />
-                  										<RadioButton fx:id="predFilter05000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Aprovados com dep." toggleGroup="$ag" />
-                  										<RadioButton fx:id="predFilter05000Rb03000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Reprovados" toggleGroup="$ag" />
-                  									</children>
-                  								</HBox>
-                  								<Separator prefWidth="200.0" />
-                  								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
-                  									<children>
-                  										<RadioButton fx:id="predFilter06000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
-                  											<toggleGroup>
-                  												<ToggleGroup fx:id="aa" />
-                  											</toggleGroup>
-                  										</RadioButton>
-                  										<RadioButton fx:id="predFilter06000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ok" toggleGroup="$aa" />
-                  										<RadioButton fx:id="predFilter06000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendentes" toggleGroup="$aa" />
-                  									</children>
-                  								</HBox>
-                  								<Separator prefWidth="200.0" />
-                  								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
-                  									<children>
-                  										<RadioButton fx:id="predFilter07000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
-                  											<toggleGroup>
-                  												<ToggleGroup fx:id="ab" />
-                  											</toggleGroup>
-                  										</RadioButton>
-                  										<RadioButton fx:id="predFilter07000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Com certidão" toggleGroup="$ab" />
-                  										<RadioButton fx:id="predFilter07000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Sem certidão" toggleGroup="$ab" />
-                  									</children>
-                  								</HBox>
-                  								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
-                  									<children>
-                  										<RadioButton fx:id="predFilter08000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
-                  											<toggleGroup>
-                  												<ToggleGroup fx:id="ad" />
-                  											</toggleGroup>
-                  										</RadioButton>
-                  										<RadioButton fx:id="predFilter08000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Com certificado" toggleGroup="$ad" />
-                  										<RadioButton fx:id="predFilter08000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Sem certificado" toggleGroup="$ad" />
-                  									</children>
-                  								</HBox>
-                  								<Separator prefWidth="200.0" />
-                  								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
-                  									<children>
-                  										<RadioButton fx:id="predFilter09000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
-                  											<toggleGroup>
-                  												<ToggleGroup fx:id="ac" />
-                  											</toggleGroup>
-                  										</RadioButton>
-                  										<RadioButton fx:id="predFilter09000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendência dados pessoais" toggleGroup="$ac" />
-                  										<RadioButton fx:id="predFilter09000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendência dados escolares" toggleGroup="$ac" />
-                  										<RadioButton fx:id="predFilter09000Rb03000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Histórico inconsistente" toggleGroup="$ac" />
-                  									</children>
-                  									<opaqueInsets>
-                  										<Insets right="10.0" />
-                  									</opaqueInsets>
-                  								</HBox>
-                  								<Separator prefWidth="200.0" />
-                  								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
-                  									<children>
-                  										<RadioButton fx:id="predFilter10000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
-                  											<toggleGroup>
-                  												<ToggleGroup fx:id="ak" />
-                  											</toggleGroup>
-                  										</RadioButton>
-                  										<RadioButton fx:id="predFilter10000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Série faltando" toggleGroup="$ak" />
-                  										<RadioButton fx:id="predFilter10000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Nota(s) faltando" toggleGroup="$ak" />
-                  										<RadioButton fx:id="predFilter10000Rb03000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Resultado/Nota(s) inconsistente(s)" toggleGroup="$ak" />
-                  										<RadioButton fx:id="predFilter10000Rb04000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="CH inconsistente" toggleGroup="$ak" />
-                  										<RadioButton fx:id="predFilter10000Rb05000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Dados faltando" toggleGroup="$ak" />
-                  									</children>
-                  									<opaqueInsets>
-                  										<Insets right="10.0" />
-                  									</opaqueInsets>
-                  								</HBox>
-                  								<Separator prefWidth="200.0" />
-                  								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
-                  									<children>
-                  										<RadioButton fx:id="predFilter11000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
-                  											<toggleGroup>
-                  												<ToggleGroup fx:id="ah" />
-                  											</toggleGroup>
-                  										</RadioButton>
-                  										<RadioButton fx:id="predFilter11000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ok" toggleGroup="$ah" />
-                  										<RadioButton fx:id="predFilter11000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Dif. Conexão Educação" toggleGroup="$ah" />
-                  									</children>
-                  									<opaqueInsets>
-                  										<Insets right="10.0" />
-                  									</opaqueInsets>
-                  								</HBox>
-                  							</children>
-                  						</VBox>
-                                 </children>
-                              </HBox>
+                              <ComboBox prefHeight="30.0" prefWidth="161.0" promptText="Concluintes 2018" />
+                              <ComboBox prefHeight="30.0" prefWidth="156.0" promptText="Todos os Cursos" />
+                              <ComboBox prefHeight="30.0" prefWidth="123.0" promptText="Anos Finais" />
+                              <ComboBox prefHeight="30.0" prefWidth="156.0" promptText="Todas as Turmas" />
                            </children>
-                        </VBox>
-            			</items>
-            		</SplitPane>
+                        </HBox>
+                  		<SplitPane dividerPositions="0.18181818181818182" prefHeight="307.0" prefWidth="842.0">
+                  			<items>
+                  				<VBox prefHeight="568.0" prefWidth="438.0">
+                  					<fx:include fx:id="vBoxControllerFiltro" source="Filtro.fxml" />
+                  				</VBox>
+                              <VBox>
+                                 <children>
+                                    <HBox>
+                                       <children>
+                                          <VBox>
+                                             <children>
+                                                <HBox prefHeight="100.0" prefWidth="200.0">
+                                                   <children>
+                                                      <FlowPane prefHeight="277.0" prefWidth="355.0">
+                                                         <children>
+                                                            <HBox>
+                                                               <children>
+                                                                  <RadioButton fx:id="predFilter04000Rb000001" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                                                                     <toggleGroup>
+                                                                        <ToggleGroup fx:id="af1" />
+                                                                     </toggleGroup>
+                                                                  </RadioButton>
+                                                                  <RadioButton fx:id="predFilter04000Rb010001" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Aprovados">
+                                                                     <toggleGroup>
+                                                                        <ToggleGroup fx:id="af1" />
+                                                                     </toggleGroup>
+                                                                  </RadioButton>
+                                                                  <RadioButton fx:id="predFilter04000Rb020001" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ap. c Dep.">
+                                                                     <toggleGroup>
+                                                                        <ToggleGroup fx:id="af1" />
+                                                                     </toggleGroup>
+                                                                  </RadioButton>
+                                                                  <RadioButton fx:id="predFilter04000Rb0200011" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Reprovados">
+                                                                     <toggleGroup>
+                                                                        <ToggleGroup fx:id="af11" />
+                                                                     </toggleGroup>
+                                                                  </RadioButton>
+                                                               </children>
+                                                            </HBox>
+                                                            <ListView prefHeight="200.0" prefWidth="200.0" />
+                                                         </children>
+                                                      </FlowPane>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                        						<VBox alignment="CENTER" prefHeight="314.0" prefWidth="665.0">
+                        							<children>
+                        								<MenuBar>
+                        									<menus>
+                        										<Menu mnemonicParsing="false" text="Visualização">
+                        											<items>
+                        												<MenuItem mnemonicParsing="false" text="Recolher linhas" />
+                        											</items>
+                        										</Menu>
+                        										<Menu mnemonicParsing="false" text="Filtros">
+                        											<items>
+                        												<MenuItem mnemonicParsing="false" text="Certificação" />
+                        												<MenuItem mnemonicParsing="false" text="Declarações em massa" />
+                        												<MenuItem mnemonicParsing="false" text="RioCard" />
+                        											</items>
+                        										</Menu>
+                        									</menus>
+                        								</MenuBar>
+                        								<!-- <HBox prefHeight="100.0" prefWidth="200.0"> <children> <CheckBox 
+                        									allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Certidões" 
+                                    									/> <CheckBox allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" 
+                                    									text="Certificados" /> <ToggleButton mnemonicParsing="false" selected="true" 
+                                    									text="ToggleButton" /> </children> </HBox> -->
+                        								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                        									<children>
+                        										<RadioButton fx:id="predFilter01000Rb00000TodosAnos" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                        											<toggleGroup>
+                        												<ToggleGroup fx:id="toggleGroupAnos" />
+                        											</toggleGroup>
+                        										</RadioButton>
+                        										<RadioButton fx:id="predFilter01000Rb010002020" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2020" toggleGroup="$toggleGroupAnos" />
+                        										<RadioButton fx:id="predFilter01000Rb020002019" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2019" toggleGroup="$toggleGroupAnos" />
+                        										<RadioButton fx:id="predFilter01000Rb030002018" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2018" toggleGroup="$toggleGroupAnos" />
+                        										<RadioButton fx:id="predFilter01000Rb040002017" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2017" toggleGroup="$toggleGroupAnos" />
+                        										<RadioButton fx:id="predFilter01000Rb050002016" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2016" toggleGroup="$toggleGroupAnos" />
+                        									</children>
+                        								</HBox>
+                        								<Separator prefWidth="200.0" />
+                        								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                        									<children>
+                        										<RadioButton fx:id="predFilter02000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                        											<toggleGroup>
+                        												<ToggleGroup fx:id="ai" />
+                        											</toggleGroup>
+                        										</RadioButton>
+                        										<RadioButton fx:id="predFilter02000Rb01000EnsinoMedioRegular" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ensino Médio Regular" toggleGroup="$ai" />
+                        										<RadioButton fx:id="predFilter02000Rb02000ENEJA" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="ENEJA" toggleGroup="$ai" />
+                        									</children>
+                        								</HBox>
+                        								<Separator prefWidth="200.0" />
+                        								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                        									<children>
+                        										<RadioButton fx:id="predFilter03000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                        											<toggleGroup>
+                        												<ToggleGroup fx:id="aj" />
+                        											</toggleGroup>
+                        										</RadioButton>
+                        										<RadioButton fx:id="predFilter03000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="1ª série/Módulo I" toggleGroup="$aj" />
+                        										<RadioButton fx:id="predFilter03000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="2ª série/Módulo II" toggleGroup="$aj" />
+                        										<RadioButton fx:id="predFilter03000Rb03000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="3ª série/Módulo II" toggleGroup="$aj" />
+                        										<RadioButton fx:id="predFilter03000Rb04000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Módulo IV" toggleGroup="$aj" />
+                        										<RadioButton fx:id="predFilter03000Rb05000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Anos finais" toggleGroup="$aj" />
+                        									</children>
+                        								</HBox>
+                        								<Separator prefWidth="200.0" />
+                        								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                        									<children>
+                        										<RadioButton fx:id="predFilter04000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                        											<toggleGroup>
+                        												<ToggleGroup fx:id="af" />
+                        											</toggleGroup>
+                        										</RadioButton>
+                        										<RadioButton fx:id="predFilter04000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Concluintes" toggleGroup="$af" />
+                        										<RadioButton fx:id="predFilter04000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Não-concluintes" toggleGroup="$af" />
+                        									</children>
+                        								</HBox>
+                        								<Separator prefWidth="200.0" />
+                        								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                        									<children>
+                        										<RadioButton fx:id="predFilter05000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                        											<toggleGroup>
+                        												<ToggleGroup fx:id="ag" />
+                        											</toggleGroup>
+                        										</RadioButton>
+                        										<RadioButton fx:id="predFilter05000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Aprovados" toggleGroup="$ag" />
+                        										<RadioButton fx:id="predFilter05000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Aprovados com dep." toggleGroup="$ag" />
+                        										<RadioButton fx:id="predFilter05000Rb03000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Reprovados" toggleGroup="$ag" />
+                        									</children>
+                        								</HBox>
+                        								<Separator prefWidth="200.0" />
+                        								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                        									<children>
+                        										<RadioButton fx:id="predFilter06000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                        											<toggleGroup>
+                        												<ToggleGroup fx:id="aa" />
+                        											</toggleGroup>
+                        										</RadioButton>
+                        										<RadioButton fx:id="predFilter06000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ok" toggleGroup="$aa" />
+                        										<RadioButton fx:id="predFilter06000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendentes" toggleGroup="$aa" />
+                        									</children>
+                        								</HBox>
+                        								<Separator prefWidth="200.0" />
+                        								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                        									<children>
+                        										<RadioButton fx:id="predFilter07000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                        											<toggleGroup>
+                        												<ToggleGroup fx:id="ab" />
+                        											</toggleGroup>
+                        										</RadioButton>
+                        										<RadioButton fx:id="predFilter07000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Com certidão" toggleGroup="$ab" />
+                        										<RadioButton fx:id="predFilter07000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Sem certidão" toggleGroup="$ab" />
+                        									</children>
+                        								</HBox>
+                        								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                        									<children>
+                        										<RadioButton fx:id="predFilter08000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                        											<toggleGroup>
+                        												<ToggleGroup fx:id="ad" />
+                        											</toggleGroup>
+                        										</RadioButton>
+                        										<RadioButton fx:id="predFilter08000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Com certificado" toggleGroup="$ad" />
+                        										<RadioButton fx:id="predFilter08000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Sem certificado" toggleGroup="$ad" />
+                        									</children>
+                        								</HBox>
+                        								<Separator prefWidth="200.0" />
+                        								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                        									<children>
+                        										<RadioButton fx:id="predFilter09000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                        											<toggleGroup>
+                        												<ToggleGroup fx:id="ac" />
+                        											</toggleGroup>
+                        										</RadioButton>
+                        										<RadioButton fx:id="predFilter09000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendência dados pessoais" toggleGroup="$ac" />
+                        										<RadioButton fx:id="predFilter09000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Pendência dados escolares" toggleGroup="$ac" />
+                        										<RadioButton fx:id="predFilter09000Rb03000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Histórico inconsistente" toggleGroup="$ac" />
+                        									</children>
+                        									<opaqueInsets>
+                        										<Insets right="10.0" />
+                        									</opaqueInsets>
+                        								</HBox>
+                        								<Separator prefWidth="200.0" />
+                        								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                        									<children>
+                        										<RadioButton fx:id="predFilter10000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                        											<toggleGroup>
+                        												<ToggleGroup fx:id="ak" />
+                        											</toggleGroup>
+                        										</RadioButton>
+                        										<RadioButton fx:id="predFilter10000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Série faltando" toggleGroup="$ak" />
+                        										<RadioButton fx:id="predFilter10000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Nota(s) faltando" toggleGroup="$ak" />
+                        										<RadioButton fx:id="predFilter10000Rb03000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Resultado/Nota(s) inconsistente(s)" toggleGroup="$ak" />
+                        										<RadioButton fx:id="predFilter10000Rb04000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="CH inconsistente" toggleGroup="$ak" />
+                        										<RadioButton fx:id="predFilter10000Rb05000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Dados faltando" toggleGroup="$ak" />
+                        									</children>
+                        									<opaqueInsets>
+                        										<Insets right="10.0" />
+                        									</opaqueInsets>
+                        								</HBox>
+                        								<Separator prefWidth="200.0" />
+                        								<HBox prefHeight="100.0" prefWidth="200.0" spacing="5.0">
+                        									<children>
+                        										<RadioButton fx:id="predFilter11000Rb00000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" selected="true" text="Todos">
+                        											<toggleGroup>
+                        												<ToggleGroup fx:id="ah" />
+                        											</toggleGroup>
+                        										</RadioButton>
+                        										<RadioButton fx:id="predFilter11000Rb01000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Ok" toggleGroup="$ah" />
+                        										<RadioButton fx:id="predFilter11000Rb02000" mnemonicParsing="false" onMouseClicked="#onClickRadioButton" text="Dif. Conexão Educação" toggleGroup="$ah" />
+                        									</children>
+                        									<opaqueInsets>
+                        										<Insets right="10.0" />
+                        									</opaqueInsets>
+                        								</HBox>
+                        							</children>
+                        						</VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                  			</items>
+                  		</SplitPane>
+                     </children>
+                  </VBox>
       				<SplitPane orientation="VERTICAL" prefHeight="160.0" prefWidth="1198.0">
       					<items>
       						<VBox alignment="CENTER" prefHeight="255.0" prefWidth="950.0">
-   								<!-- <HBox prefHeight="100.0" prefWidth="200.0"> <children> <CheckBox 
-   									allowIndeterminate="true" indeterminate="true" mnemonicParsing="false" text="Pendência 
-            									dados pessoais" /> <CheckBox allowIndeterminate="true" indeterminate="true" 
-            									mnemonicParsing="false" text="Pendência dados escolares" /> <CheckBox allowIndeterminate="true" 
-            									indeterminate="true" mnemonicParsing="false" text="Histórico inconsistente" 
-            									/> </children> </HBox> -->
-   								<HBox prefHeight="176.0" prefWidth="950.0">
-   									<children>
-   										<TextField prefHeight="19.0" prefWidth="120.0" promptText="Turma">
-   											<font>
-   												<Font size="9.0" />
-   											</font>
-   										</TextField>
-   										<TextField prefHeight="19.0" prefWidth="110.0" promptText="Matrícula">
-   											<font>
-   												<Font size="9.0" />
-   											</font>
-   										</TextField>
-   										<TextField prefHeight="19.0" prefWidth="173.0" promptText="Nome do aluno">
-   											<font>
-   												<Font size="9.0" />
-   											</font>
-   											<HBox.margin>
-   												<Insets />
-   											</HBox.margin>
-   										</TextField>
-   										<TextField prefHeight="19.0" prefWidth="120.0" promptText="Matrícula">
-   											<font>
-   												<Font size="9.0" />
-   											</font>
-   											<HBox.margin>
-   												<Insets />
-   											</HBox.margin>
-   										</TextField>
-   										<TextField prefHeight="19.0" prefWidth="55.0" promptText="N Fl Certidão">
-   											<font>
-   												<Font size="9.0" />
-   											</font>
-   											<HBox.margin>
-   												<Insets />
-   											</HBox.margin>
-   										</TextField>
-   										<TextField prefHeight="19.0" prefWidth="55.0" promptText="N Fl Certificado">
-   											<font>
-   												<Font size="9.0" />
-   											</font>
-   											<HBox.margin>
-   												<Insets right="5.0" />
-   											</HBox.margin>
-   										</TextField>
-   									</children>
-   									<opaqueInsets>
-   										<Insets />
-   									</opaqueInsets>
-   								</HBox>
-   								<TreeTableView fx:id="treeTableViewAluno" onKeyPressed="#onClickTreeTableView" onMouseClicked="#onClickTreeTableView" prefHeight="568.0" prefWidth="189.0">
-   									<columns>
-   										<TreeTableColumn fx:id="treeTableColumnTurma" prefWidth="120.0" sortType="DESCENDING" text="Turma" />
-   										<TreeTableColumn fx:id="treeTableColumnAluno" prefWidth="110.0" text="Matrícula" />
-   										<TreeTableColumn fx:id="treeTableColumnNomeCompl" prefWidth="173.0" text="Aluno" />
-   										<TreeTableColumn fx:id="treeTableColumnDP" prefWidth="30.0" text="DP" />
-   										<TreeTableColumn fx:id="treeTableColumnDadosIdentif" prefWidth="30.0" text="DIdent" />
-   										<TreeTableColumn fx:id="treeTableColumnDadosHeFund" prefWidth="30.0" text="HF" />
-   										<TreeTableColumn fx:id="treeTableColumnDadosHeMedio" prefWidth="30.0" text="HM" />
-   										<TreeTableColumn fx:id="treeTableColumnNflCertidao" prefWidth="55.0" text="Certidão" />
-   										<TreeTableColumn fx:id="treeTableColumnNflCertificado" prefWidth="55.0" text="Certificado" />
-   										<TreeTableColumn fx:id="treeTableColumnSituacaoFinal" prefWidth="90.0" text="Situação Final" />
-   									</columns>
-   								</TreeTableView>
-   								<ProgressBar fx:id="progressBar" minHeight="12.0" prefWidth="200.0" progress="0.5" />
       							<VBox prefHeight="292.0" prefWidth="1198.0">
       								<fx:include fx:id="vBoxControllerDadosAlunos" source="DadosAlunos.fxml" />
       							</VBox>
@@ -341,7 +349,7 @@
       				</SplitPane>
               </items>
             </SplitPane>
-				<SplitPane dividerPositions="0.25" orientation="VERTICAL" prefHeight="702.0" prefWidth="421.0">
+				<SplitPane dividerPositions="0.25" orientation="VERTICAL" prefHeight="702.0" prefWidth="170.0">
 					<items>
 						<VBox>
 							<fx:include fx:id="vBoxControllerDadosEscolas" source="DadosEscolas.fxml" />
